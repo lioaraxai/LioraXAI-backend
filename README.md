@@ -51,15 +51,34 @@ The project follows a standard Django structure:
    ```bash
    python manage.py migrate
    ```
-5. Create a superuser for the admin panel:
+5. Collect static files:
+   ```bash
+   python manage.py collectstatic --noinput
+   ```
+6. Create a superuser for the admin panel:
    ```bash
    python manage.py createsuperuser
    ```
-6. Run the development server:
+7. Run the development server:
    ```bash
    python manage.py runserver
    ```
-7. Access the site at http://127.0.0.1:8000/
+8. Access the site at http://127.0.0.1:8000/
+
+### Quick Start Command
+
+If you've already completed the setup, you can use this all-in-one command to start the server:
+
+```bash
+cd /Users/shardulkulkarni/Desktop/Nirdhar && source venv/bin/activate && python manage.py collectstatic --noinput && python manage.py migrate && python manage.py runserver
+```
+
+This command:
+1. Navigates to the project directory
+2. Activates the virtual environment
+3. Collects static files
+4. Applies any pending migrations
+5. Starts the development server
 
 ## Integration with Static Website
 
