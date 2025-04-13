@@ -1,0 +1,39 @@
+{% load static %}
+<!-- Header -->
+<header>
+    <nav class="navbar navbar-expand-lg navbar-light bg-white sticky-top">
+        <div class="container">
+            <a class="navbar-brand" href="/">
+                <img src="{% static 'images/logo.svg' %}" alt="Nirdhar Logo" width="150" height="35" onerror="this.src='https://via.placeholder.com/150x35?text=Nirdhar';this.onerror='';">
+            </a>
+
+            <!-- Mobile menu button -->
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" 
+                    data-bs-target="#navbarNav" aria-controls="navbarNav" 
+                    aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <!-- Navigation -->
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto align-items-center">
+                    <li class="nav-item">
+                        <a class="nav-link {% if request.path == '/' %}active{% endif %}" href="/">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link {% if request.path == '/features/' %}active{% endif %}" href="/features/">Features</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link {% if request.path == '/pricing/' %}active{% endif %}" href="/pricing/">Pricing</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link {% if request.path == '/about/' %}active{% endif %}" href="/about/">About</a>
+                    </li>
+                    <li class="nav-item ms-lg-2">
+                        <a class="nav-link {% if request.path == '/contact/' %}active{% endif %} btn btn-primary-custom text-white px-4" href="/contact/">Contact Us</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+</header> 
