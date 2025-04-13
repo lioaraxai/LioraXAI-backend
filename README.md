@@ -29,13 +29,38 @@ The project follows a standard Django structure:
 
 ## Setup Instructions
 
-### Prerequisites
+### Option 1: Automated Setup (Recommended)
 
-- Python 3.9+
-- pip
-- virtualenv (recommended)
+The project includes a setup script that automates the entire setup process:
 
-### Installation
+```bash
+# Clone the repository
+git clone https://github.com/shardulkulkarni14/nirdhar-backend.git Nirdhar
+cd Nirdhar
+
+# Clone the frontend repository (optional, for static files)
+git clone https://github.com/shardulkulkarni14/DocChat.git website
+
+# Run the setup script
+chmod +x setup.sh
+./setup.sh
+
+# Start the server
+./run_server.sh
+```
+
+The setup script handles:
+- Creating static file directories
+- Copying static files from the website repository
+- Setting up the virtual environment
+- Installing dependencies
+- Collecting static files
+- Applying database migrations
+- Checking for a superuser
+
+### Option 2: Manual Setup
+
+If you prefer to set up the project manually, follow these steps:
 
 1. Clone the repository (if you haven't already)
 2. Create a virtual environment:
@@ -64,6 +89,37 @@ The project follows a standard Django structure:
    python manage.py runserver
    ```
 8. Access the site at http://127.0.0.1:8000/
+
+### Static Files Setup
+
+If setting up manually, you need to handle static files:
+
+1. Create static directories:
+   ```bash
+   mkdir -p nirdhar_app/static/css
+   mkdir -p nirdhar_app/static/images
+   mkdir -p nirdhar_app/static/js
+   ```
+
+2. Copy files from the frontend repository:
+   ```bash
+   # Clone frontend repository if you haven't already
+   git clone https://github.com/shardulkulkarni14/DocChat.git website
+   
+   # Copy CSS files
+   cp website/docs/css/mobile.css nirdhar_app/static/css/
+   
+   # Copy images
+   cp -r website/docs/static/images/* nirdhar_app/static/images/
+   
+   # Copy JavaScript files (if any)
+   cp website/docs/js/* nirdhar_app/static/js/
+   ```
+
+3. Run collectstatic:
+   ```bash
+   python manage.py collectstatic --noinput
+   ```
 
 ### Quick Start Command
 
@@ -114,6 +170,7 @@ For production deployment:
 
 ## Recent Updates
 
+- Added automated setup script (`setup.sh`)
 - Fixed contact form submission to properly handle POST requests
 - Updated form handling in views to process both GET and POST requests
 - Implemented CSRF exemption for cross-origin form submissions
