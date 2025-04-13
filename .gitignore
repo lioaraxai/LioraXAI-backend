@@ -44,5 +44,5 @@ media
 # Project specific
 staticfiles/
 website/
-features.html
-index.html
+/features.html
+/index.html
