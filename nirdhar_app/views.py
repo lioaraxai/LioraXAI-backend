@@ -4,7 +4,7 @@ from django.core.mail import send_mail
 from django.conf import settings
 from django.urls import reverse
 from .forms import ContactForm, SubscriberForm, DemoRequestForm
-from .models import Contact
+from .models import Contact, Subscriber, DemoRequest
 from django.views.decorators.csrf import csrf_exempt
 
 # Create your views here.
@@ -86,11 +86,17 @@ def blog(request):
 def careers(request):
     return render(request, 'careers.html')
 
+@csrf_exempt  # Temporarily exempt CSRF for static site integration
 def demo(request):
+    print(f"Demo request received. Method: {request.method}")
+    
+    # Get form data from either POST or GET
     if request.method == 'POST':
+        print(f"Demo POST data: {request.POST}")
         form = DemoRequestForm(request.POST)
         if form.is_valid():
-            form.save()
+            demo_request = form.save()
+            print(f"Demo request saved with ID: {demo_request.id}")
             
             # Send email notification
             try:
@@ -107,6 +113,53 @@ def demo(request):
                 print(f"Error sending email: {e}")
                 messages.success(request, "Your demo request has been received. We'll be in touch shortly.")
                 return redirect('/demo/')
+        else:
+            print(f"Demo form validation errors: {form.errors}")
+    elif request.method == 'GET' and any(key in request.GET for key in ['first_name', 'last_name', 'email']):
+        # Handle the static HTML form submission which comes as GET with different field names
+        print(f"Demo GET data with form params: {request.GET}")
+        
+        try:
+            # Create form data with the right field names
+            form_data = {
+                'name': f"{request.GET.get('first_name', '')} {request.GET.get('last_name', '')}".strip(),
+                'email': request.GET.get('email', ''),
+                'company': request.GET.get('company', ''),
+                'company_size': request.GET.get('company_size', ''),
+                'phone': request.GET.get('phone', ''),
+                'message': request.GET.get('message', '')
+            }
+            
+            # Validate required fields
+            if not form_data['name'] or not form_data['email'] or not form_data['company']:
+                print("Missing required fields from GET form")
+                messages.error(request, "Please fill out all required fields.")
+                return render(request, 'demo.html')
+            
+            # Create and save the demo request manually
+            demo = DemoRequest(
+                name=form_data['name'],
+                email=form_data['email'],
+                company=form_data['company'],
+                company_size=form_data['company_size'],
+                phone=form_data.get('phone'),
+                message=form_data.get('message')
+            )
+            demo.save()
+            
+            print(f"Demo request saved with ID: {demo.id} (from GET form)")
+            messages.success(request, "Thank you for requesting a demo! We'll be in touch shortly.")
+            
+            # Redirect to demo page with success parameter
+            return redirect('/demo/?success=true')
+            
+        except Exception as e:
+            print(f"Error saving demo form from GET: {str(e)}")
+            messages.error(request, "There was an error processing your request. Please try again.")
+            return render(request, 'demo.html')
+    else:
+        print("Rendering empty demo form")
+        
     return render(request, 'demo.html')
 
 def privacy(request):
