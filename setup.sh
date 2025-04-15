@@ -29,42 +29,125 @@ mkdir -p nirdhar_app/static/js
 echo -e "${GREEN}✓ Static directories created${NC}"
 echo
 
-# Check if the website directory exists
-if [ -d "website" ]; then
-    echo -e "${GREEN}Step 2: Copying static files from the website repository...${NC}"
-    
-    # Copy CSS files
-    if [ -f "website/docs/css/mobile.css" ]; then
-        cp website/docs/css/mobile.css nirdhar_app/static/css/
-        echo -e "${GREEN}✓ CSS files copied${NC}"
+# Create minimal static files if they don't exist
+echo -e "${GREEN}Step 2: Setting up minimal static files...${NC}"
+
+# Create a minimal CSS file if it doesn't exist
+if [ ! -f "nirdhar_app/static/css/mobile.css" ]; then
+    cat > nirdhar_app/static/css/mobile.css << 'EOF'
+/* Minimal responsive mobile styling */
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  line-height: 1.6;
+  color: #333;
+  max-width: 100%;
+  padding: 15px;
+  margin: 0 auto;
+}
+
+.container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 15px;
+}
+
+/* Dark mode support */
+@media (prefers-color-scheme: dark) {
+  body {
+    background-color: #121212;
+    color: #f5f5f5;
+  }
+}
+EOF
+    echo -e "${GREEN}✓ Created minimal CSS file${NC}"
+fi
+
+# Create a minimal JS file for essential functionality
+if [ ! -f "nirdhar_app/static/js/main.js" ]; then
+    cat > nirdhar_app/static/js/main.js << 'EOF'
+// Minimal JavaScript functionality
+document.addEventListener('DOMContentLoaded', function() {
+  console.log('Nirdhar application initialized');
+  
+  // Mobile menu toggle if it exists
+  const menuToggle = document.querySelector('.menu-toggle');
+  if (menuToggle) {
+    menuToggle.addEventListener('click', function() {
+      document.body.classList.toggle('menu-open');
+    });
+  }
+});
+EOF
+    echo -e "${GREEN}✓ Created minimal JavaScript file${NC}"
+fi
+
+# Create a placeholder image
+if [ ! -f "nirdhar_app/static/images/placeholder.svg" ]; then
+    cat > nirdhar_app/static/images/placeholder.svg << 'EOF'
+<svg width="200" height="200" xmlns="http://www.w3.org/2000/svg">
+  <rect width="200" height="200" fill="#EEEEEE"/>
+  <text x="100" y="100" font-family="Arial" font-size="16" text-anchor="middle">Nirdhar</text>
+</svg>
+EOF
+    echo -e "${GREEN}✓ Created placeholder image${NC}"
+fi
+
+# Optional: Clone the website repository if requested
+if [ "$1" == "--with-website" ]; then
+    echo -e "${GREEN}Step 3: Checking for website repository...${NC}"
+    if [ ! -d "website" ]; then
+        echo -e "${GREEN}Cloning website repository...${NC}"
+        git clone https://github.com/shardulkulkarni14/DocChat.git website
+        
+        # Copy CSS files
+        if [ -f "website/docs/css/mobile.css" ]; then
+            cp website/docs/css/mobile.css nirdhar_app/static/css/
+            echo -e "${GREEN}✓ CSS files copied from website${NC}"
+        fi
+        
+        # Copy images
+        if [ -d "website/docs/static/images" ]; then
+            cp -r website/docs/static/images/* nirdhar_app/static/images/ 2>/dev/null
+            echo -e "${GREEN}✓ Images copied from website${NC}"
+        fi
+        
+        # Copy JavaScript files
+        if [ -d "website/docs/js" ]; then
+            cp website/docs/js/* nirdhar_app/static/js/ 2>/dev/null
+            echo -e "${GREEN}✓ JavaScript files copied from website${NC}"
+        fi
     else
-        echo -e "${YELLOW}⚠️  Warning: mobile.css not found in website/docs/css/${NC}"
-    fi
-    
-    # Copy images
-    if [ -d "website/docs/static/images" ]; then
-        cp -r website/docs/static/images/* nirdhar_app/static/images/ 2>/dev/null
-        echo -e "${GREEN}✓ Images copied${NC}"
-    else
-        echo -e "${YELLOW}⚠️  Warning: images directory not found in website/docs/static/${NC}"
-    fi
-    
-    # Copy JavaScript files
-    if [ -d "website/docs/js" ]; then
-        cp website/docs/js/* nirdhar_app/static/js/ 2>/dev/null
-        echo -e "${GREEN}✓ JavaScript files copied${NC}"
-    else
-        echo -e "${YELLOW}⚠️  Warning: js directory not found in website/docs/${NC}"
+        echo -e "${GREEN}Website repository already exists.${NC}"
+        echo -e "${GREEN}Updating static files from website...${NC}"
+        
+        # Copy CSS files
+        if [ -f "website/docs/css/mobile.css" ]; then
+            cp website/docs/css/mobile.css nirdhar_app/static/css/
+            echo -e "${GREEN}✓ CSS files updated${NC}"
+        fi
+        
+        # Copy images
+        if [ -d "website/docs/static/images" ]; then
+            cp -r website/docs/static/images/* nirdhar_app/static/images/ 2>/dev/null
+            echo -e "${GREEN}✓ Images updated${NC}"
+        fi
+        
+        # Copy JavaScript files
+        if [ -d "website/docs/js" ]; then
+            cp website/docs/js/* nirdhar_app/static/js/ 2>/dev/null
+            echo -e "${GREEN}✓ JavaScript files updated${NC}"
+        fi
     fi
 else
-    echo -e "${YELLOW}⚠️  Warning: website directory not found. Skipping static file copying.${NC}"
-    echo -e "${YELLOW}If you need the static files, clone the frontend repository:${NC}"
-    echo -e "${YELLOW}git clone https://github.com/shardulkulkarni14/DocChat.git website${NC}"
+    echo -e "${YELLOW}Skipping website repository clone.${NC}"
+    echo -e "${YELLOW}To use the complete frontend, run: ./setup.sh --with-website${NC}"
+    echo -e "${YELLOW}Using minimal static files for basic functionality.${NC}"
 fi
 echo
 
 # Create favicon and touch icons if they don't exist
-echo -e "${GREEN}Step 3: Creating favicon and touch icons...${NC}"
+echo -e "${GREEN}Step 4: Creating favicon and touch icons...${NC}"
 touch nirdhar_app/static/favicon.ico
 touch nirdhar_app/static/apple-touch-icon.png
 touch nirdhar_app/static/apple-touch-icon-precomposed.png
@@ -72,7 +155,7 @@ echo -e "${GREEN}✓ Favicon and touch icons created${NC}"
 echo
 
 # Set up virtual environment
-echo -e "${GREEN}Step 4: Setting up virtual environment...${NC}"
+echo -e "${GREEN}Step 5: Setting up virtual environment...${NC}"
 if [ ! -d "venv" ]; then
     python3 -m venv venv
     echo -e "${GREEN}✓ Virtual environment created${NC}"
@@ -81,31 +164,31 @@ else
 fi
 
 # Activate virtual environment
-echo -e "${GREEN}Step 5: Activating virtual environment...${NC}"
+echo -e "${GREEN}Step 6: Activating virtual environment...${NC}"
 source venv/bin/activate
 echo -e "${GREEN}✓ Virtual environment activated${NC}"
 echo
 
 # Install dependencies
-echo -e "${GREEN}Step 6: Installing dependencies...${NC}"
+echo -e "${GREEN}Step 7: Installing dependencies...${NC}"
 pip install -r requirements.txt
 echo -e "${GREEN}✓ Dependencies installed${NC}"
 echo
 
 # Collect static files
-echo -e "${GREEN}Step 7: Collecting static files...${NC}"
+echo -e "${GREEN}Step 8: Collecting static files...${NC}"
 python manage.py collectstatic --noinput
 echo -e "${GREEN}✓ Static files collected${NC}"
 echo
 
 # Apply migrations
-echo -e "${GREEN}Step 8: Applying database migrations...${NC}"
+echo -e "${GREEN}Step 9: Applying database migrations...${NC}"
 python manage.py migrate
 echo -e "${GREEN}✓ Migrations applied${NC}"
 echo
 
 # Check if superuser exists
-echo -e "${GREEN}Step 9: Checking for superuser...${NC}"
+echo -e "${GREEN}Step 10: Checking for superuser...${NC}"
 SUPERUSER_EXISTS=$(python -c "
 import django
 django.setup()

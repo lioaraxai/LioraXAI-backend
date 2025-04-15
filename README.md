@@ -6,13 +6,25 @@ A Django application for Nirdhar, an AI-powered knowledge base that transforms c
 
 - **nirdhar_project/** - Main Django project settings
 - **nirdhar_app/** - Django application with views, templates, and models
-- **website/** - Frontend static HTML templates and assets (Git repository reference)
 
-**Note:** The `website/` directory appears as a Git reference but is not set up as a proper Git submodule. When cloning this repository, you'll need to manually clone the website repository:
+## No Frontend Dependencies Required
+
+This project has been updated to work without requiring the frontend repository. The `setup.sh` script now:
+
+1. Creates minimal static files needed for basic functionality
+2. Configures the application with essential CSS, JavaScript, and placeholder images
+3. Allows you to optionally include the frontend repository if needed
+
+To use without the frontend repository:
 ```
-git clone https://github.com/shardulkulkarni14/nirdhar-backend.git
-cd nirdhar-backend
-git clone https://github.com/shardulkulkarni14/DocChat.git website
+chmod +x setup.sh
+./setup.sh
+```
+
+To include the frontend repository (optional):
+```
+chmod +x setup.sh
+./setup.sh --with-website
 ```
 
 ## Quick Setup with Scripts
@@ -108,11 +120,12 @@ For detailed PythonAnywhere deployment instructions, see [PYTHONANYWHERE_DEPLOY.
 
 ## Notes About Static Files
 
-This project combines Django templates with static HTML templates:
+This project now includes minimal static files directly in the backend:
 
-- Django templates are in `nirdhar_app/templates/`
-- Static assets are in `nirdhar_app/static/`
-- The `website/` directory contains the original static HTML site
+- Minimal responsive CSS with dark mode support
+- Basic JavaScript functionality
+- Placeholder images for essential UI elements
+- All files are located in `nirdhar_app/static/`
 
 ## Development Guidelines
 

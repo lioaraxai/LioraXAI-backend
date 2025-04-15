@@ -1,6 +1,6 @@
-# Deploying to PythonAnywhere
+# Deploying to Nirdhar to PythonAnywhere
 
-This guide will help you deploy the Nirdhar application on PythonAnywhere.
+This guide will help you deploy the Nirdhar application on PythonAnywhere without needing to separately clone the frontend repository.
 
 ## Pre-deployment Setup
 
@@ -21,9 +21,15 @@ This guide will help you deploy the Nirdhar application on PythonAnywhere.
    cd nirdhar-backend
    ```
 
-4. **Clone the website repository**:
+4. **Run the setup script**:
    ```
-   git clone https://github.com/shardulkulkarni14/DocChat.git website
+   chmod +x setup.sh
+   ./setup.sh
+   ```
+   
+   Note: The setup script will create minimal static files. If you want the complete frontend:
+   ```
+   ./setup.sh --with-website
    ```
 
 5. **Create a virtual environment**:
@@ -92,11 +98,6 @@ To update your site after making changes to the repository:
    ```
    cd ~/nirdhar-backend
    git pull
-   
-   # Update the website repository too
-   cd website
-   git pull
-   cd ..
    ```
 
 2. Collect static files and run migrations:
