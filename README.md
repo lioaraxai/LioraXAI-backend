@@ -6,9 +6,40 @@ A Django application for Nirdhar, an AI-powered knowledge base that transforms c
 
 - **nirdhar_project/** - Main Django project settings
 - **nirdhar_app/** - Django application with views, templates, and models
-- **website/** - Frontend static HTML templates and assets (included in repository)
+- **website/** - Frontend static HTML templates and assets (Git repository reference)
 
-## Local Development Setup
+**Note:** The `website/` directory appears as a Git reference but is not set up as a proper Git submodule. When cloning this repository, you'll need to manually clone the website repository:
+```
+git clone https://github.com/shardulkulkarni14/nirdhar-backend.git
+cd nirdhar-backend
+git clone https://github.com/shardulkulkarni14/DocChat.git website
+```
+
+## Quick Setup with Scripts
+
+This project includes several utility scripts to streamline setup and deployment:
+
+- **setup.sh** - Complete project setup script (creates directories, sets up environment, installs dependencies)
+- **run_server.sh** - Quick script to activate environment and run the development server
+- **deploy.sh** - Prepares the application for deployment to PythonAnywhere
+
+**IMPORTANT:** Before running any script, check if what you need already exists. The scripts are designed to be idempotent and will check for existing components before creating new ones.
+
+To set up the project quickly:
+```
+chmod +x setup.sh
+./setup.sh
+```
+
+To run the server:
+```
+chmod +x run_server.sh
+./run_server.sh
+```
+
+## Manual Development Setup
+
+If you prefer a manual setup:
 
 1. Clone the repository:
    ```
@@ -49,7 +80,9 @@ A Django application for Nirdhar, an AI-powered knowledge base that transforms c
 
 ## PythonAnywhere Deployment
 
-### Preparation
+For detailed PythonAnywhere deployment instructions, see [PYTHONANYWHERE_DEPLOY.md](PYTHONANYWHERE_DEPLOY.md).
+
+### Quick Deployment Steps
 
 1. Make sure your code is committed and pushed to GitHub:
    ```
@@ -64,60 +97,7 @@ A Django application for Nirdhar, an AI-powered knowledge base that transforms c
    ./deploy.sh
    ```
 
-### PythonAnywhere Steps
-
-1. **Sign up/Log in** to PythonAnywhere (https://www.pythonanywhere.com/)
-
-2. **Open a Bash console** from the PythonAnywhere dashboard
-
-3. **Clone the repository**:
-   ```
-   git clone https://github.com/shardulkulkarni14/nirdhar-backend.git
-   cd nirdhar-backend
-   ```
-
-4. **Create a virtual environment**:
-   ```
-   mkvirtualenv --python=python3.10 nirdhar-env
-   workon nirdhar-env
-   ```
-
-5. **Install dependencies**:
-   ```
-   pip install -r requirements.txt
-   ```
-
-6. **Collect static files**:
-   ```
-   python manage.py collectstatic --noinput
-   ```
-
-7. **Run migrations**:
-   ```
-   python manage.py migrate
-   ```
-
-8. **Create a Web app** via the PythonAnywhere dashboard:
-   - Go to the Web tab
-   - Click "Add a new web app"
-   - Choose "Manual configuration"
-   - Select Python 3.10
-
-9. **Configure the WSGI file**:
-   - In the Web tab, find the link to the WSGI configuration file
-   - Replace its contents with the contents of `pythonanywhere_wsgi.py`
-   - Update the path to match your PythonAnywhere username
-
-10. **Configure static files**:
-    - In the Web tab, add a static files mapping:
-      - URL: `/static/`
-      - Directory: `/home/yourusername/nirdhar-backend/staticfiles`
-
-11. **Configure settings**:
-    - Update `nirdhar_project/settings_production.py` with your specific settings
-    - Set the environment variable `DJANGO_SETTINGS_MODULE=nirdhar_project.settings_production`
-
-12. **Reload the web app** and visit your site
+3. Follow the instructions provided by the deployment script for setting up on PythonAnywhere.
 
 ## Important Files for Deployment
 
@@ -133,6 +113,13 @@ This project combines Django templates with static HTML templates:
 - Django templates are in `nirdhar_app/templates/`
 - Static assets are in `nirdhar_app/static/`
 - The `website/` directory contains the original static HTML site
+
+## Development Guidelines
+
+1. **Check Before Creating**: Always check if a file, directory, or functionality already exists before creating it new.
+2. **Use Existing Scripts**: Use the provided scripts for common tasks rather than creating new ones.
+3. **Document Changes**: When adding new files or functionality, update the README or other documentation.
+4. **Follow Conventions**: Maintain the existing project structure and naming conventions.
 
 ## Troubleshooting
 

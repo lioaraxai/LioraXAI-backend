@@ -21,9 +21,9 @@ This guide will help you deploy the Nirdhar application on PythonAnywhere.
    cd nirdhar-backend
    ```
 
-4. **Initialize the Git submodule**:
+4. **Clone the website repository**:
    ```
-   git submodule update --init --recursive
+   git clone https://github.com/shardulkulkarni14/DocChat.git website
    ```
 
 5. **Create a virtual environment**:
@@ -48,10 +48,10 @@ This guide will help you deploy the Nirdhar application on PythonAnywhere.
    ```
 
 9. **Create a Web app** via the PythonAnywhere dashboard:
-   - Go to the Web tab
-   - Click "Add a new web app"
-   - Choose "Manual configuration"
-   - Select Python 3.10
+    - Go to the Web tab
+    - Click "Add a new web app"
+    - Choose "Manual configuration"
+    - Select Python 3.10
 
 10. **Configure the WSGI file**:
     - In the Web tab, find the link to the WSGI configuration file
@@ -92,7 +92,11 @@ To update your site after making changes to the repository:
    ```
    cd ~/nirdhar-backend
    git pull
-   git submodule update --init --recursive
+   
+   # Update the website repository too
+   cd website
+   git pull
+   cd ..
    ```
 
 2. Collect static files and run migrations:
