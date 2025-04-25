@@ -1,6 +1,6 @@
-# Deploying to Nirdhar to PythonAnywhere
+# Deploying LioraXAI to PythonAnywhere
 
-This guide will help you deploy the Nirdhar application on PythonAnywhere without needing to separately clone the frontend repository.
+This guide will help you deploy the LioraXAI application on PythonAnywhere.
 
 ## Pre-deployment Setup
 
@@ -17,8 +17,8 @@ This guide will help you deploy the Nirdhar application on PythonAnywhere withou
 
 3. **Clone the repository**:
    ```
-   git clone https://github.com/shardulkulkarni14/nirdhar-backend.git
-   cd nirdhar-backend
+   git clone https://github.com/lioaraxai/LioraXAI-backend.git
+   cd LioraXAI-backend
    ```
 
 4. **Run the setup script**:
@@ -34,8 +34,8 @@ This guide will help you deploy the Nirdhar application on PythonAnywhere withou
 
 5. **Create a virtual environment**:
    ```
-   mkvirtualenv --python=python3.10 nirdhar-env
-   workon nirdhar-env
+   mkvirtualenv --python=python3.10 lioraxai-env
+   workon lioraxai-env
    ```
 
 6. **Install dependencies**:
@@ -67,11 +67,11 @@ This guide will help you deploy the Nirdhar application on PythonAnywhere withou
 11. **Configure static files**:
     - In the Web tab, add a static files mapping:
       - URL: `/static/`
-      - Directory: `/home/yourusername/nirdhar-backend/staticfiles`
+      - Directory: `/home/yourusername/LioraXAI-backend/staticfiles`
 
 12. **Set environment variables**:
     - In the Web tab, add these environment variables:
-      - `DJANGO_SETTINGS_MODULE`: `nirdhar_project.settings_production`
+      - `DJANGO_SETTINGS_MODULE`: `lioraxai_project.settings_production`
       - `SECRET_KEY`: `your-secure-secret-key`
 
 13. **Secure the SECRET_KEY**:
@@ -96,7 +96,7 @@ To update your site after making changes to the repository:
 
 1. Pull the latest changes:
    ```
-   cd ~/nirdhar-backend
+   cd ~/LioraXAI-backend
    git pull
    ```
 

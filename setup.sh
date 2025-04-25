@@ -1,7 +1,7 @@
 #!/bin/bash
 
-# Nirdhar Project Setup Script
-# This script sets up the entire Nirdhar project including static files
+# LioraXAI Project Setup Script
+# This script sets up the entire LioraXAI project including static files
 
 # Display colored output
 GREEN='\033[0;32m'
@@ -10,22 +10,23 @@ BLUE='\033[0;34m'
 NC='\033[0m' # No Color
 
 echo -e "${BLUE}=========================================${NC}"
-echo -e "${BLUE}    Nirdhar Project Setup Script        ${NC}"
+echo -e "${BLUE}    LioraXAI Project Setup Script        ${NC}"
 echo -e "${BLUE}=========================================${NC}"
 echo
 
-# Check if the script is running from the project root
+# Check if the script is being run from the project root
 if [ ! -f "manage.py" ]; then
-    echo -e "${YELLOW}⚠️  Warning: This script should be run from the Nirdhar project root.${NC}"
+    echo -e "${YELLOW}⚠️  Warning: This script should be run from the LioraXAI project root.${NC}"
     echo -e "${YELLOW}Current directory: $(pwd)${NC}"
     echo -e "${YELLOW}Please change to the project root directory and try again.${NC}"
     exit 1
 fi
 
 echo -e "${GREEN}Step 1: Setting up static file directories...${NC}"
-mkdir -p nirdhar_app/static/css
-mkdir -p nirdhar_app/static/images
-mkdir -p nirdhar_app/static/js
+mkdir -p lioraxai_app/static/css
+mkdir -p lioraxai_app/static/images
+mkdir -p lioraxai_app/static/js
+mkdir -p staticfiles
 echo -e "${GREEN}✓ Static directories created${NC}"
 echo
 
@@ -33,8 +34,8 @@ echo
 echo -e "${GREEN}Step 2: Setting up minimal static files...${NC}"
 
 # Create a minimal CSS file if it doesn't exist
-if [ ! -f "nirdhar_app/static/css/mobile.css" ]; then
-    cat > nirdhar_app/static/css/mobile.css << 'EOF'
+if [ ! -f "lioraxai_app/static/css/mobile.css" ]; then
+    cat > lioraxai_app/static/css/mobile.css << 'EOF'
 /* Minimal responsive mobile styling */
 body {
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
@@ -64,11 +65,11 @@ EOF
 fi
 
 # Create a minimal JS file for essential functionality
-if [ ! -f "nirdhar_app/static/js/main.js" ]; then
-    cat > nirdhar_app/static/js/main.js << 'EOF'
+if [ ! -f "lioraxai_app/static/js/main.js" ]; then
+    cat > lioraxai_app/static/js/main.js << 'EOF'
 // Minimal JavaScript functionality
 document.addEventListener('DOMContentLoaded', function() {
-  console.log('Nirdhar application initialized');
+  console.log('LioraXAI application initialized');
   
   // Mobile menu toggle if it exists
   const menuToggle = document.querySelector('.menu-toggle');
@@ -83,14 +84,26 @@ EOF
 fi
 
 # Create a placeholder image
-if [ ! -f "nirdhar_app/static/images/placeholder.svg" ]; then
-    cat > nirdhar_app/static/images/placeholder.svg << 'EOF'
+if [ ! -f "lioraxai_app/static/images/placeholder.svg" ]; then
+    cat > lioraxai_app/static/images/placeholder.svg << 'EOF'
 <svg width="200" height="200" xmlns="http://www.w3.org/2000/svg">
   <rect width="200" height="200" fill="#EEEEEE"/>
-  <text x="100" y="100" font-family="Arial" font-size="16" text-anchor="middle">Nirdhar</text>
+  <text x="100" y="100" font-family="Arial" font-size="16" text-anchor="middle">LioraXAI</text>
 </svg>
 EOF
     echo -e "${GREEN}✓ Created placeholder image${NC}"
+fi
+
+# Create a logo image if it doesn't exist
+if [ ! -f "lioraxai_app/static/images/logo.svg" ]; then
+    cat > lioraxai_app/static/images/logo.svg << 'EOF'
+<svg width="150" height="35" xmlns="http://www.w3.org/2000/svg">
+  <rect width="30" height="30" x="5" y="3" rx="5" fill="#4f46e5"/>
+  <circle cx="20" cy="18" r="8" fill="white"/>
+  <text x="40" y="24" font-family="Arial, sans-serif" font-weight="700" font-size="18" fill="#111827">LIORAXAI</text>
+</svg>
+EOF
+    echo -e "${GREEN}✓ Created logo image${NC}"
 fi
 
 # Optional: Clone the website repository if requested
@@ -98,23 +111,23 @@ if [ "$1" == "--with-website" ]; then
     echo -e "${GREEN}Step 3: Checking for website repository...${NC}"
     if [ ! -d "website" ]; then
         echo -e "${GREEN}Cloning website repository...${NC}"
-        git clone https://github.com/shardulkulkarni14/DocChat.git website
+        git clone https://github.com/lioaraxai/LioraXAI.git website
         
         # Copy CSS files
         if [ -f "website/docs/css/mobile.css" ]; then
-            cp website/docs/css/mobile.css nirdhar_app/static/css/
+            cp website/docs/css/mobile.css lioraxai_app/static/css/
             echo -e "${GREEN}✓ CSS files copied from website${NC}"
         fi
         
         # Copy images
         if [ -d "website/docs/static/images" ]; then
-            cp -r website/docs/static/images/* nirdhar_app/static/images/ 2>/dev/null
+            cp -r website/docs/static/images/* lioraxai_app/static/images/ 2>/dev/null
             echo -e "${GREEN}✓ Images copied from website${NC}"
         fi
         
         # Copy JavaScript files
         if [ -d "website/docs/js" ]; then
-            cp website/docs/js/* nirdhar_app/static/js/ 2>/dev/null
+            cp website/docs/js/* lioraxai_app/static/js/ 2>/dev/null
             echo -e "${GREEN}✓ JavaScript files copied from website${NC}"
         fi
     else
@@ -123,19 +136,19 @@ if [ "$1" == "--with-website" ]; then
         
         # Copy CSS files
         if [ -f "website/docs/css/mobile.css" ]; then
-            cp website/docs/css/mobile.css nirdhar_app/static/css/
+            cp website/docs/css/mobile.css lioraxai_app/static/css/
             echo -e "${GREEN}✓ CSS files updated${NC}"
         fi
         
         # Copy images
         if [ -d "website/docs/static/images" ]; then
-            cp -r website/docs/static/images/* nirdhar_app/static/images/ 2>/dev/null
+            cp -r website/docs/static/images/* lioraxai_app/static/images/ 2>/dev/null
             echo -e "${GREEN}✓ Images updated${NC}"
         fi
         
         # Copy JavaScript files
         if [ -d "website/docs/js" ]; then
-            cp website/docs/js/* nirdhar_app/static/js/ 2>/dev/null
+            cp website/docs/js/* lioraxai_app/static/js/ 2>/dev/null
             echo -e "${GREEN}✓ JavaScript files updated${NC}"
         fi
     fi
@@ -148,9 +161,9 @@ echo
 
 # Create favicon and touch icons if they don't exist
 echo -e "${GREEN}Step 4: Creating favicon and touch icons...${NC}"
-touch nirdhar_app/static/favicon.ico
-touch nirdhar_app/static/apple-touch-icon.png
-touch nirdhar_app/static/apple-touch-icon-precomposed.png
+touch lioraxai_app/static/favicon.ico
+touch lioraxai_app/static/apple-touch-icon.png
+touch lioraxai_app/static/apple-touch-icon-precomposed.png
 echo -e "${GREEN}✓ Favicon and touch icons created${NC}"
 echo
 

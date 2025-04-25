@@ -31,6 +31,27 @@ db.sqlite3
 db.sqlite3-journal
 media
 
+# Virtual Environment
+venv/
+ENV/
+env/
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# Staticfiles directory created by collectstatic
+/staticfiles/
+
+# Media files
+/media/
+
+# Old project directories to be ignored
+/nirdhar_project/
+/nirdhar_app/
+
 # macOS
 .DS_Store
 .AppleDouble
@@ -43,6 +64,6 @@ media
 
 # Project specific
 staticfiles/
-website/
 /features.html
 /index.html
+

@@ -8,14 +8,15 @@ Copy this file to the path specified in your PythonAnywhere configuration.
 import os
 import sys
 
-# Add the project directory to the sys.path
-path = '/home/yourusername/nirdhar-backend'  # Replace 'yourusername' with your PythonAnywhere username
+# Path to your code
+path = '/home/your_username/lioraxai'
 if path not in sys.path:
     sys.path.append(path)
 
-# Set environment variables
-os.environ['DJANGO_SETTINGS_MODULE'] = 'nirdhar_project.settings'
+# The environment variable to set to 'production'
+os.environ['DJANGO_SETTINGS_MODULE'] = 'lioraxai_project.settings_production'
 
-# Import Django and the WSGI application
 from django.core.wsgi import get_wsgi_application
-application = get_wsgi_application() 
+from django.contrib.staticfiles.handlers import StaticFilesHandler
+
+application = StaticFilesHandler(get_wsgi_application()) 

@@ -1,63 +1,84 @@
 #!/bin/bash
 
-# Display colored output
-GREEN='\033[0;32m'
-YELLOW='\033[1;33m'
-BLUE='\033[0;34m'
-NC='\033[0m' # No Color
+# Function to display messages
+message() {
+    echo "====================================="
+    echo "$1"
+    echo "====================================="
+}
 
-echo -e "${BLUE}=========================================${NC}"
-echo -e "${BLUE}    Nirdhar Deployment Script          ${NC}"
-echo -e "${BLUE}=========================================${NC}"
-echo
-
-# Check if the website directory exists and the user wants to use it
-if [ "$1" == "--with-website" ]; then
-    if [ ! -d "website" ]; then
-        echo -e "${YELLOW}Website directory not found. Cloning it...${NC}"
-        git clone https://github.com/shardulkulkarni14/DocChat.git website
-    else
-        echo -e "${GREEN}Website directory found. Pulling latest changes...${NC}"
-        cd website
-        git pull
-        cd ..
-    fi
-    
-    echo -e "${GREEN}Updating static files from website repository...${NC}"
-    # Update static files from website if it exists
-    if [ -d "website/docs/css" ]; then
-        cp -r website/docs/css/* nirdhar_app/static/css/ 2>/dev/null
-    fi
-    
-    if [ -d "website/docs/static/images" ]; then
-        cp -r website/docs/static/images/* nirdhar_app/static/images/ 2>/dev/null
-    fi
-    
-    if [ -d "website/docs/js" ]; then
-        cp -r website/docs/js/* nirdhar_app/static/js/ 2>/dev/null
-    fi
-else
-    echo -e "${GREEN}Using backend's built-in static files...${NC}"
-    echo -e "${YELLOW}To use the frontend repository, run: ./deploy.sh --with-website${NC}"
+# Check if we're running in a virtual environment
+if [[ "$VIRTUAL_ENV" == "" ]]; then
+    message "Please activate your virtual environment first!"
+    exit 1
 fi
 
+# Check if git is installed
+if ! command -v git &> /dev/null; then
+    message "Git is not installed. Please install git first."
+    exit 1
+fi
+
+# Check for uncommitted changes
+if [[ -n $(git status -s) ]]; then
+    message "You have uncommitted changes. Please commit them first."
+    read -p "Do you want to continue anyway? (y/n) " -n 1 -r
+    echo
+    if [[ ! $REPLY =~ ^[Yy]$ ]]; then
+        exit 1
+    fi
+fi
+
+# Update requirements
+message "Updating requirements.txt"
+pip freeze > requirements.txt
+
 # Collect static files
-echo -e "${GREEN}Collecting static files...${NC}"
+message "Collecting static files"
 python manage.py collectstatic --noinput
 
-# Make migrations
-echo -e "${GREEN}Making migrations...${NC}"
-python manage.py makemigrations
+# Create a lioraxai_project/settings_production.py file if it doesn't exist
+if [ ! -f lioraxai_project/settings_production.py ]; then
+    message "Creating production settings file"
+    cat > lioraxai_project/settings_production.py << 'EOF'
+from .settings import *
 
-# Apply migrations
-echo -e "${GREEN}Applying migrations...${NC}"
-python manage.py migrate
+DEBUG = False
+ALLOWED_HOSTS = ['your-domain.com', 'www.your-domain.com']
 
-echo -e "${GREEN}Deployment preparation complete!${NC}"
-echo
-echo -e "${BLUE}For PythonAnywhere deployment:${NC}"
-echo -e "1. Clone the repository: ${YELLOW}git clone https://github.com/shardulkulkarni14/nirdhar-backend.git${NC}"
-echo -e "2. Run setup.sh: ${YELLOW}./setup.sh${NC}"
-echo -e "3. Configure your STATIC_ROOT path in PythonAnywhere's web app settings"
-echo -e "4. Set the environment variable ${YELLOW}DJANGO_SETTINGS_MODULE=nirdhar_project.settings_production${NC}"
-echo -e "5. Remember to set ${YELLOW}DEBUG=False${NC} in production" 
+# Use a more secure secret key in production
+SECRET_KEY = 'your-production-secret-key'
+
+# Database settings for production
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.mysql',
+#         'NAME': 'your_db_name',
+#         'USER': 'your_db_user',
+#         'PASSWORD': 'your_db_password',
+#         'HOST': 'localhost',
+#         'PORT': '',
+#     }
+# }
+
+# Email settings for production
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
+EMAIL_HOST_USER = 'your-email@gmail.com'
+EMAIL_HOST_PASSWORD = 'your-app-password'
+DEFAULT_FROM_EMAIL = 'LioraXAI <your-email@gmail.com>'
+EOF
+fi
+
+# Git operations
+message "Committing changes"
+git add .
+git commit -m "Deployment update $(date)"
+
+message "Pushing to repository"
+git push origin main
+
+message "Deployment preparation complete"
+message "Remember to update your server with the latest changes" 

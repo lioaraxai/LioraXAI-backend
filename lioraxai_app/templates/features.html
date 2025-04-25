@@ -1,0 +1,82 @@
+{% extends 'base_django.html' %}
+{% load static %}
+
+{% block title %}Features | Nirdhar{% endblock %}
+
+{% block content %}
+    {% include 'includes/header.html' %}
+
+    <main>
+        <!-- Hero Section -->
+        <section class="py-5 py-md-6 bg-gradient-primary text-white">
+            <div class="container py-4">
+                <div class="row justify-content-center">
+                    <div class="col-lg-8 text-center" data-aos="fade-up">
+                        <h1 class="display-4 fw-bold mb-4">
+                            Powerful Features for Enterprise Knowledge
+                        </h1>
+                        <p class="lead mb-4 text-white">
+                            Unlock the full potential of your organization's knowledge with our comprehensive suite of features.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Main Features Section -->
+        <section class="py-5 py-md-6">
+            <div class="container py-4">
+                <div class="row g-4 g-md-5">
+                    <!-- Feature 1 -->
+                    <div class="col-md-6 col-lg-4" data-aos="fade-up">
+                        <div class="feature-icon-circle">
+                            <i class="bi bi-lightning-charge text-primary-custom fs-4"></i>
+                        </div>
+                        <h3 class="h4 fw-bold mb-3">Instant Answers</h3>
+                        <p class="text-secondary">Get accurate responses to questions in seconds, pulled directly from your company's knowledge base.</p>
+                    </div>
+                    
+                    <!-- Feature 2 -->
+                    <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="100">
+                        <div class="feature-icon-circle">
+                            <i class="bi bi-chat-square-text text-primary-custom fs-4"></i>
+                        </div>
+                        <h3 class="h4 fw-bold mb-3">Natural Conversations</h3>
+                        <p class="text-secondary">Our AI understands context and conversational flow, providing a natural and intuitive user experience.</p>
+                    </div>
+                    
+                    <!-- Feature 3 -->
+                    <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="200">
+                        <div class="feature-icon-circle">
+                            <i class="bi bi-link-45deg text-primary-custom fs-4"></i>
+                        </div>
+                        <h3 class="h4 fw-bold mb-3">Source Citations</h3>
+                        <p class="text-secondary">Every answer includes links to source documents, ensuring transparency and trustworthiness.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA Section -->
+        <section class="py-5 py-md-6 bg-gradient-primary text-white">
+            <div class="container py-4">
+                <div class="row justify-content-center">
+                    <div class="col-lg-8 text-center" data-aos="fade-up">
+                        <h2 class="display-5 fw-bold mb-4">Ready to transform your knowledge management?</h2>
+                        <p class="lead mb-5">Join innovative companies already using Nirdhar to make their knowledge work harder.</p>
+                        <div class="d-flex flex-column flex-sm-row gap-3 justify-content-center">
+                            <a href="/demo/" class="btn btn-light text-primary-custom fw-medium py-3 px-4 rounded-3">
+                                Request Demo
+                            </a>
+                            <a href="/contact/" class="btn btn-outline-light fw-medium py-3 px-4 rounded-3">
+                                Contact Sales
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    {% include 'includes/footer.html' %}
+{% endblock %} 

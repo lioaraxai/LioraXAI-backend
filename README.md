@@ -1,19 +1,19 @@
-# Nirdhar - AI-Powered Knowledge Base
+# LioraXAI - AI-Powered Knowledge Platform
 
-A Django application for Nirdhar, an AI-powered knowledge base that transforms company knowledge into an interactive chatbot.
+A Django application for LioraXAI, an AI-powered knowledge platform that transforms company knowledge into an interactive chatbot.
 
 ## Project Structure
 
-- **nirdhar_project/** - Main Django project settings
-- **nirdhar_app/** - Django application with views, templates, and models
+- **lioraxai_project/** - Main Django project settings
+- **lioraxai_app/** - Django application with views, templates, and models
 
 ## No Frontend Dependencies Required
 
-This project has been updated to work without requiring the frontend repository. The `setup.sh` script now:
+This project has been designed to work without requiring a separate frontend repository. The `setup.sh` script:
 
 1. Creates minimal static files needed for basic functionality
 2. Configures the application with essential CSS, JavaScript, and placeholder images
-3. Allows you to optionally include the frontend repository if needed
+3. Allows you to optionally include a frontend repository if needed
 
 To use without the frontend repository:
 ```
@@ -55,8 +55,8 @@ If you prefer a manual setup:
 
 1. Clone the repository:
    ```
-   git clone https://github.com/shardulkulkarni14/nirdhar-backend.git
-   cd nirdhar-backend
+   git clone https://github.com/lioaraxai/LioraXAI-backend.git
+   cd LioraXAI-backend
    ```
 
 2. Create and activate a virtual environment:
@@ -115,17 +115,17 @@ For detailed PythonAnywhere deployment instructions, see [PYTHONANYWHERE_DEPLOY.
 
 - **deploy.sh** - Script to prepare application for deployment
 - **pythonanywhere_wsgi.py** - WSGI configuration for PythonAnywhere
-- **nirdhar_project/settings_production.py** - Production settings
+- **lioraxai_project/settings_production.py** - Production settings
 - **requirements.txt** - Python package dependencies
 
 ## Notes About Static Files
 
-This project now includes minimal static files directly in the backend:
+This project includes minimal static files directly in the backend:
 
 - Minimal responsive CSS with dark mode support
 - Basic JavaScript functionality
 - Placeholder images for essential UI elements
-- All files are located in `nirdhar_app/static/`
+- All files are located in `lioraxai_app/static/`
 
 ## Development Guidelines
 
@@ -137,7 +137,7 @@ This project now includes minimal static files directly in the backend:
 ## Troubleshooting
 
 - If static files aren't loading, check your `STATICFILES_DIRS` setting
-- For template errors, verify that the template exists in `nirdhar_app/templates/`
+- For template errors, verify that the template exists in `lioraxai_app/templates/`
 - Check server logs for detailed error information
 - Make sure all paths in `pythonanywhere_wsgi.py` match your actual setup
 
@@ -147,7 +147,7 @@ After deploying, when you need to update your site:
 
 1. Pull the latest changes:
    ```
-   cd ~/nirdhar-backend
+   cd ~/LioraXAI-backend
    git pull
    ```
 

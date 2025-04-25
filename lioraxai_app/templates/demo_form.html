@@ -1,0 +1,74 @@
+{% load static %}
+<form method="post" action="{% url 'demo' %}" class="demo-form">
+    {% csrf_token %}
+    <div class="row g-4">
+        <div class="col-md-6">
+            <div class="form-group">
+                {{ demo_form.name }}
+                {% if demo_form.name.errors %}
+                    <div class="text-danger mt-1">
+                        {{ demo_form.name.errors }}
+                    </div>
+                {% endif %}
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="form-group">
+                {{ demo_form.email }}
+                {% if demo_form.email.errors %}
+                    <div class="text-danger mt-1">
+                        {{ demo_form.email.errors }}
+                    </div>
+                {% endif %}
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="form-group">
+                {{ demo_form.company }}
+                {% if demo_form.company.errors %}
+                    <div class="text-danger mt-1">
+                        {{ demo_form.company.errors }}
+                    </div>
+                {% endif %}
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="form-group">
+                {{ demo_form.company_size }}
+                {% if demo_form.company_size.errors %}
+                    <div class="text-danger mt-1">
+                        {{ demo_form.company_size.errors }}
+                    </div>
+                {% endif %}
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="form-group">
+                {{ demo_form.phone }}
+                {% if demo_form.phone.errors %}
+                    <div class="text-danger mt-1">
+                        {{ demo_form.phone.errors }}
+                    </div>
+                {% endif %}
+            </div>
+        </div>
+        <div class="col-12">
+            <div class="form-group">
+                {{ demo_form.message }}
+                {% if demo_form.message.errors %}
+                    <div class="text-danger mt-1">
+                        {{ demo_form.message.errors }}
+                    </div>
+                {% endif %}
+            </div>
+        </div>
+        <div class="col-12">
+            <button type="submit" class="btn btn-primary-custom py-3 px-4 rounded-3">
+                <span class="d-flex align-items-center gap-2">
+                    <span>Request Your Demo</span>
+                    <i class="bi bi-arrow-right"></i>
+                </span>
+            </button>
+        </div>
+    </div>
+</form> 
