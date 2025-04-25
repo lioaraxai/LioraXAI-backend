@@ -1,0 +1,606 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Features | Nirdhar</title>
+    <!-- Bootstrap 5.3 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css">
+    <!-- AOS Animation Library -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <!-- Mobile responsiveness -->
+    <link href="css/mobile.css" rel="stylesheet">
+    <style>
+        /* Base styles */
+        :root {
+            --bs-primary: #4f46e5;
+            --bs-primary-rgb: 79, 70, 229;
+            --bs-primary-light: #818cf8;
+            --bs-primary-dark: #4338ca;
+            --bs-body-color: #111827;
+            --bs-body-color-rgb: 17, 24, 39;
+            --bs-secondary-color: #6b7280;
+            --bs-secondary-color-rgb: 107, 114, 128;
+            --bs-body-bg: #f9fafb;
+            --bs-body-bg-rgb: 249, 250, 251;
+            --bs-dark-bg: #111827;
+            --bs-dark-bg-rgb: 17, 24, 39;
+        }
+        
+        body {
+            font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+            color: var(--bs-body-color);
+            line-height: 1.5;
+        }
+        
+        .mono {
+            font-family: 'IBM Plex Mono', ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New', monospace;
+        }
+
+        .text-primary-custom {
+            color: var(--bs-primary);
+        }
+
+        .bg-primary-custom {
+            background-color: var(--bs-primary);
+        }
+
+        .btn-primary-custom {
+            background-color: var(--bs-primary);
+            border-color: var(--bs-primary);
+        }
+
+        .btn-primary-custom:hover {
+            background-color: var(--bs-primary-dark);
+            border-color: var(--bs-primary-dark);
+        }
+
+        .btn-outline-primary-custom {
+            color: var(--bs-primary);
+            border-color: var(--bs-primary);
+        }
+
+        .btn-outline-primary-custom:hover {
+            background-color: var(--bs-primary);
+            color: white;
+        }
+        
+        /* Dark mode */
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --bs-body-color: #f3f4f6;
+                --bs-body-bg: var(--bs-dark-bg);
+            }
+            
+            .navbar {
+                background-color: #1f2937 !important;
+            }
+            
+            .footer {
+                background-color: #1f2937 !important;
+            }
+            
+            .dark-text-light {
+                color: #f3f4f6 !important;
+            }
+            
+            .dark-bg-darker {
+                background-color: #111827 !important;
+            }
+        }
+
+        .page-header {
+            background: linear-gradient(to right, #4f46e5, #7e22ce);
+            color: white;
+        }
+        
+        .feature-icon-circle {
+            width: 56px;
+            height: 56px;
+            background-color: #e0e7ff;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1.5rem;
+        }
+        
+        .hover-lift {
+            transition: transform 0.2s ease-in-out;
+        }
+        
+        .hover-lift:hover {
+            transform: translateY(-5px);
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <nav class="navbar navbar-expand-lg bg-white shadow-sm">
+            <div class="container">
+                <a class="navbar-brand" href="index.html">
+                    <img src="static/images/logo.svg" alt="Nirdhar Logo" width="150" height="35">
+                </a>
+
+                <!-- Mobile menu button -->
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" 
+                        data-bs-target="#navbarNav" aria-controls="navbarNav" 
+                        aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <!-- Navigation -->
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ms-auto align-items-center">
+                        <li class="nav-item">
+                            <a class="nav-link" href="index.html">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link active" href="features.html">Features</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="pricing.html">Pricing</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="about.html">About</a>
+                        </li>
+                        <li class="nav-item ms-lg-2">
+                            <a class="nav-link btn btn-primary-custom text-white px-4" href="contact.html">Contact Us</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <!-- Page Header -->
+        <section class="page-header py-5">
+            <div class="container py-4">
+                <div class="row justify-content-center">
+                    <div class="col-lg-8 text-center" data-aos="fade-up">
+                        <h1 class="display-4 fw-bold mb-4">Features</h1>
+                        <p class="lead mb-0">Discover how Nirdhar transforms your company's knowledge management</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Main Features Section -->
+        <section class="py-5 py-md-6">
+            <div class="container py-4">
+                <div class="row g-5">
+                    <!-- Feature 1 -->
+                    <div class="col-lg-4" data-aos="fade-up" data-aos-delay="0">
+                        <div class="feature-icon-circle">
+                            <i class="bi bi-robot text-primary-custom fs-3"></i>
+                        </div>
+                        <h3 class="h4 fw-bold mb-3">AI-Powered Chatbot</h3>
+                        <p class="text-muted mb-0">
+                            Our NLP-based chatbot understands natural language queries, providing contextual and accurate responses based on your company's knowledge base.
+                        </p>
+                    </div>
+
+                    <!-- Feature 2 -->
+                    <div class="col-lg-4" data-aos="fade-up" data-aos-delay="100">
+                        <div class="feature-icon-circle">
+                            <i class="bi bi-plug text-primary-custom fs-3"></i>
+                        </div>
+                        <h3 class="h4 fw-bold mb-3">Seamless Integration</h3>
+                        <p class="text-muted mb-0">
+                            Connect with your existing knowledge sources, including Confluence, Notion, Google Drive, SharePoint, and more, with minimal setup time.
+                        </p>
+                    </div>
+
+                    <!-- Feature 3 -->
+                    <div class="col-lg-4" data-aos="fade-up" data-aos-delay="200">
+                        <div class="feature-icon-circle">
+                            <i class="bi bi-shield-lock text-primary-custom fs-3"></i>
+                        </div>
+                        <h3 class="h4 fw-bold mb-3">Enterprise-Grade Security</h3>
+                        <p class="text-muted mb-0">
+                            Your data remains secure with SOC 2 compliance, end-to-end encryption, and role-based access controls for sensitive information.
+                        </p>
+                    </div>
+
+                    <!-- Feature 4 -->
+                    <div class="col-lg-4" data-aos="fade-up" data-aos-delay="300">
+                        <div class="feature-icon-circle">
+                            <i class="bi bi-graph-up text-primary-custom fs-3"></i>
+                        </div>
+                        <h3 class="h4 fw-bold mb-3">Analytics Dashboard</h3>
+                        <p class="text-muted mb-0">
+                            Track usage metrics, common queries, and knowledge gaps to continuously improve your knowledge base and team productivity.
+                        </p>
+                    </div>
+
+                    <!-- Feature 5 -->
+                    <div class="col-lg-4" data-aos="fade-up" data-aos-delay="400">
+                        <div class="feature-icon-circle">
+                            <i class="bi bi-sliders text-primary-custom fs-3"></i>
+                        </div>
+                        <h3 class="h4 fw-bold mb-3">Customizable Experience</h3>
+                        <p class="text-muted mb-0">
+                            Tailor the chatbot's appearance, behavior, and knowledge sources to match your company's branding and specific requirements.
+                        </p>
+                    </div>
+
+                    <!-- Feature 6 -->
+                    <div class="col-lg-4" data-aos="fade-up" data-aos-delay="500">
+                        <div class="feature-icon-circle">
+                            <i class="bi bi-translate text-primary-custom fs-3"></i>
+                        </div>
+                        <h3 class="h4 fw-bold mb-3">Multilingual Support</h3>
+                        <p class="text-muted mb-0">
+                            Support global teams with AI-powered translation capabilities that work across over 30 languages while maintaining context and accuracy.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Detailed Features Sections -->
+        <section class="py-5 py-md-6 bg-light">
+            <div class="container py-4">
+                <!-- Knowledge Management Section -->
+                <div class="row align-items-center mb-5 mb-md-7">
+                    <div class="col-lg-6 mb-4 mb-lg-0" data-aos="fade-right">
+                        <h2 class="display-5 fw-bold mb-4">Smart Knowledge Management</h2>
+                        <div class="mb-4">
+                            <div class="d-flex mb-3">
+                                <div class="flex-shrink-0 me-3">
+                                    <div class="bg-primary-custom rounded-circle p-2 d-flex align-items-center justify-content-center" style="width: 40px; height: 40px;">
+                                        <i class="bi bi-file-earmark-text text-white"></i>
+                                    </div>
+                                </div>
+                                <div>
+                                    <h4 class="h5 fw-bold mb-1">Automatic Indexing</h4>
+                                    <p class="text-muted mb-0">Nirdhar automatically indexes and organizes your documents, making them searchable and accessible.</p>
+                                </div>
+                            </div>
+                            <div class="d-flex mb-3">
+                                <div class="flex-shrink-0 me-3">
+                                    <div class="bg-primary-custom rounded-circle p-2 d-flex align-items-center justify-content-center" style="width: 40px; height: 40px;">
+                                        <i class="bi bi-search text-white"></i>
+                                    </div>
+                                </div>
+                                <div>
+                                    <h4 class="h5 fw-bold mb-1">Semantic Search</h4>
+                                    <p class="text-muted mb-0">Our AI understands the meaning behind queries, not just keywords, for more accurate results.</p>
+                                </div>
+                            </div>
+                            <div class="d-flex">
+                                <div class="flex-shrink-0 me-3">
+                                    <div class="bg-primary-custom rounded-circle p-2 d-flex align-items-center justify-content-center" style="width: 40px; height: 40px;">
+                                        <i class="bi bi-arrow-repeat text-white"></i>
+                                    </div>
+                                </div>
+                                <div>
+                                    <h4 class="h5 fw-bold mb-1">Automatic Updates</h4>
+                                    <p class="text-muted mb-0">When your knowledge sources change, Nirdhar updates automatically to ensure information is current.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6" data-aos="fade-left">
+                        <img src="https://images.unsplash.com/photo-1557804506-669a67965ba0?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8a25vd2xlZGdlJTIwbWFuYWdlbWVudHxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=800&q=80" alt="Knowledge Management" class="img-fluid rounded-4 shadow">
+                    </div>
+                </div>
+
+                <!-- User Experience Section -->
+                <div class="row align-items-center flex-lg-row-reverse mb-5 mb-md-7">
+                    <div class="col-lg-6 mb-4 mb-lg-0" data-aos="fade-left">
+                        <h2 class="display-5 fw-bold mb-4">Intuitive User Experience</h2>
+                        <div class="mb-4">
+                            <div class="d-flex mb-3">
+                                <div class="flex-shrink-0 me-3">
+                                    <div class="bg-primary-custom rounded-circle p-2 d-flex align-items-center justify-content-center" style="width: 40px; height: 40px;">
+                                        <i class="bi bi-chat-dots text-white"></i>
+                                    </div>
+                                </div>
+                                <div>
+                                    <h4 class="h5 fw-bold mb-1">Conversational Interface</h4>
+                                    <p class="text-muted mb-0">Natural, chat-based interface that feels like talking to a knowledgeable colleague.</p>
+                                </div>
+                            </div>
+                            <div class="d-flex mb-3">
+                                <div class="flex-shrink-0 me-3">
+                                    <div class="bg-primary-custom rounded-circle p-2 d-flex align-items-center justify-content-center" style="width: 40px; height: 40px;">
+                                        <i class="bi bi-lightning text-white"></i>
+                                    </div>
+                                </div>
+                                <div>
+                                    <h4 class="h5 fw-bold mb-1">Instant Responses</h4>
+                                    <p class="text-muted mb-0">Get answers in milliseconds, eliminating the time spent searching through documents.</p>
+                                </div>
+                            </div>
+                            <div class="d-flex">
+                                <div class="flex-shrink-0 me-3">
+                                    <div class="bg-primary-custom rounded-circle p-2 d-flex align-items-center justify-content-center" style="width: 40px; height: 40px;">
+                                        <i class="bi bi-link-45deg text-white"></i>
+                                    </div>
+                                </div>
+                                <div>
+                                    <h4 class="h5 fw-bold mb-1">Source References</h4>
+                                    <p class="text-muted mb-0">Every answer includes links to the original source documents for further reading.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6" data-aos="fade-right">
+                        <img src="https://images.unsplash.com/photo-1551434678-e076c223a692?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTB8fHVzZXIlMjBleHBlcmllbmNlfGVufDB8fDB8fHww&auto=format&fit=crop&w=800&q=80" alt="User Experience" class="img-fluid rounded-4 shadow">
+                    </div>
+                </div>
+
+                <!-- Platform Integration Section -->
+                <div class="row align-items-center">
+                    <div class="col-lg-6 mb-4 mb-lg-0" data-aos="fade-right">
+                        <h2 class="display-5 fw-bold mb-4">Seamless Platform Integration</h2>
+                        <div class="mb-4">
+                            <div class="d-flex mb-3">
+                                <div class="flex-shrink-0 me-3">
+                                    <div class="bg-primary-custom rounded-circle p-2 d-flex align-items-center justify-content-center" style="width: 40px; height: 40px;">
+                                        <i class="bi bi-chat-square-text text-white"></i>
+                                    </div>
+                                </div>
+                                <div>
+                                    <h4 class="h5 fw-bold mb-1">Messaging Platforms</h4>
+                                    <p class="text-muted mb-0">Deploy directly to Slack, Microsoft Teams, and other messaging platforms your team already uses.</p>
+                                </div>
+                            </div>
+                            <div class="d-flex mb-3">
+                                <div class="flex-shrink-0 me-3">
+                                    <div class="bg-primary-custom rounded-circle p-2 d-flex align-items-center justify-content-center" style="width: 40px; height: 40px;">
+                                        <i class="bi bi-globe text-white"></i>
+                                    </div>
+                                </div>
+                                <div>
+                                    <h4 class="h5 fw-bold mb-1">Web Embedding</h4>
+                                    <p class="text-muted mb-0">Embed the chatbot on internal portals, wikis, or websites with a simple code snippet.</p>
+                                </div>
+                            </div>
+                            <div class="d-flex">
+                                <div class="flex-shrink-0 me-3">
+                                    <div class="bg-primary-custom rounded-circle p-2 d-flex align-items-center justify-content-center" style="width: 40px; height: 40px;">
+                                        <i class="bi bi-code-slash text-white"></i>
+                                    </div>
+                                </div>
+                                <div>
+                                    <h4 class="h5 fw-bold mb-1">API Access</h4>
+                                    <p class="text-muted mb-0">Integrate Nirdhar's capabilities directly into your custom applications using our REST API.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6" data-aos="fade-left">
+                        <img src="https://images.unsplash.com/photo-1581094794329-c8112a89af12?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NXx8aW50ZWdyYXRpb258ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=800&q=80" alt="Platform Integration" class="img-fluid rounded-4 shadow">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Use Cases Section -->
+        <section class="py-5 py-md-6">
+            <div class="container py-4">
+                <div class="text-center mb-5" data-aos="fade-up">
+                    <h2 class="display-5 fw-bold mb-3">Nirdhar in Action</h2>
+                    <p class="lead text-muted mx-auto" style="max-width: 700px;">
+                        See how different teams use Nirdhar to transform their knowledge management
+                    </p>
+                </div>
+
+                <div class="row g-4">
+                    <!-- Use Case 1 -->
+                    <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="0">
+                        <div class="card h-100 border-0 shadow-sm hover-lift">
+                            <div class="card-body p-4 p-lg-5">
+                                <div class="mb-4">
+                                    <span class="badge bg-primary-custom mb-2">HR & People Ops</span>
+                                    <h3 class="h4 fw-bold">Streamlined Onboarding</h3>
+                                </div>
+                                <p class="text-muted mb-0">
+                                    HR teams use Nirdhar to create interactive onboarding assistants that help new employees find information, learn company policies, and navigate internal systems without overwhelming them with documents.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Use Case 2 -->
+                    <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="100">
+                        <div class="card h-100 border-0 shadow-sm hover-lift">
+                            <div class="card-body p-4 p-lg-5">
+                                <div class="mb-4">
+                                    <span class="badge bg-primary-custom mb-2">Engineering</span>
+                                    <h3 class="h4 fw-bold">Technical Documentation</h3>
+                                </div>
+                                <p class="text-muted mb-0">
+                                    Engineering teams leverage Nirdhar to make technical documentation, code comments, and architectural designs instantly accessible, helping new developers get up to speed and supporting knowledge sharing.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Use Case 3 -->
+                    <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="200">
+                        <div class="card h-100 border-0 shadow-sm hover-lift">
+                            <div class="card-body p-4 p-lg-5">
+                                <div class="mb-4">
+                                    <span class="badge bg-primary-custom mb-2">Customer Support</span>
+                                    <h3 class="h4 fw-bold">Internal Help Desk</h3>
+                                </div>
+                                <p class="text-muted mb-0">
+                                    Support teams use Nirdhar to quickly access product information, troubleshooting guides, and customer history, reducing response times and improving the accuracy of customer interactions.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Use Case 4 -->
+                    <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="300">
+                        <div class="card h-100 border-0 shadow-sm hover-lift">
+                            <div class="card-body p-4 p-lg-5">
+                                <div class="mb-4">
+                                    <span class="badge bg-primary-custom mb-2">Sales</span>
+                                    <h3 class="h4 fw-bold">Sales Enablement</h3>
+                                </div>
+                                <p class="text-muted mb-0">
+                                    Sales teams access competitive information, product details, pricing, and case studies instantly during calls, helping them respond to prospect questions with confidence and accuracy.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Use Case 5 -->
+                    <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="400">
+                        <div class="card h-100 border-0 shadow-sm hover-lift">
+                            <div class="card-body p-4 p-lg-5">
+                                <div class="mb-4">
+                                    <span class="badge bg-primary-custom mb-2">Legal & Compliance</span>
+                                    <h3 class="h4 fw-bold">Policy Guidance</h3>
+                                </div>
+                                <p class="text-muted mb-0">
+                                    Legal teams deploy Nirdhar to help employees navigate complex compliance requirements, company policies, and regulatory guidelines, reducing risk and ensuring consistent application.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Use Case 6 -->
+                    <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="500">
+                        <div class="card h-100 border-0 shadow-sm hover-lift">
+                            <div class="card-body p-4 p-lg-5">
+                                <div class="mb-4">
+                                    <span class="badge bg-primary-custom mb-2">Product</span>
+                                    <h3 class="h4 fw-bold">Product Knowledge</h3>
+                                </div>
+                                <p class="text-muted mb-0">
+                                    Product teams create centralized knowledge hubs that consolidate feature documentation, roadmaps, user research, and feedback, fostering alignment and collaborative decision-making.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA Section -->
+        <section class="py-5 py-md-6 bg-gradient-primary text-white">
+            <div class="container py-4 text-center">
+                <div class="row justify-content-center">
+                    <div class="col-lg-8" data-aos="fade-up">
+                        <h2 class="display-5 fw-bold mb-4">Ready to Transform Your Knowledge Management?</h2>
+                        <p class="lead mb-5">Experience how Nirdhar can make your team's knowledge instantly accessible and actionable.</p>
+                        <div class="d-flex flex-column flex-sm-row gap-3 justify-content-center">
+                            <a href="demo.html" class="btn btn-light text-primary-custom fw-medium py-3 px-4 rounded-3">
+                                Request Demo
+                            </a>
+                            <a href="contact.html" class="btn btn-outline-light fw-medium py-3 px-4 rounded-3">
+                                Contact Sales
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-light py-5">
+        <div class="container">
+            <div class="row gy-4">
+                <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="0">
+                    <h5 class="mb-4 fw-semibold">Nirdhar</h5>
+                    <p class="text-muted mb-4">
+                        Transform your company's data into an interactive chatbot. Streamline onboarding and access information instantly.
+                    </p>
+                </div>
+                
+                <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="100">
+                    <h5 class="mb-4 fw-semibold">Product</h5>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><a href="features.html" class="text-decoration-none text-muted">Features</a></li>
+                        <li class="mb-2"><a href="pricing.html" class="text-decoration-none text-muted">Pricing</a></li>
+                        <li class="mb-2"><a href="integrations.html" class="text-decoration-none text-muted">Integrations</a></li>
+                        <li class="mb-2"><a href="case-studies.html" class="text-decoration-none text-muted">Case Studies</a></li>
+                    </ul>
+                </div>
+                
+                <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="200">
+                    <h5 class="mb-4 fw-semibold">Company</h5>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><a href="about.html" class="text-decoration-none text-muted">About</a></li>
+                        <li class="mb-2"><a href="team.html" class="text-decoration-none text-muted">Team</a></li>
+                        <li class="mb-2"><a href="careers.html" class="text-decoration-none text-muted">Careers</a></li>
+                        <li class="mb-2"><a href="contact.html" class="text-decoration-none text-muted">Contact</a></li>
+                    </ul>
+                </div>
+                
+                <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="300">
+                    <h5 class="mb-4 fw-semibold">Resources</h5>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><a href="blog.html" class="text-decoration-none text-muted">Blog</a></li>
+                        <li class="mb-2"><a href="documentation.html" class="text-decoration-none text-muted">Documentation</a></li>
+                        <li class="mb-2"><a href="privacy.html" class="text-decoration-none text-muted">Privacy Policy</a></li>
+                        <li class="mb-2"><a href="terms.html" class="text-decoration-none text-muted">Terms of Service</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="mt-5 pt-4 border-top">
+                <div class="row align-items-center">
+                    <div class="col-md-6 mb-3 mb-md-0">
+                        <p class="text-muted mb-0">
+                            &copy; <span id="current-year"></span> Nirdhar. All rights reserved.
+                        </p>
+                    </div>
+                    <div class="col-md-6 text-md-end">
+                        <div class="d-flex gap-3 justify-content-md-end">
+                            <a href="#" class="text-muted">
+                                <i class="bi bi-twitter-x" style="font-size: 1.25rem;"></i>
+                                <span class="visually-hidden">Twitter</span>
+                            </a>
+                            <a href="#" class="text-muted">
+                                <i class="bi bi-linkedin" style="font-size: 1.25rem;"></i>
+                                <span class="visually-hidden">LinkedIn</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    
+    <!-- Bootstrap JS Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- AOS Animation Library -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        // Initialize AOS animations
+        AOS.init({
+            duration: 800,
+            easing: 'ease-in-out',
+            once: true
+        });
+        
+        // Set current year in footer
+        document.getElementById('current-year').textContent = new Date().getFullYear();
+        
+        // Check for dark mode preference
+        if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+            document.body.classList.add('dark-mode');
+        }
+        
+        // Listen for changes in dark mode preference
+        window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', event => {
+            if (event.matches) {
+                document.body.classList.add('dark-mode');
+            } else {
+                document.body.classList.remove('dark-mode');
+            }
+        });
+    </script>
+</body>
+</html> 

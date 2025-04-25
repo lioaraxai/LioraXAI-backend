@@ -1,0 +1,610 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Request Demo | Nirdhar</title>
+    <!-- Bootstrap 5.3 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css">
+    <!-- AOS Animation Library -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <!-- Mobile responsiveness -->
+    <link href="css/mobile.css" rel="stylesheet">
+    <style>
+        /* Base styles */
+        :root {
+            --bs-primary: #4f46e5;
+            --bs-primary-rgb: 79, 70, 229;
+            --bs-primary-light: #818cf8;
+            --bs-primary-dark: #4338ca;
+            --bs-body-color: #111827;
+            --bs-body-color-rgb: 17, 24, 39;
+            --bs-secondary-color: #6b7280;
+            --bs-secondary-color-rgb: 107, 114, 128;
+            --bs-body-bg: #f9fafb;
+            --bs-body-bg-rgb: 249, 250, 251;
+            --bs-dark-bg: #111827;
+            --bs-dark-bg-rgb: 17, 24, 39;
+        }
+        
+        body {
+            font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+            color: var(--bs-body-color);
+            line-height: 1.5;
+            overflow-x: hidden;
+        }
+        
+        .mono {
+            font-family: 'IBM Plex Mono', ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New', monospace;
+        }
+
+        .text-primary-custom {
+            color: var(--bs-primary);
+        }
+
+        .bg-primary-custom {
+            background-color: var(--bs-primary);
+        }
+
+        .btn-primary-custom {
+            background-color: var(--bs-primary);
+            border-color: var(--bs-primary);
+        }
+
+        .btn-primary-custom:hover {
+            background-color: var(--bs-primary-dark);
+            border-color: var(--bs-primary-dark);
+        }
+
+        .btn-outline-primary-custom {
+            color: var(--bs-primary);
+            border-color: var(--bs-primary);
+        }
+
+        .btn-outline-primary-custom:hover {
+            background-color: var(--bs-primary);
+            color: white;
+        }
+        
+        /* Dark mode */
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --bs-body-color: #f3f4f6;
+                --bs-body-bg: var(--bs-dark-bg);
+            }
+            
+            .navbar {
+                background-color: #1f2937 !important;
+            }
+            
+            .footer {
+                background-color: #1f2937 !important;
+            }
+            
+            .dark-text-light {
+                color: #f3f4f6 !important;
+            }
+            
+            .dark-bg-darker {
+                background-color: #111827 !important;
+            }
+        }
+
+        .hero-section {
+            background: linear-gradient(to right, #4f46e5, #7e22ce);
+            color: white;
+        }
+
+        .demo-feature-icon {
+            color: var(--bs-primary);
+            width: 1.5rem;
+            height: 1.5rem;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <nav class="navbar navbar-expand-lg bg-white shadow-sm">
+            <div class="container">
+                <a class="navbar-brand" href="index.html">
+                    <img src="static/images/logo.svg" alt="Nirdhar Logo" width="150" height="35">
+                </a>
+
+                <!-- Mobile menu button -->
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" 
+                        data-bs-target="#navbarNav" aria-controls="navbarNav" 
+                        aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <!-- Navigation -->
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ms-auto align-items-center">
+                        <li class="nav-item">
+                            <a class="nav-link" href="index.html">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="features.html">Features</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="pricing.html">Pricing</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="about.html">About</a>
+                        </li>
+                        <li class="nav-item ms-lg-2">
+                            <a class="nav-link btn btn-primary-custom text-white px-4" href="contact.html">Contact Us</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="hero-section py-5 py-md-6">
+            <div class="container py-4">
+                <div class="text-center" data-aos="fade-up">
+                    <h1 class="display-4 fw-bold mb-4">
+                        Experience Nirdhar in Action
+                    </h1>
+                    <p class="lead mb-0 text-white-50 mx-auto" style="max-width: 800px;">
+                        Schedule a personalized demo to see how our AI-powered knowledge base can transform your organization
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Demo Form Section -->
+        <section class="py-5 py-md-6">
+            <div class="container py-4">
+                <div class="row justify-content-center">
+                    <div class="col-lg-10">
+                        <div class="row g-4">
+                            <!-- Demo Benefits -->
+                            <div class="col-md-4" data-aos="fade-right">
+                                <h3 class="h4 fw-semibold mb-4">What You'll See in the Demo</h3>
+                                
+                                <ul class="list-unstyled mb-0">
+                                    <li class="d-flex align-items-start mb-4">
+                                        <div class="flex-shrink-0 me-3">
+                                            <i class="bi bi-check-circle-fill demo-feature-icon"></i>
+                                        </div>
+                                        <div>
+                                            <p class="text-muted mb-0">
+                                                Live demonstration of our AI-powered chatbot answering complex questions
+                                            </p>
+                                        </div>
+                                    </li>
+                                    <li class="d-flex align-items-start mb-4">
+                                        <div class="flex-shrink-0 me-3">
+                                            <i class="bi bi-check-circle-fill demo-feature-icon"></i>
+                                        </div>
+                                        <div>
+                                            <p class="text-muted mb-0">
+                                                Overview of our simple integration process with your existing systems
+                                            </p>
+                                        </div>
+                                    </li>
+                                    <li class="d-flex align-items-start mb-4">
+                                        <div class="flex-shrink-0 me-3">
+                                            <i class="bi bi-check-circle-fill demo-feature-icon"></i>
+                                        </div>
+                                        <div>
+                                            <p class="text-muted mb-0">
+                                                Tour of our intuitive admin dashboard and analytics
+                                            </p>
+                                        </div>
+                                    </li>
+                                    <li class="d-flex align-items-start mb-4">
+                                        <div class="flex-shrink-0 me-3">
+                                            <i class="bi bi-check-circle-fill demo-feature-icon"></i>
+                                        </div>
+                                        <div>
+                                            <p class="text-muted mb-0">
+                                                Customization options to match your brand and requirements
+                                            </p>
+                                        </div>
+                                    </li>
+                                    <li class="d-flex align-items-start">
+                                        <div class="flex-shrink-0 me-3">
+                                            <i class="bi bi-check-circle-fill demo-feature-icon"></i>
+                                        </div>
+                                        <div>
+                                            <p class="text-muted mb-0">
+                                                Q&A with our product specialists tailored to your specific needs
+                                            </p>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                            
+                            <!-- Demo Request Form -->
+                            <div class="col-md-8" data-aos="fade-left">
+                                <div class="card border-0 shadow-sm p-4 p-lg-5">
+                                    <h3 class="h4 fw-semibold mb-4">Schedule Your Demo</h3>
+                                    
+                                    <form>
+                                        <div class="row g-3 mb-3">
+                                            <div class="col-md-6">
+                                                <label for="first_name" class="form-label">First Name</label>
+                                                <input
+                                                    type="text"
+                                                    id="first_name"
+                                                    name="first_name"
+                                                    class="form-control"
+                                                    required
+                                                />
+                                            </div>
+                                            <div class="col-md-6">
+                                                <label for="last_name" class="form-label">Last Name</label>
+                                                <input
+                                                    type="text"
+                                                    id="last_name"
+                                                    name="last_name"
+                                                    class="form-control"
+                                                    required
+                                                />
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="mb-3">
+                                            <label for="email" class="form-label">Work Email</label>
+                                            <input
+                                                type="email"
+                                                id="email"
+                                                name="email"
+                                                class="form-control"
+                                                required
+                                            />
+                                        </div>
+                                        
+                                        <div class="mb-3">
+                                            <label for="company" class="form-label">Company</label>
+                                            <input
+                                                type="text"
+                                                id="company"
+                                                name="company"
+                                                class="form-control"
+                                                required
+                                            />
+                                        </div>
+                                        
+                                        <div class="mb-3">
+                                            <label for="company_size" class="form-label">Company Size</label>
+                                            <select
+                                                id="company_size"
+                                                name="company_size"
+                                                class="form-select"
+                                                required
+                                            >
+                                                <option value="">Select company size</option>
+                                                <option value="1-10">1-10 employees</option>
+                                                <option value="11-50">11-50 employees</option>
+                                                <option value="51-200">51-200 employees</option>
+                                                <option value="201-500">201-500 employees</option>
+                                                <option value="501-1000">501-1000 employees</option>
+                                                <option value="1000+">1000+ employees</option>
+                                            </select>
+                                        </div>
+                                        
+                                        <div class="mb-3">
+                                            <label for="message" class="form-label">What are you hoping to learn from the demo?</label>
+                                            <textarea
+                                                id="message"
+                                                name="message"
+                                                rows="4"
+                                                class="form-control"
+                                            ></textarea>
+                                        </div>
+                                        
+                                        <div class="mb-4">
+                                            <div class="form-check">
+                                                <input
+                                                    class="form-check-input"
+                                                    type="checkbox"
+                                                    id="privacy"
+                                                    required
+                                                >
+                                                <label class="form-check-label text-muted" for="privacy">
+                                                    I agree to the <a href="privacy.html" class="text-primary-custom">Privacy Policy</a> and consent to being contacted about Nirdhar services.
+                                                </label>
+                                            </div>
+                                        </div>
+                                        
+                                        <button type="submit" class="btn btn-primary-custom px-4 py-2">Schedule Demo</button>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Testimonials Section -->
+        <section class="py-5 py-md-6 bg-light">
+            <div class="container py-4">
+                <div class="text-center mb-5" data-aos="fade-up">
+                    <h2 class="display-6 fw-bold mb-3">What Our Clients Say About Their Demo Experience</h2>
+                    <p class="lead text-muted mx-auto" style="max-width: 700px;">
+                        Hear from organizations who've transformed their knowledge management after seeing Nirdhar in action
+                    </p>
+                </div>
+
+                <div class="row g-4">
+                    <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="0">
+                        <div class="card h-100 border-0 shadow-sm p-4">
+                            <div class="d-flex mb-4">
+                                <i class="bi bi-star-fill text-warning me-1"></i>
+                                <i class="bi bi-star-fill text-warning me-1"></i>
+                                <i class="bi bi-star-fill text-warning me-1"></i>
+                                <i class="bi bi-star-fill text-warning me-1"></i>
+                                <i class="bi bi-star-fill text-warning"></i>
+                            </div>
+                            <p class="mb-4">"The demo was incredibly helpful in showing us exactly how Nirdhar could solve our knowledge sharing challenges. The team was responsive and knowledgeable throughout the process."</p>
+                            <div class="d-flex align-items-center mt-auto">
+                                <div class="flex-shrink-0">
+                                    <img src="https://randomuser.me/api/portraits/women/32.jpg" alt="Emma Rodriguez" class="rounded-circle" style="width: 48px; height: 48px;">
+                                </div>
+                                <div class="ms-3">
+                                    <h6 class="mb-0">Emma Rodriguez</h6>
+                                    <small class="text-muted">Director of Operations, GlobalTech</small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="100">
+                        <div class="card h-100 border-0 shadow-sm p-4">
+                            <div class="d-flex mb-4">
+                                <i class="bi bi-star-fill text-warning me-1"></i>
+                                <i class="bi bi-star-fill text-warning me-1"></i>
+                                <i class="bi bi-star-fill text-warning me-1"></i>
+                                <i class="bi bi-star-fill text-warning me-1"></i>
+                                <i class="bi bi-star-fill text-warning"></i>
+                            </div>
+                            <p class="mb-4">"After seeing how quickly we could integrate Nirdhar with our existing systems during the demo, the decision to move forward was easy. Implementation was just as smooth as promised."</p>
+                            <div class="d-flex align-items-center mt-auto">
+                                <div class="flex-shrink-0">
+                                    <img src="https://randomuser.me/api/portraits/men/45.jpg" alt="James Wilson" class="rounded-circle" style="width: 48px; height: 48px;">
+                                </div>
+                                <div class="ms-3">
+                                    <h6 class="mb-0">James Wilson</h6>
+                                    <small class="text-muted">IT Director, Innovate Solutions</small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="200">
+                        <div class="card h-100 border-0 shadow-sm p-4">
+                            <div class="d-flex mb-4">
+                                <i class="bi bi-star-fill text-warning me-1"></i>
+                                <i class="bi bi-star-fill text-warning me-1"></i>
+                                <i class="bi bi-star-fill text-warning me-1"></i>
+                                <i class="bi bi-star-fill text-warning me-1"></i>
+                                <i class="bi bi-star-fill text-warning"></i>
+                            </div>
+                            <p class="mb-4">"The personalized demo addressed all our specific use cases and showed us exactly how Nirdhar could benefit our organization. Two months in, and we're seeing exactly the results they predicted."</p>
+                            <div class="d-flex align-items-center mt-auto">
+                                <div class="flex-shrink-0">
+                                    <img src="https://randomuser.me/api/portraits/women/22.jpg" alt="Sophia Chen" class="rounded-circle" style="width: 48px; height: 48px;">
+                                </div>
+                                <div class="ms-3">
+                                    <h6 class="mb-0">Sophia Chen</h6>
+                                    <small class="text-muted">Head of Knowledge Management, Apex Corp</small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- FAQ Section -->
+        <section class="py-5 py-md-6">
+            <div class="container py-4">
+                <div class="text-center mb-5" data-aos="fade-up">
+                    <h2 class="display-6 fw-bold mb-3">Frequently Asked Questions</h2>
+                    <p class="lead text-muted mx-auto" style="max-width: 700px;">
+                        Common questions about our demo process and what to expect
+                    </p>
+                </div>
+
+                <div class="row justify-content-center">
+                    <div class="col-lg-8">
+                        <div class="accordion" id="demoFaq" data-aos="fade-up">
+                            <div class="accordion-item border mb-3 shadow-sm">
+                                <h3 class="accordion-header">
+                                    <button class="accordion-button fw-medium" type="button" data-bs-toggle="collapse" data-bs-target="#faq1" aria-expanded="true" aria-controls="faq1">
+                                        How long does a typical demo session last?
+                                    </button>
+                                </h3>
+                                <div id="faq1" class="accordion-collapse collapse show" data-bs-parent="#demoFaq">
+                                    <div class="accordion-body text-muted">
+                                        Our standard demo sessions are scheduled for 45 minutes, including time for Q&A. However, we can customize the length based on your requirements and the complexity of your use case.
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="accordion-item border mb-3 shadow-sm">
+                                <h3 class="accordion-header">
+                                    <button class="accordion-button fw-medium collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq2" aria-expanded="false" aria-controls="faq2">
+                                        Can I invite multiple team members to the demo?
+                                    </button>
+                                </h3>
+                                <div id="faq2" class="accordion-collapse collapse" data-bs-parent="#demoFaq">
+                                    <div class="accordion-body text-muted">
+                                        Absolutely! We encourage you to invite all relevant stakeholders to the demo. This might include IT, knowledge management, HR, and department leaders who would benefit from Nirdhar.
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="accordion-item border mb-3 shadow-sm">
+                                <h3 class="accordion-header">
+                                    <button class="accordion-button fw-medium collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq3" aria-expanded="false" aria-controls="faq3">
+                                        How soon can I schedule a demo?
+                                    </button>
+                                </h3>
+                                <div id="faq3" class="accordion-collapse collapse" data-bs-parent="#demoFaq">
+                                    <div class="accordion-body text-muted">
+                                        We typically schedule demos within 1-3 business days of your request. After submitting this form, you'll receive an email with available time slots for you to choose from.
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="accordion-item border mb-3 shadow-sm">
+                                <h3 class="accordion-header">
+                                    <button class="accordion-button fw-medium collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq4" aria-expanded="false" aria-controls="faq4">
+                                        Is the demo customized to our organization?
+                                    </button>
+                                </h3>
+                                <div id="faq4" class="accordion-collapse collapse" data-bs-parent="#demoFaq">
+                                    <div class="accordion-body text-muted">
+                                        Yes, we tailor each demo to address your specific industry, use cases, and challenges. The information you provide in the demo request form helps us prepare the most relevant demonstration for your needs.
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="accordion-item border shadow-sm">
+                                <h3 class="accordion-header">
+                                    <button class="accordion-button fw-medium collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq5" aria-expanded="false" aria-controls="faq5">
+                                        Will I get access to try Nirdhar after the demo?
+                                    </button>
+                                </h3>
+                                <div id="faq5" class="accordion-collapse collapse" data-bs-parent="#demoFaq">
+                                    <div class="accordion-body text-muted">
+                                        Yes, following the demo, we offer a 14-day free trial where you can implement Nirdhar with a limited set of your own data to experience the full value it can provide to your organization.
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA Section -->
+        <section class="hero-section py-5 py-md-6">
+            <div class="container py-4 text-center">
+                <div class="row justify-content-center">
+                    <div class="col-lg-8" data-aos="fade-up">
+                        <h2 class="display-5 fw-bold mb-4">Ready to Transform Your Knowledge Management?</h2>
+                        <p class="lead mb-5 text-white-50">Join hundreds of companies that have enhanced their team's productivity with Nirdhar's AI-powered knowledge base.</p>
+                        <div class="d-flex flex-column flex-sm-row gap-3 justify-content-center">
+                            <a href="#" class="btn btn-light text-primary-custom fw-medium py-3 px-4 rounded-3" onclick="document.getElementById('first_name').focus();">
+                                Schedule Your Demo Now
+                            </a>
+                            <a href="pricing.html" class="btn btn-outline-light fw-medium py-3 px-4 rounded-3">
+                                View Pricing
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-light py-5">
+        <div class="container">
+            <div class="row gy-4">
+                <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="0">
+                    <h5 class="mb-4 fw-semibold">Nirdhar</h5>
+                    <p class="text-muted mb-4">
+                        Transform your company's data into an interactive chatbot. Streamline onboarding and access information instantly.
+                    </p>
+                </div>
+                
+                <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="100">
+                    <h5 class="mb-4 fw-semibold">Product</h5>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><a href="features.html" class="text-decoration-none text-muted">Features</a></li>
+                        <li class="mb-2"><a href="pricing.html" class="text-decoration-none text-muted">Pricing</a></li>
+                        <li class="mb-2"><a href="integrations.html" class="text-decoration-none text-muted">Integrations</a></li>
+                        <li class="mb-2"><a href="case-studies.html" class="text-decoration-none text-muted">Case Studies</a></li>
+                    </ul>
+                </div>
+                
+                <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="200">
+                    <h5 class="mb-4 fw-semibold">Company</h5>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><a href="about.html" class="text-decoration-none text-muted">About</a></li>
+                        <li class="mb-2"><a href="team.html" class="text-decoration-none text-muted">Team</a></li>
+                        <li class="mb-2"><a href="careers.html" class="text-decoration-none text-muted">Careers</a></li>
+                        <li class="mb-2"><a href="contact.html" class="text-decoration-none text-muted">Contact</a></li>
+                    </ul>
+                </div>
+                
+                <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="300">
+                    <h5 class="mb-4 fw-semibold">Resources</h5>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><a href="blog.html" class="text-decoration-none text-muted">Blog</a></li>
+                        <li class="mb-2"><a href="documentation.html" class="text-decoration-none text-muted">Documentation</a></li>
+                        <li class="mb-2"><a href="privacy.html" class="text-decoration-none text-muted">Privacy Policy</a></li>
+                        <li class="mb-2"><a href="terms.html" class="text-decoration-none text-muted">Terms of Service</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="mt-5 pt-4 border-top">
+                <div class="row align-items-center">
+                    <div class="col-md-6 mb-3 mb-md-0">
+                        <p class="text-muted mb-0">
+                            &copy; <span id="current-year"></span> Nirdhar. All rights reserved.
+                        </p>
+                    </div>
+                    <div class="col-md-6 text-md-end">
+                        <div class="d-flex gap-3 justify-content-md-end">
+                            <a href="#" class="text-muted">
+                                <i class="bi bi-twitter-x" style="font-size: 1.25rem;"></i>
+                                <span class="visually-hidden">Twitter</span>
+                            </a>
+                            <a href="#" class="text-muted">
+                                <i class="bi bi-linkedin" style="font-size: 1.25rem;"></i>
+                                <span class="visually-hidden">LinkedIn</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    
+    <!-- Bootstrap JS Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- AOS Animation Library -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        // Initialize AOS animations
+        AOS.init({
+            duration: 800,
+            easing: 'ease-in-out',
+            once: true,
+            disable: window.innerWidth < 768 // Disable animations on mobile for better performance
+        });
+        
+        // Set current year in footer
+        document.getElementById('current-year').textContent = new Date().getFullYear();
+        
+        // Check for dark mode preference
+        if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+            document.body.classList.add('dark-mode');
+        }
+        
+        // Listen for changes in dark mode preference
+        window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', event => {
+            if (event.matches) {
+                document.body.classList.add('dark-mode');
+            } else {
+                document.body.classList.remove('dark-mode');
+            }
+        });
+    </script>
+</body>
+</html> 
