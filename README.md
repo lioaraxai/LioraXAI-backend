@@ -33,6 +33,7 @@ This project includes several utility scripts to streamline setup and deployment
 
 - **setup.sh** - Complete project setup script (creates directories, sets up environment, installs dependencies)
 - **run_server.sh** - Quick script to activate environment and run the development server
+- **run_with_poetry.sh** - Script to run the server using Poetry for dependency management
 - **deploy.sh** - Prepares the application for deployment to PythonAnywhere
 
 **IMPORTANT:** Before running any script, check if what you need already exists. The scripts are designed to be idempotent and will check for existing components before creating new ones.
@@ -55,7 +56,7 @@ If you prefer a manual setup:
 
 1. Clone the repository:
    ```
-   git clone https://github.com/lioaraxai/LioraXAI-backend.git
+   git clone https://github.com/lioraxai/LioraXAI-backend.git
    cd LioraXAI-backend
    ```
 
@@ -81,6 +82,52 @@ If you prefer a manual setup:
    ```
 
 6. Visit http://127.0.0.1:8000/ in your browser
+
+## Using Poetry for Dependency Management
+
+This project supports [Poetry](https://python-poetry.org/) for dependency management. Poetry provides more robust dependency resolution and project management than pip.
+
+### Setting up with Poetry
+
+1. Install Poetry (if not already installed):
+   ```
+   curl -sSL https://install.python-poetry.org | python3 -
+   ```
+
+2. Make sure Poetry is in your PATH:
+   ```
+   export PATH="$HOME/.local/bin:$PATH"
+   ```
+
+3. Install dependencies using Poetry:
+   ```
+   poetry install --no-root
+   ```
+
+4. Run the Django server with Poetry:
+   ```
+   poetry run python manage.py runserver 8080
+   ```
+
+   Or use the provided script:
+   ```
+   chmod +x run_with_poetry.sh
+   ./run_with_poetry.sh
+   ```
+
+5. Visit http://127.0.0.1:8080/ in your browser
+
+### Adding New Dependencies with Poetry
+
+To add a new dependency:
+```
+poetry add package-name
+```
+
+To update dependencies:
+```
+poetry update
+```
 
 ## Features
 
