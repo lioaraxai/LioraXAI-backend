@@ -1,0 +1,57 @@
+/* Custom Admin CSS */
+
+/* Nicer header font */
+#header {
+  font-family: 'Segoe UI', Roboto, -apple-system, sans-serif;
+}
+
+/* Better list view */
+.results {
+  border-radius: 4px;
+  overflow: hidden;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.results th {
+  background: #4f46e5 !important;
+  color: white !important;
+}
+
+/* Better form styling */
+.form-row {
+  padding: 16px !important;
+  border-bottom: 1px solid #eee;
+}
+
+/* Nicer buttons */
+.button, input[type=submit], input[type=button], .submit-row input {
+  background: #4f46e5 !important;
+  color: white;
+  border-radius: 4px;
+  border: none;
+  padding: 10px 16px;
+  transition: background 0.2s;
+}
+
+.button:hover, input[type=submit]:hover, input[type=button]:hover, .submit-row input:hover {
+  background: #3d37b3 !important;
+}
+
+/* Dashboard improvements */
+.dashboard .module {
+  border-radius: 5px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+  border: none;
+  overflow: hidden;
+}
+
+.dashboard .module h2 {
+  background: #4f46e5;
+  color: white;
+}
+
+/* Focus styles */
+input:focus, select:focus, textarea:focus {
+  border-color: #4f46e5 !important;
+  box-shadow: 0 0 0 2px rgba(79, 70, 229, 0.25) !important;
+} 

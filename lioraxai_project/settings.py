@@ -31,6 +31,7 @@ ALLOWED_HOSTS = ["lioraxai-backend.onrender.com","127.0.0.1"]
 # Application definition
 
 INSTALLED_APPS = [
+    "jazzmin",
     "django.contrib.admin",
     "django.contrib.auth",
     "django.contrib.contenttypes",
@@ -145,3 +146,47 @@ EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 
 # Messages framework
 MESSAGE_STORAGE = 'django.contrib.messages.storage.cookie.CookieStorage'
+
+# Jazzmin settings
+JAZZMIN_SETTINGS = {
+    # title of the window (Will default to current_admin_site.site_title if absent or None)
+    "site_title": "LioraXAI Admin",
+    # Title on the login screen (19 chars max) (defaults to current_admin_site.site_header if absent or None)
+    "site_header": "LioraXAI",
+    # Logo to use for your site, must be present in static files
+    "site_logo": None,
+    # CSS classes that are applied to the logo above
+    "site_logo_classes": "img-circle",
+    # Welcome text on the login screen
+    "welcome_sign": "Welcome to LioraXAI Admin",
+    # Copyright on the footer
+    "copyright": "LioraXAI Ltd",
+    # Field name on user model that contains avatar ImageField/URLField/Charfield or a callable that receives the user
+    "user_avatar": None,
+    # Icon settings
+    "icons": {
+        "auth": "fas fa-users-cog",
+        "auth.user": "fas fa-user",
+        "auth.Group": "fas fa-users",
+        "lioraxai_app.Contact": "fas fa-address-book",
+        "lioraxai_app.DemoRequest": "fas fa-clipboard-list",
+        "lioraxai_app.Subscriber": "fas fa-envelope",
+    },
+    # Dark mode
+    "dark_mode_theme": "darkly",
+}
+
+# UI tweaks
+JAZZMIN_UI_TWEAKS = {
+    "navbar_small_text": False,
+    "footer_small_text": False,
+    "body_small_text": False,
+    "brand_small_text": False,
+    "brand_colour": "navbar-indigo",
+    "accent": "accent-indigo",
+    "navbar": "navbar-dark navbar-indigo",
+    "no_navbar_border": True,
+    "sidebar": "sidebar-dark-indigo",
+    "sidebar_nav_compact_style": True,
+    "theme": "darkly",
+}
