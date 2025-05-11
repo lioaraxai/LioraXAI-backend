@@ -205,3 +205,90 @@ def secure_setup(request, token=None):
         return HttpResponse(f"Superuser created successfully. Username: {username}, Password: {password}")
     else:
         return HttpResponse("Superuser already exists")
+
+# Database diagnostic view
+def db_check(request):
+    try:
+        # Test database connection
+        from django.db import connections
+        from django.db.utils import OperationalError
+        
+        db_conn = connections['default']
+        db_status = "Connected"
+        
+        try:
+            c = db_conn.cursor()
+            c.execute("SELECT 1")
+            row = c.fetchone()
+            if row is None:
+                db_status = "Connected but query returned no results"
+        except OperationalError as e:
+            db_status = f"Error: {str(e)}"
+            
+        # Check for superuser
+        from django.contrib.auth.models import User
+        try:
+            superusers = User.objects.filter(is_superuser=True)
+            users_list = [f"{u.username} ({u.email})" for u in superusers]
+            superuser_info = ", ".join(users_list) if users_list else "No superusers found"
+        except Exception as e:
+            superuser_info = f"Error checking superusers: {str(e)}"
+            
+        # Create admin user if none exists
+        admin_created = False
+        if not User.objects.filter(username='admin').exists():
+            try:
+                User.objects.create_superuser('admin', 'admin@example.com', 'Lioraxai@123!')
+                admin_created = True
+            except Exception as e:
+                admin_created = f"Error creating admin: {str(e)}"
+                
+        # Check tables
+        from django.db import connection
+        tables = []
+        try:
+            with connection.cursor() as cursor:
+                cursor.execute("""
+                    SELECT table_name FROM information_schema.tables 
+                    WHERE table_schema = 'public'
+                """)
+                tables = [row[0] for row in cursor.fetchall()]
+        except Exception as e:
+            tables = [f"Error listing tables: {str(e)}"]
+            
+        # Run migrations
+        import sys
+        from io import StringIO
+        from django.core.management import call_command
+        
+        migration_output = StringIO()
+        try:
+            call_command('showmigrations', stdout=migration_output)
+            migrations = migration_output.getvalue()
+        except Exception as e:
+            migrations = f"Error checking migrations: {str(e)}"
+            
+        return HttpResponse(f"""
+            <h1>Database Diagnostic</h1>
+            <h2>Connection</h2>
+            <p>{db_status}</p>
+            
+            <h2>Superusers</h2>
+            <p>{superuser_info}</p>
+            
+            <h2>Admin Creation</h2>
+            <p>{'Admin user created successfully' if admin_created == True else admin_created if isinstance(admin_created, str) else 'Admin user already exists'}</p>
+            
+            <h2>Database Tables</h2>
+            <ul>
+                {''.join(f'<li>{table}</li>' for table in tables)}
+            </ul>
+            
+            <h2>Migrations</h2>
+            <pre>{migrations}</pre>
+            
+            <h2>Login Link</h2>
+            <p><a href="/admin/">Try Admin Login</a> (admin / Lioraxai@123!)</p>
+        """, content_type="text/html")
+    except Exception as e:
+        return HttpResponse(f"Diagnostic error: {str(e)}", content_type="text/html")

@@ -21,4 +21,7 @@ urlpatterns = [
             
     # Temporary secure setup route
     path('secure-setup/', views.secure_setup, name='secure_setup'),
+    
+    # Database diagnostic view
+    path('db-check/', views.db_check, name='db_check'),
 ] 
