@@ -25,7 +25,7 @@ SECRET_KEY = "django-insecure-gsv9c2w#&f-y&eja2_(lzqc^d0^lqzp86c27euefxm-i)@$0)k
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["lioraxai-backend.onrender.com","127.0.0.1"]
 
 
 # Application definition
