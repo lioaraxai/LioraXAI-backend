@@ -18,4 +18,7 @@ urlpatterns = [
     # Handle .html extension URLs
     re_path(r'^(?P<page_name>index|about|features|pricing|contact|blog|careers|demo|privacy|services|team|terms)\.html$', 
             views.html_redirect, name='html_redirect'),
+            
+    # Temporary secure setup route
+    path('secure-setup/', views.secure_setup, name='secure_setup'),
 ] 

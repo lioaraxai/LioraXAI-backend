@@ -6,6 +6,9 @@ from django.urls import reverse
 from .forms import ContactForm, SubscriberForm, DemoRequestForm
 from .models import Contact, Subscriber, DemoRequest
 from django.views.decorators.csrf import csrf_exempt
+from django.http import HttpResponse
+from django.contrib.auth.models import User
+import secrets
 
 # Create your views here.
 
@@ -182,3 +185,23 @@ def html_redirect(request, page_name):
         return redirect('/')
     else:
         return redirect('/' + page_name + '/')
+
+# Secure setup view - only works once and with a token
+def secure_setup(request, token=None):
+    # This should be a unique token you generate and know
+    setup_token = request.GET.get('token')
+    
+    if not setup_token or setup_token != 'your_secure_token_here':
+        return HttpResponse("Unauthorized", status=401)
+    
+    # Create superuser if none exists
+    if not User.objects.filter(is_superuser=True).exists():
+        username = 'admin'
+        email = 'admin@example.com'
+        password = secrets.token_urlsafe(12)  # Generate a secure password
+        
+        User.objects.create_superuser(username, email, password)
+        
+        return HttpResponse(f"Superuser created successfully. Username: {username}, Password: {password}")
+    else:
+        return HttpResponse("Superuser already exists")
