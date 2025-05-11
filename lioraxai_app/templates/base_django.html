@@ -254,18 +254,18 @@
                 darkModeToggle.innerHTML = isDarkMode ? 
                     '<i class="bi bi-sun"></i>' : 
                     '<i class="bi bi-moon"></i>';
-                
-                // Save preference to localStorage
+                    
+                    // Save preference to localStorage
                 localStorage.setItem('lioraxai-dark-mode', isDarkMode ? 'dark' : 'light');
-            });
-            
+                });
+                
             // Apply saved preference on load
             const savedMode = localStorage.getItem('lioraxai-dark-mode');
-            if (savedMode === 'dark') {
+                if (savedMode === 'dark') {
                 document.body.classList.add('dark-mode');
                 darkModeToggle.innerHTML = '<i class="bi bi-sun"></i>';
+                }
             }
-        }
     </script>
     {% block extra_js %}{% endblock %}
 </body>

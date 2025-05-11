@@ -2,7 +2,7 @@
 
 # Activate the virtual environment
 if [ -d "venv" ]; then
-    source venv/bin/activate
+source venv/bin/activate
 else
     echo "Virtual environment not found. You can create one with: python -m venv venv"
     echo "Then install dependencies with: pip install -r requirements.txt"

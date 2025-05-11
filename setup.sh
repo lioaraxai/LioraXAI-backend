@@ -112,9 +112,9 @@ if [ "$1" == "--with-website" ]; then
     if [ ! -d "website" ]; then
         echo -e "${GREEN}Cloning website repository...${NC}"
         git clone https://github.com/lioaraxai/LioraXAI.git website
-        
-        # Copy CSS files
-        if [ -f "website/docs/css/mobile.css" ]; then
+    
+    # Copy CSS files
+    if [ -f "website/docs/css/mobile.css" ]; then
             cp website/docs/css/mobile.css lioraxai_app/static/css/
             echo -e "${GREEN}✓ CSS files copied from website${NC}"
         fi
@@ -138,16 +138,16 @@ if [ "$1" == "--with-website" ]; then
         if [ -f "website/docs/css/mobile.css" ]; then
             cp website/docs/css/mobile.css lioraxai_app/static/css/
             echo -e "${GREEN}✓ CSS files updated${NC}"
-        fi
-        
-        # Copy images
-        if [ -d "website/docs/static/images" ]; then
+    fi
+    
+    # Copy images
+    if [ -d "website/docs/static/images" ]; then
             cp -r website/docs/static/images/* lioraxai_app/static/images/ 2>/dev/null
             echo -e "${GREEN}✓ Images updated${NC}"
-        fi
-        
-        # Copy JavaScript files
-        if [ -d "website/docs/js" ]; then
+    fi
+    
+    # Copy JavaScript files
+    if [ -d "website/docs/js" ]; then
             cp website/docs/js/* lioraxai_app/static/js/ 2>/dev/null
             echo -e "${GREEN}✓ JavaScript files updated${NC}"
         fi
