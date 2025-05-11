@@ -1,14 +1,13 @@
 {% load static %}
-<form method="post" action="{% url 'index' %}" class="subscribe-form">
+<form action="https://formspree.io/f/movdnkde" method="POST" class="newsletter-form">
     {% csrf_token %}
-    <div class="input-group">
-        {{ subscriber_form.email }}
-        <input type="hidden" name="subscribe" value="1">
-        <button type="submit" class="btn btn-primary-custom">Subscribe</button>
+    <div class="form-group">
+        <input type="email" name="email" placeholder="Enter your email" class="form-control" required>
     </div>
-    {% if subscriber_form.email.errors %}
-        <div class="text-danger mt-1">
-            {{ subscriber_form.email.errors }}
-        </div>
-    {% endif %}
+    
+    <!-- Formspree redirect -->
+    <input type="hidden" name="_next" value="{{ request.build_absolute_uri }}?subscribed=true">
+    <input type="hidden" name="_subject" value="New Newsletter Subscription">
+    
+    <button type="submit" class="btn btn-primary">Subscribe</button>
 </form> 

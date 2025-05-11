@@ -1,64 +1,30 @@
 {% load static %}
-<form method="post" action="{% url 'contact' %}" class="contact-form">
+<form action="https://formspree.io/f/xyzwdnkk" method="POST" class="contact-form">
     {% csrf_token %}
-    <div class="row g-4">
-        <div class="col-md-6">
-            <div class="form-group">
-                {{ contact_form.name }}
-                {% if contact_form.name.errors %}
-                    <div class="text-danger mt-1">
-                        {{ contact_form.name.errors }}
-                    </div>
-                {% endif %}
-            </div>
-        </div>
-        <div class="col-md-6">
-            <div class="form-group">
-                {{ contact_form.email }}
-                {% if contact_form.email.errors %}
-                    <div class="text-danger mt-1">
-                        {{ contact_form.email.errors }}
-                    </div>
-                {% endif %}
-            </div>
-        </div>
-        <div class="col-md-6">
-            <div class="form-group">
-                {{ contact_form.company }}
-                {% if contact_form.company.errors %}
-                    <div class="text-danger mt-1">
-                        {{ contact_form.company.errors }}
-                    </div>
-                {% endif %}
-            </div>
-        </div>
-        <div class="col-md-6">
-            <div class="form-group">
-                {{ contact_form.phone }}
-                {% if contact_form.phone.errors %}
-                    <div class="text-danger mt-1">
-                        {{ contact_form.phone.errors }}
-                    </div>
-                {% endif %}
-            </div>
-        </div>
-        <div class="col-12">
-            <div class="form-group">
-                {{ contact_form.message }}
-                {% if contact_form.message.errors %}
-                    <div class="text-danger mt-1">
-                        {{ contact_form.message.errors }}
-                    </div>
-                {% endif %}
-            </div>
-        </div>
-        <div class="col-12">
-            <button type="submit" class="btn btn-primary-custom py-3 px-4 rounded-3">
-                <span class="d-flex align-items-center gap-2">
-                    <span>Send Message</span>
-                    <i class="bi bi-arrow-right"></i>
-                </span>
-            </button>
-        </div>
+    <div class="form-group">
+        <label for="name">Name</label>
+        <input type="text" id="name" name="name" class="form-control" required>
     </div>
+    <div class="form-group">
+        <label for="email">Email</label>
+        <input type="email" id="email" name="email" class="form-control" required>
+    </div>
+    <div class="form-group">
+        <label for="company">Company</label>
+        <input type="text" id="company" name="company" class="form-control">
+    </div>
+    <div class="form-group">
+        <label for="phone">Phone</label>
+        <input type="tel" id="phone" name="phone" class="form-control">
+    </div>
+    <div class="form-group">
+        <label for="message">Message</label>
+        <textarea id="message" name="message" class="form-control" rows="4" required></textarea>
+    </div>
+    
+    <!-- Formspree redirect -->
+    <input type="hidden" name="_next" value="{{ request.build_absolute_uri }}?success=true">
+    <input type="hidden" name="_subject" value="New Contact Form Submission">
+    
+    <button type="submit" class="btn btn-primary">Submit</button>
 </form> 

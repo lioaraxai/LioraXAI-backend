@@ -13,7 +13,10 @@ import secrets
 # Create your views here.
 
 def index(request):
-    # Handle newsletter subscription
+    if 'subscribed' in request.GET:
+        messages.success(request, "Thank you for subscribing to our newsletter!")
+    
+    # Handle newsletter subscription for non-Formspree fallback
     if request.method == 'POST' and 'subscribe' in request.POST:
         form = SubscriberForm(request.POST)
         if form.is_valid():
@@ -33,6 +36,12 @@ def pricing(request):
 
 @csrf_exempt  # Temporarily exempt CSRF for static site integration
 def contact(request):
+    # Display success message when redirected from Formspree
+    if 'success' in request.GET:
+        messages.success(request, "Thank you for contacting us! We'll get back to you soon.")
+        return render(request, 'contact.html')
+    
+    # Legacy processing for non-Formspree fallback
     print(f"Contact form request received. Method: {request.method}")
     
     # Get form data from either GET or POST
@@ -91,6 +100,12 @@ def careers(request):
 
 @csrf_exempt  # Temporarily exempt CSRF for static site integration
 def demo(request):
+    # Display success message when redirected from Formspree
+    if 'success' in request.GET:
+        messages.success(request, "Thank you for requesting a demo! We'll be in touch shortly.")
+        return render(request, 'demo.html')
+    
+    # Legacy processing for non-Formspree fallback
     print(f"Demo request received. Method: {request.method}")
     
     # Get form data from either POST or GET
