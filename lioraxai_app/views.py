@@ -210,7 +210,7 @@ def secure_setup(request, token=None):
 def db_check(request):
     try:
         # Test database connection
-        from django.db import connections
+        from django.db import connections, connection
         from django.db.utils import OperationalError
         
         db_conn = connections['default']
@@ -224,6 +224,47 @@ def db_check(request):
                 db_status = "Connected but query returned no results"
         except OperationalError as e:
             db_status = f"Error: {str(e)}"
+        
+        # Check if auth_user table exists
+        tables = []
+        try:
+            with connection.cursor() as cursor:
+                cursor.execute("""
+                    SELECT table_name FROM information_schema.tables 
+                    WHERE table_schema = 'public'
+                """)
+                tables = [row[0] for row in cursor.fetchall()]
+                
+                # Check specifically for auth_user
+                cursor.execute("""
+                    SELECT EXISTS (
+                       SELECT FROM information_schema.tables 
+                       WHERE table_schema = 'public'
+                       AND table_name = 'auth_user'
+                    );
+                """)
+                auth_table_exists = cursor.fetchone()[0]
+                
+                if not auth_table_exists:
+                    # Run migrations for auth app specifically
+                    from django.core.management import call_command
+                    call_command('migrate', 'auth', '--noinput')
+                    call_command('migrate', '--noinput')
+                    
+                    # Check again
+                    cursor.execute("""
+                        SELECT EXISTS (
+                           SELECT FROM information_schema.tables 
+                           WHERE table_schema = 'public'
+                           AND table_name = 'auth_user'
+                        );
+                    """)
+                    auth_table_exists_now = cursor.fetchone()[0]
+                    tables_status = f"Auth tables were missing. Migration ran: {auth_table_exists_now}"
+                else:
+                    tables_status = "Auth tables exist"
+        except Exception as e:
+            tables_status = f"Error checking tables: {str(e)}"
             
         # Check for superuser
         from django.contrib.auth.models import User
@@ -236,26 +277,13 @@ def db_check(request):
             
         # Create admin user if none exists
         admin_created = False
-        if not User.objects.filter(username='admin').exists():
-            try:
+        try:
+            if not User.objects.filter(username='admin').exists():
                 User.objects.create_superuser('admin', 'admin@example.com', 'Lioraxai@123!')
                 admin_created = True
-            except Exception as e:
-                admin_created = f"Error creating admin: {str(e)}"
-                
-        # Check tables
-        from django.db import connection
-        tables = []
-        try:
-            with connection.cursor() as cursor:
-                cursor.execute("""
-                    SELECT table_name FROM information_schema.tables 
-                    WHERE table_schema = 'public'
-                """)
-                tables = [row[0] for row in cursor.fetchall()]
         except Exception as e:
-            tables = [f"Error listing tables: {str(e)}"]
-            
+            admin_created = f"Error creating admin: {str(e)}"
+                
         # Run migrations
         import sys
         from io import StringIO
@@ -273,22 +301,36 @@ def db_check(request):
             <h2>Connection</h2>
             <p>{db_status}</p>
             
-            <h2>Superusers</h2>
-            <p>{superuser_info}</p>
-            
-            <h2>Admin Creation</h2>
-            <p>{'Admin user created successfully' if admin_created == True else admin_created if isinstance(admin_created, str) else 'Admin user already exists'}</p>
+            <h2>Database Tables Status</h2>
+            <p>{tables_status}</p>
             
             <h2>Database Tables</h2>
             <ul>
                 {''.join(f'<li>{table}</li>' for table in tables)}
             </ul>
             
+            <h2>Superusers</h2>
+            <p>{superuser_info}</p>
+            
+            <h2>Admin Creation</h2>
+            <p>{'Admin user created successfully' if admin_created == True else admin_created if isinstance(admin_created, str) else 'Admin user already exists'}</p>
+            
             <h2>Migrations</h2>
             <pre>{migrations}</pre>
             
             <h2>Login Link</h2>
             <p><a href="/admin/">Try Admin Login</a> (admin / Lioraxai@123!)</p>
+            
+            <h2>Run Migrations</h2>
+            <p><a href="/db-check/?run_migrations=1">Force Run Migrations</a></p>
         """, content_type="text/html")
     except Exception as e:
+        # Fallback - try to run migrations directly
+        if request.GET.get('run_migrations') == '1':
+            try:
+                from django.core.management import call_command
+                call_command('migrate', '--noinput')
+                return HttpResponse("Migrations attempted directly. <a href='/db-check/'>Check Again</a>")
+            except Exception as sub_e:
+                return HttpResponse(f"Migration error: {str(sub_e)}")
         return HttpResponse(f"Diagnostic error: {str(e)}", content_type="text/html")
