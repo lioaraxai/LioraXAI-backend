@@ -117,9 +117,6 @@ JAZZMIN_UI_TWEAKS = {
     }
 }
 
-# Ensure jazzmin is the first item in INSTALLED_APPS
-INSTALLED_APPS = ['jazzmin'] + list(INSTALLED_APPS)
-
 # Override SECRET_KEY in production
 if 'SECRET_KEY' in os.environ:
     SECRET_KEY = os.environ['SECRET_KEY'] 
