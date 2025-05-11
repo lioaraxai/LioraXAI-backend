@@ -1,13 +1,21 @@
 {% load static %}
-<form action="https://formspree.io/f/movdnkde" method="POST" class="newsletter-form">
+<form action="https://api.web3forms.com/submit" method="POST" class="newsletter-form">
     {% csrf_token %}
+    <!-- Web3Forms Access Key -->
+    <input type="hidden" name="access_key" value="54a611e8-9fc4-4152-9d10-4e11d093c942">
+    
     <div class="form-group">
         <input type="email" name="email" placeholder="Enter your email" class="form-control" required>
     </div>
     
-    <!-- Formspree redirect -->
-    <input type="hidden" name="_next" value="{{ request.build_absolute_uri }}?subscribed=true">
-    <input type="hidden" name="_subject" value="New Newsletter Subscription">
+    <!-- Subject field for the email -->
+    <input type="hidden" name="subject" value="New Newsletter Subscription">
+    
+    <!-- Redirect after submission -->
+    <input type="hidden" name="redirect" value="{{ request.build_absolute_uri }}?subscribed=true">
+    
+    <!-- Honeypot Spam Protection -->
+    <input type="checkbox" name="botcheck" class="hidden" style="display: none;">
     
     <button type="submit" class="btn btn-primary">Subscribe</button>
 </form> 

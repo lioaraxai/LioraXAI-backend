@@ -1,6 +1,9 @@
 {% load static %}
-<form action="https://formspree.io/f/xeoglreg" method="POST" class="demo-form">
+<form action="https://api.web3forms.com/submit" method="POST" class="demo-form">
     {% csrf_token %}
+    <!-- Web3Forms Access Key -->
+    <input type="hidden" name="access_key" value="54a611e8-9fc4-4152-9d10-4e11d093c942">
+    
     <div class="form-group">
         <label for="name">Name</label>
         <input type="text" id="name" name="name" class="form-control" required>
@@ -32,9 +35,14 @@
         <textarea id="message" name="message" class="form-control" rows="4"></textarea>
     </div>
     
-    <!-- Formspree redirect -->
-    <input type="hidden" name="_next" value="{{ request.build_absolute_uri }}?success=true">
-    <input type="hidden" name="_subject" value="New Demo Request Submission">
+    <!-- Subject field for the email -->
+    <input type="hidden" name="subject" value="New Demo Request Submission">
+    
+    <!-- Redirect after submission -->
+    <input type="hidden" name="redirect" value="{{ request.build_absolute_uri }}?success=true">
+    
+    <!-- Honeypot Spam Protection -->
+    <input type="checkbox" name="botcheck" class="hidden" style="display: none;">
     
     <button type="submit" class="btn btn-primary">Request Demo</button>
 </form> 
