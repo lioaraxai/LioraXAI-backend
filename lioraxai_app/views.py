@@ -202,7 +202,7 @@ def secure_setup(request, token=None):
         
         User.objects.create_superuser(username, email, password)
         
-        return HttpResponse(f"Superuser created successfully. Username: {username}, Password: {password}")
+        return HttpResponse(f"Superuser created successfully. Username: {username}, Password: {password}<br><br>IMPORTANT: This password will only be shown once! Save it immediately.")
     else:
         return HttpResponse("Superuser already exists")
 
@@ -278,9 +278,13 @@ def db_check(request):
         # Create admin user if none exists
         admin_created = False
         try:
-            if not User.objects.filter(username='admin').exists():
-                User.objects.create_superuser('admin', 'admin@example.com', 'Lioraxai@123!')
-                admin_created = True
+            if not User.objects.filter(username='admin').exists() and request.GET.get('create_admin') == '1':
+                # Generate secure random password
+                import secrets
+                admin_password = secrets.token_urlsafe(12)
+                
+                User.objects.create_superuser('admin', 'admin@example.com', admin_password)
+                admin_created = f"Admin user created successfully with password: {admin_password}<br>IMPORTANT: Save this password now! It won't be shown again."
         except Exception as e:
             admin_created = f"Error creating admin: {str(e)}"
                 
@@ -313,16 +317,15 @@ def db_check(request):
             <p>{superuser_info}</p>
             
             <h2>Admin Creation</h2>
-            <p>{'Admin user created successfully' if admin_created == True else admin_created if isinstance(admin_created, str) else 'Admin user already exists'}</p>
+            <p>{'Admin user already exists' if not admin_created else admin_created}</p>
             
             <h2>Migrations</h2>
             <pre>{migrations}</pre>
             
-            <h2>Login Link</h2>
-            <p><a href="/admin/">Try Admin Login</a> (admin / Lioraxai@123!)</p>
-            
-            <h2>Run Migrations</h2>
+            <h2>Actions</h2>
+            <p><a href="/admin/">Go to Admin Login</a></p>
             <p><a href="/db-check/?run_migrations=1">Force Run Migrations</a></p>
+            <p><a href="/db-check/?create_admin=1">Create Admin User</a> (only if none exists)</p>
         """, content_type="text/html")
     except Exception as e:
         # Fallback - try to run migrations directly

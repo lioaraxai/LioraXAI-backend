@@ -5,6 +5,8 @@ set -o errexit
 
 echo "Installing dependencies..."
 pip install -r requirements.txt
+pip install django-admin-interface
+pip install django-jazzmin
 
 # Run setup script (without website since we'll use the included static files)
 echo "Running setup script..."
@@ -25,6 +27,8 @@ echo "Attempting to create admin user..."
 cat << EOF | python manage.py shell
 from django.contrib.auth.models import User
 from django.db import connection
+import os
+import secrets
 
 # First check if auth_user table exists
 with connection.cursor() as cursor:
@@ -50,8 +54,11 @@ try:
     if User.objects.filter(username='admin').exists():
         print("Admin user already exists")
     else:
-        User.objects.create_superuser('admin', 'admin@example.com', 'Lioraxai@123!')
-        print("Admin user created successfully")
+        # Generate a secure random password
+        admin_password = os.environ.get('ADMIN_PASSWORD') or secrets.token_urlsafe(12)
+        User.objects.create_superuser('admin', 'admin@example.com', admin_password)
+        print(f"Admin user created successfully with password: {admin_password}")
+        print("IMPORTANT: Save this password securely and change it immediately after login!")
 except Exception as e:
     print(f"Error creating user: {e}")
 EOF
