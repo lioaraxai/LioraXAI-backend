@@ -3,10 +3,13 @@
 # Exit on error
 set -o errexit
 
-echo "Installing dependencies..."
-pip install -r requirements.txt
-pip install django-admin-interface
-pip install django-jazzmin
+echo "Installing Poetry..."
+curl -sSL https://install.python-poetry.org | python3 -
+export PATH="$HOME/.local/bin:$PATH"
+
+echo "Installing dependencies with Poetry..."
+poetry config virtualenvs.create false
+poetry install --no-interaction --no-ansi
 
 # Run setup script (without website since we'll use the included static files)
 echo "Running setup script..."
