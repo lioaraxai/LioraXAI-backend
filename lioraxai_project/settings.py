@@ -117,7 +117,7 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 STATICFILES_DIRS = [
-    BASE_DIR / 'Website/docs',  # Main docs directory
+    BASE_DIR / 'lioraxai_app/static',  # New integrated static directory
 ]
 
 # For serving media files

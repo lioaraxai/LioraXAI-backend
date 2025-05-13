@@ -1,0 +1,495 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Services | LioraXAI</title>
+    <!-- Bootstrap 5.3 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.2/font/bootstrap-icons.min.css">
+    <!-- AOS Animation Library -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <!-- Mobile responsiveness -->
+    <link href="css/mobile.css" rel="stylesheet">
+    <style>
+        /* Custom styles */
+        :root {
+            --primary: #4f46e5;
+            --primary-light: #818cf8;
+            --primary-dark: #4338ca;
+            --text-color: #111827;
+            --text-light: #6b7280;
+            --background-light: #f9fafb;
+            --background-dark: #111827;
+        }
+        
+        body {
+            font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+            color: var(--text-color);
+            line-height: 1.5;
+            overflow-x: hidden;
+        }
+        
+        .mono {
+            font-family: 'IBM Plex Mono', ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New', monospace;
+        }
+        
+        .bg-primary-custom {
+            background-color: var(--primary);
+        }
+        
+        .text-primary-custom {
+            color: var(--primary);
+        }
+        
+        .btn-primary-custom {
+            background-color: var(--primary);
+            border-color: var(--primary);
+        }
+        
+        .btn-primary-custom:hover {
+            background-color: var(--primary-dark);
+            border-color: var(--primary-dark);
+        }
+        
+        .btn-outline-primary-custom {
+            color: var(--primary);
+            border-color: var(--primary);
+        }
+        
+        .btn-outline-primary-custom:hover {
+            background-color: var(--primary);
+            color: white;
+        }
+        
+        .navbar {
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+        }
+        
+        .hero-section {
+            padding: 80px 0;
+            background-color: var(--primary);
+            color: white;
+        }
+        
+        .service-card {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border-radius: 1rem;
+        }
+        
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+        }
+        
+        .process-step:hover .step-number {
+            transform: scale(1.1);
+            background-color: var(--primary-dark);
+        }
+        
+        .step-number {
+            transition: all 0.3s ease;
+        }
+        
+        /* Dark mode styles */
+        @media (prefers-color-scheme: dark) {
+            body.dark-mode {
+                background-color: var(--background-dark);
+                color: #f3f4f6;
+            }
+            
+            .dark-mode .bg-white-dark {
+                background-color: #1f2937 !important;
+                color: #f3f4f6;
+            }
+            
+            .dark-mode .text-dark-light {
+                color: #d1d5db !important;
+            }
+            
+            .dark-mode .border-light-dark {
+                border-color: #374151 !important;
+            }
+            
+            .dark-mode .bg-light {
+                background-color: #111827 !important;
+            }
+            
+            .dark-mode .card {
+                background-color: #1f2937;
+                color: #f3f4f6;
+            }
+            
+            .dark-mode .text-muted {
+                color: #9ca3af !important;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-white sticky-top">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">
+                <img src="https://via.placeholder.com/150x35" alt="LioraXAI Logo" width="150" height="35">
+            </a>
+            
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="features.html">Features</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="pricing.html">Pricing</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="about.html">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link btn btn-primary-custom text-white px-4 ms-2" href="contact.html">Contact Us</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="hero-section">
+            <div class="container text-center" data-aos="fade-up">
+                <h1 class="display-4 fw-bold mb-4">Our Services</h1>
+                <p class="lead mb-0 col-md-8 mx-auto">
+                    Comprehensive AI-powered knowledge management solutions tailored for your business
+                </p>
+            </div>
+        </section>
+
+        <!-- Services Overview Section -->
+        <section class="py-5 py-md-8">
+            <div class="container">
+                <div class="text-center mb-5" data-aos="fade-up">
+                    <h2 class="display-5 fw-bold mb-3">How We Help Your Business</h2>
+                    <p class="lead mb-0 col-lg-8 mx-auto">
+                        LioraXAI provides end-to-end knowledge management solutions from setup to optimization
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Core Services Section -->
+        <section class="py-5 py-md-8 bg-light">
+            <div class="container">
+                <div class="row g-4">
+                    <!-- Service 1 -->
+                    <div class="col-md-6" data-aos="fade-up" data-aos-delay="100">
+                        <div class="card h-100 border-0 shadow-sm p-4 service-card">
+                            <div class="text-primary-custom mb-4">
+                                <i class="bi bi-lightbulb-fill fs-1"></i>
+                            </div>
+                            <h3 class="h4 fw-bold mb-3">AI Implementation</h3>
+                            <p class="text-muted mb-4">
+                                We deploy cutting-edge AI technology to transform your organization's knowledge into an intuitive, accessible resource.
+                            </p>
+                            <ul class="list-unstyled mb-0">
+                                <li class="d-flex align-items-center mb-2">
+                                    <i class="bi bi-check-circle-fill text-primary-custom me-2"></i>
+                                    <span>Custom AI model training</span>
+                                </li>
+                                <li class="d-flex align-items-center mb-2">
+                                    <i class="bi bi-check-circle-fill text-primary-custom me-2"></i>
+                                    <span>Natural language processing</span>
+                                </li>
+                                <li class="d-flex align-items-center">
+                                    <i class="bi bi-check-circle-fill text-primary-custom me-2"></i>
+                                    <span>Knowledge extraction algorithms</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <!-- Service 2 -->
+                    <div class="col-md-6" data-aos="fade-up" data-aos-delay="200">
+                        <div class="card h-100 border-0 shadow-sm p-4 service-card">
+                            <div class="text-primary-custom mb-4">
+                                <i class="bi bi-chat-dots-fill fs-1"></i>
+                            </div>
+                            <h3 class="h4 fw-bold mb-3">Chatbot Integration</h3>
+                            <p class="text-muted mb-4">
+                                We build custom conversational interfaces that make accessing information as simple as asking a question.
+                            </p>
+                            <ul class="list-unstyled mb-0">
+                                <li class="d-flex align-items-center mb-2">
+                                    <i class="bi bi-check-circle-fill text-primary-custom me-2"></i>
+                                    <span>Multi-platform deployment</span>
+                                </li>
+                                <li class="d-flex align-items-center mb-2">
+                                    <i class="bi bi-check-circle-fill text-primary-custom me-2"></i>
+                                    <span>Personalized user experiences</span>
+                                </li>
+                                <li class="d-flex align-items-center">
+                                    <i class="bi bi-check-circle-fill text-primary-custom me-2"></i>
+                                    <span>Continuous improvement cycles</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <!-- Service 3 -->
+                    <div class="col-md-6" data-aos="fade-up" data-aos-delay="300">
+                        <div class="card h-100 border-0 shadow-sm p-4 service-card">
+                            <div class="text-primary-custom mb-4">
+                                <i class="bi bi-database-fill fs-1"></i>
+                            </div>
+                            <h3 class="h4 fw-bold mb-3">Data Integration</h3>
+                            <p class="text-muted mb-4">
+                                We connect your knowledge base with existing systems, ensuring seamless information flow across your organization.
+                            </p>
+                            <ul class="list-unstyled mb-0">
+                                <li class="d-flex align-items-center mb-2">
+                                    <i class="bi bi-check-circle-fill text-primary-custom me-2"></i>
+                                    <span>API development</span>
+                                </li>
+                                <li class="d-flex align-items-center mb-2">
+                                    <i class="bi bi-check-circle-fill text-primary-custom me-2"></i>
+                                    <span>CRM and ERP integration</span>
+                                </li>
+                                <li class="d-flex align-items-center">
+                                    <i class="bi bi-check-circle-fill text-primary-custom me-2"></i>
+                                    <span>Custom workflow automation</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <!-- Service 4 -->
+                    <div class="col-md-6" data-aos="fade-up" data-aos-delay="400">
+                        <div class="card h-100 border-0 shadow-sm p-4 service-card">
+                            <div class="text-primary-custom mb-4">
+                                <i class="bi bi-people-fill fs-1"></i>
+                            </div>
+                            <h3 class="h4 fw-bold mb-3">Training & Support</h3>
+                            <p class="text-muted mb-4">
+                                We ensure your team gets the most from your knowledge base with comprehensive training and dedicated support.
+                            </p>
+                            <ul class="list-unstyled mb-0">
+                                <li class="d-flex align-items-center mb-2">
+                                    <i class="bi bi-check-circle-fill text-primary-custom me-2"></i>
+                                    <span>Customized workshop sessions</span>
+                                </li>
+                                <li class="d-flex align-items-center mb-2">
+                                    <i class="bi bi-check-circle-fill text-primary-custom me-2"></i>
+                                    <span>Technical and user documentation</span>
+                                </li>
+                                <li class="d-flex align-items-center">
+                                    <i class="bi bi-check-circle-fill text-primary-custom me-2"></i>
+                                    <span>24/7 dedicated support</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Process Section -->
+        <section class="py-5 py-md-8">
+            <div class="container">
+                <div class="text-center mb-5" data-aos="fade-up">
+                    <h2 class="display-5 fw-bold mb-3">Our Process</h2>
+                    <p class="lead mb-0 col-lg-8 mx-auto">
+                        A transparent, collaborative approach to implementing AI solutions
+                    </p>
+                </div>
+                
+                <div class="row">
+                    <div class="col-lg-10 mx-auto">
+                        <!-- Step 1 -->
+                        <div class="d-flex flex-column flex-md-row mb-5 process-step" data-aos="fade-up" data-aos-delay="100">
+                            <div class="me-md-4 mb-3 mb-md-0">
+                                <div class="d-flex align-items-center justify-content-center rounded-circle bg-primary-custom text-white step-number" style="width: 64px; height: 64px; font-weight: bold; font-size: 24px;">1</div>
+                            </div>
+                            <div>
+                                <h3 class="h4 fw-bold mb-3">Discovery</h3>
+                                <p class="text-muted mb-0">
+                                    We start by understanding your knowledge management needs, existing systems, and business goals. This initial phase helps us map out the scope and requirements for your solution.
+                                </p>
+                            </div>
+                        </div>
+                        
+                        <!-- Step 2 -->
+                        <div class="d-flex flex-column flex-md-row mb-5 process-step" data-aos="fade-up" data-aos-delay="200">
+                            <div class="me-md-4 mb-3 mb-md-0">
+                                <div class="d-flex align-items-center justify-content-center rounded-circle bg-primary-custom text-white step-number" style="width: 64px; height: 64px; font-weight: bold; font-size: 24px;">2</div>
+                            </div>
+                            <div>
+                                <h3 class="h4 fw-bold mb-3">Design & Planning</h3>
+                                <p class="text-muted mb-0">
+                                    Based on your requirements, we design a tailored knowledge management solution. We define the architecture, integration points, data flow, and user experience elements.
+                                </p>
+                            </div>
+                        </div>
+                        
+                        <!-- Step 3 -->
+                        <div class="d-flex flex-column flex-md-row mb-5 process-step" data-aos="fade-up" data-aos-delay="300">
+                            <div class="me-md-4 mb-3 mb-md-0">
+                                <div class="d-flex align-items-center justify-content-center rounded-circle bg-primary-custom text-white step-number" style="width: 64px; height: 64px; font-weight: bold; font-size: 24px;">3</div>
+                            </div>
+                            <div>
+                                <h3 class="h4 fw-bold mb-3">Implementation</h3>
+                                <p class="text-muted mb-0">
+                                    Our team works to implement the solution, integrating with your existing systems, training AI models on your data, and building out user interfaces. We follow an agile approach to ensure constant feedback and adaptation.
+                                </p>
+                            </div>
+                        </div>
+                        
+                        <!-- Step 4 -->
+                        <div class="d-flex flex-column flex-md-row mb-5 process-step" data-aos="fade-up" data-aos-delay="400">
+                            <div class="me-md-4 mb-3 mb-md-0">
+                                <div class="d-flex align-items-center justify-content-center rounded-circle bg-primary-custom text-white step-number" style="width: 64px; height: 64px; font-weight: bold; font-size: 24px;">4</div>
+                            </div>
+                            <div>
+                                <h3 class="h4 fw-bold mb-3">Testing & Refinement</h3>
+                                <p class="text-muted mb-0">
+                                    We conduct thorough testing to ensure the solution performs as expected. This includes user acceptance testing, performance optimization, and fine-tuning of AI models for accuracy.
+                                </p>
+                            </div>
+                        </div>
+                        
+                        <!-- Step 5 -->
+                        <div class="d-flex flex-column flex-md-row process-step" data-aos="fade-up" data-aos-delay="500">
+                            <div class="me-md-4 mb-3 mb-md-0">
+                                <div class="d-flex align-items-center justify-content-center rounded-circle bg-primary-custom text-white step-number" style="width: 64px; height: 64px; font-weight: bold; font-size: 24px;">5</div>
+                            </div>
+                            <div>
+                                <h3 class="h4 fw-bold mb-3">Launch & Support</h3>
+                                <p class="text-muted mb-0">
+                                    After successful testing, we roll out the solution to your organization, provide training, and offer ongoing support to ensure your team gets the most from the platform.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- CTA Section -->
+        <section class="py-5 py-md-8 bg-primary-custom text-white">
+            <div class="container text-center" data-aos="fade-up">
+                <h2 class="display-5 fw-bold mb-4">Ready to Transform Your Knowledge Management?</h2>
+                <p class="lead mb-5 col-lg-8 mx-auto">
+                    Contact us today to discuss how our AI-powered solutions can help your organization access and leverage its knowledge more effectively.
+                </p>
+                <div class="d-flex flex-column flex-sm-row gap-3 justify-content-center">
+                    <a href="contact.html" class="btn btn-light btn-lg px-4 py-3 fw-medium">
+                        Schedule a Consultation
+                    </a>
+                    <a href="pricing.html" class="btn btn-outline-light btn-lg px-4 py-3 fw-medium">
+                        View Pricing
+                    </a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-light py-5">
+        <div class="container">
+            <div class="row g-4">
+                <div class="col-lg-3 col-md-6">
+                    <h5 class="fw-bold mb-3">LioraXAI</h5>
+                    <p class="text-muted mb-4">
+                        Transform your company's data into an interactive chatbot. Streamline onboarding and access information instantly.
+                    </p>
+                </div>
+                
+                <div class="col-lg-3 col-md-6">
+                    <h5 class="fw-bold mb-3">Product</h5>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><a href="features.html" class="text-decoration-none text-muted">Features</a></li>
+                        <li class="mb-2"><a href="pricing.html" class="text-decoration-none text-muted">Pricing</a></li>
+                        <li class="mb-2"><a href="integrations.html" class="text-decoration-none text-muted">Integrations</a></li>
+                        <li class="mb-2"><a href="case-studies.html" class="text-decoration-none text-muted">Case Studies</a></li>
+                    </ul>
+                </div>
+                
+                <div class="col-lg-3 col-md-6">
+                    <h5 class="fw-bold mb-3">Company</h5>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><a href="about.html" class="text-decoration-none text-muted">About</a></li>
+                        <li class="mb-2"><a href="team.html" class="text-decoration-none text-muted">Team</a></li>
+                        <li class="mb-2"><a href="careers.html" class="text-decoration-none text-muted">Careers</a></li>
+                        <li class="mb-2"><a href="contact.html" class="text-decoration-none text-muted">Contact</a></li>
+                    </ul>
+                </div>
+                
+                <div class="col-lg-3 col-md-6">
+                    <h5 class="fw-bold mb-3">Resources</h5>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><a href="blog.html" class="text-decoration-none text-muted">Blog</a></li>
+                        <li class="mb-2"><a href="documentation.html" class="text-decoration-none text-muted">Documentation</a></li>
+                        <li class="mb-2"><a href="privacy.html" class="text-decoration-none text-muted">Privacy Policy</a></li>
+                        <li class="mb-2"><a href="terms.html" class="text-decoration-none text-muted">Terms of Service</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="mt-5 pt-4 border-top">
+                <div class="row align-items-center">
+                    <div class="col-md-6 text-center text-md-start">
+                        <p class="text-muted mb-md-0">
+                            &copy; <span id="current-year"></span> LioraXAI. All rights reserved.
+                        </p>
+                    </div>
+                    <div class="col-md-6 text-center text-md-end">
+                        <a href="#" class="text-muted me-3">
+                            <i class="bi bi-twitter fs-5"></i>
+                        </a>
+                        <a href="#" class="text-muted">
+                            <i class="bi bi-linkedin fs-5"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    
+    <!-- Bootstrap 5.3 JS Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- AOS Animation Library -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        // Initialize AOS animation library
+        AOS.init({
+            duration: 800,
+            easing: 'ease-in-out',
+            once: true,
+            disable: window.innerWidth < 768 // Disable animations on mobile for better performance
+        });
+        
+        // Set current year in footer
+        document.getElementById('current-year').textContent = new Date().getFullYear();
+        
+        // Check for dark mode preference
+        if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+            document.body.classList.add('dark-mode');
+        }
+        
+        // Listen for dark mode changes
+        window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', event => {
+            if (event.matches) {
+                document.body.classList.add('dark-mode');
+            } else {
+                document.body.classList.remove('dark-mode');
+            }
+        });
+    </script>
+</body>
+</html> 

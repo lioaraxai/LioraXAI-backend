@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us | LioraXAI</title>
+    {% load static %}
+    <!-- Bootstrap 5.3 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.2/font/bootstrap-icons.min.css">
+    <!-- AOS Animation Library -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <!-- Mobile responsiveness -->
+    <link href="{% static 'css/mobile.css' %}" rel="stylesheet">
+    <style>
+        /* Base styles */
+        :root {
+            --primary: #4f46e5;
+            --primary-light: #818cf8;
+            --primary-dark: #4338ca;
+            --text-color: #111827;
+            --text-light: #6b7280;
+            --background-light: #f9fafb;
+            --background-dark: #111827;
+        }
+        
+        body {
+            font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+            color: var(--text-color);
+            line-height: 1.5;
+            overflow-x: hidden;
+        }
+        
+        .mono {
+            font-family: 'IBM Plex Mono', ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New', monospace;
+        }
+        
+        .bg-primary-custom {
+            background-color: var(--primary);
+        }
+        
+        .text-primary-custom {
+            color: var(--primary);
+        }
+        
+        .btn-primary-custom {
+            background-color: var(--primary);
+            border-color: var(--primary);
+        }
+        
+        .btn-primary-custom:hover {
+            background-color: var(--primary-dark);
+            border-color: var(--primary-dark);
+        }
+        
+        .btn-outline-primary-custom {
+            color: var(--primary);
+            border-color: var(--primary);
+        }
+        
+        .btn-outline-primary-custom:hover {
+            background-color: var(--primary);
+            color: white;
+        }
+        
+        .navbar {
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+        }
+        
+        .value-circle {
+            width: 4rem;
+            height: 4rem;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: rgba(79, 70, 229, 0.1);
+            color: var(--primary);
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin: 0 auto 1.5rem;
+        }
+        
+        .team-image {
+            width: 10rem;
+            height: 10rem;
+            border-radius: 50%;
+            margin: 0 auto 1.5rem;
+            overflow: hidden;
+            background-color: #6c757d;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.5rem;
+            font-weight: 700;
+        }
+        
+        /* Dark mode */
+        @media (prefers-color-scheme: dark) {
+            body {
+                color: #f3f4f6;
+                background-color: var(--background-dark);
+            }
+            
+            .navbar {
+                background-color: #1f2937 !important;
+            }
+            
+            .bg-light {
+                background-color: #1f2937 !important;
+            }
+            
+            .text-dark {
+                color: #f3f4f6 !important;
+            }
+            
+            .value-circle {
+                background-color: rgba(79, 70, 229, 0.3);
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-light bg-white sticky-top">
+            <div class="container">
+                <a class="navbar-brand" href="{% url 'index' %}">
+                    <img src="{% static 'images/logo.svg' %}" alt="LioraXAI Logo" width="150" height="35">
+                </a>
+
+                <!-- Mobile menu button -->
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <!-- Navigation -->
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ms-auto align-items-center">
+                        <li class="nav-item">
+                            <a class="nav-link" href="{% url 'index' %}">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{% url 'features' %}">Features</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{% url 'pricing' %}">Pricing</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link active" href="{% url 'about' %}">About</a>
+                        </li>
+                        <li class="nav-item ms-lg-2">
+                            <a class="nav-link btn btn-primary-custom text-white px-4" href="{% url 'contact' %}">Contact Us</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="py-5 bg-primary-custom text-white">
+            <div class="container py-5">
+                <div class="text-center" data-aos="fade-up">
+                    <h1 class="display-4 fw-bold mb-4">
+                        About LioraXAI
+                    </h1>
+                    <p class="fs-4 mb-4 mx-auto" style="max-width: 800px;">
+                        We're on a mission to make knowledge accessible and actionable for every organization.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Our Story Section -->
+        <section class="py-5">
+            <div class="container py-5">
+                <div class="row justify-content-center">
+                    <div class="col-lg-8">
+                        <div class="text-center mb-5" data-aos="fade-up">
+                            <h2 class="display-5 fw-bold mb-4">Our Story</h2>
+                            <p class="fs-5 text-secondary">
+                                Founded in 2021, LioraXAI was born from a simple observation: companies struggle to make their valuable knowledge accessible to the people who need it, when they need it.
+                            </p>
+                        </div>
+                        
+                        <div class="text-secondary" data-aos="fade-up" data-aos-delay="100">
+                            <p class="mb-4">
+                                Our founders, having worked at large enterprises and fast-growing startups, experienced firsthand the frustration of information silos and knowledge gaps. They saw how much time employees spent searching for answers, and how much productivity was lost in the process.
+                            </p>
+                            
+                            <p class="mb-4">
+                                With backgrounds in artificial intelligence, natural language processing, and enterprise software, they set out to build a solution that would transform how companies manage and access their collective knowledge.
+                            </p>
+                            
+                            <p>
+                                Today, LioraXAI helps organizations of all sizes unlock the power of their knowledge base through our AI-powered platform. Our mission is to make information instantly accessible, reducing friction and enabling teams to focus on what matters most.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Our Values Section -->
+        <section class="py-5 bg-light">
+            <div class="container py-5">
+                <div class="text-center mb-5" data-aos="fade-up">
+                    <h2 class="display-5 fw-bold mb-3">
+                        Our Values
+                    </h2>
+                    <p class="fs-5 text-secondary mx-auto" style="max-width: 800px;">
+                        These principles guide everything we do
+                    </p>
+                </div>
+                
+                <div class="row justify-content-center g-4">
+                    <!-- Value 1 -->
+                    <div class="col-md-4" data-aos="fade-up" data-aos-delay="0">
+                        <div class="text-center">
+                            <div class="value-circle">1</div>
+                            <h3 class="fs-4 fw-semibold mb-3">Accessibility First</h3>
+                            <p class="text-secondary">
+                                We believe information should be available to everyone who needs it, when they need it, without barriers or gatekeepers.
+                            </p>
+                        </div>
+                    </div>
+                    
+                    <!-- Value 2 -->
+                    <div class="col-md-4" data-aos="fade-up" data-aos-delay="100">
+                        <div class="text-center">
+                            <div class="value-circle">2</div>
+                            <h3 class="fs-4 fw-semibold mb-3">Continuous Improvement</h3>
+                            <p class="text-secondary">
+                                Like our AI, we're always learning and evolving. We embrace feedback and use it to make our product and our company better.
+                            </p>
+                        </div>
+                    </div>
+                    
+                    <!-- Value 3 -->
+                    <div class="col-md-4" data-aos="fade-up" data-aos-delay="200">
+                        <div class="text-center">
+                            <div class="value-circle">3</div>
+                            <h3 class="fs-4 fw-semibold mb-3">Customer Success</h3>
+                            <p class="text-secondary">
+                                Our customers' success is our success. We're committed to being partners in their journey toward better knowledge management.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Leadership Team Section -->
+        <section class="py-5">
+            <div class="container py-5">
+                <div class="text-center mb-5" data-aos="fade-up">
+                    <h2 class="display-5 fw-bold mb-3">
+                        Our Leadership Team
+                    </h2>
+                    <p class="fs-5 text-secondary mx-auto" style="max-width: 800px;">
+                        Meet the people driving LioraXAI's mission forward
+                    </p>
+                </div>
+                
+                <div class="row justify-content-center g-4">
+                    <!-- Team Member 1 -->
+                    <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="0">
+                        <div class="text-center">
+                            <div class="team-image">
+                                AP
+                            </div>
+                            <h3 class="fs-4 fw-semibold">Aditya Patel</h3>
+                            <p class="text-primary-custom mb-3">Co-Founder & CEO</p>
+                            <p class="text-secondary">
+                                Former AI Lead at TechCorp with 10+ years of experience in enterprise software and artificial intelligence.
+                            </p>
+                        </div>
+                    </div>
+                    
+                    <!-- Team Member 2 -->
+                    <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="100">
+                        <div class="text-center">
+                            <div class="team-image">
+                                SR
+                            </div>
+                            <h3 class="fs-4 fw-semibold">Sarah Rodriguez</h3>
+                            <p class="text-primary-custom mb-3">Co-Founder & CTO</p>
+                            <p class="text-secondary">
+                                NLP specialist with a PhD in Computer Science and experience building ML systems at scale.
+                            </p>
+                        </div>
+                    </div>
+                    
+                    <!-- Team Member 3 -->
+                    <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="200">
+                        <div class="text-center">
+                            <div class="team-image">
+                                MJ
+                            </div>
+                            <h3 class="fs-4 fw-semibold">Michael Johnson</h3>
+                            <p class="text-primary-custom mb-3">VP of Product</p>
+                            <p class="text-secondary">
+                                Product leader with experience at high-growth SaaS companies, focused on building intuitive user experiences.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Join Us Section -->
+        <section class="py-5 bg-primary-custom text-white">
+            <div class="container py-5">
+                <div class="row align-items-center">
+                    <div class="col-lg-7 mb-4 mb-lg-0" data-aos="fade-right">
+                        <h2 class="display-5 fw-bold mb-4">Join Our Journey</h2>
+                        <p class="fs-5 mb-4">
+                            We're building a team of passionate problem-solvers who are excited about using AI to transform how companies manage knowledge.
+                        </p>
+                        <p class="fs-5 mb-4">
+                            If you're interested in tackling meaningful challenges and making a real impact, we'd love to hear from you.
+                        </p>
+                    </div>
+                    <div class="col-lg-5 text-lg-end" data-aos="fade-left">
+                        <a href="careers.html" class="btn btn-light btn-lg px-4 py-3">
+                            <span class="me-2">View Open Positions</span>
+                            <i class="bi bi-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-light py-5">
+        <div class="container">
+            <div class="row gy-4">
+                <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="0">
+                    <h5 class="mb-4 fw-semibold">LioraXAI</h5>
+                    <p class="text-muted mb-4">
+                        Transform your company's data into an interactive chatbot. Streamline onboarding and access information instantly.
+                    </p>
+                </div>
+                
+                <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="100">
+                    <h5 class="mb-4 fw-semibold">Product</h5>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><a href="features.html" class="text-decoration-none text-muted">Features</a></li>
+                        <li class="mb-2"><a href="pricing.html" class="text-decoration-none text-muted">Pricing</a></li>
+                        <li class="mb-2"><a href="integrations.html" class="text-decoration-none text-muted">Integrations</a></li>
+                        <li class="mb-2"><a href="case-studies.html" class="text-decoration-none text-muted">Case Studies</a></li>
+                    </ul>
+                </div>
+                
+                <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="200">
+                    <h5 class="mb-4 fw-semibold">Company</h5>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><a href="about.html" class="text-decoration-none text-muted">About</a></li>
+                        <li class="mb-2"><a href="team.html" class="text-decoration-none text-muted">Team</a></li>
+                        <li class="mb-2"><a href="careers.html" class="text-decoration-none text-muted">Careers</a></li>
+                        <li class="mb-2"><a href="contact.html" class="text-decoration-none text-muted">Contact</a></li>
+                    </ul>
+                </div>
+                
+                <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="300">
+                    <h5 class="mb-4 fw-semibold">Resources</h5>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><a href="blog.html" class="text-decoration-none text-muted">Blog</a></li>
+                        <li class="mb-2"><a href="documentation.html" class="text-decoration-none text-muted">Documentation</a></li>
+                        <li class="mb-2"><a href="privacy.html" class="text-decoration-none text-muted">Privacy Policy</a></li>
+                        <li class="mb-2"><a href="terms.html" class="text-decoration-none text-muted">Terms of Service</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="mt-5 pt-4 border-top">
+                <div class="row align-items-center">
+                    <div class="col-md-6 mb-3 mb-md-0">
+                        <p class="text-muted mb-0">
+                            &copy; <span id="current-year"></span> LioraXAI. All rights reserved.
+                        </p>
+                    </div>
+                    <div class="col-md-6 text-md-end">
+                        <div class="d-flex gap-3 justify-content-md-end">
+                            <a href="#" class="text-muted">
+                                <i class="bi bi-twitter-x" style="font-size: 1.25rem;"></i>
+                                <span class="visually-hidden">Twitter</span>
+                            </a>
+                            <a href="#" class="text-muted">
+                                <i class="bi bi-linkedin" style="font-size: 1.25rem;"></i>
+                                <span class="visually-hidden">LinkedIn</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    
+    <!-- Bootstrap JS Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- AOS Animation Library -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        // Initialize AOS animations
+        AOS.init({
+            duration: 800,
+            easing: 'ease-in-out',
+            once: true
+        });
+        
+        // Set current year in footer
+        document.getElementById('current-year').textContent = new Date().getFullYear();
+        
+        // Check for dark mode preference
+        if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+            document.body.classList.add('dark-mode');
+        }
+        
+        // Listen for changes in dark mode preference
+        window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', event => {
+            if (event.matches) {
+                document.body.classList.add('dark-mode');
+            } else {
+                document.body.classList.remove('dark-mode');
+            }
+        });
+    </script>
+</body>
+</html> 

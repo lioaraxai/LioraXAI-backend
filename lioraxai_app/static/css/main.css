@@ -1,0 +1,219 @@
+/* Base styles */
+:root {
+    --bs-primary: #4f46e5;
+    --bs-primary-rgb: 79, 70, 229;
+    --bs-primary-light: #818cf8;
+    --bs-primary-dark: #4338ca;
+    --bs-body-color: #111827;
+    --bs-body-color-rgb: 17, 24, 39;
+    --bs-secondary-color: #6b7280;
+    --bs-secondary-color-rgb: 107, 114, 128;
+    --bs-body-bg: #f9fafb;
+    --bs-body-bg-rgb: 249, 250, 251;
+    --bs-dark-bg: #111827;
+    --bs-dark-bg-rgb: 17, 24, 39;
+}
+
+body {
+    font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    color: var(--bs-body-color);
+    line-height: 1.5;
+}
+
+.mono {
+    font-family: 'IBM Plex Mono', ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New', monospace;
+}
+
+/* Custom gradient */
+.bg-gradient-primary {
+    background: linear-gradient(to right, #4f46e5, #7e22ce);
+}
+
+.text-primary-custom {
+    color: var(--bs-primary);
+}
+
+.bg-primary-custom {
+    background-color: var(--bs-primary);
+}
+
+.btn-primary-custom {
+    background-color: var(--bs-primary);
+    border-color: var(--bs-primary);
+}
+
+.btn-primary-custom:hover {
+    background-color: var(--bs-primary-dark);
+    border-color: var(--bs-primary-dark);
+}
+
+.btn-outline-primary-custom {
+    color: var(--bs-primary);
+    border-color: var(--bs-primary);
+}
+
+.btn-outline-primary-custom:hover {
+    background-color: var(--bs-primary);
+    color: white;
+}
+
+.chat-bubble-user {
+    background-color: #f3f4f6;
+    border-radius: 1rem;
+    border-top-left-radius: 0;
+    max-width: 80%; 
+    padding: 1rem;
+}
+
+.chat-bubble-assistant {
+    background-color: #e0e7ff;
+    border-radius: 1rem;
+    border-top-right-radius: 0;
+    max-width: 80%;
+    margin-left: auto;
+    padding: 1rem;
+}
+
+.step-circle {
+    width: 64px;
+    height: 64px;
+    background-color: var(--bs-primary);
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin: 0 auto 1.5rem;
+}
+
+.feature-icon-circle {
+    width: 48px;
+    height: 48px;
+    background-color: #e0e7ff;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1.5rem;
+}
+
+.navbar {
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+}
+
+.team-avatar {
+    height: 16rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 2.5rem;
+    font-weight: 700;
+}
+
+.team-card {
+    border-radius: 0.5rem;
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.team-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+}
+
+.social-icon {
+    transition: color 0.3s ease;
+}
+
+.value-circle {
+    width: 4rem;
+    height: 4rem;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(79, 70, 229, 0.1);
+    color: var(--bs-primary);
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin: 0 auto 1.5rem;
+}
+
+.team-image {
+    width: 10rem;
+    height: 10rem;
+    border-radius: 50%;
+    margin: 0 auto 1.5rem;
+    overflow: hidden;
+    background-color: #6c757d;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 1.5rem;
+    font-weight: 700;
+}
+
+.page-header {
+    background: linear-gradient(to right, #4f46e5, #7e22ce);
+    color: white;
+}
+
+.hover-lift {
+    transition: transform 0.2s ease-in-out;
+}
+
+.hover-lift:hover {
+    transform: translateY(-5px);
+}
+
+/* Dark mode */
+@media (prefers-color-scheme: dark) {
+    :root {
+        --bs-body-color: #f3f4f6;
+        --bs-body-bg: var(--bs-dark-bg);
+    }
+    
+    body {
+        background-color: var(--bs-dark-bg);
+    }
+    
+    .navbar {
+        background-color: #1f2937 !important;
+    }
+    
+    .footer {
+        background-color: #1f2937 !important;
+    }
+    
+    .card {
+        background-color: #1f2937 !important;
+    }
+    
+    .dark-text-light {
+        color: #f3f4f6 !important;
+    }
+    
+    .dark-bg-darker {
+        background-color: #111827 !important;
+    }
+    
+    .bg-light {
+        background-color: #1f2937 !important;
+    }
+    
+    .text-dark {
+        color: #f3f4f6 !important;
+    }
+    
+    .value-circle {
+        background-color: rgba(79, 70, 229, 0.3);
+    }
+    
+    .border-top {
+        border-color: #374151 !important;
+    }
+} 
