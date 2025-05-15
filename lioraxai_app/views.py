@@ -3,7 +3,7 @@ from django.contrib import messages
 from django.core.mail import send_mail
 from django.conf import settings
 from django.urls import reverse
-from .forms import ContactForm, SubscriberForm, DemoRequestForm
+from .forms import SubscriberForm
 from .models import Contact, Subscriber, DemoRequest
 from django.views.decorators.csrf import csrf_exempt
 from django.http import HttpResponse
@@ -36,61 +36,9 @@ def pricing(request):
 
 @csrf_exempt  # Temporarily exempt CSRF for static site integration
 def contact(request):
-    # Display success message when redirected from Formspree
-    if 'success' in request.GET:
-        messages.success(request, "Thank you for contacting us! We'll get back to you soon.")
-        return render(request, 'contact.html')
-    
-    # Legacy processing for non-Formspree fallback
-    print(f"Contact form request received. Method: {request.method}")
-    
-    # Get form data from either GET or POST
-    if request.method == 'POST':
-        print(f"POST data: {request.POST}")
-        form_data = request.POST
-    elif request.method == 'GET' and any(key in request.GET for key in ['name', 'email', 'message']):
-        print(f"GET data with form params: {request.GET}")
-        form_data = request.GET
-    else:
-        # Just display the empty form
-        print("Rendering empty contact form")
-        return render(request, 'contact.html')
-    
-    # Process form data from either source
-    try:
-        # Get form data
-        name = form_data.get('name')
-        email = form_data.get('email')
-        company = form_data.get('company', '')  # Optional field
-        phone = form_data.get('phone', '')      # Optional field
-        message = form_data.get('message')
-        
-        # Validate required fields
-        if not name or not email or not message:
-            print("Missing required fields")
-            messages.error(request, "Please fill out all required fields.")
-            return render(request, 'contact.html')
-        
-        # Create and save the contact object
-        contact = Contact(
-            name=name,
-            email=email,
-            company=company,
-            phone=phone,
-            message=message
-        )
-        contact.save()
-        
-        print(f"Contact form saved with ID: {contact.id}")
-        messages.success(request, "Thank you for contacting us! We'll get back to you soon.")
-        
-        # Redirect to contact page
-        return redirect('/contact/?success=true')
-        
-    except Exception as e:
-        print(f"Error saving contact form: {str(e)}")
-        messages.error(request, "There was an error processing your request. Please try again.")
-        return render(request, 'contact.html')
+    # With Elfsight form integration, we only need to render the template
+    # Elfsight handles form submission and processing
+    return render(request, 'contact.html')
 
 def blog(request):
     return render(request, 'blog.html')
@@ -100,84 +48,8 @@ def careers(request):
 
 @csrf_exempt  # Temporarily exempt CSRF for static site integration
 def demo(request):
-    # Display success message when redirected from Formspree
-    if 'success' in request.GET:
-        messages.success(request, "Thank you for requesting a demo! We'll be in touch shortly.")
-        return render(request, 'demo.html')
-    
-    # Legacy processing for non-Formspree fallback
-    print(f"Demo request received. Method: {request.method}")
-    
-    # Get form data from either POST or GET
-    if request.method == 'POST':
-        print(f"Demo POST data: {request.POST}")
-        form = DemoRequestForm(request.POST)
-        if form.is_valid():
-            demo_request = form.save()
-            print(f"Demo request saved with ID: {demo_request.id}")
-            
-            # Send email notification
-            try:
-                name = form.cleaned_data['name']
-                email = form.cleaned_data['email']
-                company = form.cleaned_data['company']
-                
-                # This would normally use settings.EMAIL_HOST_USER, but for local dev we'll just print
-                print(f"Email would be sent: Demo request from {name} ({email}) at {company}")
-                
-                messages.success(request, "Thank you for requesting a demo! We'll be in touch shortly.")
-                return redirect('/demo/')
-            except Exception as e:
-                print(f"Error sending email: {e}")
-                messages.success(request, "Your demo request has been received. We'll be in touch shortly.")
-                return redirect('/demo/')
-        else:
-            print(f"Demo form validation errors: {form.errors}")
-    elif request.method == 'GET' and any(key in request.GET for key in ['first_name', 'last_name', 'email']):
-        # Handle the static HTML form submission which comes as GET with different field names
-        print(f"Demo GET data with form params: {request.GET}")
-        
-        try:
-            # Create form data with the right field names
-            form_data = {
-                'name': f"{request.GET.get('first_name', '')} {request.GET.get('last_name', '')}".strip(),
-                'email': request.GET.get('email', ''),
-                'company': request.GET.get('company', ''),
-                'company_size': request.GET.get('company_size', ''),
-                'phone': request.GET.get('phone', ''),
-                'message': request.GET.get('message', '')
-            }
-            
-            # Validate required fields
-            if not form_data['name'] or not form_data['email'] or not form_data['company']:
-                print("Missing required fields from GET form")
-                messages.error(request, "Please fill out all required fields.")
-                return render(request, 'demo.html')
-            
-            # Create and save the demo request manually
-            demo = DemoRequest(
-                name=form_data['name'],
-                email=form_data['email'],
-                company=form_data['company'],
-                company_size=form_data['company_size'],
-                phone=form_data.get('phone'),
-                message=form_data.get('message')
-            )
-            demo.save()
-            
-            print(f"Demo request saved with ID: {demo.id} (from GET form)")
-            messages.success(request, "Thank you for requesting a demo! We'll be in touch shortly.")
-            
-            # Redirect to demo page with success parameter
-            return redirect('/demo/?success=true')
-            
-        except Exception as e:
-            print(f"Error saving demo form from GET: {str(e)}")
-            messages.error(request, "There was an error processing your request. Please try again.")
-            return render(request, 'demo.html')
-    else:
-        print("Rendering empty demo form")
-        
+    # With Elfsight form integration, we only need to render the template
+    # Elfsight handles form submission and processing
     return render(request, 'demo.html')
 
 def privacy(request):

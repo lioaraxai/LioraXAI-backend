@@ -1,8 +1,6 @@
-from .forms import ContactForm, SubscriberForm, DemoRequestForm
+from .forms import SubscriberForm
 
 def common_forms(request):
     return {
-        'contact_form': ContactForm(),
         'subscriber_form': SubscriberForm(),
-        'demo_form': DemoRequestForm(),
     } 

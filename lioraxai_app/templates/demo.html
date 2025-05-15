@@ -21,67 +21,20 @@
                         
                         <div class="card shadow-sm rounded-4" data-aos="fade-up" data-aos-delay="100">
                             <div class="card-body p-4 p-lg-5">
-                                {% if messages %}
-                                    {% include 'includes/messages.html' %}
-                                {% endif %}
+                                <!-- Elfsight Demo Request Form Widget -->
+                                <script src="https://static.elfsight.com/platform/platform.js" async></script>
+                                <!-- Replace with your new demo-specific Elfsight widget ID -->
+                                <div class="elfsight-app-YOUR_DEMO_FORM_WIDGET_ID" data-elfsight-app-lazy></div>
                                 
-                                <!-- Demo request form -->
-                                <form id="demo-form" method="post" action="/demo/">
-                                    {% csrf_token %}
-                                    <div class="row g-4">
-                                        <div class="col-md-6">
-                                            <div class="form-group">
-                                                <label for="id_name" class="form-label">Your Name*</label>
-                                                <input type="text" class="form-control" id="id_name" name="name" required>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-6">
-                                            <div class="form-group">
-                                                <label for="id_email" class="form-label">Email Address*</label>
-                                                <input type="email" class="form-control" id="id_email" name="email" required>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-6">
-                                            <div class="form-group">
-                                                <label for="id_company" class="form-label">Company Name*</label>
-                                                <input type="text" class="form-control" id="id_company" name="company" required>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-6">
-                                            <div class="form-group">
-                                                <label for="id_company_size" class="form-label">Company Size*</label>
-                                                <select class="form-select" id="id_company_size" name="company_size" required>
-                                                    <option value="">Select company size</option>
-                                                    <option value="1-10">1-10 employees</option>
-                                                    <option value="11-50">11-50 employees</option>
-                                                    <option value="51-200">51-200 employees</option>
-                                                    <option value="201-1000">201-1000 employees</option>
-                                                    <option value="1000+">1000+ employees</option>
-                                                </select>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-6">
-                                            <div class="form-group">
-                                                <label for="id_phone" class="form-label">Phone Number</label>
-                                                <input type="text" class="form-control" id="id_phone" name="phone">
-                                            </div>
-                                        </div>
-                                        <div class="col-12">
-                                            <div class="form-group">
-                                                <label for="id_message" class="form-label">Additional Information</label>
-                                                <textarea class="form-control" id="id_message" name="message" rows="4"></textarea>
-                                            </div>
-                                        </div>
-                                        <div class="col-12">
-                                            <button type="submit" class="btn btn-primary-custom py-3 px-4 rounded-3">
-                                                <span class="d-flex align-items-center gap-2">
-                                                    <span>Request Your Demo</span>
-                                                    <i class="bi bi-arrow-right"></i>
-                                                </span>
-                                            </button>
-                                        </div>
-                                    </div>
-                                </form>
+                                <!-- Note: Create a new form in Elfsight dashboard with the following fields:
+                                     - Name (required)
+                                     - Email (required)
+                                     - Company Name (required)
+                                     - Company Size (dropdown, required)
+                                     - Phone Number
+                                     - Preferred Demo Date
+                                     - Additional Information (textarea)
+                                -->
                             </div>
                         </div>
                     </div>
