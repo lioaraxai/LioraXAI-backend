@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib import messages
 from django.core.mail import send_mail
 from django.conf import settings
@@ -9,6 +9,7 @@ from django.views.decorators.csrf import csrf_exempt
 from django.http import HttpResponse
 from django.contrib.auth.models import User
 import secrets
+from datetime import datetime
 
 # Create your views here.
 
@@ -25,10 +26,8 @@ def index(request):
             return redirect('/')
     return render(request, 'index.html')
 
-def about(request):
-    return render(request, 'about.html')
-
 def features(request):
+    # Combined features and services page
     return render(request, 'features.html')
 
 def pricing(request):
@@ -40,26 +39,226 @@ def contact(request):
     # Elfsight handles form submission and processing
     return render(request, 'contact.html')
 
+# This function could be moved to a separate utility file
+def get_blog_data():
+    """Helper function to get sample blog data"""
+    featured_post = {
+        'title': 'The ROI of AI-Powered Knowledge Management',
+        'slug': 'roi-ai-knowledge-management',
+        'excerpt': 'Quantifying the business impact of AI knowledge systems is critical for enterprise adoption. Our research across 150+ implementations reveals the key metrics that matter and how to track them effectively.',
+        'image_url': 'https://images.unsplash.com/photo-1638202993928-7d113507abdb?q=80&w=1100',
+        'category': 'AI Strategy',
+        'read_time': 8,
+        'author': {
+            'name': 'Dr. Sarah Rodriguez',
+            'image_url': 'https://randomuser.me/api/portraits/women/23.jpg'
+        },
+        'published_date': datetime(2023, 4, 14),
+        'content': """
+        <p>Quantifying the business impact of AI knowledge systems is critical for enterprise adoption. Our research across 150+ implementations reveals the key metrics that matter and how to track them effectively.</p>
+        <p>In today's knowledge-driven economy, businesses are increasingly turning to artificial intelligence to manage, distribute, and leverage their organizational knowledge. However, justifying the investment in AI knowledge management systems requires a clear understanding of the return on investment (ROI).</p>
+        <h2>Key ROI Metrics for AI Knowledge Management</h2>
+        <p>Based on our research across more than 150 enterprise implementations, we've identified the following key metrics that demonstrate the value of AI-powered knowledge management:</p>
+        <ul>
+            <li><strong>Time Savings:</strong> On average, employees save 5.2 hours per week when using AI knowledge systems to find information.</li>
+            <li><strong>Faster Onboarding:</strong> New employee ramp-up time decreases by 47% when AI knowledge tools are implemented.</li>
+            <li><strong>Knowledge Retention:</strong> Organizations capture 78% more critical knowledge from departing employees.</li>
+            <li><strong>Reduced Support Costs:</strong> Customer support tickets decrease by 35% through better knowledge access.</li>
+            <li><strong>Innovation Acceleration:</strong> Time to market for new products decreases by 23% due to better cross-functional knowledge sharing.</li>
+        </ul>
+        <h2>Measuring Implementation Success</h2>
+        <p>To effectively measure the ROI of your AI knowledge management implementation, follow these key steps:</p>
+        <ol>
+            <li>Establish clear baseline metrics before implementation</li>
+            <li>Define specific KPIs aligned with your organizational goals</li>
+            <li>Implement incremental measurement at 30, 60, and 90-day intervals</li>
+            <li>Capture both quantitative data and qualitative feedback</li>
+            <li>Adjust your implementation strategy based on early measurements</li>
+        </ol>
+        <p>The most successful implementations we've studied all share one common factor: a commitment to measuring outcomes from day one.</p>
+        <blockquote>
+            "The data doesn't lie—our AI knowledge management system paid for itself within five months, primarily through productivity gains and reduced duplication of effort." — CIO, Fortune 500 Manufacturing Company
+        </blockquote>
+        <h2>Long-term Value Creation</h2>
+        <p>While short-term productivity gains are often the most visible benefit, our research shows that the most significant ROI comes from long-term value creation:</p>
+        <ul>
+            <li><strong>Institutional Memory:</strong> Organizations build a persistent knowledge base that transcends employee turnover.</li>
+            <li><strong>Decision Quality:</strong> Data-backed decisions improve by 42% when relevant knowledge is readily accessible.</li>
+            <li><strong>Cultural Transformation:</strong> Knowledge sharing becomes embedded in organizational culture, creating a virtuous cycle of continuous improvement.</li>
+        </ul>
+        <p>The organizations that realize the highest ROI are those that view AI knowledge management not merely as a technological solution but as a strategic asset that transforms how the organization learns, adapts, and evolves.</p>
+        """
+    }
+    
+    blog_posts = [
+        {
+            'title': 'Breaking Down Knowledge Silos in Enterprise Organizations',
+            'slug': 'breaking-knowledge-silos',
+            'excerpt': 'How AI-powered systems are helping large organizations connect isolated information and expertise across departments.',
+            'image_url': 'https://images.unsplash.com/photo-1655721530791-65e935a9bbf4?q=80&w=600',
+            'category': 'Implementation',
+            'author': {
+                'name': 'Michael Kim',
+                'image_url': 'https://randomuser.me/api/portraits/men/42.jpg'
+            },
+            'published_date': datetime(2023, 3, 28)
+        },
+        {
+            'title': 'Responsible AI: Building Ethical Knowledge Systems',
+            'slug': 'ethical-ai-knowledge-systems',
+            'excerpt': 'Ethical considerations and best practices for developing AI systems that respect privacy, reduce bias, and maintain transparency.',
+            'image_url': 'https://images.unsplash.com/photo-1678822205184-4daeb10fc2b8?q=80&w=600',
+            'category': 'Technology',
+            'author': {
+                'name': 'Aisha Johnson',
+                'image_url': 'https://randomuser.me/api/portraits/women/28.jpg'
+            },
+            'published_date': datetime(2023, 2, 15)
+        },
+        {
+            'title': 'How HealthTech Inc. Reduced Training Time by 68%',
+            'slug': 'healthtech-training-case-study',
+            'excerpt': 'A detailed case study on how a leading healthcare provider transformed their onboarding process with AI knowledge systems.',
+            'image_url': 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=600',
+            'category': 'Case Study',
+            'author': {
+                'name': 'David Wong',
+                'image_url': 'https://randomuser.me/api/portraits/men/32.jpg'
+            },
+            'published_date': datetime(2023, 1, 20)
+        },
+        {
+            'title': '5 Ways to Measure Knowledge Management ROI',
+            'slug': 'measure-knowledge-management-roi',
+            'excerpt': 'Practical metrics and KPIs for tracking the business impact of your organization\'s knowledge management initiatives.',
+            'image_url': 'https://images.unsplash.com/photo-1552664730-d307ca884978?q=80&w=600',
+            'category': 'Strategy',
+            'author': {
+                'name': 'Emma Johnson',
+                'image_url': 'https://randomuser.me/api/portraits/women/52.jpg'
+            },
+            'published_date': datetime(2023, 1, 8)
+        },
+        {
+            'title': 'Securing Your AI Knowledge Base: Best Practices',
+            'slug': 'securing-ai-knowledge-base',
+            'excerpt': 'Essential security measures for protecting sensitive information in your AI-powered knowledge systems.',
+            'image_url': 'https://images.unsplash.com/photo-1573167710701-35950a41e251?q=80&w=600',
+            'category': 'Technology',
+            'author': {
+                'name': 'Thomas Nguyen',
+                'image_url': 'https://randomuser.me/api/portraits/men/12.jpg'
+            },
+            'published_date': datetime(2022, 12, 14)
+        },
+        {
+            'title': 'Integrating AI Knowledge Systems with Existing Workflows',
+            'slug': 'integrating-ai-knowledge-systems-workflows',
+            'excerpt': 'Strategies for seamless implementation that enhances rather than disrupts your team\'s existing processes.',
+            'image_url': 'https://images.unsplash.com/photo-1600132806370-bf17e65e942f?q=80&w=600',
+            'category': 'Implementation',
+            'author': {
+                'name': 'Ryan Lee',
+                'image_url': 'https://randomuser.me/api/portraits/men/77.jpg'
+            },
+            'published_date': datetime(2022, 11, 30)
+        }
+    ]
+    
+    categories = [
+        {'name': 'AI Strategy', 'slug': 'ai-strategy'},
+        {'name': 'Implementation', 'slug': 'implementation'},
+        {'name': 'Case Study', 'slug': 'case-study'},
+        {'name': 'Technology', 'slug': 'technology'},
+        {'name': 'Strategy', 'slug': 'strategy'}
+    ]
+    
+    return {
+        'featured_post': featured_post,
+        'blog_posts': blog_posts,
+        'categories': categories
+    }
+
 def blog(request):
-    return render(request, 'blog.html')
+    # Get blog data
+    blog_data = get_blog_data()
+    
+    return render(request, 'blog.html', blog_data)
 
-def careers(request):
-    return render(request, 'careers.html')
+def blog_detail(request, slug):
+    # Get blog data
+    blog_data = get_blog_data()
+    
+    # Find the post with the matching slug
+    post = None
+    if blog_data['featured_post']['slug'] == slug:
+        post = blog_data['featured_post']
+    else:
+        for p in blog_data['blog_posts']:
+            if p['slug'] == slug:
+                post = p
+                break
+    
+    if not post:
+        # If post not found, redirect to blog index
+        return redirect('blog')
+    
+    # Get related posts (same category)
+    related_posts = [p for p in blog_data['blog_posts'] 
+                    if p['category'] == post.get('category') and p['slug'] != slug][:3]
+    
+    context = {
+        'post': post,
+        'related_posts': related_posts,
+        'categories': blog_data['categories']
+    }
+    
+    return render(request, 'blog_detail.html', context)
 
-@csrf_exempt  # Temporarily exempt CSRF for static site integration
-def demo(request):
-    # With Elfsight form integration, we only need to render the template
-    # Elfsight handles form submission and processing
-    return render(request, 'demo.html')
+def blog_category(request, category_slug):
+    # Get blog data
+    blog_data = get_blog_data()
+    
+    # Find the category
+    category = None
+    for c in blog_data['categories']:
+        if c['slug'] == category_slug:
+            category = c
+            break
+    
+    if not category:
+        # If category not found, redirect to blog index
+        return redirect('blog')
+    
+    # Filter posts by category
+    category_posts = [p for p in blog_data['blog_posts'] if p['category'] == category['name']]
+    
+    context = {
+        'category': category,
+        'blog_posts': category_posts,
+        'categories': blog_data['categories']
+    }
+    
+    return render(request, 'blog.html', context)
 
-def privacy(request):
-    return render(request, 'privacy.html')
-
-def services(request):
-    return render(request, 'services.html')
+def newsletter_subscribe(request):
+    if request.method == 'POST':
+        email = request.POST.get('email')
+        if email:
+            # In a real application, we would use the Subscriber model
+            # Subscriber.objects.create(email=email)
+            messages.success(request, "Thank you for subscribing to our newsletter!")
+        else:
+            messages.error(request, "Please provide a valid email address.")
+    
+    # Redirect back to the referring page or blog index
+    return redirect(request.META.get('HTTP_REFERER', reverse('blog')))
 
 def team(request):
     return render(request, 'team.html')
+
+def privacy(request):
+    return render(request, 'privacy.html')
 
 def terms(request):
     return render(request, 'terms.html')

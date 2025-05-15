@@ -1,591 +1,365 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Blog | LioraXAI</title>
-    {% load static %}
-    <!-- Bootstrap 5.3 CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
-    <!-- Bootstrap Icons -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.2/font/bootstrap-icons.min.css">
-    <!-- AOS Animation Library -->
-    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-    <!-- Mobile responsiveness -->
-    <link href="{% static 'css/mobile.css' %}" rel="stylesheet">
-    <style>
-        /* Base styles */
-        :root {
-            --primary: #4f46e5;
-            --primary-light: #818cf8;
-            --primary-dark: #4338ca;
-            --text-color: #111827;
-            --text-light: #6b7280;
-            --background-light: #f9fafb;
-            --background-dark: #111827;
-        }
-        
-        body {
-            font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-            color: var(--text-color);
-            line-height: 1.5;
-            overflow-x: hidden;
-        }
-        
-        .mono {
-            font-family: 'IBM Plex Mono', ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New', monospace;
-        }
-        
-        .bg-primary-custom {
-            background-color: var(--primary);
-        }
-        
-        .text-primary-custom {
-            color: var(--primary);
-        }
-        
-        .btn-primary-custom {
-            background-color: var(--primary);
-            border-color: var(--primary);
-        }
-        
-        .btn-primary-custom:hover {
-            background-color: var(--primary-dark);
-            border-color: var(--primary-dark);
-        }
-        
-        .btn-outline-primary-custom {
-            color: var(--primary);
-            border-color: var(--primary);
-        }
-        
-        .btn-outline-primary-custom:hover {
-            background-color: var(--primary);
-            color: white;
-        }
-        
-        .navbar {
-            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
-        }
-        
-        .blog-card {
-            transition: all 0.3s ease-in-out;
-            height: 100%;
-        }
-        
-        .blog-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
-        }
-        
-        .blog-card img {
-            height: 200px;
-            object-fit: cover;
-        }
-        
-        .category-badge {
-            background-color: rgba(79, 70, 229, 0.1);
-            color: var(--primary);
-            font-size: 0.8rem;
-            padding: 0.25rem 0.75rem;
-            border-radius: 5rem;
-        }
-        
-        .blog-meta {
-            font-size: 0.9rem;
-            color: var(--text-light);
-        }
-        
-        /* Dark mode */
-        @media (prefers-color-scheme: dark) {
-            body {
-                color: #f3f4f6;
-                background-color: var(--background-dark);
-            }
-            
-            .navbar {
-                background-color: #1f2937 !important;
-            }
-            
-            .bg-light {
-                background-color: #1f2937 !important;
-            }
-            
-            .text-dark {
-                color: #f3f4f6 !important;
-            }
-            
-            .card {
-                background-color: #1f2937;
-                border-color: #374151;
-            }
-            
-            .category-badge {
-                background-color: rgba(79, 70, 229, 0.3);
-            }
-        }
-    </style>
-</head>
-<body>
-    <!-- Header -->
-    <header>
-        <nav class="navbar navbar-expand-lg navbar-light bg-white sticky-top">
-            <div class="container">
-                <a class="navbar-brand" href="{% url 'index' %}">
-                    <img src="{% static 'images/logo.svg' %}" alt="LioraXAI Logo" width="150" height="35">
-                </a>
+{% extends 'base_django.html' %}
+{% load static %}
 
-                <!-- Mobile menu button -->
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
+{% block title %}Insights & Resources | LioraXAI Blog{% endblock %}
 
-                <!-- Navigation -->
-                <div class="collapse navbar-collapse" id="navbarNav">
-                    <ul class="navbar-nav ms-auto align-items-center">
-                        <li class="nav-item">
-                            <a class="nav-link" href="{% url 'index' %}">Home</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="{% url 'features' %}">Features</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="{% url 'pricing' %}">Pricing</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="{% url 'about' %}">About</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link active" href="{% url 'blog' %}">Blog</a>
-                        </li>
-                        <li class="nav-item ms-lg-2">
-                            <a class="nav-link btn btn-primary-custom text-white px-4" href="{% url 'contact' %}">Contact Us</a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </nav>
-    </header>
+{% block content %}
+    {% include 'includes/header.html' %}
 
     <main>
         <!-- Hero Section -->
-        <section class="py-5 bg-primary-custom text-white">
-            <div class="container py-5">
-                <div class="text-center" data-aos="fade-up">
-                    <h1 class="display-4 fw-bold mb-4">
-                        LioraXAI Blog
-                    </h1>
-                    <p class="fs-4 mb-4 mx-auto" style="max-width: 800px;">
-                        Insights, tutorials and updates from our team
-                    </p>
+        <section class="py-5 py-md-6 bg-gradient-primary text-white">
+            <div class="container py-4">
+                <div class="row justify-content-center">
+                    <div class="col-lg-8 text-center" data-aos="fade-up">
+                        <h1 class="display-4 fw-bold mb-4">
+                            Insights & Resources
+                        </h1>
+                        <p class="lead mb-4 text-white">
+                            Expert insights, practical guides, and the latest news on AI-powered knowledge management
+                        </p>
+                    </div>
                 </div>
             </div>
         </section>
 
         <!-- Featured Post Section -->
-        <section class="py-5 py-md-7">
+        <section class="py-5 py-md-6">
             <div class="container">
-                <h2 class="h3 fw-bold mb-4">Featured Post</h2>
-                <div class="card border-0 shadow-sm overflow-hidden" data-aos="fade-up">
+                <div class="row mb-4">
+                    <div class="col">
+                        <h2 class="h3 fw-bold">Featured Article</h2>
+                    </div>
+                </div>
+                
+                {% if featured_post %}
+                <div class="card border-0 shadow-sm rounded-4 overflow-hidden" data-aos="fade-up">
                     <div class="row g-0">
-                        <div class="col-md-6">
-                            <img src="https://images.unsplash.com/photo-1499750310107-5fef28a66643" 
-                                 class="featured-post-img rounded-start" 
-                                 alt="AI Implementation Strategies">
+                        <div class="col-lg-6 position-relative">
+                            <img src="{{ featured_post.image_url|default:'https://images.unsplash.com/photo-1638202993928-7d113507abdb?q=80&w=1100' }}" 
+                                 alt="{{ featured_post.title }}"
+                                 class="w-100 h-100 object-fit-cover">
                         </div>
-                        <div class="col-md-6">
+                        <div class="col-lg-6">
                             <div class="card-body p-4 p-lg-5">
-                                <span class="category-badge">AI Implementation</span>
-                                <h3 class="card-title h2 fw-bold mb-3">
-                                    <a href="#" class="text-decoration-none text-dark">5 Proven Strategies for Successful AI Implementation</a>
+                                <div class="d-flex gap-2 mb-3">
+                                    <span class="badge bg-primary-custom bg-opacity-10 text-primary-custom">{{ featured_post.category }}</span>
+                                    <span class="badge bg-light text-secondary">{{ featured_post.read_time }} min read</span>
+                                </div>
+                                <h3 class="fs-2 fw-bold mb-3">
+                                    <a href="{% url 'blog_detail' featured_post.slug %}" class="text-decoration-none text-reset stretched-link">{{ featured_post.title }}</a>
                                 </h3>
-                                <p class="card-text mb-4">
-                                    In today's competitive business landscape, implementing AI solutions can be the difference between staying ahead or falling behind. Learn the proven strategies that have helped our clients achieve successful AI integration.
+                                <p class="text-secondary mb-4">
+                                    {{ featured_post.excerpt }}
                                 </p>
-                                <div class="d-flex align-items-center mb-4">
-                                    <img src="https://randomuser.me/api/portraits/men/32.jpg" 
-                                         class="rounded-circle me-3" 
-                                         width="40" height="40" 
-                                         alt="Author">
+                                <div class="d-flex align-items-center">
+                                    <div class="rounded-circle overflow-hidden me-3" style="width: 48px; height: 48px;">
+                                        <img src="{{ featured_post.author.image_url|default:'https://randomuser.me/api/portraits/women/23.jpg' }}" alt="{{ featured_post.author.name }}" class="img-fluid">
+                                    </div>
                                     <div>
-                                        <h4 class="h6 mb-1">Michael Chen</h4>
-                                        <p class="text-muted small mb-0">
-                                            <span>June 12, 2023</span> · <span>8 min read</span>
-                                        </p>
+                                        <p class="fw-medium mb-0">{{ featured_post.author.name }}</p>
+                                        <p class="text-secondary small mb-0">{{ featured_post.published_date|date:"F j, Y" }}</p>
                                     </div>
                                 </div>
-                                <a href="#" class="btn btn-primary-custom px-4">Read More</a>
                             </div>
                         </div>
                     </div>
                 </div>
+                {% else %}
+                <div class="card border-0 shadow-sm rounded-4 overflow-hidden" data-aos="fade-up">
+                    <div class="row g-0">
+                        <div class="col-lg-6 position-relative">
+                            <img src="https://images.unsplash.com/photo-1638202993928-7d113507abdb?q=80&w=1100" 
+                                 alt="AI for Enterprise Knowledge Management"
+                                 class="w-100 h-100 object-fit-cover">
+                        </div>
+                        <div class="col-lg-6">
+                            <div class="card-body p-4 p-lg-5">
+                                <div class="d-flex gap-2 mb-3">
+                                    <span class="badge bg-primary-custom bg-opacity-10 text-primary-custom">AI Strategy</span>
+                                    <span class="badge bg-light text-secondary">8 min read</span>
+                                </div>
+                                <h3 class="fs-2 fw-bold mb-3">
+                                    <a href="#" class="text-decoration-none text-reset stretched-link">The ROI of AI-Powered Knowledge Management</a>
+                                </h3>
+                                <p class="text-secondary mb-4">
+                                    Quantifying the business impact of AI knowledge systems is critical for enterprise adoption. Our research across 150+ implementations reveals the key metrics that matter and how to track them effectively.
+                                </p>
+                                <div class="d-flex align-items-center">
+                                    <div class="rounded-circle overflow-hidden me-3" style="width: 48px; height: 48px;">
+                                        <img src="https://randomuser.me/api/portraits/women/23.jpg" alt="Dr. Sarah Rodriguez" class="img-fluid">
+                                    </div>
+                                    <div>
+                                        <p class="fw-medium mb-0">Dr. Sarah Rodriguez</p>
+                                        <p class="text-secondary small mb-0">April 14, 2023</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                {% endif %}
             </div>
         </section>
 
         <!-- Latest Articles Section -->
-        <section class="py-5 py-md-7 bg-light">
+        <section class="py-5 py-md-6 bg-light">
             <div class="container">
-                <div class="row">
-                    <div class="col-lg-8">
-                        <h2 class="h3 fw-bold mb-4">Latest Articles</h2>
-                        <div class="row g-4">
-                            <!-- Article 1 -->
-                            <div class="col-md-6" data-aos="fade-up" data-aos-delay="100">
-                                <div class="card border-0 shadow-sm blog-card h-100">
-                                    <img src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b" 
-                                         class="card-img-top" 
-                                         alt="AI Trends">
-                                    <div class="card-body p-4">
-                                        <span class="category-badge">AI Trends</span>
-                                        <h3 class="card-title h5 fw-bold mb-3">
-                                            <a href="#" class="text-decoration-none text-dark">The Future of AI in Knowledge Management</a>
-                                        </h3>
-                                        <p class="card-text text-muted mb-3">
-                                            Explore how AI is transforming knowledge management and what to expect in the coming years as technology continues to evolve.
-                                        </p>
-                                        <div class="d-flex align-items-center">
-                                            <img src="https://randomuser.me/api/portraits/women/44.jpg" 
-                                                 class="rounded-circle me-2" 
-                                                 width="32" height="32" 
-                                                 alt="Author">
-                                            <div>
-                                                <p class="text-muted small mb-0">
-                                                    <span>Sarah Johnson</span> · <span>May 28, 2023</span>
-                                                </p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            
-                            <!-- Article 2 -->
-                            <div class="col-md-6" data-aos="fade-up" data-aos-delay="200">
-                                <div class="card border-0 shadow-sm blog-card h-100">
-                                    <img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3" 
-                                         class="card-img-top" 
-                                         alt="Data Security">
-                                    <div class="card-body p-4">
-                                        <span class="category-badge">Data Security</span>
-                                        <h3 class="card-title h5 fw-bold mb-3">
-                                            <a href="#" class="text-decoration-none text-dark">Ensuring Data Security in AI Knowledge Systems</a>
-                                        </h3>
-                                        <p class="card-text text-muted mb-3">
-                                            Learn about the essential security measures needed to protect sensitive information in AI-powered knowledge management systems.
-                                        </p>
-                                        <div class="d-flex align-items-center">
-                                            <img src="https://randomuser.me/api/portraits/men/67.jpg" 
-                                                 class="rounded-circle me-2" 
-                                                 width="32" height="32" 
-                                                 alt="Author">
-                                            <div>
-                                                <p class="text-muted small mb-0">
-                                                    <span>James Wilson</span> · <span>May 15, 2023</span>
-                                                </p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            
-                            <!-- Article 3 -->
-                            <div class="col-md-6" data-aos="fade-up" data-aos-delay="300">
-                                <div class="card border-0 shadow-sm blog-card h-100">
-                                    <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c" 
-                                         class="card-img-top" 
-                                         alt="Employee Onboarding">
-                                    <div class="card-body p-4">
-                                        <span class="category-badge">Employee Experience</span>
-                                        <h3 class="card-title h5 fw-bold mb-3">
-                                            <a href="#" class="text-decoration-none text-dark">Revolutionizing Employee Onboarding with AI</a>
-                                        </h3>
-                                        <p class="card-text text-muted mb-3">
-                                            Discover how AI-powered knowledge bases are transforming the employee onboarding experience and improving retention rates.
-                                        </p>
-                                        <div class="d-flex align-items-center">
-                                            <img src="https://randomuser.me/api/portraits/women/28.jpg" 
-                                                 class="rounded-circle me-2" 
-                                                 width="32" height="32" 
-                                                 alt="Author">
-                                            <div>
-                                                <p class="text-muted small mb-0">
-                                                    <span>Emily Zhang</span> · <span>April 30, 2023</span>
-                                                </p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            
-                            <!-- Article 4 -->
-                            <div class="col-md-6" data-aos="fade-up" data-aos-delay="400">
-                                <div class="card border-0 shadow-sm blog-card h-100">
-                                    <img src="https://images.unsplash.com/photo-1573164574001-518958d9baa2" 
-                                         class="card-img-top" 
-                                         alt="Case Study">
-                                    <div class="card-body p-4">
-                                        <span class="category-badge">Case Study</span>
-                                        <h3 class="card-title h5 fw-bold mb-3">
-                                            <a href="#" class="text-decoration-none text-dark">How FinTech Leader Reduced Support Tickets by 45%</a>
-                                        </h3>
-                                        <p class="card-text text-muted mb-3">
-                                            Learn how a leading fintech company implemented our AI knowledge solution and saw dramatic improvements in customer support efficiency.
-                                        </p>
-                                        <div class="d-flex align-items-center">
-                                            <img src="https://randomuser.me/api/portraits/men/22.jpg" 
-                                                 class="rounded-circle me-2" 
-                                                 width="32" height="32" 
-                                                 alt="Author">
-                                            <div>
-                                                <p class="text-muted small mb-0">
-                                                    <span>Robert Taylor</span> · <span>April 18, 2023</span>
-                                                </p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <!-- Pagination -->
-                        <nav class="mt-5" aria-label="Blog pagination">
-                            <ul class="pagination justify-content-center">
-                                <li class="page-item disabled">
-                                    <a class="page-link" href="#" tabindex="-1" aria-disabled="true">Previous</a>
-                                </li>
-                                <li class="page-item active"><a class="page-link" href="#">1</a></li>
-                                <li class="page-item"><a class="page-link" href="#">2</a></li>
-                                <li class="page-item"><a class="page-link" href="#">3</a></li>
-                                <li class="page-item">
-                                    <a class="page-link" href="#">Next</a>
-                                </li>
-                            </ul>
-                        </nav>
+                <div class="row mb-4">
+                    <div class="col-md-8">
+                        <h2 class="h3 fw-bold">Latest Articles</h2>
                     </div>
-                    
-                    <!-- Sidebar -->
-                    <div class="col-lg-4 mt-5 mt-lg-0">
-                        <div class="sidebar-sticky" data-aos="fade-left">
-                            <!-- Search -->
-                            <div class="card border-0 shadow-sm mb-4">
-                                <div class="card-body p-4">
-                                    <h3 class="h5 fw-bold mb-3">Search</h3>
-                                    <form>
-                                        <div class="input-group">
-                                            <input type="text" class="form-control" placeholder="Search articles...">
-                                            <button class="btn btn-primary-custom" type="button">
-                                                <i class="bi bi-search"></i>
-                                            </button>
-                                        </div>
-                                    </form>
-                                </div>
-                            </div>
-                            
-                            <!-- Categories -->
-                            <div class="card border-0 shadow-sm mb-4">
-                                <div class="card-body p-4">
-                                    <h3 class="h5 fw-bold mb-3">Categories</h3>
-                                    <ul class="list-group list-group-flush">
-                                        <li class="list-group-item d-flex justify-content-between align-items-center px-0">
-                                            <a href="#" class="text-decoration-none text-muted">AI Implementation</a>
-                                            <span class="badge bg-primary-custom rounded-pill">12</span>
-                                        </li>
-                                        <li class="list-group-item d-flex justify-content-between align-items-center px-0">
-                                            <a href="#" class="text-decoration-none text-muted">Data Security</a>
-                                            <span class="badge bg-primary-custom rounded-pill">8</span>
-                                        </li>
-                                        <li class="list-group-item d-flex justify-content-between align-items-center px-0">
-                                            <a href="#" class="text-decoration-none text-muted">Employee Experience</a>
-                                            <span class="badge bg-primary-custom rounded-pill">6</span>
-                                        </li>
-                                        <li class="list-group-item d-flex justify-content-between align-items-center px-0">
-                                            <a href="#" class="text-decoration-none text-muted">Case Studies</a>
-                                            <span class="badge bg-primary-custom rounded-pill">4</span>
-                                        </li>
-                                        <li class="list-group-item d-flex justify-content-between align-items-center px-0">
-                                            <a href="#" class="text-decoration-none text-muted">AI Trends</a>
-                                            <span class="badge bg-primary-custom rounded-pill">10</span>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </div>
-                            
-                            <!-- Popular Posts -->
-                            <div class="card border-0 shadow-sm mb-4">
-                                <div class="card-body p-4">
-                                    <h3 class="h5 fw-bold mb-3">Popular Posts</h3>
-                                    <div class="list-group list-group-flush">
-                                        <a href="#" class="list-group-item list-group-item-action px-0">
-                                            <div class="d-flex">
-                                                <img src="https://images.unsplash.com/photo-1499750310107-5fef28a66643" 
-                                                    class="rounded me-3" 
-                                                    width="60" height="60" 
-                                                    style="object-fit: cover;"
-                                                    alt="Popular post">
-                                                <div>
-                                                    <h4 class="h6 mb-1">5 Proven Strategies for Successful AI Implementation</h4>
-                                                    <p class="text-muted small mb-0">June 12, 2023</p>
-                                                </div>
-                                            </div>
-                                        </a>
-                                        <a href="#" class="list-group-item list-group-item-action px-0">
-                                            <div class="d-flex">
-                                                <img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3" 
-                                                    class="rounded me-3" 
-                                                    width="60" height="60" 
-                                                    style="object-fit: cover;"
-                                                    alt="Popular post">
-                                                <div>
-                                                    <h4 class="h6 mb-1">Ensuring Data Security in AI Knowledge Systems</h4>
-                                                    <p class="text-muted small mb-0">May 15, 2023</p>
-                                                </div>
-                                            </div>
-                                        </a>
-                                        <a href="#" class="list-group-item list-group-item-action px-0">
-                                            <div class="d-flex">
-                                                <img src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b" 
-                                                    class="rounded me-3" 
-                                                    width="60" height="60" 
-                                                    style="object-fit: cover;"
-                                                    alt="Popular post">
-                                                <div>
-                                                    <h4 class="h6 mb-1">The Future of AI in Knowledge Management</h4>
-                                                    <p class="text-muted small mb-0">May 28, 2023</p>
-                                                </div>
-                                            </div>
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                            
-                            <!-- Newsletter -->
-                            <div class="card border-0 shadow-sm bg-primary-custom text-white">
-                                <div class="card-body p-4">
-                                    <h3 class="h5 fw-bold mb-3">Subscribe to Our Newsletter</h3>
-                                    <p class="mb-3">Get the latest articles and insights delivered to your inbox.</p>
-                                    <form>
-                                        <div class="mb-3">
-                                            <input type="email" class="form-control" placeholder="Your email address">
-                                        </div>
-                                        <button type="submit" class="btn btn-light w-100">Subscribe</button>
-                                    </form>
-                                </div>
-                            </div>
+                    <div class="col-md-4 text-md-end">
+                        <div class="dropdown">
+                            <button class="btn btn-outline-secondary dropdown-toggle" type="button" id="categoryFilter" data-bs-toggle="dropdown" aria-expanded="false">
+                                <i class="bi bi-funnel me-2"></i>Filter by Category
+                            </button>
+                            <ul class="dropdown-menu" aria-labelledby="categoryFilter">
+                                <li><a class="dropdown-item" href="{% url 'blog' %}">All Categories</a></li>
+                                {% for category in categories %}
+                                <li><a class="dropdown-item" href="{% url 'blog_category' category.slug %}">{{ category.name }}</a></li>
+                                {% endfor %}
+                            </ul>
                         </div>
                     </div>
                 </div>
+                
+                <div class="row g-4">
+                    {% if blog_posts %}
+                    {% for post in blog_posts %}
+                    <div class="col-md-6 col-lg-4" data-aos="fade-up" {% if forloop.counter0 > 0 %}data-aos-delay="{{ forloop.counter0|divisibleby:3|yesno:'0,100,200' }}"{% endif %}>
+                        <div class="card h-100 border-0 shadow-sm rounded-4">
+                            <img src="{{ post.image_url }}" 
+                                 class="card-img-top" style="height: 200px; object-fit: cover;"
+                                 alt="{{ post.title }}">
+                            <div class="card-body p-4">
+                                <div class="d-flex gap-2 mb-3">
+                                    <span class="badge bg-primary-custom bg-opacity-10 text-primary-custom">{{ post.category }}</span>
+                                </div>
+                                <h3 class="h5 fw-bold mb-3">
+                                    <a href="{% url 'blog_detail' post.slug %}" class="text-decoration-none text-reset stretched-link">{{ post.title }}</a>
+                                </h3>
+                                <p class="text-secondary mb-3">
+                                    {{ post.excerpt }}
+                                </p>
+                                <div class="d-flex align-items-center mt-auto">
+                                    <div class="rounded-circle overflow-hidden me-2" style="width: 32px; height: 32px;">
+                                        <img src="{{ post.author.image_url }}" alt="{{ post.author.name }}" class="img-fluid">
+                                    </div>
+                                    <div>
+                                        <p class="small mb-0">{{ post.author.name }} • {{ post.published_date|date:"F j, Y" }}</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    {% endfor %}
+                    {% else %}
+                    <!-- Fallback static posts if no blog_posts are passed -->
+                    <!-- Article 1 -->
+                    <div class="col-md-6 col-lg-4" data-aos="fade-up">
+                        <div class="card h-100 border-0 shadow-sm rounded-4">
+                            <img src="https://images.unsplash.com/photo-1655721530791-65e935a9bbf4?q=80&w=600" 
+                                 class="card-img-top" style="height: 200px; object-fit: cover;"
+                                 alt="Knowledge Silos">
+                            <div class="card-body p-4">
+                                <div class="d-flex gap-2 mb-3">
+                                    <span class="badge bg-primary-custom bg-opacity-10 text-primary-custom">Implementation</span>
+                                </div>
+                                <h3 class="h5 fw-bold mb-3">
+                                    <a href="#" class="text-decoration-none text-reset stretched-link">Breaking Down Knowledge Silos in Enterprise Organizations</a>
+                                </h3>
+                                <p class="text-secondary mb-3">
+                                    How AI-powered systems are helping large organizations connect isolated information and expertise across departments.
+                                </p>
+                                <div class="d-flex align-items-center mt-auto">
+                                    <div class="rounded-circle overflow-hidden me-2" style="width: 32px; height: 32px;">
+                                        <img src="https://randomuser.me/api/portraits/men/42.jpg" alt="Michael Kim" class="img-fluid">
+                                    </div>
+                                    <div>
+                                        <p class="small mb-0">Michael Kim • March 28, 2023</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Article 2 -->
+                    <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="100">
+                        <div class="card h-100 border-0 shadow-sm rounded-4">
+                            <img src="https://images.unsplash.com/photo-1678822205184-4daeb10fc2b8?q=80&w=600" 
+                                 class="card-img-top" style="height: 200px; object-fit: cover;"
+                                 alt="AI Ethics">
+                            <div class="card-body p-4">
+                                <div class="d-flex gap-2 mb-3">
+                                    <span class="badge bg-primary-custom bg-opacity-10 text-primary-custom">Technology</span>
+                                </div>
+                                <h3 class="h5 fw-bold mb-3">
+                                    <a href="#" class="text-decoration-none text-reset stretched-link">Responsible AI: Building Ethical Knowledge Systems</a>
+                                </h3>
+                                <p class="text-secondary mb-3">
+                                    Ethical considerations and best practices for developing AI systems that respect privacy, reduce bias, and maintain transparency.
+                                </p>
+                                <div class="d-flex align-items-center mt-auto">
+                                    <div class="rounded-circle overflow-hidden me-2" style="width: 32px; height: 32px;">
+                                        <img src="https://randomuser.me/api/portraits/women/28.jpg" alt="Aisha Johnson" class="img-fluid">
+                                    </div>
+                                    <div>
+                                        <p class="small mb-0">Aisha Johnson • February 15, 2023</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Article 3 -->
+                    <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="200">
+                        <div class="card h-100 border-0 shadow-sm rounded-4">
+                            <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=600" 
+                                 class="card-img-top" style="height: 200px; object-fit: cover;"
+                                 alt="Healthcare AI">
+                            <div class="card-body p-4">
+                                <div class="d-flex gap-2 mb-3">
+                                    <span class="badge bg-primary-custom bg-opacity-10 text-primary-custom">Case Study</span>
+                                </div>
+                                <h3 class="h5 fw-bold mb-3">
+                                    <a href="#" class="text-decoration-none text-reset stretched-link">How HealthTech Inc. Reduced Training Time by 68%</a>
+                                </h3>
+                                <p class="text-secondary mb-3">
+                                    A detailed case study on how a leading healthcare provider transformed their onboarding process with AI knowledge systems.
+                                </p>
+                                <div class="d-flex align-items-center mt-auto">
+                                    <div class="rounded-circle overflow-hidden me-2" style="width: 32px; height: 32px;">
+                                        <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="David Wong" class="img-fluid">
+                                    </div>
+                                    <div>
+                                        <p class="small mb-0">David Wong • January 20, 2023</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Article 4 -->
+                    <div class="col-md-6 col-lg-4" data-aos="fade-up">
+                        <div class="card h-100 border-0 shadow-sm rounded-4">
+                            <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?q=80&w=600" 
+                                 class="card-img-top" style="height: 200px; object-fit: cover;"
+                                 alt="Team Collaboration">
+                            <div class="card-body p-4">
+                                <div class="d-flex gap-2 mb-3">
+                                    <span class="badge bg-primary-custom bg-opacity-10 text-primary-custom">Strategy</span>
+                                </div>
+                                <h3 class="h5 fw-bold mb-3">
+                                    <a href="#" class="text-decoration-none text-reset stretched-link">5 Ways to Measure Knowledge Management ROI</a>
+                                </h3>
+                                <p class="text-secondary mb-3">
+                                    Practical metrics and KPIs for tracking the business impact of your organization's knowledge management initiatives.
+                                </p>
+                                <div class="d-flex align-items-center mt-auto">
+                                    <div class="rounded-circle overflow-hidden me-2" style="width: 32px; height: 32px;">
+                                        <img src="https://randomuser.me/api/portraits/women/52.jpg" alt="Emma Johnson" class="img-fluid">
+                                    </div>
+                                    <div>
+                                        <p class="small mb-0">Emma Johnson • January 8, 2023</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Article 5 -->
+                    <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="100">
+                        <div class="card h-100 border-0 shadow-sm rounded-4">
+                            <img src="https://images.unsplash.com/photo-1573167710701-35950a41e251?q=80&w=600" 
+                                 class="card-img-top" style="height: 200px; object-fit: cover;"
+                                 alt="Data Security">
+                            <div class="card-body p-4">
+                                <div class="d-flex gap-2 mb-3">
+                                    <span class="badge bg-primary-custom bg-opacity-10 text-primary-custom">Technology</span>
+                                </div>
+                                <h3 class="h5 fw-bold mb-3">
+                                    <a href="#" class="text-decoration-none text-reset stretched-link">Securing Your AI Knowledge Base: Best Practices</a>
+                                </h3>
+                                <p class="text-secondary mb-3">
+                                    Essential security measures for protecting sensitive information in your AI-powered knowledge systems.
+                                </p>
+                                <div class="d-flex align-items-center mt-auto">
+                                    <div class="rounded-circle overflow-hidden me-2" style="width: 32px; height: 32px;">
+                                        <img src="https://randomuser.me/api/portraits/men/12.jpg" alt="Thomas Nguyen" class="img-fluid">
+                                    </div>
+                                    <div>
+                                        <p class="small mb-0">Thomas Nguyen • December 14, 2022</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Article 6 -->
+                    <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="200">
+                        <div class="card h-100 border-0 shadow-sm rounded-4">
+                            <img src="https://images.unsplash.com/photo-1600132806370-bf17e65e942f?q=80&w=600" 
+                                 class="card-img-top" style="height: 200px; object-fit: cover;"
+                                 alt="Team Productivity">
+                            <div class="card-body p-4">
+                                <div class="d-flex gap-2 mb-3">
+                                    <span class="badge bg-primary-custom bg-opacity-10 text-primary-custom">Implementation</span>
+                                </div>
+                                <h3 class="h5 fw-bold mb-3">
+                                    <a href="#" class="text-decoration-none text-reset stretched-link">Integrating AI Knowledge Systems with Existing Workflows</a>
+                                </h3>
+                                <p class="text-secondary mb-3">
+                                    Strategies for seamless implementation that enhances rather than disrupts your team's existing processes.
+                                </p>
+                                <div class="d-flex align-items-center mt-auto">
+                                    <div class="rounded-circle overflow-hidden me-2" style="width: 32px; height: 32px;">
+                                        <img src="https://randomuser.me/api/portraits/men/77.jpg" alt="Ryan Lee" class="img-fluid">
+                                    </div>
+                                    <div>
+                                        <p class="small mb-0">Ryan Lee • November 30, 2022</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    {% endif %}
+                </div>
+                
+                <div class="text-center mt-5">
+                    <a href="{% url 'blog' %}" class="btn btn-outline-primary-custom px-4 py-2">
+                        <i class="bi bi-grid me-2"></i>View All Articles
+                    </a>
+                </div>
             </div>
         </section>
-        
-        <!-- CTA Section -->
-        <section class="py-5 py-md-8 bg-primary-custom text-white">
-            <div class="container text-center" data-aos="fade-up">
-                <h2 class="display-5 fw-bold mb-4">Ready to Transform Your Knowledge Management?</h2>
-                <p class="lead mb-5 col-lg-8 mx-auto">
-                    Contact us today to discuss how our AI-powered solutions can help your organization access and leverage its knowledge more effectively.
-                </p>
-                <div class="d-flex flex-column flex-sm-row gap-3 justify-content-center">
-                    <a href="contact.html" class="btn btn-light btn-lg px-4 py-3 fw-medium">
-                        Schedule a Demo
-                    </a>
-                    <a href="pricing.html" class="btn btn-outline-light btn-lg px-4 py-3 fw-medium">
-                        View Pricing
-                    </a>
+
+        <!-- Newsletter Section -->
+        <section class="py-5 py-md-6">
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-lg-8">
+                        <div class="bg-primary-custom bg-opacity-10 rounded-4 p-4 p-md-5 text-center" data-aos="fade-up">
+                            <h2 class="h3 fw-bold mb-3">Subscribe to Our Newsletter</h2>
+                            <p class="text-secondary mb-4">Get the latest AI knowledge management insights delivered straight to your inbox.</p>
+                            <div class="row justify-content-center">
+                                <div class="col-md-8">
+                                    <form action="{% url 'newsletter_subscribe' %}" method="post">
+                                        {% csrf_token %}
+                                        <div class="input-group mb-3">
+                                            <input type="email" name="email" class="form-control py-3" placeholder="Your email address" aria-label="Your email address" required>
+                                            <button class="btn btn-primary-custom px-4" type="submit">Subscribe</button>
+                                        </div>
+                                        <div class="form-text text-center">We respect your privacy. Unsubscribe at any time.</div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
     </main>
 
-    <!-- Footer -->
-    <footer class="bg-light py-5">
-        <div class="container">
-            <div class="row g-4">
-                <div class="col-lg-3 col-md-6">
-                    <h5 class="fw-bold mb-3">LioraXAI</h5>
-                    <p class="text-muted mb-4">
-                        Transform your company's data into an interactive chatbot. Streamline onboarding and access information instantly.
-                    </p>
-                </div>
-                
-                <div class="col-lg-3 col-md-6">
-                    <h5 class="fw-bold mb-3">Product</h5>
-                    <ul class="list-unstyled">
-                        <li class="mb-2"><a href="features.html" class="text-decoration-none text-muted">Features</a></li>
-                        <li class="mb-2"><a href="pricing.html" class="text-decoration-none text-muted">Pricing</a></li>
-                        <li class="mb-2"><a href="integrations.html" class="text-decoration-none text-muted">Integrations</a></li>
-                        <li class="mb-2"><a href="case-studies.html" class="text-decoration-none text-muted">Case Studies</a></li>
-                    </ul>
-                </div>
-                
-                <div class="col-lg-3 col-md-6">
-                    <h5 class="fw-bold mb-3">Company</h5>
-                    <ul class="list-unstyled">
-                        <li class="mb-2"><a href="about.html" class="text-decoration-none text-muted">About</a></li>
-                        <li class="mb-2"><a href="team.html" class="text-decoration-none text-muted">Team</a></li>
-                        <li class="mb-2"><a href="careers.html" class="text-decoration-none text-muted">Careers</a></li>
-                        <li class="mb-2"><a href="contact.html" class="text-decoration-none text-muted">Contact</a></li>
-                    </ul>
-                </div>
-                
-                <div class="col-lg-3 col-md-6">
-                    <h5 class="fw-bold mb-3">Resources</h5>
-                    <ul class="list-unstyled">
-                        <li class="mb-2"><a href="blog.html" class="text-decoration-none text-muted">Blog</a></li>
-                        <li class="mb-2"><a href="documentation.html" class="text-decoration-none text-muted">Documentation</a></li>
-                        <li class="mb-2"><a href="privacy.html" class="text-decoration-none text-muted">Privacy Policy</a></li>
-                        <li class="mb-2"><a href="terms.html" class="text-decoration-none text-muted">Terms of Service</a></li>
-                    </ul>
-                </div>
-            </div>
-            
-            <div class="mt-5 pt-4 border-top">
-                <div class="row align-items-center">
-                    <div class="col-md-6 text-center text-md-start">
-                        <p class="text-muted mb-md-0">
-                            &copy; <span id="current-year"></span> LioraXAI. All rights reserved.
-                        </p>
-                    </div>
-                    <div class="col-md-6 text-center text-md-end">
-                        <a href="#" class="text-muted me-3">
-                            <i class="bi bi-twitter fs-5"></i>
-                        </a>
-                        <a href="#" class="text-muted">
-                            <i class="bi bi-linkedin fs-5"></i>
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </footer>
-    
-    <!-- Bootstrap 5.3 JS Bundle with Popper -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-    <!-- AOS Animation Library -->
-    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    <script>
-        // Initialize AOS animation library
-        AOS.init({
-            duration: 800,
-            easing: 'ease-in-out',
-            once: true,
-            disable: window.innerWidth < 768 // Disable animations on mobile for better performance
-        });
-        
-        // Set current year in footer
-        document.getElementById('current-year').textContent = new Date().getFullYear();
-        
-        // Check for dark mode preference
-        if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
-            document.body.classList.add('dark-mode');
-        }
-        
-        // Listen for dark mode changes
-        window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', event => {
-            if (event.matches) {
-                document.body.classList.add('dark-mode');
-            } else {
-                document.body.classList.remove('dark-mode');
-            }
-        });
-    </script>
-</body>
-</html> 
+    {% include 'includes/footer.html' %}
+{% endblock %} 

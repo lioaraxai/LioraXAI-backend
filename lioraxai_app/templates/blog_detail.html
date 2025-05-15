@@ -1,0 +1,199 @@
+{% extends 'base_django.html' %}
+{% load static %}
+
+{% block title %}{{ post.title }} | LioraXAI Blog{% endblock %}
+
+{% block content %}
+    {% include 'includes/header.html' %}
+
+    <main>
+        <!-- Hero Section -->
+        <section class="pt-5 pb-3 bg-gradient-primary text-white">
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-lg-10" data-aos="fade-up">
+                        <div class="d-flex gap-2 mb-3">
+                            <span class="badge bg-white text-primary-custom">{{ post.category }}</span>
+                            {% if post.read_time %}
+                            <span class="badge bg-white text-secondary">{{ post.read_time }} min read</span>
+                            {% endif %}
+                        </div>
+                        <h1 class="display-4 fw-bold mb-4">
+                            {{ post.title }}
+                        </h1>
+                        <div class="d-flex align-items-center mb-4">
+                            <div class="rounded-circle overflow-hidden me-3" style="width: 48px; height: 48px;">
+                                <img src="{{ post.author.image_url }}" alt="{{ post.author.name }}" class="img-fluid">
+                            </div>
+                            <div>
+                                <p class="fw-medium mb-0 text-white">{{ post.author.name }}</p>
+                                <p class="text-white-50 mb-0">{{ post.published_date|date:"F j, Y" }}</p>
+                            </div>
+                            <div class="ms-auto">
+                                <div class="d-flex gap-2">
+                                    <a href="#" class="btn btn-outline-light btn-sm rounded-circle">
+                                        <i class="bi bi-twitter"></i>
+                                    </a>
+                                    <a href="#" class="btn btn-outline-light btn-sm rounded-circle">
+                                        <i class="bi bi-linkedin"></i>
+                                    </a>
+                                    <a href="#" class="btn btn-outline-light btn-sm rounded-circle">
+                                        <i class="bi bi-facebook"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Featured Image -->
+        <section class="py-0">
+            <div class="container-fluid px-0">
+                <div class="featured-image-container" style="max-height: 500px; overflow: hidden;">
+                    <img src="{{ post.image_url }}" class="w-100 object-fit-cover" style="height: 500px;" alt="{{ post.title }}">
+                </div>
+            </div>
+        </section>
+
+        <!-- Article Content -->
+        <section class="py-5 py-md-6">
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-lg-8">
+                        <article class="blog-content" data-aos="fade-up">
+                            {% if post.content %}
+                                {{ post.content|safe }}
+                            {% else %}
+                                <p class="lead mb-4">{{ post.excerpt }}</p>
+                                <p>This is a placeholder for the full article content. In a real implementation, this would contain the complete blog post text, formatted with appropriate HTML markup.</p>
+                                
+                                <h2>Key Points</h2>
+                                <ul>
+                                    <li>AI knowledge management systems significantly improve productivity</li>
+                                    <li>Implementation requires careful planning and ongoing optimization</li>
+                                    <li>ROI can be measured through various quantitative and qualitative metrics</li>
+                                </ul>
+                                
+                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed vel lectus eu felis semper finibus ac eget ipsum. Nam nec ex ut est facilisis rhoncus. Aliquam ornare nulla est, non tincidunt libero mollis in. Praesent a mi nec arcu lacinia condimentum ut id enim. Praesent a mi nec arcu lacinia condimentum ut id enim.</p>
+                                
+                                <blockquote>
+                                    <p>"The true value of AI knowledge management lies not just in storing information, but in making it accessible and actionable when and where it's needed."</p>
+                                </blockquote>
+                                
+                                <p>Suspendisse potenti. Donec vitae nunc sed dolor pellentesque mollis ut eget metus. Donec tempus velit sed orci rutrum, ut pharetra lacus egestas. Nullam non bibendum eros, at luctus tortor. Nullam scelerisque ex quis bibendum sollicitudin. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.</p>
+                                
+                                <h2>Implementation Best Practices</h2>
+                                <p>When implementing AI knowledge management systems, consider the following best practices:</p>
+                                <ol>
+                                    <li>Establish clear objectives and success metrics</li>
+                                    <li>Engage stakeholders across all levels of the organization</li>
+                                    <li>Start with a focused pilot before broader implementation</li>
+                                    <li>Provide comprehensive training and support</li>
+                                    <li>Continuously measure results and refine your approach</li>
+                                </ol>
+                            {% endif %}
+                        </article>
+                        
+                        <!-- Author Bio -->
+                        <div class="bg-light rounded-4 p-4 mt-5" data-aos="fade-up">
+                            <div class="d-flex">
+                                <div class="rounded-circle overflow-hidden me-4" style="width: 80px; height: 80px; flex-shrink: 0;">
+                                    <img src="{{ post.author.image_url }}" alt="{{ post.author.name }}" class="img-fluid">
+                                </div>
+                                <div>
+                                    <h4 class="h5 fw-bold mb-1">About {{ post.author.name }}</h4>
+                                    <p class="text-secondary mb-3">AI Knowledge Management Specialist</p>
+                                    <p class="mb-0">Expert in enterprise knowledge systems with over 10 years of experience implementing AI solutions for Fortune 500 companies.</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Tags -->
+                        <div class="mt-5" data-aos="fade-up">
+                            <div class="d-flex flex-wrap gap-2">
+                                <a href="{% url 'blog_category' 'ai-strategy' %}" class="badge bg-light text-secondary text-decoration-none p-2">AI Strategy</a>
+                                <a href="#" class="badge bg-light text-secondary text-decoration-none p-2">Knowledge Management</a>
+                                <a href="#" class="badge bg-light text-secondary text-decoration-none p-2">Enterprise AI</a>
+                                <a href="#" class="badge bg-light text-secondary text-decoration-none p-2">ROI</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Related Articles -->
+        {% if related_posts %}
+        <section class="py-5 py-md-6 bg-light">
+            <div class="container">
+                <div class="row mb-4">
+                    <div class="col">
+                        <h2 class="h3 fw-bold">Related Articles</h2>
+                    </div>
+                </div>
+                
+                <div class="row g-4">
+                    {% for related in related_posts %}
+                    <div class="col-md-4" data-aos="fade-up" {% if forloop.counter > 1 %}data-aos-delay="{{ forloop.counter|add:"-1"|widthratio:1:100 }}"{% endif %}>
+                        <div class="card h-100 border-0 shadow-sm rounded-4">
+                            <img src="{{ related.image_url }}" 
+                                 class="card-img-top" style="height: 200px; object-fit: cover;"
+                                 alt="{{ related.title }}">
+                            <div class="card-body p-4">
+                                <div class="d-flex gap-2 mb-3">
+                                    <span class="badge bg-primary-custom bg-opacity-10 text-primary-custom">{{ related.category }}</span>
+                                </div>
+                                <h3 class="h5 fw-bold mb-3">
+                                    <a href="{% url 'blog_detail' related.slug %}" class="text-decoration-none text-reset stretched-link">{{ related.title }}</a>
+                                </h3>
+                                <p class="text-secondary mb-3">
+                                    {{ related.excerpt }}
+                                </p>
+                                <div class="d-flex align-items-center mt-auto">
+                                    <div class="rounded-circle overflow-hidden me-2" style="width: 32px; height: 32px;">
+                                        <img src="{{ related.author.image_url }}" alt="{{ related.author.name }}" class="img-fluid">
+                                    </div>
+                                    <div>
+                                        <p class="small mb-0">{{ related.author.name }} • {{ related.published_date|date:"F j, Y" }}</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </section>
+        {% endif %}
+
+        <!-- Newsletter Section -->
+        <section class="py-5 py-md-6">
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-lg-8">
+                        <div class="bg-primary-custom bg-opacity-10 rounded-4 p-4 p-md-5 text-center" data-aos="fade-up">
+                            <h2 class="h3 fw-bold mb-3">Subscribe to Our Newsletter</h2>
+                            <p class="text-secondary mb-4">Get the latest AI knowledge management insights delivered straight to your inbox.</p>
+                            <div class="row justify-content-center">
+                                <div class="col-md-8">
+                                    <form action="{% url 'newsletter_subscribe' %}" method="post">
+                                        {% csrf_token %}
+                                        <div class="input-group mb-3">
+                                            <input type="email" name="email" class="form-control py-3" placeholder="Your email address" aria-label="Your email address" required>
+                                            <button class="btn btn-primary-custom px-4" type="submit">Subscribe</button>
+                                        </div>
+                                        <div class="form-text text-center">We respect your privacy. Unsubscribe at any time.</div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    {% include 'includes/footer.html' %}
+{% endblock %} 
