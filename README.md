@@ -6,6 +6,16 @@ A Django application for LioraXAI, an AI-powered knowledge platform that transfo
 
 - **lioraxai_project/** - Main Django project settings
 - **lioraxai_app/** - Django application with views, templates, and models
+  - **templates/** - HTML templates using Django template language
+  - **static/** - CSS, JavaScript, and image files
+  - **views.py** - View functions handling requests and responses
+  - **models.py** - Database models
+  - **urls.py** - URL routing configurations
+  - **forms.py** - Form definitions and validation
+- **staticfiles/** - Collected static files for production (generated)
+- **manage.py** - Django's command-line utility for administrative tasks
+- **requirements.txt** - Python package dependencies
+- **pyproject.toml** - Poetry configuration for dependency management
 
 ## No Frontend Dependencies Required
 
@@ -29,25 +39,17 @@ chmod +x setup.sh
 
 ## Quick Setup with Scripts
 
-This project includes several utility scripts to streamline setup and deployment:
+This project uses Poetry for dependency management and includes a few utility scripts:
 
-- **setup.sh** - Complete project setup script (creates directories, sets up environment, installs dependencies)
-- **run_server.sh** - Quick script to activate environment and run the development server
-- **run_with_poetry.sh** - Script to run the server using Poetry for dependency management
+- **run.sh** - Quick script to run the development server using Poetry
+- **build.sh** - Used for deployment on Render.com
 - **deploy.sh** - Prepares the application for deployment to PythonAnywhere
 
-**IMPORTANT:** Before running any script, check if what you need already exists. The scripts are designed to be idempotent and will check for existing components before creating new ones.
-
-To set up the project quickly:
+To run the development server:
 ```
-chmod +x setup.sh
-./setup.sh
-```
-
-To run the server:
-```
-chmod +x run_server.sh
-./run_server.sh
+chmod +x run.sh
+./run.sh  # Runs on port 8000 by default
+./run.sh 8080  # Specify a different port
 ```
 
 ## Manual Development Setup
@@ -60,62 +62,31 @@ If you prefer a manual setup:
    cd LioraXAI-backend
    ```
 
-2. Create and activate a virtual environment:
+2. Install Poetry (if not already installed):
    ```
-   python -m venv venv
-   source venv/bin/activate  # On Windows: venv\Scripts\activate
+   curl -sSL https://install.python-poetry.org | python3 -
    ```
 
-3. Install dependencies:
+3. Install dependencies using Poetry:
    ```
-   pip install -r requirements.txt
+   poetry install
    ```
 
 4. Run migrations:
    ```
-   python manage.py migrate
+   poetry run python manage.py migrate
    ```
 
 5. Run the development server:
    ```
-   python manage.py runserver
+   poetry run python manage.py runserver
    ```
 
 6. Visit http://127.0.0.1:8000/ in your browser
 
 ## Using Poetry for Dependency Management
 
-This project supports [Poetry](https://python-poetry.org/) for dependency management. Poetry provides more robust dependency resolution and project management than pip.
-
-### Setting up with Poetry
-
-1. Install Poetry (if not already installed):
-   ```
-   curl -sSL https://install.python-poetry.org | python3 -
-   ```
-
-2. Make sure Poetry is in your PATH:
-   ```
-   export PATH="$HOME/.local/bin:$PATH"
-   ```
-
-3. Install dependencies using Poetry:
-   ```
-   poetry install --no-root
-   ```
-
-4. Run the Django server with Poetry:
-   ```
-   poetry run python manage.py runserver 8080
-   ```
-
-   Or use the provided script:
-   ```
-   chmod +x run_with_poetry.sh
-   ./run_with_poetry.sh
-   ```
-
-5. Visit http://127.0.0.1:8080/ in your browser
+This project uses [Poetry](https://python-poetry.org/) for dependency management.
 
 ### Adding New Dependencies with Poetry
 
@@ -128,6 +99,10 @@ To update dependencies:
 ```
 poetry update
 ```
+
+### The requirements.txt File
+
+A `requirements.txt` file is maintained for compatibility purposes only. The primary source of truth for dependencies is the `pyproject.toml` file.
 
 ## Features
 

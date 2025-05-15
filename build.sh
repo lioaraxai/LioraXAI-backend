@@ -11,11 +11,6 @@ echo "Installing dependencies with Poetry..."
 poetry config virtualenvs.create false
 poetry install --no-interaction --no-ansi
 
-# Run setup script (without website since we'll use the included static files)
-echo "Running setup script..."
-chmod +x setup.sh
-./setup.sh
-
 # Collect static files
 echo "Collecting static files..."
 python manage.py collectstatic --noinput
