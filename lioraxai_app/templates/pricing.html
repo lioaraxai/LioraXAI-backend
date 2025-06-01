@@ -13,10 +13,10 @@
                 <div class="row justify-content-center">
                     <div class="col-lg-8 text-center" data-aos="fade-up">
                         <h1 class="display-4 fw-bold mb-4">
-                            Transparent Pricing for Every Need
+                            Transparent Pricing for Intelligent Conversations
                         </h1>
                         <p class="lead mb-4 text-white">
-                            Choose the plan that works best for your organization, with no hidden fees or surprises.
+                            Choose the perfect plan for your organization's AI chatbot needs. No hidden fees, no surprises – just powerful AI solutions that scale with your business.
                         </p>
                     </div>
                 </div>
@@ -42,20 +42,24 @@
                         <div class="card shadow-sm rounded-4 h-100 pricing-card">
                             <div class="card-body p-4 p-lg-5">
                                 <h3 class="mb-3 fw-bold">Starter</h3>
-                                <p class="text-secondary mb-4">Perfect for small teams getting started</p>
+                                <p class="text-secondary mb-4">Perfect for small teams exploring AI chatbots</p>
                                 <div class="pricing-value d-flex align-items-end mb-4">
-                                    <h2 class="display-4 fw-bold mb-0">$29</h2>
+                                    <h2 class="display-4 fw-bold mb-0">$49</h2>
                                     <span class="text-secondary ms-2 mb-2">/month</span>
                                 </div>
                                 <hr class="my-4">
                                 <ul class="list-unstyled mb-4">
                                     <li class="d-flex align-items-center mb-3">
                                         <i class="bi bi-check-circle-fill text-success me-3"></i>
+                                        <span>1 AI Chatbot (choose type)</span>
+                                    </li>
+                                    <li class="d-flex align-items-center mb-3">
+                                        <i class="bi bi-check-circle-fill text-success me-3"></i>
                                         <span>Up to 5 team members</span>
                                     </li>
                                     <li class="d-flex align-items-center mb-3">
                                         <i class="bi bi-check-circle-fill text-success me-3"></i>
-                                        <span>10,000 questions/month</span>
+                                        <span>5,000 conversations/month</span>
                                     </li>
                                     <li class="d-flex align-items-center mb-3">
                                         <i class="bi bi-check-circle-fill text-success me-3"></i>
@@ -66,33 +70,37 @@
                                         <span>Email support</span>
                                     </li>
                                 </ul>
-                                <a href="/demo/" class="btn btn-outline-primary-custom w-100 py-3 rounded-3">
+                                <a href="{% url 'contact' %}" class="btn btn-outline-primary-custom w-100 py-3 rounded-3">
                                     Get Started
                                 </a>
                             </div>
                         </div>
                     </div>
                     
-                    <!-- Pro Plan -->
+                    <!-- Professional Plan -->
                     <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="100">
                         <div class="card shadow rounded-4 h-100 pricing-card pricing-card-featured">
                             <div class="card-body p-4 p-lg-5">
                                 <span class="badge bg-primary-custom text-white rounded-pill mb-3">Most Popular</span>
                                 <h3 class="mb-3 fw-bold">Professional</h3>
-                                <p class="text-secondary mb-4">For growing teams with scaling needs</p>
+                                <p class="text-secondary mb-4">For growing businesses with multiple AI needs</p>
                                 <div class="pricing-value d-flex align-items-end mb-4">
-                                    <h2 class="display-4 fw-bold mb-0">$79</h2>
+                                    <h2 class="display-4 fw-bold mb-0">$149</h2>
                                     <span class="text-secondary ms-2 mb-2">/month</span>
                                 </div>
                                 <hr class="my-4">
                                 <ul class="list-unstyled mb-4">
                                     <li class="d-flex align-items-center mb-3">
                                         <i class="bi bi-check-circle-fill text-success me-3"></i>
-                                        <span>Up to 20 team members</span>
+                                        <span>Up to 3 AI Chatbots (any combination)</span>
                                     </li>
                                     <li class="d-flex align-items-center mb-3">
                                         <i class="bi bi-check-circle-fill text-success me-3"></i>
-                                        <span>50,000 questions/month</span>
+                                        <span>Up to 25 team members</span>
+                                    </li>
+                                    <li class="d-flex align-items-center mb-3">
+                                        <i class="bi bi-check-circle-fill text-success me-3"></i>
+                                        <span>25,000 conversations/month</span>
                                     </li>
                                     <li class="d-flex align-items-center mb-3">
                                         <i class="bi bi-check-circle-fill text-success me-3"></i>
@@ -106,8 +114,12 @@
                                         <i class="bi bi-check-circle-fill text-success me-3"></i>
                                         <span>Custom branding</span>
                                     </li>
+                                    <li class="d-flex align-items-center mb-3">
+                                        <i class="bi bi-check-circle-fill text-success me-3"></i>
+                                        <span>Analytics dashboard</span>
+                                    </li>
                                 </ul>
-                                <a href="/demo/" class="btn btn-primary-custom w-100 py-3 rounded-3">
+                                <a href="{% url 'contact' %}" class="btn btn-primary-custom w-100 py-3 rounded-3">
                                     Get Started
                                 </a>
                             </div>
@@ -119,7 +131,7 @@
                         <div class="card shadow-sm rounded-4 h-100 pricing-card">
                             <div class="card-body p-4 p-lg-5">
                                 <h3 class="mb-3 fw-bold">Enterprise</h3>
-                                <p class="text-secondary mb-4">Custom solutions for large organizations</p>
+                                <p class="text-secondary mb-4">Custom AI solutions for large organizations</p>
                                 <div class="pricing-value d-flex align-items-end mb-4">
                                     <h2 class="display-4 fw-bold mb-0">Custom</h2>
                                 </div>
@@ -127,15 +139,19 @@
                                 <ul class="list-unstyled mb-4">
                                     <li class="d-flex align-items-center mb-3">
                                         <i class="bi bi-check-circle-fill text-success me-3"></i>
+                                        <span>All 3 AI Chatbot types</span>
+                                    </li>
+                                    <li class="d-flex align-items-center mb-3">
+                                        <i class="bi bi-check-circle-fill text-success me-3"></i>
                                         <span>Unlimited team members</span>
                                     </li>
                                     <li class="d-flex align-items-center mb-3">
                                         <i class="bi bi-check-circle-fill text-success me-3"></i>
-                                        <span>Unlimited questions</span>
+                                        <span>Unlimited conversations</span>
                                     </li>
                                     <li class="d-flex align-items-center mb-3">
                                         <i class="bi bi-check-circle-fill text-success me-3"></i>
-                                        <span>Custom integrations</span>
+                                        <span>Custom integrations & APIs</span>
                                     </li>
                                     <li class="d-flex align-items-center mb-3">
                                         <i class="bi bi-check-circle-fill text-success me-3"></i>
@@ -149,8 +165,12 @@
                                         <i class="bi bi-check-circle-fill text-success me-3"></i>
                                         <span>Single sign-on (SSO)</span>
                                     </li>
+                                    <li class="d-flex align-items-center mb-3">
+                                        <i class="bi bi-check-circle-fill text-success me-3"></i>
+                                        <span>Advanced security & compliance</span>
+                                    </li>
                                 </ul>
-                                <a href="/contact/" class="btn btn-outline-primary-custom w-100 py-3 rounded-3">
+                                <a href="{% url 'contact' %}" class="btn btn-outline-primary-custom w-100 py-3 rounded-3">
                                     Contact Sales
                                 </a>
                             </div>
@@ -160,8 +180,76 @@
             </div>
         </section>
 
-        <!-- FAQ Section -->
+        <!-- Chatbot Types Section -->
         <section class="py-5 py-md-6 bg-light">
+            <div class="container py-4">
+                <div class="text-center mb-5" data-aos="fade-up">
+                    <h2 class="display-5 fw-bold mb-3">Choose Your AI Chatbot Solutions</h2>
+                    <p class="lead mb-0 col-lg-8 mx-auto text-secondary">
+                        Each plan includes access to our specialized AI chatbots designed for different business needs
+                    </p>
+                </div>
+                
+                <div class="row g-4">
+                    <!-- Organizational Q&A -->
+                    <div class="col-lg-4" data-aos="fade-up">
+                        <div class="card h-100 border-0 shadow-sm rounded-4">
+                            <div class="card-body p-4 text-center">
+                                <div class="bg-primary-custom bg-opacity-10 rounded-circle d-inline-flex align-items-center justify-content-center mb-4" style="width: 80px; height: 80px;">
+                                    <i class="bi bi-chat-square-text text-primary-custom fs-3"></i>
+                                </div>
+                                <h3 class="h4 fw-bold mb-3">Organizational Q&A Chatbot</h3>
+                                <p class="text-secondary mb-4">Perfect for internal knowledge management, customer support, and team collaboration. Answers questions about company processes, policies, and procedures.</p>
+                                <ul class="list-unstyled text-start">
+                                    <li class="mb-2"><i class="bi bi-check text-success me-2"></i>Internal knowledge base</li>
+                                    <li class="mb-2"><i class="bi bi-check text-success me-2"></i>Customer support automation</li>
+                                    <li class="mb-2"><i class="bi bi-check text-success me-2"></i>Policy & procedure guidance</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Property Search -->
+                    <div class="col-lg-4" data-aos="fade-up" data-aos-delay="100">
+                        <div class="card h-100 border-0 shadow-sm rounded-4">
+                            <div class="card-body p-4 text-center">
+                                <div class="bg-primary-custom bg-opacity-10 rounded-circle d-inline-flex align-items-center justify-content-center mb-4" style="width: 80px; height: 80px;">
+                                    <i class="bi bi-search text-primary-custom fs-3"></i>
+                                </div>
+                                <h3 class="h4 fw-bold mb-3">Property Search Chatbot</h3>
+                                <p class="text-secondary mb-4">Ideal for real estate businesses and property management. Helps customers find properties based on their specific requirements and preferences.</p>
+                                <ul class="list-unstyled text-start">
+                                    <li class="mb-2"><i class="bi bi-check text-success me-2"></i>Personalized property matching</li>
+                                    <li class="mb-2"><i class="bi bi-check text-success me-2"></i>Smart filtering & search</li>
+                                    <li class="mb-2"><i class="bi bi-check text-success me-2"></i>Lead generation & conversion</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Technical Assistance -->
+                    <div class="col-lg-4" data-aos="fade-up" data-aos-delay="200">
+                        <div class="card h-100 border-0 shadow-sm rounded-4">
+                            <div class="card-body p-4 text-center">
+                                <div class="bg-primary-custom bg-opacity-10 rounded-circle d-inline-flex align-items-center justify-content-center mb-4" style="width: 80px; height: 80px;">
+                                    <i class="bi bi-tools text-primary-custom fs-3"></i>
+                                </div>
+                                <h3 class="h4 fw-bold mb-3">Technical Assistance Chatbot</h3>
+                                <p class="text-secondary mb-4">Designed for manufacturing and engineering teams. Interprets technical drawings, provides tool guidance, and answers complex technical questions.</p>
+                                <ul class="list-unstyled text-start">
+                                    <li class="mb-2"><i class="bi bi-check text-success me-2"></i>Engineering drawing analysis</li>
+                                    <li class="mb-2"><i class="bi bi-check text-success me-2"></i>Tool & equipment guidance</li>
+                                    <li class="mb-2"><i class="bi bi-check text-success me-2"></i>Technical documentation support</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- FAQ Section -->
+        <section class="py-5 py-md-6">
             <div class="container py-4">
                 <div class="row justify-content-center mb-5">
                     <div class="col-lg-8 text-center">
@@ -176,12 +264,12 @@
                             <div class="accordion-item border-0 mb-3 shadow-sm rounded-3">
                                 <h3 class="accordion-header">
                                     <button class="accordion-button collapsed rounded-3 fw-medium" type="button" data-bs-toggle="collapse" data-bs-target="#faq1">
-                                        Can I change plans later?
+                                        Can I change plans or add more chatbots later?
                                     </button>
                                 </h3>
                                 <div id="faq1" class="accordion-collapse collapse" data-bs-parent="#pricingFaq">
                                     <div class="accordion-body">
-                                        Yes, you can upgrade or downgrade your plan at any time. Changes take effect at the start of the next billing cycle.
+                                        Yes, you can upgrade or downgrade your plan at any time. You can also add additional chatbot types to your existing plan. Changes take effect at the start of the next billing cycle.
                                     </div>
                                 </div>
                             </div>
@@ -190,26 +278,54 @@
                             <div class="accordion-item border-0 mb-3 shadow-sm rounded-3">
                                 <h3 class="accordion-header">
                                     <button class="accordion-button collapsed rounded-3 fw-medium" type="button" data-bs-toggle="collapse" data-bs-target="#faq2">
-                                        What happens if I exceed my monthly question limit?
+                                        What happens if I exceed my monthly conversation limit?
                                     </button>
                                 </h3>
                                 <div id="faq2" class="accordion-collapse collapse" data-bs-parent="#pricingFaq">
                                     <div class="accordion-body">
-                                        If you reach your monthly question limit, you'll have the option to purchase additional questions or upgrade to a higher plan. We'll notify you when you're approaching your limit.
+                                        If you reach your monthly conversation limit, you'll have the option to purchase additional conversations or upgrade to a higher plan. We'll notify you when you're approaching your limit so there are no surprises.
                                     </div>
                                 </div>
                             </div>
-                            
+
                             <!-- FAQ Item 3 -->
                             <div class="accordion-item border-0 mb-3 shadow-sm rounded-3">
                                 <h3 class="accordion-header">
                                     <button class="accordion-button collapsed rounded-3 fw-medium" type="button" data-bs-toggle="collapse" data-bs-target="#faq3">
-                                        Do you offer a free trial?
+                                        How quickly can I get my chatbots up and running?
                                     </button>
                                 </h3>
                                 <div id="faq3" class="accordion-collapse collapse" data-bs-parent="#pricingFaq">
                                     <div class="accordion-body">
-                                        Yes, we offer a 14-day free trial on our Starter and Professional plans. No credit card required. Request a demo to get started with your trial.
+                                        Most chatbots can be deployed within 1-2 weeks depending on complexity and data preparation. Our team will work with you to ensure a smooth setup process and provide training for your team.
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- FAQ Item 4 -->
+                            <div class="accordion-item border-0 mb-3 shadow-sm rounded-3">
+                                <h3 class="accordion-header">
+                                    <button class="accordion-button collapsed rounded-3 fw-medium" type="button" data-bs-toggle="collapse" data-bs-target="#faq4">
+                                        Do you offer custom integrations?
+                                    </button>
+                                </h3>
+                                <div id="faq4" class="accordion-collapse collapse" data-bs-parent="#pricingFaq">
+                                    <div class="accordion-body">
+                                        Yes! Professional plans include advanced integrations, while Enterprise plans offer fully custom integrations and APIs. We can connect with your existing CRM, databases, and business tools.
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- FAQ Item 5 -->
+                            <div class="accordion-item border-0 mb-3 shadow-sm rounded-3">
+                                <h3 class="accordion-header">
+                                    <button class="accordion-button collapsed rounded-3 fw-medium" type="button" data-bs-toggle="collapse" data-bs-target="#faq5">
+                                        Is my data secure with LioraXAI?
+                                    </button>
+                                </h3>
+                                <div id="faq5" class="accordion-collapse collapse" data-bs-parent="#pricingFaq">
+                                    <div class="accordion-body">
+                                        Absolutely. We implement enterprise-grade security measures including encryption, secure servers, and regular security audits. Enterprise plans include additional security features and compliance certifications.
                                     </div>
                                 </div>
                             </div>
@@ -218,7 +334,240 @@
                 </div>
             </div>
         </section>
+
+        <!-- CTA Section -->
+        <section class="py-5 py-md-6 bg-gradient-primary text-white">
+            <div class="container py-4">
+                <div class="row justify-content-center">
+                    <div class="col-lg-8 text-center" data-aos="fade-up">
+                        <h2 class="display-5 fw-bold mb-4">Ready to Transform Your Business with AI?</h2>
+                        <p class="lead mb-5">Start your journey with LioraXAI today and experience the power of intelligent conversations.</p>
+                        <div class="d-flex flex-column flex-sm-row gap-3 justify-content-center">
+                            <a href="{% url 'contact' %}" class="btn btn-light text-primary-custom fw-medium py-3 px-4 rounded-3">
+                                <i class="bi bi-chat-dots me-2"></i>Get Started Today
+                            </a>
+                            <a href="{% url 'features' %}" class="btn btn-outline-light fw-medium py-3 px-4 rounded-3">
+                                <i class="bi bi-arrow-right me-2"></i>Explore Features
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
     </main>
 
     {% include 'includes/footer.html' %}
+
+    <!-- Custom JavaScript for Pricing Toggle -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Pricing data
+            const pricingData = {
+                monthly: {
+                    starter: { price: 49, period: '/month' },
+                    professional: { price: 149, period: '/month' },
+                    enterprise: { price: 'Custom', period: '' }
+                },
+                yearly: {
+                    starter: { price: 39, period: '/month', savings: 'Save $120/year' },
+                    professional: { price: 119, period: '/month', savings: 'Save $360/year' },
+                    enterprise: { price: 'Custom', period: '', savings: 'Custom pricing' }
+                }
+            };
+
+            // Get toggle buttons and pricing elements
+            const monthlyBtn = document.getElementById('monthly-plan');
+            const yearlyBtn = document.getElementById('annual-plan');
+            const pricingCards = document.querySelectorAll('.pricing-card');
+
+            // State management
+            let currentPlan = 'monthly';
+
+            // Function to update pricing display
+            function updatePricing(planType) {
+                currentPlan = planType;
+                
+                // Update button states
+                if (planType === 'monthly') {
+                    monthlyBtn.classList.add('btn-primary-custom', 'active');
+                    monthlyBtn.classList.remove('btn-outline-secondary');
+                    yearlyBtn.classList.remove('btn-primary-custom', 'active');
+                    yearlyBtn.classList.add('btn-outline-secondary');
+                } else {
+                    yearlyBtn.classList.add('btn-primary-custom', 'active');
+                    yearlyBtn.classList.remove('btn-outline-secondary');
+                    monthlyBtn.classList.remove('btn-primary-custom', 'active');
+                    monthlyBtn.classList.add('btn-outline-secondary');
+                }
+
+                // Update pricing for each card
+                pricingCards.forEach((card, index) => {
+                    const planNames = ['starter', 'professional', 'enterprise'];
+                    const planName = planNames[index];
+                    
+                    if (planName && pricingData[planType][planName]) {
+                        const priceElement = card.querySelector('.pricing-value h2');
+                        const periodElement = card.querySelector('.pricing-value span');
+                        const savingsElement = card.querySelector('.savings-badge');
+                        
+                        if (priceElement) {
+                            const newPrice = pricingData[planType][planName].price;
+                            priceElement.textContent = typeof newPrice === 'number' ? `$${newPrice}` : newPrice;
+                        }
+                        
+                        if (periodElement) {
+                            periodElement.textContent = pricingData[planType][planName].period;
+                        }
+
+                        // Handle savings badge
+                        if (planType === 'yearly' && planName !== 'enterprise') {
+                            if (!savingsElement) {
+                                // Create savings badge if it doesn't exist
+                                const badge = document.createElement('div');
+                                badge.className = 'savings-badge badge bg-success text-white mb-2';
+                                badge.textContent = pricingData[planType][planName].savings;
+                                card.querySelector('.card-body').insertBefore(badge, card.querySelector('h3'));
+                            } else {
+                                savingsElement.textContent = pricingData[planType][planName].savings;
+                                savingsElement.style.display = 'block';
+                            }
+                        } else {
+                            // Hide savings badge for monthly or enterprise
+                            if (savingsElement) {
+                                savingsElement.style.display = 'none';
+                            }
+                        }
+                    }
+                });
+
+                // Add animation effect
+                pricingCards.forEach(card => {
+                    card.style.transform = 'scale(0.98)';
+                    setTimeout(() => {
+                        card.style.transform = 'scale(1)';
+                    }, 150);
+                });
+            }
+
+            // Initialize button styles
+            monthlyBtn.classList.add('btn-primary-custom', 'active');
+            yearlyBtn.classList.add('btn-outline-secondary');
+
+            // Add transition effects to pricing cards
+            pricingCards.forEach(card => {
+                card.style.transition = 'transform 0.2s ease-in-out';
+            });
+
+            // Event listeners
+            monthlyBtn.addEventListener('click', function(e) {
+                e.preventDefault();
+                if (currentPlan !== 'monthly') {
+                    updatePricing('monthly');
+                }
+            });
+
+            yearlyBtn.addEventListener('click', function(e) {
+                e.preventDefault();
+                if (currentPlan !== 'yearly') {
+                    updatePricing('yearly');
+                }
+            });
+
+            // Keyboard accessibility
+            monthlyBtn.addEventListener('keydown', function(e) {
+                if (e.key === 'Enter' || e.key === ' ') {
+                    e.preventDefault();
+                    updatePricing('monthly');
+                }
+            });
+
+            yearlyBtn.addEventListener('keydown', function(e) {
+                if (e.key === 'Enter' || e.key === ' ') {
+                    e.preventDefault();
+                    updatePricing('yearly');
+                }
+            });
+
+            // Optional: Save user preference to localStorage
+            function savePreference(planType) {
+                try {
+                    localStorage.setItem('lioraxai_pricing_preference', planType);
+                } catch (e) {
+                    // Handle localStorage not available
+                    console.log('localStorage not available');
+                }
+            }
+
+            // Optional: Load user preference from localStorage
+            function loadPreference() {
+                try {
+                    const saved = localStorage.getItem('lioraxai_pricing_preference');
+                    if (saved && (saved === 'monthly' || saved === 'yearly')) {
+                        updatePricing(saved);
+                    }
+                } catch (e) {
+                    // Handle localStorage not available
+                    console.log('localStorage not available');
+                }
+            }
+
+            // Load saved preference on page load
+            loadPreference();
+
+            // Update event listeners to save preference
+            const originalMonthlyHandler = monthlyBtn.onclick;
+            const originalYearlyHandler = yearlyBtn.onclick;
+
+            monthlyBtn.addEventListener('click', function() {
+                savePreference('monthly');
+            });
+
+            yearlyBtn.addEventListener('click', function() {
+                savePreference('yearly');
+            });
+        });
+    </script>
+
+    <!-- Additional CSS for smooth transitions -->
+    <style>
+        .pricing-card {
+            transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+        }
+        
+        .pricing-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1) !important;
+        }
+        
+        .pricing-value {
+            transition: all 0.3s ease-in-out;
+        }
+        
+        .savings-badge {
+            animation: fadeIn 0.3s ease-in-out;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .btn-primary-custom.active {
+            background-color: var(--bs-primary) !important;
+            border-color: var(--bs-primary) !important;
+            color: white !important;
+        }
+        
+        .btn-outline-secondary {
+            color: var(--bs-secondary-color);
+            border-color: var(--bs-border-color);
+            background-color: transparent;
+        }
+        
+        .btn-outline-secondary:hover {
+            background-color: var(--bs-light);
+            border-color: var(--bs-border-color);
+            color: var(--bs-body-color);
+        }
+    </style>
 {% endblock %} 

@@ -13,21 +13,23 @@
                 <div class="row justify-content-center">
                     <div class="col-lg-10" data-aos="fade-up">
                         <div class="d-flex gap-2 mb-3">
-                            <span class="badge bg-white text-primary-custom">{{ post.category }}</span>
+                            <span class="badge bg-white text-primary-custom">{{ post.category|default:"AI Strategy" }}</span>
                             {% if post.read_time %}
                             <span class="badge bg-white text-secondary">{{ post.read_time }} min read</span>
+                            {% else %}
+                            <span class="badge bg-white text-secondary">5 min read</span>
                             {% endif %}
                         </div>
                         <h1 class="display-4 fw-bold mb-4">
-                            {{ post.title }}
+                            {{ post.title|default:"LioraXAI Blog Post" }}
                         </h1>
                         <div class="d-flex align-items-center mb-4">
                             <div class="rounded-circle overflow-hidden me-3" style="width: 48px; height: 48px;">
-                                <img src="{{ post.author.image_url }}" alt="{{ post.author.name }}" class="img-fluid">
+                                <img src="{{ post.author.image_url|default:'https://randomuser.me/api/portraits/men/42.jpg' }}" alt="{{ post.author.name|default:'LioraXAI Team' }}" class="img-fluid">
                             </div>
                             <div>
-                                <p class="fw-medium mb-0 text-white">{{ post.author.name }}</p>
-                                <p class="text-white-50 mb-0">{{ post.published_date|date:"F j, Y" }}</p>
+                                <p class="fw-medium mb-0 text-white">{{ post.author.name|default:"LioraXAI Team" }}</p>
+                                <p class="text-white-50 mb-0">{{ post.published_date|date:"F j, Y"|default:"December 15, 2024" }}</p>
                             </div>
                             <div class="ms-auto">
                                 <div class="d-flex gap-2">
@@ -52,7 +54,7 @@
         <section class="py-0">
             <div class="container-fluid px-0">
                 <div class="featured-image-container" style="max-height: 500px; overflow: hidden;">
-                    <img src="{{ post.image_url }}" class="w-100 object-fit-cover" style="height: 500px;" alt="{{ post.title }}">
+                    <img src="{{ post.image_url|default:'https://images.unsplash.com/photo-1677442136019-21780ecad995?q=80&w=1200' }}" class="w-100 object-fit-cover" style="height: 500px;" alt="{{ post.title|default:'LioraXAI Blog Post' }}">
                 </div>
             </div>
         </section>
@@ -66,33 +68,37 @@
                             {% if post.content %}
                                 {{ post.content|safe }}
                             {% else %}
-                                <p class="lead mb-4">{{ post.excerpt }}</p>
-                                <p>This is a placeholder for the full article content. In a real implementation, this would contain the complete blog post text, formatted with appropriate HTML markup.</p>
+                                <p class="lead mb-4">Welcome to LioraXAI's comprehensive guide on implementing AI-powered chatbot solutions for your organization.</p>
                                 
-                                <h2>Key Points</h2>
-                                <ul>
-                                    <li>AI knowledge management systems significantly improve productivity</li>
-                                    <li>Implementation requires careful planning and ongoing optimization</li>
-                                    <li>ROI can be measured through various quantitative and qualitative metrics</li>
-                                </ul>
+                                <h2>Transforming Business Communication with AI</h2>
+                                <p>At LioraXAI, we specialize in three distinct chatbot solutions designed to revolutionize how businesses communicate and operate:</p>
                                 
-                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed vel lectus eu felis semper finibus ac eget ipsum. Nam nec ex ut est facilisis rhoncus. Aliquam ornare nulla est, non tincidunt libero mollis in. Praesent a mi nec arcu lacinia condimentum ut id enim. Praesent a mi nec arcu lacinia condimentum ut id enim.</p>
+                                <h3>1. Organizational Q&A Chatbot</h3>
+                                <p>Our Organizational Q&A Chatbot serves as your company's intelligent knowledge hub, providing instant answers to employee questions about policies, procedures, and company information. This solution significantly reduces the burden on HR and support teams while ensuring consistent, accurate information delivery.</p>
                                 
-                                <blockquote>
-                                    <p>"The true value of AI knowledge management lies not just in storing information, but in making it accessible and actionable when and where it's needed."</p>
+                                <h3>2. Property Search Chatbot</h3>
+                                <p>Designed specifically for real estate professionals, our Property Search Chatbot helps customers find their perfect property through intelligent filtering, personalized recommendations, and seamless lead conversion. It transforms the property search experience from overwhelming to effortless.</p>
+                                
+                                <h3>3. Technical Assistance Chatbot</h3>
+                                <p>Our Technical Assistance Chatbot is engineered for manufacturing and engineering environments, capable of interpreting technical drawings, providing tool guidance, and answering complex technical questions. It brings decades of technical knowledge to your fingertips.</p>
+                                
+                                <blockquote class="border-start border-primary border-4 ps-4 my-4">
+                                    <p class="mb-0 fst-italic">"LioraXAI's chatbot solutions have transformed how we handle customer inquiries and internal communication. The efficiency gains are remarkable."</p>
+                                    <footer class="blockquote-footer mt-2">TechCorp Inc.</footer>
                                 </blockquote>
                                 
-                                <p>Suspendisse potenti. Donec vitae nunc sed dolor pellentesque mollis ut eget metus. Donec tempus velit sed orci rutrum, ut pharetra lacus egestas. Nullam non bibendum eros, at luctus tortor. Nullam scelerisque ex quis bibendum sollicitudin. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.</p>
-                                
                                 <h2>Implementation Best Practices</h2>
-                                <p>When implementing AI knowledge management systems, consider the following best practices:</p>
+                                <p>When implementing LioraXAI chatbot solutions, consider the following best practices:</p>
                                 <ol>
-                                    <li>Establish clear objectives and success metrics</li>
-                                    <li>Engage stakeholders across all levels of the organization</li>
-                                    <li>Start with a focused pilot before broader implementation</li>
-                                    <li>Provide comprehensive training and support</li>
-                                    <li>Continuously measure results and refine your approach</li>
+                                    <li><strong>Define Clear Objectives:</strong> Establish specific goals for your chatbot implementation</li>
+                                    <li><strong>Prepare Your Data:</strong> Ensure your knowledge base is comprehensive and up-to-date</li>
+                                    <li><strong>Train Your Team:</strong> Provide adequate training for administrators and end-users</li>
+                                    <li><strong>Monitor Performance:</strong> Regularly review analytics and user feedback</li>
+                                    <li><strong>Iterate and Improve:</strong> Continuously refine your chatbot based on usage patterns</li>
                                 </ol>
+                                
+                                <h2>Getting Started</h2>
+                                <p>Ready to transform your business with LioraXAI? Our team of experts is here to guide you through every step of the implementation process. From initial consultation to ongoing support, we ensure your success with our AI chatbot solutions.</p>
                             {% endif %}
                         </article>
                         
@@ -100,12 +106,12 @@
                         <div class="bg-light rounded-4 p-4 mt-5" data-aos="fade-up">
                             <div class="d-flex">
                                 <div class="rounded-circle overflow-hidden me-4" style="width: 80px; height: 80px; flex-shrink: 0;">
-                                    <img src="{{ post.author.image_url }}" alt="{{ post.author.name }}" class="img-fluid">
+                                    <img src="{{ post.author.image_url|default:'https://randomuser.me/api/portraits/men/42.jpg' }}" alt="{{ post.author.name|default:'LioraXAI Team' }}" class="img-fluid">
                                 </div>
                                 <div>
-                                    <h4 class="h5 fw-bold mb-1">About {{ post.author.name }}</h4>
-                                    <p class="text-secondary mb-3">AI Knowledge Management Specialist</p>
-                                    <p class="mb-0">Expert in enterprise knowledge systems with over 10 years of experience implementing AI solutions for Fortune 500 companies.</p>
+                                    <h4 class="h5 fw-bold mb-1">About {{ post.author.name|default:"LioraXAI Team" }}</h4>
+                                    <p class="text-secondary mb-3">AI Chatbot Solutions Expert</p>
+                                    <p class="mb-0">Specialist in AI-powered chatbot development and implementation with extensive experience in organizational Q&A systems, property search automation, and technical assistance solutions.</p>
                                 </div>
                             </div>
                         </div>
@@ -113,10 +119,10 @@
                         <!-- Tags -->
                         <div class="mt-5" data-aos="fade-up">
                             <div class="d-flex flex-wrap gap-2">
-                                <a href="{% url 'blog_category' 'ai-strategy' %}" class="badge bg-light text-secondary text-decoration-none p-2">AI Strategy</a>
-                                <a href="#" class="badge bg-light text-secondary text-decoration-none p-2">Knowledge Management</a>
-                                <a href="#" class="badge bg-light text-secondary text-decoration-none p-2">Enterprise AI</a>
-                                <a href="#" class="badge bg-light text-secondary text-decoration-none p-2">ROI</a>
+                                <a href="{% url 'blog' %}" class="badge bg-light text-secondary text-decoration-none p-2">AI Chatbots</a>
+                                <a href="{% url 'blog' %}" class="badge bg-light text-secondary text-decoration-none p-2">Business Automation</a>
+                                <a href="{% url 'blog' %}" class="badge bg-light text-secondary text-decoration-none p-2">Customer Service</a>
+                                <a href="{% url 'blog' %}" class="badge bg-light text-secondary text-decoration-none p-2">AI Implementation</a>
                             </div>
                         </div>
                     </div>
@@ -136,7 +142,7 @@
                 
                 <div class="row g-4">
                     {% for related in related_posts %}
-                    <div class="col-md-4" data-aos="fade-up" {% if forloop.counter > 1 %}data-aos-delay="{{ forloop.counter|add:"-1"|widthratio:1:100 }}"{% endif %}>
+                    <div class="col-md-4" data-aos="fade-up" {% if forloop.counter == 2 %}data-aos-delay="100"{% elif forloop.counter == 3 %}data-aos-delay="200"{% endif %}>
                         <div class="card h-100 border-0 shadow-sm rounded-4">
                             <img src="{{ related.image_url }}" 
                                  class="card-img-top" style="height: 200px; object-fit: cover;"
@@ -166,27 +172,119 @@
                 </div>
             </div>
         </section>
+        {% else %}
+        <!-- Static Related Articles -->
+        <section class="py-5 py-md-6 bg-light">
+            <div class="container">
+                <div class="row mb-4">
+                    <div class="col">
+                        <h2 class="h3 fw-bold">Related Articles</h2>
+                    </div>
+                </div>
+                
+                <div class="row g-4">
+                    <div class="col-md-4" data-aos="fade-up">
+                        <div class="card h-100 border-0 shadow-sm rounded-4">
+                            <img src="https://images.unsplash.com/photo-1560472354-b33ff0c44a43?q=80&w=600" 
+                                 class="card-img-top" style="height: 200px; object-fit: cover;"
+                                 alt="Customer Success">
+                            <div class="card-body p-4">
+                                <div class="d-flex gap-2 mb-3">
+                                    <span class="badge bg-primary-custom bg-opacity-10 text-primary-custom">Case Study</span>
+                                </div>
+                                <h3 class="h5 fw-bold mb-3">
+                                    <a href="{% url 'blog_detail' 'customer-success-stories' %}" class="text-decoration-none text-reset stretched-link">Customer Success Stories with LioraXAI</a>
+                                </h3>
+                                <p class="text-secondary mb-3">
+                                    Discover how our clients achieved remarkable results with LioraXAI chatbot solutions.
+                                </p>
+                                <div class="d-flex align-items-center mt-auto">
+                                    <div class="rounded-circle overflow-hidden me-2" style="width: 32px; height: 32px;">
+                                        <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Sarah Rodriguez" class="img-fluid">
+                                    </div>
+                                    <div>
+                                        <p class="small mb-0">Sarah Rodriguez • December 8, 2024</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="col-md-4" data-aos="fade-up" data-aos-delay="100">
+                        <div class="card h-100 border-0 shadow-sm rounded-4">
+                            <img src="https://images.unsplash.com/photo-1678822205184-4daeb10fc2b8?q=80&w=600" 
+                                 class="card-img-top" style="height: 200px; object-fit: cover;"
+                                 alt="Property Search">
+                            <div class="card-body p-4">
+                                <div class="d-flex gap-2 mb-3">
+                                    <span class="badge bg-primary-custom bg-opacity-10 text-primary-custom">Product Update</span>
+                                </div>
+                                <h3 class="h5 fw-bold mb-3">
+                                    <a href="{% url 'blog_detail' 'property-search-ai-revolution' %}" class="text-decoration-none text-reset stretched-link">Property Search AI Revolution</a>
+                                </h3>
+                                <p class="text-secondary mb-3">
+                                    Latest enhancements to our Property Search Chatbot for real estate professionals.
+                                </p>
+                                <div class="d-flex align-items-center mt-auto">
+                                    <div class="rounded-circle overflow-hidden me-2" style="width: 32px; height: 32px;">
+                                        <img src="https://randomuser.me/api/portraits/women/31.jpg" alt="Emma Thompson" class="img-fluid">
+                                    </div>
+                                    <div>
+                                        <p class="small mb-0">Emma Thompson • December 5, 2024</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="col-md-4" data-aos="fade-up" data-aos-delay="200">
+                        <div class="card h-100 border-0 shadow-sm rounded-4">
+                            <img src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?q=80&w=600" 
+                                 class="card-img-top" style="height: 200px; object-fit: cover;"
+                                 alt="Technical Assistance">
+                            <div class="card-body p-4">
+                                <div class="d-flex gap-2 mb-3">
+                                    <span class="badge bg-primary-custom bg-opacity-10 text-primary-custom">Innovation</span>
+                                </div>
+                                <h3 class="h5 fw-bold mb-3">
+                                    <a href="{% url 'blog_detail' 'technical-assistance-breakthrough' %}" class="text-decoration-none text-reset stretched-link">Technical Assistance Breakthrough</a>
+                                </h3>
+                                <p class="text-secondary mb-3">
+                                    How our Technical Assistance Chatbot is transforming manufacturing workflows.
+                                </p>
+                                <div class="d-flex align-items-center mt-auto">
+                                    <div class="rounded-circle overflow-hidden me-2" style="width: 32px; height: 32px;">
+                                        <img src="https://randomuser.me/api/portraits/men/18.jpg" alt="David Chen" class="img-fluid">
+                                    </div>
+                                    <div>
+                                        <p class="small mb-0">David Chen • December 3, 2024</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
         {% endif %}
 
         <!-- Newsletter Section -->
-        <section class="py-5 py-md-6">
-            <div class="container">
+        <section class="py-5 py-md-6 bg-gradient-primary text-white">
+            <div class="container py-4">
                 <div class="row justify-content-center">
-                    <div class="col-lg-8">
-                        <div class="bg-primary-custom bg-opacity-10 rounded-4 p-4 p-md-5 text-center" data-aos="fade-up">
-                            <h2 class="h3 fw-bold mb-3">Subscribe to Our Newsletter</h2>
-                            <p class="text-secondary mb-4">Get the latest AI knowledge management insights delivered straight to your inbox.</p>
-                            <div class="row justify-content-center">
-                                <div class="col-md-8">
-                                    <form action="{% url 'newsletter_subscribe' %}" method="post">
-                                        {% csrf_token %}
-                                        <div class="input-group mb-3">
-                                            <input type="email" name="email" class="form-control py-3" placeholder="Your email address" aria-label="Your email address" required>
-                                            <button class="btn btn-primary-custom px-4" type="submit">Subscribe</button>
-                                        </div>
-                                        <div class="form-text text-center">We respect your privacy. Unsubscribe at any time.</div>
-                                    </form>
-                                </div>
+                    <div class="col-lg-8 text-center" data-aos="fade-up">
+                        <h2 class="display-6 fw-bold mb-4">Stay Updated with AI Insights</h2>
+                        <p class="lead mb-5">Get the latest articles, case studies, and AI chatbot trends delivered to your inbox monthly.</p>
+                        
+                        <div class="row justify-content-center">
+                            <div class="col-md-8">
+                                <form class="d-flex gap-3 flex-column flex-sm-row">
+                                    <input type="email" class="form-control form-control-lg rounded-3" placeholder="Enter your email address" required>
+                                    <button type="submit" class="btn btn-light text-primary-custom fw-medium px-4 rounded-3">
+                                        Subscribe
+                                    </button>
+                                </form>
+                                <p class="small mt-3 mb-0 opacity-75">No spam, unsubscribe anytime. Read our privacy policy.</p>
                             </div>
                         </div>
                     </div>

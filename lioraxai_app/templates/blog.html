@@ -13,10 +13,10 @@
                 <div class="row justify-content-center">
                     <div class="col-lg-8 text-center" data-aos="fade-up">
                         <h1 class="display-4 fw-bold mb-4">
-                            Insights & Resources
+                            AI Insights & Resources
                         </h1>
                         <p class="lead mb-4 text-white">
-                            Expert insights, practical guides, and the latest news on AI-powered knowledge management
+                            Expert insights, practical guides, and the latest trends in AI-powered chatbots and intelligent business automation
                         </p>
                     </div>
                 </div>
@@ -36,7 +36,7 @@
                 <div class="card border-0 shadow-sm rounded-4 overflow-hidden" data-aos="fade-up">
                     <div class="row g-0">
                         <div class="col-lg-6 position-relative">
-                            <img src="{{ featured_post.image_url|default:'https://images.unsplash.com/photo-1638202993928-7d113507abdb?q=80&w=1100' }}" 
+                            <img src="{{ featured_post.image_url|default:'https://images.unsplash.com/photo-1677442136019-21780ecad995?q=80&w=1100' }}" 
                                  alt="{{ featured_post.title }}"
                                  class="w-100 h-100 object-fit-cover">
                         </div>
@@ -69,8 +69,8 @@
                 <div class="card border-0 shadow-sm rounded-4 overflow-hidden" data-aos="fade-up">
                     <div class="row g-0">
                         <div class="col-lg-6 position-relative">
-                            <img src="https://images.unsplash.com/photo-1638202993928-7d113507abdb?q=80&w=1100" 
-                                 alt="AI for Enterprise Knowledge Management"
+                            <img src="https://images.unsplash.com/photo-1677442136019-21780ecad995?q=80&w=1100" 
+                                 alt="The Future of AI Chatbots in Business"
                                  class="w-100 h-100 object-fit-cover">
                         </div>
                         <div class="col-lg-6">
@@ -80,10 +80,10 @@
                                     <span class="badge bg-light text-secondary">8 min read</span>
                                 </div>
                                 <h3 class="fs-2 fw-bold mb-3">
-                                    <a href="#" class="text-decoration-none text-reset stretched-link">The ROI of AI-Powered Knowledge Management</a>
+                                    <a href="#" class="text-decoration-none text-reset stretched-link">The Future of AI Chatbots in Business: 2024 Trends and Predictions</a>
                                 </h3>
                                 <p class="text-secondary mb-4">
-                                    Quantifying the business impact of AI knowledge systems is critical for enterprise adoption. Our research across 150+ implementations reveals the key metrics that matter and how to track them effectively.
+                                    Discover how AI chatbots are revolutionizing customer service, internal communication, and technical support across industries. Our comprehensive analysis reveals the key trends shaping the future of intelligent business automation.
                                 </p>
                                 <div class="d-flex align-items-center">
                                     <div class="rounded-circle overflow-hidden me-3" style="width: 48px; height: 48px;">
@@ -91,7 +91,7 @@
                                     </div>
                                     <div>
                                         <p class="fw-medium mb-0">Dr. Sarah Rodriguez</p>
-                                        <p class="text-secondary small mb-0">April 14, 2023</p>
+                                        <p class="text-secondary small mb-0">December 15, 2024</p>
                                     </div>
                                 </div>
                             </div>
@@ -155,29 +155,29 @@
                     </div>
                     {% endfor %}
                     {% else %}
-                    <!-- Fallback static posts if no blog_posts are passed -->
+                    <!-- Curated LioraXAI Blog Posts -->
                     <!-- Article 1 -->
                     <div class="col-md-6 col-lg-4" data-aos="fade-up">
                         <div class="card h-100 border-0 shadow-sm rounded-4">
-                            <img src="https://images.unsplash.com/photo-1655721530791-65e935a9bbf4?q=80&w=600" 
+                            <img src="https://images.unsplash.com/photo-1677442136019-21780ecad995?q=80&w=600" 
                                  class="card-img-top" style="height: 200px; object-fit: cover;"
-                                 alt="Knowledge Silos">
+                                 alt="LioraXAI Implementation Guide">
                             <div class="card-body p-4">
                                 <div class="d-flex gap-2 mb-3">
                                     <span class="badge bg-primary-custom bg-opacity-10 text-primary-custom">Implementation</span>
                                 </div>
                                 <h3 class="h5 fw-bold mb-3">
-                                    <a href="#" class="text-decoration-none text-reset stretched-link">Breaking Down Knowledge Silos in Enterprise Organizations</a>
+                                    <a href="{% url 'blog_detail' 'implementing-lioraxai-chatbots' %}" class="text-decoration-none text-reset stretched-link">How to Successfully Implement LioraXAI Chatbots in Your Organization</a>
                                 </h3>
                                 <p class="text-secondary mb-3">
-                                    How AI-powered systems are helping large organizations connect isolated information and expertise across departments.
+                                    A step-by-step guide to deploying LioraXAI's three chatbot solutions: Organizational Q&A, Property Search, and Technical Assistance for maximum business impact.
                                 </p>
                                 <div class="d-flex align-items-center mt-auto">
                                     <div class="rounded-circle overflow-hidden me-2" style="width: 32px; height: 32px;">
-                                        <img src="https://randomuser.me/api/portraits/men/42.jpg" alt="Michael Kim" class="img-fluid">
+                                        <img src="https://randomuser.me/api/portraits/men/42.jpg" alt="Michael Chen" class="img-fluid">
                                     </div>
                                     <div>
-                                        <p class="small mb-0">Michael Kim • March 28, 2023</p>
+                                        <p class="small mb-0">Michael Chen, CTO • December 10, 2024</p>
                                     </div>
                                 </div>
                             </div>
@@ -187,25 +187,25 @@
                     <!-- Article 2 -->
                     <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="100">
                         <div class="card h-100 border-0 shadow-sm rounded-4">
-                            <img src="https://images.unsplash.com/photo-1678822205184-4daeb10fc2b8?q=80&w=600" 
+                            <img src="https://images.unsplash.com/photo-1560472354-b33ff0c44a43?q=80&w=600" 
                                  class="card-img-top" style="height: 200px; object-fit: cover;"
-                                 alt="AI Ethics">
+                                 alt="Customer Success with LioraXAI">
                             <div class="card-body p-4">
                                 <div class="d-flex gap-2 mb-3">
-                                    <span class="badge bg-primary-custom bg-opacity-10 text-primary-custom">Technology</span>
+                                    <span class="badge bg-primary-custom bg-opacity-10 text-primary-custom">Case Study</span>
                                 </div>
                                 <h3 class="h5 fw-bold mb-3">
-                                    <a href="#" class="text-decoration-none text-reset stretched-link">Responsible AI: Building Ethical Knowledge Systems</a>
+                                    <a href="{% url 'blog_detail' 'customer-success-stories' %}" class="text-decoration-none text-reset stretched-link">Customer Success: How TechCorp Reduced Support Tickets by 75% with LioraXAI</a>
                                 </h3>
                                 <p class="text-secondary mb-3">
-                                    Ethical considerations and best practices for developing AI systems that respect privacy, reduce bias, and maintain transparency.
+                                    Discover how TechCorp implemented our Organizational Q&A Chatbot and transformed their customer support operations, achieving remarkable efficiency gains.
                                 </p>
                                 <div class="d-flex align-items-center mt-auto">
                                     <div class="rounded-circle overflow-hidden me-2" style="width: 32px; height: 32px;">
-                                        <img src="https://randomuser.me/api/portraits/women/28.jpg" alt="Aisha Johnson" class="img-fluid">
+                                        <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Sarah Rodriguez" class="img-fluid">
                                     </div>
                                     <div>
-                                        <p class="small mb-0">Aisha Johnson • February 15, 2023</p>
+                                        <p class="small mb-0">Sarah Rodriguez, Head of Customer Success • December 8, 2024</p>
                                     </div>
                                 </div>
                             </div>
@@ -215,25 +215,25 @@
                     <!-- Article 3 -->
                     <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="200">
                         <div class="card h-100 border-0 shadow-sm rounded-4">
-                            <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=600" 
+                            <img src="https://images.unsplash.com/photo-1678822205184-4daeb10fc2b8?q=80&w=600" 
                                  class="card-img-top" style="height: 200px; object-fit: cover;"
-                                 alt="Healthcare AI">
+                                 alt="Property Search Innovation">
                             <div class="card-body p-4">
                                 <div class="d-flex gap-2 mb-3">
-                                    <span class="badge bg-primary-custom bg-opacity-10 text-primary-custom">Case Study</span>
+                                    <span class="badge bg-primary-custom bg-opacity-10 text-primary-custom">Product Update</span>
                                 </div>
                                 <h3 class="h5 fw-bold mb-3">
-                                    <a href="#" class="text-decoration-none text-reset stretched-link">How HealthTech Inc. Reduced Training Time by 68%</a>
+                                    <a href="{% url 'blog_detail' 'property-search-ai-revolution' %}" class="text-decoration-none text-reset stretched-link">Revolutionizing Real Estate: LioraXAI's Property Search Chatbot Features</a>
                                 </h3>
                                 <p class="text-secondary mb-3">
-                                    A detailed case study on how a leading healthcare provider transformed their onboarding process with AI knowledge systems.
+                                    Explore the latest enhancements to our Property Search Chatbot, including advanced filtering, personalized recommendations, and seamless CRM integration.
                                 </p>
                                 <div class="d-flex align-items-center mt-auto">
                                     <div class="rounded-circle overflow-hidden me-2" style="width: 32px; height: 32px;">
-                                        <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="David Wong" class="img-fluid">
+                                        <img src="https://randomuser.me/api/portraits/women/31.jpg" alt="Emma Thompson" class="img-fluid">
                                     </div>
                                     <div>
-                                        <p class="small mb-0">David Wong • January 20, 2023</p>
+                                        <p class="small mb-0">Emma Thompson, Product Manager • December 5, 2024</p>
                                     </div>
                                 </div>
                             </div>
@@ -243,25 +243,25 @@
                     <!-- Article 4 -->
                     <div class="col-md-6 col-lg-4" data-aos="fade-up">
                         <div class="card h-100 border-0 shadow-sm rounded-4">
-                            <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?q=80&w=600" 
+                            <img src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?q=80&w=600" 
                                  class="card-img-top" style="height: 200px; object-fit: cover;"
-                                 alt="Team Collaboration">
+                                 alt="Technical Assistance AI">
                             <div class="card-body p-4">
                                 <div class="d-flex gap-2 mb-3">
-                                    <span class="badge bg-primary-custom bg-opacity-10 text-primary-custom">Strategy</span>
+                                    <span class="badge bg-primary-custom bg-opacity-10 text-primary-custom">Innovation</span>
                                 </div>
                                 <h3 class="h5 fw-bold mb-3">
-                                    <a href="#" class="text-decoration-none text-reset stretched-link">5 Ways to Measure Knowledge Management ROI</a>
+                                    <a href="{% url 'blog_detail' 'technical-assistance-breakthrough' %}" class="text-decoration-none text-reset stretched-link">Breaking New Ground: LioraXAI's Technical Assistance Chatbot for Manufacturing</a>
                                 </h3>
                                 <p class="text-secondary mb-3">
-                                    Practical metrics and KPIs for tracking the business impact of your organization's knowledge management initiatives.
+                                    Learn how our Technical Assistance Chatbot is transforming manufacturing workflows by interpreting engineering drawings and providing instant technical guidance.
                                 </p>
                                 <div class="d-flex align-items-center mt-auto">
                                     <div class="rounded-circle overflow-hidden me-2" style="width: 32px; height: 32px;">
-                                        <img src="https://randomuser.me/api/portraits/women/52.jpg" alt="Emma Johnson" class="img-fluid">
+                                        <img src="https://randomuser.me/api/portraits/men/18.jpg" alt="David Chen" class="img-fluid">
                                     </div>
                                     <div>
-                                        <p class="small mb-0">Emma Johnson • January 8, 2023</p>
+                                        <p class="small mb-0">David Chen, AI Research Lead • December 3, 2024</p>
                                     </div>
                                 </div>
                             </div>
@@ -271,25 +271,25 @@
                     <!-- Article 5 -->
                     <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="100">
                         <div class="card h-100 border-0 shadow-sm rounded-4">
-                            <img src="https://images.unsplash.com/photo-1573167710701-35950a41e251?q=80&w=600" 
+                            <img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?q=80&w=600" 
                                  class="card-img-top" style="height: 200px; object-fit: cover;"
-                                 alt="Data Security">
+                                 alt="LioraXAI Security">
                             <div class="card-body p-4">
                                 <div class="d-flex gap-2 mb-3">
-                                    <span class="badge bg-primary-custom bg-opacity-10 text-primary-custom">Technology</span>
+                                    <span class="badge bg-primary-custom bg-opacity-10 text-primary-custom">Security</span>
                                 </div>
                                 <h3 class="h5 fw-bold mb-3">
-                                    <a href="#" class="text-decoration-none text-reset stretched-link">Securing Your AI Knowledge Base: Best Practices</a>
+                                    <a href="{% url 'blog_detail' 'enterprise-security-standards' %}" class="text-decoration-none text-reset stretched-link">Enterprise-Grade Security: How LioraXAI Protects Your Data</a>
                                 </h3>
                                 <p class="text-secondary mb-3">
-                                    Essential security measures for protecting sensitive information in your AI-powered knowledge systems.
+                                    Discover the comprehensive security measures, compliance standards, and data protection protocols that make LioraXAI trusted by enterprise clients.
                                 </p>
                                 <div class="d-flex align-items-center mt-auto">
                                     <div class="rounded-circle overflow-hidden me-2" style="width: 32px; height: 32px;">
-                                        <img src="https://randomuser.me/api/portraits/men/12.jpg" alt="Thomas Nguyen" class="img-fluid">
+                                        <img src="https://randomuser.me/api/portraits/women/67.jpg" alt="Rachel Martinez" class="img-fluid">
                                     </div>
                                     <div>
-                                        <p class="small mb-0">Thomas Nguyen • December 14, 2022</p>
+                                        <p class="small mb-0">Rachel Martinez, Security Officer • November 30, 2024</p>
                                     </div>
                                 </div>
                             </div>
@@ -299,25 +299,25 @@
                     <!-- Article 6 -->
                     <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="200">
                         <div class="card h-100 border-0 shadow-sm rounded-4">
-                            <img src="https://images.unsplash.com/photo-1600132806370-bf17e65e942f?q=80&w=600" 
+                            <img src="https://images.unsplash.com/photo-1551434678-e076c223a692?q=80&w=600" 
                                  class="card-img-top" style="height: 200px; object-fit: cover;"
-                                 alt="Team Productivity">
+                                 alt="LioraXAI Integration">
                             <div class="card-body p-4">
                                 <div class="d-flex gap-2 mb-3">
-                                    <span class="badge bg-primary-custom bg-opacity-10 text-primary-custom">Implementation</span>
+                                    <span class="badge bg-primary-custom bg-opacity-10 text-primary-custom">Integration</span>
                                 </div>
                                 <h3 class="h5 fw-bold mb-3">
-                                    <a href="#" class="text-decoration-none text-reset stretched-link">Integrating AI Knowledge Systems with Existing Workflows</a>
+                                    <a href="{% url 'blog_detail' 'seamless-integration-guide' %}" class="text-decoration-none text-reset stretched-link">Seamless Integration: Connecting LioraXAI with Your Business Systems</a>
                                 </h3>
                                 <p class="text-secondary mb-3">
-                                    Strategies for seamless implementation that enhances rather than disrupts your team's existing processes.
+                                    A comprehensive guide to integrating LioraXAI chatbots with popular CRM systems, databases, and business tools for maximum efficiency and ROI.
                                 </p>
                                 <div class="d-flex align-items-center mt-auto">
                                     <div class="rounded-circle overflow-hidden me-2" style="width: 32px; height: 32px;">
-                                        <img src="https://randomuser.me/api/portraits/men/77.jpg" alt="Ryan Lee" class="img-fluid">
+                                        <img src="https://randomuser.me/api/portraits/men/25.jpg" alt="Alex Johnson" class="img-fluid">
                                     </div>
                                     <div>
-                                        <p class="small mb-0">Ryan Lee • November 30, 2022</p>
+                                        <p class="small mb-0">Alex Johnson, Integration Specialist • November 28, 2024</p>
                                     </div>
                                 </div>
                             </div>
@@ -335,24 +335,22 @@
         </section>
 
         <!-- Newsletter Section -->
-        <section class="py-5 py-md-6">
-            <div class="container">
+        <section class="py-5 py-md-6 bg-gradient-primary text-white">
+            <div class="container py-4">
                 <div class="row justify-content-center">
-                    <div class="col-lg-8">
-                        <div class="bg-primary-custom bg-opacity-10 rounded-4 p-4 p-md-5 text-center" data-aos="fade-up">
-                            <h2 class="h3 fw-bold mb-3">Subscribe to Our Newsletter</h2>
-                            <p class="text-secondary mb-4">Get the latest AI knowledge management insights delivered straight to your inbox.</p>
-                            <div class="row justify-content-center">
-                                <div class="col-md-8">
-                                    <form action="{% url 'newsletter_subscribe' %}" method="post">
-                                        {% csrf_token %}
-                                        <div class="input-group mb-3">
-                                            <input type="email" name="email" class="form-control py-3" placeholder="Your email address" aria-label="Your email address" required>
-                                            <button class="btn btn-primary-custom px-4" type="submit">Subscribe</button>
-                                        </div>
-                                        <div class="form-text text-center">We respect your privacy. Unsubscribe at any time.</div>
-                                    </form>
-                                </div>
+                    <div class="col-lg-8 text-center" data-aos="fade-up">
+                        <h2 class="display-6 fw-bold mb-4">Stay Updated with AI Insights</h2>
+                        <p class="lead mb-5">Get the latest articles, case studies, and AI trends delivered to your inbox monthly.</p>
+                        
+                        <div class="row justify-content-center">
+                            <div class="col-md-8">
+                                <form class="d-flex gap-3 flex-column flex-sm-row">
+                                    <input type="email" class="form-control form-control-lg rounded-3" placeholder="Enter your email address" required>
+                                    <button type="submit" class="btn btn-light text-primary-custom fw-medium px-4 rounded-3">
+                                        Subscribe
+                                    </button>
+                                </form>
+                                <p class="small mt-3 mb-0 opacity-75">No spam, unsubscribe anytime. Read our privacy policy.</p>
                             </div>
                         </div>
                     </div>
