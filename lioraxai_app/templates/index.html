@@ -8,48 +8,285 @@
 
     <main>
         <!-- Hero Section -->
-        <section class="py-5 py-md-6 bg-gradient-primary text-white">
-            <div class="container py-4">
-                <div class="row align-items-center">
+        <section class="hero-section py-5 py-md-6 bg-gradient-primary text-white position-relative overflow-hidden">
+            <div class="hero-bg-pattern"></div>
+            <div class="container py-4 position-relative">
+                <div class="row align-items-center min-vh-75">
                     <div class="col-lg-6 mb-5 mb-lg-0" data-aos="fade-right">
-                        <h1 class="display-4 fw-bold mb-4">
-                            Welcome to LioraXAI – 
-                            <span class="border-bottom border-2 pb-1">The Future of Intelligent Business Assistance</span>
+                        <div class="hero-badge mb-4">
+                            <span class="badge bg-white bg-opacity-20 text-white px-3 py-2 rounded-pill">
+                                <i class="bi bi-stars me-2"></i>AI-Powered Business Intelligence
+                            </span>
+                        </div>
+                        <h1 class="display-3 fw-bold mb-4 lh-1">
+                            Welcome to 
+                            <span class="text-gradient">LioraXAI</span>
                         </h1>
-                        <p class="lead mb-4 text-white">
-                            Empower your organization with LioraXAI, the AI-powered chatbot platform designed to streamline customer support, enhance internal communication, and simplify complex technical queries. Whether you're managing client inquiries, assisting with property searches, or decoding manufacturing diagrams, LioraXAI has you covered. Discover a smarter way to interact, learn, and grow with LioraXAI.
+                        <h2 class="h3 fw-normal mb-4 text-white-75">
+                            The Future of Intelligent Business Assistance
+                        </h2>
+                        <p class="lead mb-5 text-white-75 col-lg-11">
+                            Empower your organization with AI-powered chatbot solutions designed to streamline customer support, enhance internal communication, and simplify complex technical queries.
                         </p>
                         <div class="d-flex flex-column flex-sm-row gap-3">
-                            <a href="{% url 'contact' %}" class="btn btn-light text-primary-custom fw-medium py-3 px-4 rounded-3">
+                            <a href="{% url 'contact' %}" class="btn btn-light btn-lg text-primary-custom fw-medium py-3 px-5 rounded-3 shadow-sm">
                                 <i class="bi bi-chat-dots me-2"></i>Talk to an Expert
                             </a>
-                            <a href="{% url 'features' %}" class="btn btn-outline-light fw-medium py-3 px-4 rounded-3">
+                            <a href="{% url 'features' %}" class="btn btn-outline-light btn-lg fw-medium py-3 px-5 rounded-3">
                                 <i class="bi bi-arrow-right me-2"></i>Explore Features
                             </a>
                         </div>
                     </div>
-                    <div class="col-lg-6" data-aos="fade-left">
-                        <div class="bg-white rounded-4 shadow p-3 p-md-4">
-                            <div class="d-flex flex-column gap-3">
-                                <div class="chat-bubble-user">
-                                    <p class="mb-0">Can you help me find a 2-bedroom apartment near downtown?</p>
+                    <div class="col-lg-6" data-aos="fade-left" data-aos-delay="200">
+                        <!-- Enhanced Interactive Chat Demo -->
+                        <div class="chat-demo-wrapper position-relative">
+                            <div class="chat-demo-container bg-white rounded-4 shadow-lg p-4 position-relative">
+                                <div class="chat-header d-flex align-items-center mb-4 pb-3 border-bottom">
+                                    <div class="chat-avatar bg-primary-custom rounded-circle d-flex align-items-center justify-content-center me-3">
+                                        <i class="bi bi-robot text-white"></i>
+                                    </div>
+                                    <div>
+                                        <h6 class="mb-0 fw-bold">LioraXAI Assistant</h6>
+                                        <small class="text-success">
+                                            <i class="bi bi-circle-fill me-1" style="font-size: 0.5rem;"></i>Online
+                                        </small>
+                                    </div>
+                                    <div class="ms-auto">
+                                        <div class="typing-indicator">
+                                            <span></span>
+                                            <span></span>
+                                            <span></span>
+                                        </div>
+                                    </div>
                                 </div>
-                                <div class="chat-bubble-assistant">
-                                    <p class="mb-0">I found 3 excellent 2-bedroom apartments near downtown that match your criteria:</p>
-                                    <ul class="mb-0 mt-2">
-                                        <li>Modern loft at 123 Main St - $2,200/month, pet-friendly</li>
-                                        <li>Luxury unit at City Plaza - $2,800/month, gym & pool</li>
-                                        <li>Cozy apartment at Oak Avenue - $1,950/month, parking included</li>
-                                    </ul>
-                                    <p class="mb-0 mt-2 small text-muted">Would you like more details about any of these properties?</p>
+                                
+                                <div class="chat-messages" style="height: 400px; overflow-y: auto;">
+                                    <div class="chat-message-group mb-4">
+                                        <div class="chat-bubble-user">
+                                            <p class="mb-0">Can you help me find a 2-bedroom apartment near downtown with parking?</p>
+                                            <small class="text-muted d-block mt-1">2:34 PM</small>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="chat-message-group mb-4">
+                                        <div class="chat-bubble-assistant">
+                                            <p class="mb-2">I found 3 excellent 2-bedroom apartments near downtown that match your criteria:</p>
+                                            <div class="property-cards">
+                                                <div class="property-card mb-2 p-3 bg-light rounded-3">
+                                                    <div class="d-flex justify-content-between align-items-start">
+                                                        <div>
+                                                            <h6 class="mb-1 fw-bold">Modern Loft - 123 Main St</h6>
+                                                            <p class="mb-1 text-secondary small">2BR/2BA • Pet-friendly • Gym</p>
+                                                            <span class="badge bg-primary-custom text-white">$2,200/month</span>
+                                                        </div>
+                                                        <i class="bi bi-heart text-muted"></i>
+                                                    </div>
+                                                </div>
+                                                <div class="property-card mb-2 p-3 bg-light rounded-3">
+                                                    <div class="d-flex justify-content-between align-items-start">
+                                                        <div>
+                                                            <h6 class="mb-1 fw-bold">Luxury Unit - City Plaza</h6>
+                                                            <p class="mb-1 text-secondary small">2BR/2BA • Pool • Concierge</p>
+                                                            <span class="badge bg-primary-custom text-white">$2,800/month</span>
+                                                        </div>
+                                                        <i class="bi bi-heart text-muted"></i>
+                                                    </div>
+                                                </div>
+                                                <div class="property-card p-3 bg-light rounded-3">
+                                                    <div class="d-flex justify-content-between align-items-start">
+                                                        <div>
+                                                            <h6 class="mb-1 fw-bold">Cozy Apartment - Oak Ave</h6>
+                                                            <p class="mb-1 text-secondary small">2BR/1BA • Parking • Balcony</p>
+                                                            <span class="badge bg-primary-custom text-white">$1,950/month</span>
+                                                        </div>
+                                                        <i class="bi bi-heart text-muted"></i>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <p class="mb-0 mt-3 small text-secondary">Would you like more details about any of these properties?</p>
+                                            <small class="text-muted d-block mt-1">2:35 PM</small>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="chat-message-group mb-4">
+                                        <div class="chat-bubble-user">
+                                            <p class="mb-0">Tell me about the technical specs for the HVAC system in the City Plaza unit</p>
+                                            <small class="text-muted d-block mt-1">2:36 PM</small>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="chat-message-group">
+                                        <div class="chat-bubble-assistant">
+                                            <div class="d-flex align-items-start mb-2">
+                                                <i class="bi bi-gear-fill text-primary-custom me-2 mt-1"></i>
+                                                <div>
+                                                    <h6 class="mb-2 fw-bold">HVAC System Specifications</h6>
+                                                    <ul class="mb-2 small">
+                                                        <li>High-efficiency central air system</li>
+                                                        <li>Smart thermostat with app control</li>
+                                                        <li>Energy rating: 16 SEER</li>
+                                                        <li>Individual zone control</li>
+                                                        <li>Air filtration: HEPA grade</li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                            <div class="source-reference p-2 bg-light rounded-3 mt-2">
+                                                <small class="text-secondary">
+                                                    <i class="bi bi-file-text me-1"></i>
+                                                    Source: Property Technical Database • Last updated: Today
+                                                </small>
+                                            </div>
+                                            <small class="text-muted d-block mt-1">2:36 PM</small>
+                                        </div>
+                                    </div>
                                 </div>
-                                <div class="chat-bubble-user">
-                                    <p class="mb-0">What's the technical specification for the HVAC system in the City Plaza unit?</p>
+                                
+                                <div class="chat-input-area mt-3 pt-3 border-top">
+                                    <div class="input-group">
+                                        <input type="text" class="form-control border-0 bg-light" placeholder="Ask me anything..." disabled>
+                                        <button class="btn btn-primary-custom" type="button" disabled>
+                                            <i class="bi bi-send"></i>
+                                        </button>
+                                    </div>
                                 </div>
-                                <div class="chat-bubble-assistant">
-                                    <p class="mb-0">The City Plaza unit features a high-efficiency central air system with smart thermostat controls, energy rating of 16 SEER, and individual zone control for optimal comfort and energy savings.</p>
-                                    <p class="mb-0 mt-2 small text-muted">Source: <a href="#" class="text-decoration-none">Property Technical Specifications Database</a></p>
+                            </div>
+                            
+                            <!-- Floating elements for visual appeal -->
+                            <div class="floating-element floating-element-1">
+                                <i class="bi bi-chat-dots text-primary-custom"></i>
+                            </div>
+                            <div class="floating-element floating-element-2">
+                                <i class="bi bi-lightbulb text-warning"></i>
+                            </div>
+                            <div class="floating-element floating-element-3">
+                                <i class="bi bi-graph-up text-success"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Features Overview Section -->
+        <section class="py-5 py-md-6">
+            <div class="container py-4">
+                <div class="text-center mb-5" data-aos="fade-up">
+                    <div class="section-badge mb-3">
+                        <span class="badge bg-primary-custom bg-opacity-10 text-primary-custom px-3 py-2 rounded-pill">
+                            <i class="bi bi-cpu me-2"></i>AI-Powered Solutions
+                        </span>
+                    </div>
+                    <h2 class="display-5 fw-bold mb-4">Three Specialized AI Chatbots</h2>
+                    <p class="lead mb-0 col-lg-8 mx-auto text-secondary">
+                        Comprehensive AI solutions tailored to transform your business operations
+                    </p>
+                </div>
+                
+                <div class="row g-4 g-lg-5">
+                    <!-- Feature 1: Organizational Q&A -->
+                    <div class="col-lg-4" data-aos="fade-up">
+                        <div class="feature-card-modern h-100 p-4 p-lg-5 rounded-4 position-relative overflow-hidden">
+                            <div class="feature-bg-pattern"></div>
+                            <div class="position-relative">
+                                <div class="feature-icon-modern mb-4">
+                                    <div class="icon-wrapper bg-primary-custom text-white rounded-3 p-3 d-inline-flex">
+                                        <i class="bi bi-chat-square-text fs-3"></i>
+                                    </div>
+                                    <div class="icon-badge">01</div>
                                 </div>
+                                <h3 class="h3 fw-bold mb-3">Organizational Q&A Chatbot</h3>
+                                <p class="text-secondary mb-4">Empower your teams with instant access to company knowledge and streamlined customer support.</p>
+                                
+                                <div class="feature-highlights mb-4">
+                                    <div class="highlight-item d-flex align-items-center mb-2">
+                                        <i class="bi bi-check-circle-fill text-success me-3"></i>
+                                        <span class="small">Internal Knowledge Management</span>
+                                    </div>
+                                    <div class="highlight-item d-flex align-items-center mb-2">
+                                        <i class="bi bi-check-circle-fill text-success me-3"></i>
+                                        <span class="small">Customer Support Automation</span>
+                                    </div>
+                                    <div class="highlight-item d-flex align-items-center">
+                                        <i class="bi bi-check-circle-fill text-success me-3"></i>
+                                        <span class="small">Team Collaboration Enhancement</span>
+                                    </div>
+                                </div>
+                                
+                                <a href="{% url 'features' %}#organizational-qa" class="btn btn-outline-primary-custom btn-sm rounded-pill">
+                                    Learn More <i class="bi bi-arrow-right ms-1"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Feature 2: Property Search -->
+                    <div class="col-lg-4" data-aos="fade-up" data-aos-delay="100">
+                        <div class="feature-card-modern h-100 p-4 p-lg-5 rounded-4 position-relative overflow-hidden">
+                            <div class="feature-bg-pattern"></div>
+                            <div class="position-relative">
+                                <div class="feature-icon-modern mb-4">
+                                    <div class="icon-wrapper bg-success text-white rounded-3 p-3 d-inline-flex">
+                                        <i class="bi bi-search fs-3"></i>
+                                    </div>
+                                    <div class="icon-badge">02</div>
+                                </div>
+                                <h3 class="h3 fw-bold mb-3">Property Search Chatbot</h3>
+                                <p class="text-secondary mb-4">Revolutionize property discovery with intelligent, personalized recommendations and smart filtering.</p>
+                                
+                                <div class="feature-highlights mb-4">
+                                    <div class="highlight-item d-flex align-items-center mb-2">
+                                        <i class="bi bi-check-circle-fill text-success me-3"></i>
+                                        <span class="small">Personalized Property Matching</span>
+                                    </div>
+                                    <div class="highlight-item d-flex align-items-center mb-2">
+                                        <i class="bi bi-check-circle-fill text-success me-3"></i>
+                                        <span class="small">Advanced Smart Filtering</span>
+                                    </div>
+                                    <div class="highlight-item d-flex align-items-center">
+                                        <i class="bi bi-check-circle-fill text-success me-3"></i>
+                                        <span class="small">Lead Conversion Optimization</span>
+                                    </div>
+                                </div>
+                                
+                                <a href="{% url 'features' %}#property-search" class="btn btn-outline-success btn-sm rounded-pill">
+                                    Learn More <i class="bi bi-arrow-right ms-1"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Feature 3: Technical Assistance -->
+                    <div class="col-lg-4" data-aos="fade-up" data-aos-delay="200">
+                        <div class="feature-card-modern h-100 p-4 p-lg-5 rounded-4 position-relative overflow-hidden">
+                            <div class="feature-bg-pattern"></div>
+                            <div class="position-relative">
+                                <div class="feature-icon-modern mb-4">
+                                    <div class="icon-wrapper bg-warning text-white rounded-3 p-3 d-inline-flex">
+                                        <i class="bi bi-tools fs-3"></i>
+                                    </div>
+                                    <div class="icon-badge">03</div>
+                                </div>
+                                <h3 class="h3 fw-bold mb-3">Technical Assistance Chatbot</h3>
+                                <p class="text-secondary mb-4">Simplify complex technical data with advanced AI that understands engineering and manufacturing.</p>
+                                
+                                <div class="feature-highlights mb-4">
+                                    <div class="highlight-item d-flex align-items-center mb-2">
+                                        <i class="bi bi-check-circle-fill text-success me-3"></i>
+                                        <span class="small">Engineering Drawing Analysis</span>
+                                    </div>
+                                    <div class="highlight-item d-flex align-items-center mb-2">
+                                        <i class="bi bi-check-circle-fill text-success me-3"></i>
+                                        <span class="small">Technical Tool Guidance</span>
+                                    </div>
+                                    <div class="highlight-item d-flex align-items-center">
+                                        <i class="bi bi-check-circle-fill text-success me-3"></i>
+                                        <span class="small">Real-Time Technical Support</span>
+                                    </div>
+                                </div>
+                                
+                                <a href="{% url 'features' %}#technical-assistance" class="btn btn-outline-warning btn-sm rounded-pill">
+                                    Learn More <i class="bi bi-arrow-right ms-1"></i>
+                                </a>
                             </div>
                         </div>
                     </div>
@@ -58,169 +295,117 @@
         </section>
 
         <!-- Benefits Section -->
-        <section class="py-5 py-md-6">
-            <div class="container">
+        <section class="py-5 py-md-6 bg-light">
+            <div class="container py-4">
                 <div class="text-center mb-5" data-aos="fade-up">
-                    <h2 class="display-5 fw-bold mb-3">Why Organizations Choose LioraXAI</h2>
+                    <div class="section-badge mb-3">
+                        <span class="badge bg-success bg-opacity-10 text-success px-3 py-2 rounded-pill">
+                            <i class="bi bi-award me-2"></i>Why Choose LioraXAI
+                        </span>
+                    </div>
+                    <h2 class="display-5 fw-bold mb-4">Built for Enterprise Success</h2>
                     <p class="lead mb-0 col-lg-8 mx-auto text-secondary">
-                        Streamline operations, enhance customer experience, and simplify complex processes
+                        Advanced technology meets practical business solutions with enterprise-grade security and scalability
                     </p>
                 </div>
                 
                 <div class="row g-4">
                     <!-- Benefit 1 -->
-                    <div class="col-md-6 col-lg-4" data-aos="fade-up">
-                        <div class="p-4 h-100 border rounded-4 border-light-subtle">
-                            <div class="d-flex align-items-center mb-4">
-                                <div class="bg-primary-custom p-3 rounded-3 text-white me-3">
-                                    <i class="bi bi-headset fs-4"></i>
+                    <div class="col-md-6 col-lg-3" data-aos="fade-up">
+                        <div class="benefit-card-modern text-center p-4 h-100 bg-white rounded-4 shadow-sm">
+                            <div class="benefit-icon mb-4">
+                                <div class="icon-circle bg-primary-custom bg-opacity-10 text-primary-custom rounded-circle d-inline-flex align-items-center justify-content-center">
+                                    <i class="bi bi-cpu-fill fs-2"></i>
                                 </div>
-                                <h3 class="h4 fw-bold mb-0">Personalized Customer Support</h3>
                             </div>
-                            <p class="text-secondary mb-0">Provide accurate and instant responses to customer queries, enhancing their experience and loyalty.</p>
+                            <h4 class="h5 fw-bold mb-3">AI-Powered Accuracy</h4>
+                            <p class="text-secondary small mb-0">Advanced NLP delivers precise, context-aware responses that understand nuance and intent.</p>
                         </div>
                     </div>
                     
                     <!-- Benefit 2 -->
-                    <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="100">
-                        <div class="p-4 h-100 border rounded-4 border-light-subtle">
-                            <div class="d-flex align-items-center mb-4">
-                                <div class="bg-primary-custom p-3 rounded-3 text-white me-3">
-                                    <i class="bi bi-house fs-4"></i>
+                    <div class="col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="100">
+                        <div class="benefit-card-modern text-center p-4 h-100 bg-white rounded-4 shadow-sm">
+                            <div class="benefit-icon mb-4">
+                                <div class="icon-circle bg-success bg-opacity-10 text-success rounded-circle d-inline-flex align-items-center justify-content-center">
+                                    <i class="bi bi-shield-check-fill fs-2"></i>
                                 </div>
-                                <h3 class="h4 fw-bold mb-0">Property Search Made Easy</h3>
                             </div>
-                            <p class="text-secondary mb-0">Help potential tenants find the perfect property with intuitive, data-driven recommendations.</p>
+                            <h4 class="h5 fw-bold mb-3">Enterprise Security</h4>
+                            <p class="text-secondary small mb-0">Built with robust security protocols, end-to-end encryption, and compliance standards.</p>
                         </div>
                     </div>
                     
                     <!-- Benefit 3 -->
-                    <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="200">
-                        <div class="p-4 h-100 border rounded-4 border-light-subtle">
-                            <div class="d-flex align-items-center mb-4">
-                                <div class="bg-primary-custom p-3 rounded-3 text-white me-3">
-                                    <i class="bi bi-gear fs-4"></i>
+                    <div class="col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="200">
+                        <div class="benefit-card-modern text-center p-4 h-100 bg-white rounded-4 shadow-sm">
+                            <div class="benefit-icon mb-4">
+                                <div class="icon-circle bg-warning bg-opacity-10 text-warning rounded-circle d-inline-flex align-items-center justify-content-center">
+                                    <i class="bi bi-puzzle-fill fs-2"></i>
                                 </div>
-                                <h3 class="h4 fw-bold mb-0">Technical Expertise Simplified</h3>
                             </div>
-                            <p class="text-secondary mb-0">Translate complex engineering drawings and articles into clear, actionable insights.</p>
+                            <h4 class="h5 fw-bold mb-3">Seamless Integration</h4>
+                            <p class="text-secondary small mb-0">Easily connects with existing CRM, databases, and communication platforms.</p>
                         </div>
                     </div>
-
+                    
                     <!-- Benefit 4 -->
-                    <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="300">
-                        <div class="p-4 h-100 border rounded-4 border-light-subtle">
-                            <div class="d-flex align-items-center mb-4">
-                                <div class="bg-primary-custom p-3 rounded-3 text-white me-3">
-                                    <i class="bi bi-shield-check fs-4"></i>
+                    <div class="col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="300">
+                        <div class="benefit-card-modern text-center p-4 h-100 bg-white rounded-4 shadow-sm">
+                            <div class="benefit-icon mb-4">
+                                <div class="icon-circle bg-info bg-opacity-10 text-info rounded-circle d-inline-flex align-items-center justify-content-center">
+                                    <i class="bi bi-graph-up-arrow fs-2"></i>
                                 </div>
-                                <h3 class="h4 fw-bold mb-0">Scalable and Secure</h3>
                             </div>
-                            <p class="text-secondary mb-0">Built to grow with your business while keeping your data secure and compliant.</p>
-                        </div>
-                    </div>
-
-                    <!-- Benefit 5 -->
-                    <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="400">
-                        <div class="p-4 h-100 border rounded-4 border-light-subtle">
-                            <div class="d-flex align-items-center mb-4">
-                                <div class="bg-primary-custom p-3 rounded-3 text-white me-3">
-                                    <i class="bi bi-puzzle fs-4"></i>
-                                </div>
-                                <h3 class="h4 fw-bold mb-0">Integration Ready</h3>
-                            </div>
-                            <p class="text-secondary mb-0">Seamlessly integrates with your existing platforms and tools for a unified workflow.</p>
+                            <h4 class="h5 fw-bold mb-3">Scalable Growth</h4>
+                            <p class="text-secondary small mb-0">Infrastructure that scales seamlessly with your business growth and evolving needs.</p>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- Features Section -->
-        <section class="py-5 py-md-6 bg-light">
-            <div class="container">
-                <div class="text-center mb-5" data-aos="fade-up">
-                    <h2 class="display-5 fw-bold mb-3">LioraXAI Features</h2>
-                    <p class="lead mb-0 col-lg-8 mx-auto text-secondary">
-                        Comprehensive AI solutions tailored to your business needs
-                    </p>
-                </div>
-                
-                <div class="row g-4">
-                    <!-- Feature 1 -->
-                    <div class="col-lg-4" data-aos="fade-up">
-                        <div class="bg-white p-4 h-100 rounded-4 shadow-sm">
-                            <div class="d-flex align-items-center mb-4">
-                                <div class="bg-primary-custom p-3 rounded-3 text-white me-3">
-                                    <i class="bi bi-chat-square-text fs-4"></i>
-                                </div>
-                                <h3 class="h4 fw-bold mb-0">Organizational Q&A Chatbot</h3>
-                            </div>
-                            <ul class="text-secondary mb-0">
-                                <li>Instantly answer questions about your company, processes, and customer needs</li>
-                                <li>Enhance team communication and knowledge sharing</li>
-                            </ul>
-                        </div>
-                    </div>
-                    
-                    <!-- Feature 2 -->
-                    <div class="col-lg-4" data-aos="fade-up" data-aos-delay="100">
-                        <div class="bg-white p-4 h-100 rounded-4 shadow-sm">
-                            <div class="d-flex align-items-center mb-4">
-                                <div class="bg-primary-custom p-3 rounded-3 text-white me-3">
-                                    <i class="bi bi-search fs-4"></i>
-                                </div>
-                                <h3 class="h4 fw-bold mb-0">Property Search Chatbot</h3>
-                            </div>
-                            <ul class="text-secondary mb-0">
-                                <li>Provide accurate property suggestions based on customer requirements</li>
-                                <li>Simplify property browsing and improve lead conversions</li>
-                            </ul>
-                        </div>
-                    </div>
-                    
-                    <!-- Feature 3 -->
-                    <div class="col-lg-4" data-aos="fade-up" data-aos-delay="200">
-                        <div class="bg-white p-4 h-100 rounded-4 shadow-sm">
-                            <div class="d-flex align-items-center mb-4">
-                                <div class="bg-primary-custom p-3 rounded-3 text-white me-3">
-                                    <i class="bi bi-tools fs-4"></i>
-                                </div>
-                                <h3 class="h4 fw-bold mb-0">Technical Assistance Chatbot</h3>
-                            </div>
-                            <ul class="text-secondary mb-0">
-                                <li>Decode complex engineering drawings and technical articles</li>
-                                <li>Provide precise tool and process explanations</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Testimonial Section -->
+        <!-- Testimonials Section -->
         <section class="py-5 py-md-6">
-            <div class="container">
+            <div class="container py-4">
                 <div class="text-center mb-5" data-aos="fade-up">
-                    <h2 class="display-5 fw-bold mb-3">What Our Clients Say</h2>
+                    <div class="section-badge mb-3">
+                        <span class="badge bg-info bg-opacity-10 text-info px-3 py-2 rounded-pill">
+                            <i class="bi bi-chat-quote me-2"></i>Client Success Stories
+                        </span>
+                    </div>
+                    <h2 class="display-5 fw-bold mb-4">Trusted by Industry Leaders</h2>
+                    <p class="lead mb-0 col-lg-8 mx-auto text-secondary">
+                        See how organizations worldwide are transforming their operations with LioraXAI
+                    </p>
                 </div>
                 
                 <div class="row g-4">
                     <!-- Testimonial 1 -->
                     <div class="col-lg-4" data-aos="fade-up">
-                        <div class="p-4 h-100 border rounded-4 border-light-subtle">
-                            <div class="d-inline-block mb-3 text-primary-custom">
-                                <i class="bi bi-quote fs-3"></i>
+                        <div class="testimonial-card-modern p-4 p-lg-5 h-100 bg-white rounded-4 shadow-sm position-relative">
+                            <div class="quote-icon position-absolute top-0 start-0 mt-3 ms-3">
+                                <i class="bi bi-quote fs-1 text-primary-custom opacity-25"></i>
                             </div>
-                            <p class="mb-4 fst-italic">
-                                "Using LioraXAI has transformed the way we interact with our customers. It's like having a 24/7 expert on call!"
-                            </p>
-                            <div class="d-flex align-items-center">
-                                <div class="rounded-circle overflow-hidden me-3" style="width: 50px; height: 50px;">
-                                    <img src="https://via.placeholder.com/50x50" alt="TechCorp Inc" class="img-fluid">
+                            <div class="position-relative">
+                                <div class="stars mb-3">
+                                    <i class="bi bi-star-fill text-warning"></i>
+                                    <i class="bi bi-star-fill text-warning"></i>
+                                    <i class="bi bi-star-fill text-warning"></i>
+                                    <i class="bi bi-star-fill text-warning"></i>
+                                    <i class="bi bi-star-fill text-warning"></i>
                                 </div>
-                                <div>
-                                    <p class="fw-bold mb-0">TechCorp Inc.</p>
+                                <p class="mb-4 text-secondary fst-italic">
+                                    "LioraXAI has transformed how we interact with customers. It's like having a 24/7 expert on call that never gets tired and always provides accurate information."
+                                </p>
+                                <div class="d-flex align-items-center">
+                                    <div class="avatar-circle bg-primary-custom text-white rounded-circle d-flex align-items-center justify-content-center me-3">
+                                        <span class="fw-bold">TC</span>
+                                    </div>
+                                    <div>
+                                        <h6 class="mb-0 fw-bold">TechCorp Inc.</h6>
+                                        <small class="text-secondary">Technology Solutions</small>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -228,19 +413,29 @@
 
                     <!-- Testimonial 2 -->
                     <div class="col-lg-4" data-aos="fade-up" data-aos-delay="100">
-                        <div class="p-4 h-100 border rounded-4 border-light-subtle">
-                            <div class="d-inline-block mb-3 text-primary-custom">
-                                <i class="bi bi-quote fs-3"></i>
+                        <div class="testimonial-card-modern p-4 p-lg-5 h-100 bg-white rounded-4 shadow-sm position-relative">
+                            <div class="quote-icon position-absolute top-0 start-0 mt-3 ms-3">
+                                <i class="bi bi-quote fs-1 text-success opacity-25"></i>
                             </div>
-                            <p class="mb-4 fst-italic">
-                                "LioraXAI helped us reduce support response times by 60%, giving our team more time to focus on innovation."
-                            </p>
-                            <div class="d-flex align-items-center">
-                                <div class="rounded-circle overflow-hidden me-3" style="width: 50px; height: 50px;">
-                                    <img src="https://via.placeholder.com/50x50" alt="Innovate Solutions" class="img-fluid">
+                            <div class="position-relative">
+                                <div class="stars mb-3">
+                                    <i class="bi bi-star-fill text-warning"></i>
+                                    <i class="bi bi-star-fill text-warning"></i>
+                                    <i class="bi bi-star-fill text-warning"></i>
+                                    <i class="bi bi-star-fill text-warning"></i>
+                                    <i class="bi bi-star-fill text-warning"></i>
                                 </div>
-                                <div>
-                                    <p class="fw-bold mb-0">Innovate Solutions</p>
+                                <p class="mb-4 text-secondary fst-italic">
+                                    "We reduced support response times by 60% and our team can now focus on innovation instead of repetitive queries. The ROI has been incredible."
+                                </p>
+                                <div class="d-flex align-items-center">
+                                    <div class="avatar-circle bg-success text-white rounded-circle d-flex align-items-center justify-content-center me-3">
+                                        <span class="fw-bold">IS</span>
+                                    </div>
+                                    <div>
+                                        <h6 class="mb-0 fw-bold">Innovate Solutions</h6>
+                                        <small class="text-secondary">Digital Innovation</small>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -248,19 +443,29 @@
 
                     <!-- Testimonial 3 -->
                     <div class="col-lg-4" data-aos="fade-up" data-aos-delay="200">
-                        <div class="p-4 h-100 border rounded-4 border-light-subtle">
-                            <div class="d-inline-block mb-3 text-primary-custom">
-                                <i class="bi bi-quote fs-3"></i>
+                        <div class="testimonial-card-modern p-4 p-lg-5 h-100 bg-white rounded-4 shadow-sm position-relative">
+                            <div class="quote-icon position-absolute top-0 start-0 mt-3 ms-3">
+                                <i class="bi bi-quote fs-1 text-info opacity-25"></i>
                             </div>
-                            <p class="mb-4 fst-italic">
-                                "Our clients appreciate the personalized and accurate responses they get from LioraXAI – it's a game-changer!"
-                            </p>
-                            <div class="d-flex align-items-center">
-                                <div class="rounded-circle overflow-hidden me-3" style="width: 50px; height: 50px;">
-                                    <img src="https://via.placeholder.com/50x50" alt="PropTech Hub" class="img-fluid">
+                            <div class="position-relative">
+                                <div class="stars mb-3">
+                                    <i class="bi bi-star-fill text-warning"></i>
+                                    <i class="bi bi-star-fill text-warning"></i>
+                                    <i class="bi bi-star-fill text-warning"></i>
+                                    <i class="bi bi-star-fill text-warning"></i>
+                                    <i class="bi bi-star-fill text-warning"></i>
                                 </div>
-                                <div>
-                                    <p class="fw-bold mb-0">PropTech Hub</p>
+                                <p class="mb-4 text-secondary fst-italic">
+                                    "Our clients appreciate the personalized and accurate responses. LioraXAI has become an integral part of our customer experience strategy."
+                                </p>
+                                <div class="d-flex align-items-center">
+                                    <div class="avatar-circle bg-info text-white rounded-circle d-flex align-items-center justify-content-center me-3">
+                                        <span class="fw-bold">PH</span>
+                                    </div>
+                                    <div>
+                                        <h6 class="mb-0 fw-bold">PropTech Hub</h6>
+                                        <small class="text-secondary">Real Estate Technology</small>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -270,19 +475,48 @@
         </section>
 
         <!-- CTA Section -->
-        <section class="py-5 py-md-6 bg-gradient-primary text-white">
-            <div class="container py-4">
+        <section class="py-5 py-md-6 bg-gradient-primary text-white position-relative overflow-hidden">
+            <div class="cta-bg-pattern"></div>
+            <div class="container py-4 position-relative">
                 <div class="row justify-content-center">
                     <div class="col-lg-8 text-center" data-aos="fade-up">
-                        <h2 class="display-5 fw-bold mb-4">Ready to Transform Your Business with AI?</h2>
-                        <p class="lead mb-5">Join organizations worldwide using LioraXAI to streamline operations and enhance customer experiences.</p>
+                        <div class="cta-badge mb-4">
+                            <span class="badge bg-white bg-opacity-20 text-white px-3 py-2 rounded-pill">
+                                <i class="bi bi-rocket me-2"></i>Ready to Get Started?
+                            </span>
+                        </div>
+                        <h2 class="display-4 fw-bold mb-4">Transform Your Business with AI</h2>
+                        <p class="lead mb-5 text-white-75 col-lg-10 mx-auto">
+                            Join organizations worldwide using LioraXAI to streamline operations, enhance customer experiences, and drive growth through intelligent automation.
+                        </p>
                         <div class="d-flex flex-column flex-sm-row gap-3 justify-content-center">
-                            <a href="{% url 'contact' %}" class="btn btn-light text-primary-custom fw-medium py-3 px-4 rounded-3">
+                            <a href="{% url 'contact' %}" class="btn btn-light btn-lg text-primary-custom fw-medium py-3 px-5 rounded-3 shadow-sm">
                                 <i class="bi bi-chat-dots me-2"></i>Talk to an Expert
                             </a>
-                            <a href="{% url 'pricing' %}" class="btn btn-outline-light fw-medium py-3 px-4 rounded-3">
-                                <i class="bi bi-graph-up me-2"></i>View Pricing
+                            <a href="{% url 'pricing' %}" class="btn btn-outline-light btn-lg fw-medium py-3 px-5 rounded-3">
+                                <i class="bi bi-graph-up me-2"></i>View Pricing Plans
                             </a>
+                        </div>
+                        
+                        <div class="row mt-5 pt-4 border-top border-white border-opacity-25">
+                            <div class="col-md-4 mb-3 mb-md-0">
+                                <div class="stat-item">
+                                    <h3 class="h2 fw-bold mb-1">99.9%</h3>
+                                    <p class="mb-0 text-white-75 small">Uptime Guarantee</p>
+                                </div>
+                            </div>
+                            <div class="col-md-4 mb-3 mb-md-0">
+                                <div class="stat-item">
+                                    <h3 class="h2 fw-bold mb-1">60%</h3>
+                                    <p class="mb-0 text-white-75 small">Faster Response Times</p>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="stat-item">
+                                    <h3 class="h2 fw-bold mb-1">24/7</h3>
+                                    <p class="mb-0 text-white-75 small">AI-Powered Support</p>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -291,4 +525,443 @@
     </main>
 
     {% include 'includes/footer.html' %}
+
+    <!-- Enhanced Homepage Styles -->
+    <style>
+        /* Hero Section Enhancements */
+        .hero-section {
+            min-height: 100vh;
+            position: relative;
+        }
+        
+        .min-vh-75 {
+            min-height: 75vh;
+        }
+        
+        .hero-bg-pattern {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                radial-gradient(circle at 20% 80%, rgba(255,255,255,0.1) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(255,255,255,0.1) 0%, transparent 50%);
+        }
+        
+        .text-gradient {
+            background: linear-gradient(135deg, #ffffff 0%, #e0e7ff 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .text-white-75 {
+            color: rgba(255, 255, 255, 0.85) !important;
+        }
+        
+        /* Chat Demo Enhancements */
+        .chat-demo-wrapper {
+            max-width: 500px;
+            margin: 0 auto;
+        }
+        
+        .chat-demo-container {
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            transition: all 0.3s ease;
+        }
+        
+        .chat-demo-container:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1) !important;
+        }
+        
+        .chat-avatar {
+            width: 40px;
+            height: 40px;
+        }
+        
+        .chat-header {
+            border-bottom: 1px solid #e9ecef;
+        }
+        
+        .chat-header h6 {
+            color: #212529;
+        }
+        
+        .chat-input-area {
+            border-top: 1px solid #e9ecef;
+        }
+        
+        .chat-input-area .form-control {
+            background-color: #f8f9fa;
+            border: 1px solid #e9ecef;
+            color: #212529;
+        }
+        
+        .chat-input-area .form-control::placeholder {
+            color: #6c757d;
+        }
+        
+        .chat-bubble-user {
+            background: var(--primary-color);
+            color: white !important;
+            padding: 12px 16px;
+            border-radius: 18px 18px 4px 18px;
+            margin-left: auto;
+            max-width: 80%;
+            margin-bottom: 8px;
+        }
+        
+        .chat-bubble-user p {
+            color: white !important;
+            margin-bottom: 0;
+        }
+        
+        .chat-bubble-user small {
+            color: rgba(255, 255, 255, 0.8) !important;
+        }
+        
+        .chat-bubble-assistant {
+            background: #f8f9fa;
+            color: #212529 !important;
+            padding: 12px 16px;
+            border-radius: 18px 18px 18px 4px;
+            max-width: 85%;
+            margin-bottom: 8px;
+            border: 1px solid #e9ecef;
+        }
+        
+        .chat-bubble-assistant p {
+            color: #212529 !important;
+            margin-bottom: 0;
+        }
+        
+        .chat-bubble-assistant ul li {
+            color: #212529 !important;
+        }
+        
+        .chat-bubble-assistant small {
+            color: #6c757d !important;
+        }
+        
+        .property-card {
+            transition: all 0.2s ease;
+            background-color: #ffffff !important;
+            border: 1px solid #e9ecef;
+        }
+        
+        .property-card:hover {
+            transform: translateX(4px);
+            background-color: #f8f9fa !important;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+        
+        .property-card h6 {
+            color: #212529;
+        }
+        
+        .property-card .text-secondary {
+            color: #6c757d !important;
+        }
+        
+        .source-reference {
+            background-color: #f8f9fa;
+            border: 1px solid #e9ecef;
+        }
+        
+        .source-reference .text-secondary {
+            color: #6c757d !important;
+        }
+        
+        .typing-indicator {
+            display: flex;
+            gap: 3px;
+        }
+        
+        .typing-indicator span {
+            width: 6px;
+            height: 6px;
+            background: var(--primary-color);
+            border-radius: 50%;
+            animation: typing 1.4s infinite ease-in-out;
+        }
+        
+        .typing-indicator span:nth-child(2) {
+            animation-delay: 0.2s;
+        }
+        
+        .typing-indicator span:nth-child(3) {
+            animation-delay: 0.4s;
+        }
+        
+        @keyframes typing {
+            0%, 60%, 100% {
+                transform: translateY(0);
+                opacity: 0.4;
+            }
+            30% {
+                transform: translateY(-10px);
+                opacity: 1;
+            }
+        }
+        
+        /* Floating Elements */
+        .floating-element {
+            position: absolute;
+            width: 40px;
+            height: 40px;
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            animation: float 6s ease-in-out infinite;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+        }
+        
+        .floating-element-1 {
+            top: 10%;
+            right: -20px;
+            animation-delay: 0s;
+        }
+        
+        .floating-element-2 {
+            top: 60%;
+            left: -20px;
+            animation-delay: 2s;
+        }
+        
+        .floating-element-3 {
+            bottom: 20%;
+            right: -30px;
+            animation-delay: 4s;
+        }
+        
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0px);
+            }
+            50% {
+                transform: translateY(-20px);
+            }
+        }
+        
+        /* Feature Cards Modern */
+        .feature-card-modern {
+            background: white;
+            border: 1px solid rgba(0, 0, 0, 0.05);
+            transition: all 0.3s ease;
+        }
+        
+        .feature-card-modern:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+        }
+        
+        .feature-bg-pattern {
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 100px;
+            height: 100px;
+            background: linear-gradient(135deg, rgba(79, 70, 229, 0.05) 0%, transparent 70%);
+            border-radius: 0 1rem 0 100%;
+        }
+        
+        .feature-icon-modern {
+            position: relative;
+        }
+        
+        .icon-badge {
+            position: absolute;
+            top: -8px;
+            right: -8px;
+            background: var(--primary-color);
+            color: white;
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.75rem;
+            font-weight: bold;
+        }
+        
+        /* Benefit Cards Modern */
+        .benefit-card-modern {
+            transition: all 0.3s ease;
+        }
+        
+        .benefit-card-modern:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+        
+        .icon-circle {
+            width: 60px;
+            height: 60px;
+        }
+        
+        /* Testimonial Cards Modern */
+        .testimonial-card-modern {
+            transition: all 0.3s ease;
+        }
+        
+        .testimonial-card-modern:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+        
+        .avatar-circle {
+            width: 50px;
+            height: 50px;
+        }
+        
+        /* CTA Section */
+        .cta-bg-pattern {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                radial-gradient(circle at 30% 70%, rgba(255,255,255,0.1) 0%, transparent 50%),
+                radial-gradient(circle at 70% 30%, rgba(255,255,255,0.1) 0%, transparent 50%);
+        }
+        
+        /* Section Badges */
+        .section-badge {
+            margin-bottom: 1rem;
+        }
+        
+        /* Dark Mode Support */
+        .dark-mode .chat-demo-container {
+            background-color: var(--neutral-800) !important;
+            border-color: var(--neutral-700);
+        }
+        
+        .dark-mode .chat-header {
+            border-bottom-color: var(--neutral-600);
+        }
+        
+        .dark-mode .chat-header h6 {
+            color: var(--text-color) !important;
+        }
+        
+        .dark-mode .chat-input-area {
+            border-top-color: var(--neutral-600);
+        }
+        
+        .dark-mode .chat-input-area .form-control {
+            background-color: var(--neutral-700) !important;
+            border-color: var(--neutral-600);
+            color: var(--text-color) !important;
+        }
+        
+        .dark-mode .chat-input-area .form-control::placeholder {
+            color: var(--text-secondary) !important;
+        }
+        
+        .dark-mode .chat-bubble-assistant {
+            background-color: var(--neutral-700) !important;
+            color: var(--text-color) !important;
+            border-color: var(--neutral-600);
+        }
+        
+        .dark-mode .chat-bubble-assistant p {
+            color: var(--text-color) !important;
+        }
+        
+        .dark-mode .chat-bubble-assistant ul li {
+            color: var(--text-color) !important;
+        }
+        
+        .dark-mode .chat-bubble-assistant small {
+            color: var(--text-secondary) !important;
+        }
+        
+        .dark-mode .property-card {
+            background-color: var(--neutral-600) !important;
+            border-color: var(--neutral-500);
+        }
+        
+        .dark-mode .property-card:hover {
+            background-color: var(--neutral-500) !important;
+        }
+        
+        .dark-mode .property-card h6 {
+            color: var(--text-color) !important;
+        }
+        
+        .dark-mode .property-card .text-secondary {
+            color: var(--text-secondary) !important;
+        }
+        
+        .dark-mode .source-reference {
+            background-color: var(--neutral-600) !important;
+            border-color: var(--neutral-500);
+        }
+        
+        .dark-mode .source-reference .text-secondary {
+            color: var(--text-secondary) !important;
+        }
+        
+        .dark-mode .feature-card-modern,
+        .dark-mode .benefit-card-modern,
+        .dark-mode .testimonial-card-modern {
+            background-color: var(--neutral-800);
+            border-color: var(--neutral-700);
+        }
+        
+        .dark-mode .floating-element {
+            background: rgba(55, 65, 81, 0.9);
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .hero-section {
+                min-height: auto;
+            }
+            
+            .min-vh-75 {
+                min-height: auto;
+            }
+            
+            .chat-demo-container {
+                padding: 1rem !important;
+            }
+            
+            .chat-messages {
+                height: 300px !important;
+            }
+            
+            .floating-element {
+                display: none;
+            }
+            
+            .feature-card-modern,
+            .benefit-card-modern,
+            .testimonial-card-modern {
+                padding: 1.5rem !important;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .display-3 {
+                font-size: 2.5rem;
+            }
+            
+            .display-4 {
+                font-size: 2rem;
+            }
+            
+            .display-5 {
+                font-size: 1.75rem;
+            }
+        }
+    </style>
 {% endblock %} 

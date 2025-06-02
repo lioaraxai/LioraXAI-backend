@@ -1,48 +1,184 @@
 {% load static %}
-<!-- Header -->
+<!-- Enhanced Header with Modern Navigation -->
 <header>
-    <nav class="navbar navbar-expand-lg bg-white shadow-sm sticky-top">
+    <nav class="navbar navbar-expand-lg glass-nav sticky-top" role="navigation" aria-label="Main navigation">
         <div class="container">
-            <a class="navbar-brand" href="{% url 'index' %}">
-                <img src="{% static 'images/logo.svg' %}" alt="LioraXAI Logo" width="150" height="35" onerror="this.src='https://via.placeholder.com/150x35?text=LioraXAI';this.onerror='';">
+            <!-- Logo with improved accessibility -->
+            <a class="navbar-brand d-flex align-items-center" href="{% url 'index' %}" aria-label="LioraXAI Home">
+                <img src="{% static 'images/logo.svg' %}" 
+                     alt="LioraXAI Logo" 
+                     width="150" 
+                     height="35" 
+                     class="d-inline-block align-text-top"
+                     onerror="this.src='https://via.placeholder.com/150x35/4f46e5/ffffff?text=LioraXAI';this.onerror='';">
             </a>
 
-            <!-- Mobile menu button -->
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" 
-                    data-bs-target="#navbarNav" aria-controls="navbarNav" 
-                    aria-expanded="false" aria-label="Toggle navigation">
+            <!-- Mobile menu button with enhanced accessibility -->
+            <button class="navbar-toggler border-0 p-2" 
+                    type="button" 
+                    data-bs-toggle="collapse" 
+                    data-bs-target="#navbarNav" 
+                    aria-controls="navbarNav" 
+                    aria-expanded="false" 
+                    aria-label="Toggle navigation menu">
                 <span class="navbar-toggler-icon"></span>
             </button>
 
-            <!-- Navigation -->
+            <!-- Enhanced Navigation -->
             <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ms-auto align-items-center">
+                <ul class="navbar-nav ms-auto align-items-lg-center">
                     <li class="nav-item">
-                        <a class="nav-link {% if request.path == '/' %}active{% endif %}" href="{% url 'index' %}">Home</a>
+                        <a class="nav-link fw-medium px-3 py-2 {% if request.path == '/' %}active text-primary-custom{% endif %}" 
+                           href="{% url 'index' %}"
+                           {% if request.path == '/' %}aria-current="page"{% endif %}>
+                            Home
+                        </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link {% if 'features' in request.path %}active{% endif %}" href="{% url 'features' %}">Features</a>
+                        <a class="nav-link fw-medium px-3 py-2 {% if 'features' in request.path %}active text-primary-custom{% endif %}" 
+                           href="{% url 'features' %}"
+                           {% if 'features' in request.path %}aria-current="page"{% endif %}>
+                            Features
+                        </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link {% if 'pricing' in request.path %}active{% endif %}" href="{% url 'pricing' %}">Pricing</a>
+                        <a class="nav-link fw-medium px-3 py-2 {% if 'pricing' in request.path %}active text-primary-custom{% endif %}" 
+                           href="{% url 'pricing' %}"
+                           {% if 'pricing' in request.path %}aria-current="page"{% endif %}>
+                            Pricing
+                        </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link {% if 'team' in request.path %}active{% endif %}" href="{% url 'team' %}">Team</a>
+                        <a class="nav-link fw-medium px-3 py-2 {% if 'team' in request.path %}active text-primary-custom{% endif %}" 
+                           href="{% url 'team' %}"
+                           {% if 'team' in request.path %}aria-current="page"{% endif %}>
+                            About Us
+                        </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link {% if 'blog' in request.path %}active{% endif %}" href="{% url 'blog' %}">Blog</a>
+                        <a class="nav-link fw-medium px-3 py-2 {% if 'blog' in request.path %}active text-primary-custom{% endif %}" 
+                           href="{% url 'blog' %}"
+                           {% if 'blog' in request.path %}aria-current="page"{% endif %}>
+                            Blog
+                        </a>
                     </li>
+                    
+                    <!-- Enhanced CTA Button -->
+                    <li class="nav-item ms-lg-3">
+                        <a class="btn btn-primary-custom text-white px-4 py-2 fw-medium" 
+                           href="{% url 'contact' %}"
+                           role="button">
+                            <i class="bi bi-chat-dots me-2"></i>
+                            Get Started
+                        </a>
+                    </li>
+                    
+                    <!-- Enhanced Dark Mode Toggle -->
                     <li class="nav-item ms-lg-2">
-                        <a class="btn btn-primary-custom text-white px-4 {% if 'contact' in request.path %}active{% endif %}" href="{% url 'contact' %}">Contact Us</a>
-                    </li>
-                    <li class="nav-item ms-2">
-                        <button id="dark-mode-toggle" class="btn btn-sm btn-outline-secondary rounded-circle" aria-label="Toggle dark mode">
-                            <i class="bi bi-moon-fill dark-icon"></i>
-                            <i class="bi bi-sun-fill light-icon d-none"></i>
+                        <button id="darkModeToggle" 
+                                class="btn btn-outline-secondary rounded-circle p-2" 
+                                style="width: 42px; height: 42px;"
+                                aria-label="Toggle dark mode"
+                                title="Toggle dark mode">
+                            <i class="bi bi-moon-fill" aria-hidden="true"></i>
                         </button>
                     </li>
                 </ul>
             </div>
         </div>
     </nav>
-</header> 
+</header>
+
+<!-- Add enhanced styles for navigation -->
+<style>
+    /* Enhanced Navigation Styles */
+    .glass-nav {
+        transition: all 0.3s ease;
+        box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+    }
+    
+    .navbar-brand img {
+        transition: transform 0.2s ease;
+    }
+    
+    .navbar-brand:hover img {
+        transform: scale(1.05);
+    }
+    
+    .nav-link {
+        position: relative;
+        transition: all 0.2s ease;
+        border-radius: var(--radius-md);
+    }
+    
+    .nav-link:hover {
+        color: var(--primary-500) !important;
+        background-color: var(--primary-50);
+    }
+    
+    .nav-link.active {
+        font-weight: 600;
+    }
+    
+    /* Mobile navigation improvements */
+    @media (max-width: 991.98px) {
+        .navbar-collapse {
+            background: rgba(255, 255, 255, 0.98);
+            backdrop-filter: blur(20px);
+            border-radius: var(--radius-lg);
+            margin-top: 1rem;
+            padding: 1rem;
+            box-shadow: var(--shadow-lg);
+        }
+        
+        .dark-mode .navbar-collapse {
+            background: rgba(38, 38, 38, 0.98);
+        }
+        
+        .nav-item {
+            margin: 0.25rem 0;
+        }
+        
+        .btn-primary-custom {
+            margin-top: 1rem;
+            width: 100%;
+            justify-content: center;
+        }
+        
+        #darkModeToggle {
+            margin-top: 1rem;
+            width: 100%;
+        }
+    }
+    
+    /* Navbar scroll effect */
+    .navbar-scrolled {
+        background: rgba(255, 255, 255, 0.98) !important;
+        backdrop-filter: blur(20px);
+        box-shadow: 0 2px 30px rgba(0, 0, 0, 0.15);
+    }
+    
+    .dark-mode .navbar-scrolled {
+        background: rgba(23, 23, 23, 0.98) !important;
+    }
+</style>
+
+<script>
+    // Enhanced navbar scroll effect
+    document.addEventListener('DOMContentLoaded', function() {
+        const navbar = document.querySelector('.navbar');
+        let lastScrollTop = 0;
+        
+        window.addEventListener('scroll', function() {
+            const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+            
+            if (scrollTop > 100) {
+                navbar.classList.add('navbar-scrolled');
+            } else {
+                navbar.classList.remove('navbar-scrolled');
+            }
+            
+            lastScrollTop = scrollTop;
+        });
+    });
+</script> 

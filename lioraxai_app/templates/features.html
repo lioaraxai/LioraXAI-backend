@@ -8,14 +8,23 @@
 
     <main>
         <!-- Hero Section -->
-        <section class="py-5 py-md-6 bg-gradient-primary text-white">
-            <div class="container py-4">
+        <section class="hero-section py-5 py-md-6 bg-gradient-primary text-white position-relative overflow-hidden">
+            <div class="hero-bg-pattern"></div>
+            <div class="container py-4 position-relative">
                 <div class="row justify-content-center">
                     <div class="col-lg-8 text-center" data-aos="fade-up">
-                        <h1 class="display-4 fw-bold mb-4">
-                            LioraXAI Features – Powering Smarter Conversations
+                        <div class="hero-badge mb-4">
+                            <span class="badge bg-white bg-opacity-20 text-white px-3 py-2 rounded-pill">
+                                <i class="bi bi-cpu me-2"></i>Advanced AI Solutions
+                            </span>
+                        </div>
+                        <h1 class="display-3 fw-bold mb-4 lh-1">
+                            LioraXAI <span class="text-gradient">Features</span>
                         </h1>
-                        <p class="lead mb-4 text-white">
+                        <h2 class="h3 fw-normal mb-4 text-white-75">
+                            Powering Smarter Conversations
+                        </h2>
+                        <p class="lead mb-5 text-white-75 col-lg-10 mx-auto">
                             Empower your teams and delight your customers with real-time, context-aware responses across all your business needs.
                         </p>
                     </div>
@@ -27,67 +36,110 @@
         <section class="py-5 py-md-6">
             <div class="container py-4">
                 <div class="text-center mb-5" data-aos="fade-up">
-                    <h2 class="display-5 fw-bold mb-3">Three Powerful AI Chatbots</h2>
-                    <p class="lead mb-0 col-lg-8 mx-auto">
+                    <div class="section-badge mb-3">
+                        <span class="badge bg-primary-custom bg-opacity-10 text-primary-custom px-3 py-2 rounded-pill">
+                            <i class="bi bi-stars me-2"></i>Core Features
+                        </span>
+                    </div>
+                    <h2 class="display-5 fw-bold mb-4">Three Powerful AI Chatbots</h2>
+                    <p class="lead mb-0 col-lg-8 mx-auto text-secondary">
                         Specialized AI solutions designed to transform how you handle customer support, property searches, and technical assistance
                     </p>
                 </div>
                 
                 <div class="row g-4 g-md-5">
                     <!-- Feature 1: Organizational Q&A Chatbot -->
-                    <div class="col-lg-12 mb-5" data-aos="fade-up">
-                        <div class="row align-items-center">
-                            <div class="col-lg-6">
-                                <div class="feature-icon-circle mb-4">
-                                    <i class="bi bi-chat-square-text text-primary-custom fs-4"></i>
+                    <div class="col-lg-12 mb-5" data-aos="fade-up" id="organizational-qa">
+                        <div class="feature-showcase-card bg-white rounded-4 shadow-sm overflow-hidden">
+                            <div class="row align-items-center g-0">
+                                <div class="col-lg-6 p-4 p-lg-5">
+                                    <div class="feature-header mb-4">
+                                        <div class="feature-icon-large bg-primary-custom text-white rounded-3 p-3 d-inline-flex mb-3">
+                                            <i class="bi bi-chat-square-text fs-2"></i>
+                                        </div>
+                                        <div class="feature-number">01</div>
+                                    </div>
+                                    <h3 class="h2 fw-bold mb-4">Organizational Q&A Chatbot</h3>
+                                    <p class="lead text-secondary mb-4">Empower your teams and delight your customers with real-time, context-aware responses.</p>
+                                    
+                                    <div class="row g-3">
+                                        <div class="col-md-6">
+                                            <div class="feature-benefit d-flex align-items-start">
+                                                <div class="benefit-icon bg-primary-custom bg-opacity-10 text-primary-custom rounded-circle d-flex align-items-center justify-content-center me-3 flex-shrink-0">
+                                                    <i class="bi bi-database-fill"></i>
+                                                </div>
+                                                <div>
+                                                    <h5 class="fw-bold mb-2">Internal Knowledge Management</h5>
+                                                    <p class="text-secondary mb-0 small">Instantly provide accurate answers about company processes, policies, and internal data.</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="feature-benefit d-flex align-items-start">
+                                                <div class="benefit-icon bg-primary-custom bg-opacity-10 text-primary-custom rounded-circle d-flex align-items-center justify-content-center me-3 flex-shrink-0">
+                                                    <i class="bi bi-headset"></i>
+                                                </div>
+                                                <div>
+                                                    <h5 class="fw-bold mb-2">Customer Support</h5>
+                                                    <p class="text-secondary mb-0 small">Quickly respond to common client queries, reducing support load.</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="feature-benefit d-flex align-items-start">
+                                                <div class="benefit-icon bg-primary-custom bg-opacity-10 text-primary-custom rounded-circle d-flex align-items-center justify-content-center me-3 flex-shrink-0">
+                                                    <i class="bi bi-people-fill"></i>
+                                                </div>
+                                                <div>
+                                                    <h5 class="fw-bold mb-2">Team Collaboration</h5>
+                                                    <p class="text-secondary mb-0 small">Enhance internal communication with automated knowledge sharing.</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
-                                <h3 class="h2 fw-bold mb-4">1. Organizational Q&A Chatbot</h3>
-                                <p class="lead text-secondary mb-4">Empower your teams and delight your customers with real-time, context-aware responses.</p>
-                                
-                                <div class="row g-3">
-                                    <div class="col-md-6">
-                                        <div class="d-flex align-items-start">
-                                            <i class="bi bi-check-circle-fill text-primary-custom me-3 mt-1"></i>
+                                <div class="col-lg-6 bg-light p-4 p-lg-5">
+                                    <div class="chat-demo-enhanced">
+                                        <div class="chat-header d-flex align-items-center mb-4 pb-3 border-bottom">
+                                            <div class="chat-avatar bg-primary-custom rounded-circle d-flex align-items-center justify-content-center me-3">
+                                                <i class="bi bi-robot text-white"></i>
+                                            </div>
                                             <div>
-                                                <h5 class="fw-bold mb-2">Internal Knowledge Management</h5>
-                                                <p class="text-secondary mb-0">Instantly provide accurate answers about company processes, policies, and internal data.</p>
+                                                <h6 class="mb-0 fw-bold">HR Assistant</h6>
+                                                <small class="text-success">
+                                                    <i class="bi bi-circle-fill me-1" style="font-size: 0.5rem;"></i>Online
+                                                </small>
                                             </div>
                                         </div>
-                                    </div>
-                                    <div class="col-md-6">
-                                        <div class="d-flex align-items-start">
-                                            <i class="bi bi-check-circle-fill text-primary-custom me-3 mt-1"></i>
-                                            <div>
-                                                <h5 class="fw-bold mb-2">Customer Support</h5>
-                                                <p class="text-secondary mb-0">Quickly respond to common client queries, reducing support load.</p>
+                                        
+                                        <div class="chat-messages">
+                                            <div class="chat-bubble-user mb-3">
+                                                <p class="mb-0">What's our company policy on remote work?</p>
+                                                <small class="text-muted d-block mt-1">2:15 PM</small>
                                             </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-6">
-                                        <div class="d-flex align-items-start">
-                                            <i class="bi bi-check-circle-fill text-primary-custom me-3 mt-1"></i>
-                                            <div>
-                                                <h5 class="fw-bold mb-2">Team Collaboration</h5>
-                                                <p class="text-secondary mb-0">Enhance internal communication with automated knowledge sharing.</p>
+                                            <div class="chat-bubble-assistant mb-3">
+                                                <p class="mb-0">Our remote work policy allows employees to work from home up to 3 days per week with manager approval. Full remote work is available for specific roles and requires HR approval.</p>
+                                                <small class="text-muted d-block mt-1">2:15 PM</small>
                                             </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-lg-6">
-                                <div class="bg-light rounded-4 p-4">
-                                    <div class="chat-demo">
-                                        <div class="chat-bubble-user mb-3">
-                                            <p class="mb-0">What's our company policy on remote work?</p>
-                                        </div>
-                                        <div class="chat-bubble-assistant mb-3">
-                                            <p class="mb-0">Our remote work policy allows employees to work from home up to 3 days per week with manager approval. Full remote work is available for specific roles and requires HR approval.</p>
-                                        </div>
-                                        <div class="chat-bubble-user mb-3">
-                                            <p class="mb-0">How do I submit an expense report?</p>
-                                        </div>
-                                        <div class="chat-bubble-assistant">
-                                            <p class="mb-0">You can submit expense reports through our finance portal. Upload receipts, categorize expenses, and submit for approval. Reports are processed within 5 business days.</p>
+                                            <div class="chat-bubble-user mb-3">
+                                                <p class="mb-0">How do I submit an expense report?</p>
+                                                <small class="text-muted d-block mt-1">2:16 PM</small>
+                                            </div>
+                                            <div class="chat-bubble-assistant">
+                                                <p class="mb-2">You can submit expense reports through our finance portal:</p>
+                                                <ul class="mb-2 small">
+                                                    <li>Upload receipts and categorize expenses</li>
+                                                    <li>Submit for approval</li>
+                                                    <li>Reports processed within 5 business days</li>
+                                                </ul>
+                                                <div class="source-reference p-2 bg-white rounded-3 mt-2">
+                                                    <small class="text-secondary">
+                                                        <i class="bi bi-file-text me-1"></i>
+                                                        Source: Employee Handbook • Section 4.2
+                                                    </small>
+                                                </div>
+                                                <small class="text-muted d-block mt-1">2:16 PM</small>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
@@ -96,64 +148,104 @@
                     </div>
 
                     <!-- Feature 2: Property Search Chatbot -->
-                    <div class="col-lg-12 mb-5" data-aos="fade-up" data-aos-delay="100">
-                        <div class="row align-items-center">
-                            <div class="col-lg-6 order-lg-2">
-                                <div class="feature-icon-circle mb-4">
-                                    <i class="bi bi-search text-primary-custom fs-4"></i>
+                    <div class="col-lg-12 mb-5" data-aos="fade-up" data-aos-delay="100" id="property-search">
+                        <div class="feature-showcase-card bg-white rounded-4 shadow-sm overflow-hidden">
+                            <div class="row align-items-center g-0">
+                                <div class="col-lg-6 order-lg-2 p-4 p-lg-5">
+                                    <div class="feature-header mb-4">
+                                        <div class="feature-icon-large bg-success text-white rounded-3 p-3 d-inline-flex mb-3">
+                                            <i class="bi bi-search fs-2"></i>
+                                        </div>
+                                        <div class="feature-number">02</div>
+                                    </div>
+                                    <h3 class="h2 fw-bold mb-4">Property Search Chatbot</h3>
+                                    <p class="lead text-secondary mb-4">Revolutionize the property search experience with smart, data-driven recommendations.</p>
+                                    
+                                    <div class="row g-3">
+                                        <div class="col-md-6">
+                                            <div class="feature-benefit d-flex align-items-start">
+                                                <div class="benefit-icon bg-success bg-opacity-10 text-success rounded-circle d-flex align-items-center justify-content-center me-3 flex-shrink-0">
+                                                    <i class="bi bi-heart-fill"></i>
+                                                </div>
+                                                <div>
+                                                    <h5 class="fw-bold mb-2">Personalized Suggestions</h5>
+                                                    <p class="text-secondary mb-0 small">Match customer preferences with the best available properties.</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="feature-benefit d-flex align-items-start">
+                                                <div class="benefit-icon bg-success bg-opacity-10 text-success rounded-circle d-flex align-items-center justify-content-center me-3 flex-shrink-0">
+                                                    <i class="bi bi-funnel-fill"></i>
+                                                </div>
+                                                <div>
+                                                    <h5 class="fw-bold mb-2">Smart Filtering</h5>
+                                                    <p class="text-secondary mb-0 small">Narrow down searches based on location, budget, amenities, and more.</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="feature-benefit d-flex align-items-start">
+                                                <div class="benefit-icon bg-success bg-opacity-10 text-success rounded-circle d-flex align-items-center justify-content-center me-3 flex-shrink-0">
+                                                    <i class="bi bi-graph-up-arrow"></i>
+                                                </div>
+                                                <div>
+                                                    <h5 class="fw-bold mb-2">Lead Conversion</h5>
+                                                    <p class="text-secondary mb-0 small">Convert more visitors into customers with precise property insights.</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
-                                <h3 class="h2 fw-bold mb-4">2. Property Search Chatbot</h3>
-                                <p class="lead text-secondary mb-4">Revolutionize the property search experience with smart, data-driven recommendations.</p>
-                                
-                                <div class="row g-3">
-                                    <div class="col-md-6">
-                                        <div class="d-flex align-items-start">
-                                            <i class="bi bi-check-circle-fill text-primary-custom me-3 mt-1"></i>
+                                <div class="col-lg-6 order-lg-1 bg-light p-4 p-lg-5">
+                                    <div class="chat-demo-enhanced">
+                                        <div class="chat-header d-flex align-items-center mb-4 pb-3 border-bottom">
+                                            <div class="chat-avatar bg-success rounded-circle d-flex align-items-center justify-content-center me-3">
+                                                <i class="bi bi-house-fill text-white"></i>
+                                            </div>
                                             <div>
-                                                <h5 class="fw-bold mb-2">Personalized Suggestions</h5>
-                                                <p class="text-secondary mb-0">Match customer preferences with the best available properties.</p>
+                                                <h6 class="mb-0 fw-bold">Property Assistant</h6>
+                                                <small class="text-success">
+                                                    <i class="bi bi-circle-fill me-1" style="font-size: 0.5rem;"></i>Online
+                                                </small>
                                             </div>
                                         </div>
-                                    </div>
-                                    <div class="col-md-6">
-                                        <div class="d-flex align-items-start">
-                                            <i class="bi bi-check-circle-fill text-primary-custom me-3 mt-1"></i>
-                                            <div>
-                                                <h5 class="fw-bold mb-2">Smart Filtering</h5>
-                                                <p class="text-secondary mb-0">Narrow down searches based on location, budget, amenities, and more.</p>
+                                        
+                                        <div class="chat-messages">
+                                            <div class="chat-bubble-user mb-3">
+                                                <p class="mb-0">I'm looking for a 3-bedroom house under $500k near good schools</p>
+                                                <small class="text-muted d-block mt-1">3:22 PM</small>
                                             </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-6">
-                                        <div class="d-flex align-items-start">
-                                            <i class="bi bi-check-circle-fill text-primary-custom me-3 mt-1"></i>
-                                            <div>
-                                                <h5 class="fw-bold mb-2">Lead Conversion</h5>
-                                                <p class="text-secondary mb-0">Convert more visitors into customers with precise property insights.</p>
+                                            <div class="chat-bubble-assistant mb-3">
+                                                <p class="mb-2">I found 5 properties matching your criteria. Here are the top 3:</p>
+                                                <div class="property-results">
+                                                    <div class="property-item p-3 bg-white rounded-3 mb-2">
+                                                        <div class="d-flex justify-content-between align-items-start">
+                                                            <div>
+                                                                <h6 class="mb-1 fw-bold">Oak Street Property</h6>
+                                                                <p class="mb-1 text-secondary small">3BR/2BA • Near Lincoln Elementary (9/10)</p>
+                                                                <span class="badge bg-success text-white">$485k</span>
+                                                            </div>
+                                                            <i class="bi bi-heart text-muted"></i>
+                                                        </div>
+                                                    </div>
+                                                    <div class="property-item p-3 bg-white rounded-3 mb-2">
+                                                        <div class="d-flex justify-content-between align-items-start">
+                                                            <div>
+                                                                <h6 class="mb-1 fw-bold">Maple Avenue Home</h6>
+                                                                <p class="mb-1 text-secondary small">3BR/2.5BA • Walking distance to Roosevelt</p>
+                                                                <span class="badge bg-success text-white">$475k</span>
+                                                            </div>
+                                                            <i class="bi bi-heart text-muted"></i>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <small class="text-muted d-block mt-1">3:22 PM</small>
                                             </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-lg-6 order-lg-1">
-                                <div class="bg-light rounded-4 p-4">
-                                    <div class="chat-demo">
-                                        <div class="chat-bubble-user mb-3">
-                                            <p class="mb-0">I'm looking for a 3-bedroom house under $500k near good schools</p>
-                                        </div>
-                                        <div class="chat-bubble-assistant mb-3">
-                                            <p class="mb-0">I found 5 properties matching your criteria. Here are the top 3:</p>
-                                            <ul class="mb-0 mt-2">
-                                                <li>Oak Street - $485k, 3BR/2BA, near Lincoln Elementary (9/10 rating)</li>
-                                                <li>Maple Avenue - $475k, 3BR/2.5BA, walking distance to Roosevelt Middle</li>
-                                                <li>Pine Drive - $495k, 3BR/3BA, top-rated school district</li>
-                                            </ul>
-                                        </div>
-                                        <div class="chat-bubble-user mb-3">
-                                            <p class="mb-0">Tell me more about the Oak Street property</p>
-                                        </div>
-                                        <div class="chat-bubble-assistant">
-                                            <p class="mb-0">The Oak Street property features updated kitchen, hardwood floors, large backyard, and 2-car garage. Built in 2015, it's in excellent condition with energy-efficient appliances.</p>
+                                            <div class="chat-bubble-user">
+                                                <p class="mb-0">Tell me more about the Oak Street property</p>
+                                                <small class="text-muted d-block mt-1">3:23 PM</small>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
@@ -162,59 +254,98 @@
                     </div>
 
                     <!-- Feature 3: Technical Assistance Chatbot -->
-                    <div class="col-lg-12 mb-5" data-aos="fade-up" data-aos-delay="200">
-                        <div class="row align-items-center">
-                            <div class="col-lg-6">
-                                <div class="feature-icon-circle mb-4">
-                                    <i class="bi bi-tools text-primary-custom fs-4"></i>
+                    <div class="col-lg-12 mb-5" data-aos="fade-up" data-aos-delay="200" id="technical-assistance">
+                        <div class="feature-showcase-card bg-white rounded-4 shadow-sm overflow-hidden">
+                            <div class="row align-items-center g-0">
+                                <div class="col-lg-6 p-4 p-lg-5">
+                                    <div class="feature-header mb-4">
+                                        <div class="feature-icon-large bg-warning text-white rounded-3 p-3 d-inline-flex mb-3">
+                                            <i class="bi bi-tools fs-2"></i>
+                                        </div>
+                                        <div class="feature-number">03</div>
+                                    </div>
+                                    <h3 class="h2 fw-bold mb-4">Technical Assistance Chatbot</h3>
+                                    <p class="lead text-secondary mb-4">Simplify complex technical data with advanced natural language understanding.</p>
+                                    
+                                    <div class="row g-3">
+                                        <div class="col-md-6">
+                                            <div class="feature-benefit d-flex align-items-start">
+                                                <div class="benefit-icon bg-warning bg-opacity-10 text-warning rounded-circle d-flex align-items-center justify-content-center me-3 flex-shrink-0">
+                                                    <i class="bi bi-diagram-3-fill"></i>
+                                                </div>
+                                                <div>
+                                                    <h5 class="fw-bold mb-2">Manufacturing Drawing Insights</h5>
+                                                    <p class="text-secondary mb-0 small">Decode engineering diagrams and technical documents.</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="feature-benefit d-flex align-items-start">
+                                                <div class="benefit-icon bg-warning bg-opacity-10 text-warning rounded-circle d-flex align-items-center justify-content-center me-3 flex-shrink-0">
+                                                    <i class="bi bi-wrench-adjustable"></i>
+                                                </div>
+                                                <div>
+                                                    <h5 class="fw-bold mb-2">Tool Explanations</h5>
+                                                    <p class="text-secondary mb-0 small">Provide precise tool usage guidance for engineers and technicians.</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="feature-benefit d-flex align-items-start">
+                                                <div class="benefit-icon bg-warning bg-opacity-10 text-warning rounded-circle d-flex align-items-center justify-content-center me-3 flex-shrink-0">
+                                                    <i class="bi bi-lightning-charge-fill"></i>
+                                                </div>
+                                                <div>
+                                                    <h5 class="fw-bold mb-2">Real-Time Analysis</h5>
+                                                    <p class="text-secondary mb-0 small">Answer complex technical questions instantly for faster decision-making.</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
-                                <h3 class="h2 fw-bold mb-4">3. Technical Assistance Chatbot</h3>
-                                <p class="lead text-secondary mb-4">Simplify complex technical data with advanced natural language understanding.</p>
-                                
-                                <div class="row g-3">
-                                    <div class="col-md-6">
-                                        <div class="d-flex align-items-start">
-                                            <i class="bi bi-check-circle-fill text-primary-custom me-3 mt-1"></i>
+                                <div class="col-lg-6 bg-light p-4 p-lg-5">
+                                    <div class="chat-demo-enhanced">
+                                        <div class="chat-header d-flex align-items-center mb-4 pb-3 border-bottom">
+                                            <div class="chat-avatar bg-warning rounded-circle d-flex align-items-center justify-content-center me-3">
+                                                <i class="bi bi-gear-fill text-white"></i>
+                                            </div>
                                             <div>
-                                                <h5 class="fw-bold mb-2">Manufacturing Drawing Insights</h5>
-                                                <p class="text-secondary mb-0">Decode engineering diagrams and technical documents.</p>
+                                                <h6 class="mb-0 fw-bold">Technical Assistant</h6>
+                                                <small class="text-success">
+                                                    <i class="bi bi-circle-fill me-1" style="font-size: 0.5rem;"></i>Online
+                                                </small>
                                             </div>
                                         </div>
-                                    </div>
-                                    <div class="col-md-6">
-                                        <div class="d-flex align-items-start">
-                                            <i class="bi bi-check-circle-fill text-primary-custom me-3 mt-1"></i>
-                                            <div>
-                                                <h5 class="fw-bold mb-2">Tool Explanations</h5>
-                                                <p class="text-secondary mb-0">Provide precise tool usage guidance for engineers and technicians.</p>
+                                        
+                                        <div class="chat-messages">
+                                            <div class="chat-bubble-user mb-3">
+                                                <p class="mb-0">What's the torque specification for the M8 bolts in assembly drawing A-123?</p>
+                                                <small class="text-muted d-block mt-1">4:45 PM</small>
                                             </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-6">
-                                        <div class="d-flex align-items-start">
-                                            <i class="bi bi-check-circle-fill text-primary-custom me-3 mt-1"></i>
-                                            <div>
-                                                <h5 class="fw-bold mb-2">Real-Time Analysis</h5>
-                                                <p class="text-secondary mb-0">Answer complex technical questions instantly for faster decision-making.</p>
+                                            <div class="chat-bubble-assistant mb-3">
+                                                <div class="d-flex align-items-start mb-2">
+                                                    <i class="bi bi-file-earmark-text-fill text-warning me-2 mt-1"></i>
+                                                    <div>
+                                                        <p class="mb-2">According to drawing A-123, M8 bolts require:</p>
+                                                        <ul class="mb-2 small">
+                                                            <li><strong>Torque:</strong> 25 Nm with thread locker</li>
+                                                            <li><strong>Sequence:</strong> Cross-pattern (detail view C)</li>
+                                                            <li><strong>Grade:</strong> 8.8 minimum</li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                                <div class="source-reference p-2 bg-white rounded-3 mt-2">
+                                                    <small class="text-secondary">
+                                                        <i class="bi bi-diagram-3 me-1"></i>
+                                                        Source: Assembly Drawing A-123 • Rev. C
+                                                    </small>
+                                                </div>
+                                                <small class="text-muted d-block mt-1">4:45 PM</small>
                                             </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-lg-6">
-                                <div class="bg-light rounded-4 p-4">
-                                    <div class="chat-demo">
-                                        <div class="chat-bubble-user mb-3">
-                                            <p class="mb-0">What's the torque specification for the M8 bolts in assembly drawing A-123?</p>
-                                        </div>
-                                        <div class="chat-bubble-assistant mb-3">
-                                            <p class="mb-0">According to drawing A-123, M8 bolts require 25 Nm torque specification with thread locker applied. Tightening sequence should follow the cross-pattern shown in detail view C.</p>
-                                        </div>
-                                        <div class="chat-bubble-user mb-3">
-                                            <p class="mb-0">Which tool should I use for this assembly?</p>
-                                        </div>
-                                        <div class="chat-bubble-assistant">
-                                            <p class="mb-0">Use a calibrated torque wrench with 10-30 Nm range. Recommended: Snap-on TQR250E or equivalent. Ensure calibration is current within 12 months for accuracy.</p>
+                                            <div class="chat-bubble-user">
+                                                <p class="mb-0">Which tool should I use for this assembly?</p>
+                                                <small class="text-muted d-block mt-1">4:46 PM</small>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
@@ -229,49 +360,78 @@
         <section class="py-5 py-md-6 bg-light">
             <div class="container py-4">
                 <div class="text-center mb-5" data-aos="fade-up">
-                    <h2 class="display-5 fw-bold mb-3">Why Choose LioraXAI?</h2>
-                    <p class="lead mb-0 col-lg-8 mx-auto">
-                        Advanced technology meets practical business solutions
+                    <div class="section-badge mb-3">
+                        <span class="badge bg-success bg-opacity-10 text-success px-3 py-2 rounded-pill">
+                            <i class="bi bi-award me-2"></i>Why Choose LioraXAI
+                        </span>
+                    </div>
+                    <h2 class="display-5 fw-bold mb-4">Advanced Technology Meets Business Solutions</h2>
+                    <p class="lead mb-0 col-lg-8 mx-auto text-secondary">
+                        Built for enterprises with cutting-edge AI technology and practical business applications
                     </p>
                 </div>
                 
                 <div class="row g-4">
                     <!-- Benefit 1 -->
                     <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="100">
-                        <div class="card h-100 border-0 shadow-sm p-4">
-                            <div class="text-primary-custom mb-4">
-                                <i class="bi bi-cpu-fill fs-1"></i>
+                        <div class="benefit-card-enhanced h-100 bg-white rounded-4 shadow-sm p-4 p-lg-5 text-center">
+                            <div class="benefit-icon-large mb-4">
+                                <div class="icon-circle-large bg-primary-custom bg-opacity-10 text-primary-custom rounded-circle d-inline-flex align-items-center justify-content-center">
+                                    <i class="bi bi-cpu-fill fs-1"></i>
+                                </div>
                             </div>
                             <h3 class="h4 fw-bold mb-3">AI-Powered Accuracy</h3>
-                            <p class="text-muted mb-0">
+                            <p class="text-secondary mb-4">
                                 Advanced Natural Language Processing (NLP) delivers precise, context-aware responses that understand nuance and intent, ensuring your customers and teams get exactly the information they need.
                             </p>
+                            <div class="feature-stats">
+                                <div class="stat-item">
+                                    <span class="stat-number text-primary-custom fw-bold">99.2%</span>
+                                    <span class="stat-label text-secondary small">Accuracy Rate</span>
+                                </div>
+                            </div>
                         </div>
                     </div>
                     
                     <!-- Benefit 2 -->
                     <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="200">
-                        <div class="card h-100 border-0 shadow-sm p-4">
-                            <div class="text-primary-custom mb-4">
-                                <i class="bi bi-shield-check-fill fs-1"></i>
+                        <div class="benefit-card-enhanced h-100 bg-white rounded-4 shadow-sm p-4 p-lg-5 text-center">
+                            <div class="benefit-icon-large mb-4">
+                                <div class="icon-circle-large bg-success bg-opacity-10 text-success rounded-circle d-inline-flex align-items-center justify-content-center">
+                                    <i class="bi bi-shield-check-fill fs-1"></i>
+                                </div>
                             </div>
                             <h3 class="h4 fw-bold mb-3">Scalable and Secure</h3>
-                            <p class="text-muted mb-0">
+                            <p class="text-secondary mb-4">
                                 Built for enterprises with robust security protocols, end-to-end encryption, and infrastructure that scales seamlessly with your business growth and evolving needs.
                             </p>
+                            <div class="feature-stats">
+                                <div class="stat-item">
+                                    <span class="stat-number text-success fw-bold">99.9%</span>
+                                    <span class="stat-label text-secondary small">Uptime SLA</span>
+                                </div>
+                            </div>
                         </div>
                     </div>
                     
                     <!-- Benefit 3 -->
                     <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="300">
-                        <div class="card h-100 border-0 shadow-sm p-4">
-                            <div class="text-primary-custom mb-4">
-                                <i class="bi bi-puzzle-fill fs-1"></i>
+                        <div class="benefit-card-enhanced h-100 bg-white rounded-4 shadow-sm p-4 p-lg-5 text-center">
+                            <div class="benefit-icon-large mb-4">
+                                <div class="icon-circle-large bg-warning bg-opacity-10 text-warning rounded-circle d-inline-flex align-items-center justify-content-center">
+                                    <i class="bi bi-puzzle-fill fs-1"></i>
+                                </div>
                             </div>
                             <h3 class="h4 fw-bold mb-3">Seamless Integration</h3>
-                            <p class="text-muted mb-0">
+                            <p class="text-secondary mb-4">
                                 Easily connects with your existing tools and systems—CRM, databases, communication platforms, and more—creating a unified workflow without disrupting your current operations.
                             </p>
+                            <div class="feature-stats">
+                                <div class="stat-item">
+                                    <span class="stat-number text-warning fw-bold">50+</span>
+                                    <span class="stat-label text-secondary small">Integrations</span>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -279,17 +439,25 @@
         </section>
 
         <!-- CTA Section -->
-        <section class="py-5 py-md-6 bg-gradient-primary text-white">
-            <div class="container py-4">
+        <section class="py-5 py-md-6 bg-gradient-primary text-white position-relative overflow-hidden">
+            <div class="cta-bg-pattern"></div>
+            <div class="container py-4 position-relative">
                 <div class="row justify-content-center">
                     <div class="col-lg-8 text-center" data-aos="fade-up">
-                        <h2 class="display-5 fw-bold mb-4">Ready to Power Smarter Conversations?</h2>
-                        <p class="lead mb-5">Transform your customer support, property searches, and technical assistance with LioraXAI's intelligent chatbot solutions.</p>
+                        <div class="cta-badge mb-4">
+                            <span class="badge bg-white bg-opacity-20 text-white px-3 py-2 rounded-pill">
+                                <i class="bi bi-rocket me-2"></i>Ready to Get Started?
+                            </span>
+                        </div>
+                        <h2 class="display-4 fw-bold mb-4">Ready to Power Smarter Conversations?</h2>
+                        <p class="lead mb-5 text-white-75 col-lg-10 mx-auto">
+                            Transform your customer support, property searches, and technical assistance with LioraXAI's intelligent chatbot solutions.
+                        </p>
                         <div class="d-flex flex-column flex-sm-row gap-3 justify-content-center">
-                            <a href="{% url 'contact' %}" class="btn btn-light text-primary-custom fw-medium py-3 px-4 rounded-3">
+                            <a href="{% url 'contact' %}" class="btn btn-light btn-lg text-primary-custom fw-medium py-3 px-5 rounded-3 shadow-sm">
                                 <i class="bi bi-chat-dots me-2"></i>Talk to an Expert
                             </a>
-                            <a href="{% url 'pricing' %}" class="btn btn-outline-light fw-medium py-3 px-4 rounded-3">
+                            <a href="{% url 'pricing' %}" class="btn btn-outline-light btn-lg fw-medium py-3 px-5 rounded-3">
                                 <i class="bi bi-graph-up me-2"></i>See Our Plans
                             </a>
                         </div>
@@ -300,4 +468,270 @@
     </main>
 
     {% include 'includes/footer.html' %}
+
+    <!-- Enhanced Features Page Styles -->
+    <style>
+        /* Hero Section */
+        .hero-section {
+            min-height: 60vh;
+            position: relative;
+        }
+        
+        .hero-bg-pattern {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                radial-gradient(circle at 20% 80%, rgba(255,255,255,0.1) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(255,255,255,0.1) 0%, transparent 50%);
+        }
+        
+        .text-gradient {
+            background: linear-gradient(135deg, #ffffff 0%, #e0e7ff 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .text-white-75 {
+            color: rgba(255, 255, 255, 0.85) !important;
+        }
+        
+        /* Feature Showcase Cards */
+        .feature-showcase-card {
+            transition: all 0.3s ease;
+            border: 1px solid rgba(0, 0, 0, 0.05);
+        }
+        
+        .feature-showcase-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+        }
+        
+        .feature-header {
+            position: relative;
+        }
+        
+        .feature-icon-large {
+            width: 60px;
+            height: 60px;
+        }
+        
+        .feature-number {
+            position: absolute;
+            top: -10px;
+            right: -10px;
+            background: var(--primary-color);
+            color: white;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.875rem;
+            font-weight: bold;
+        }
+        
+        /* Feature Benefits */
+        .feature-benefit {
+            margin-bottom: 1.5rem;
+        }
+        
+        .benefit-icon {
+            width: 40px;
+            height: 40px;
+            font-size: 1rem;
+        }
+        
+        /* Enhanced Chat Demo */
+        .chat-demo-enhanced {
+            max-height: 400px;
+        }
+        
+        .chat-avatar {
+            width: 35px;
+            height: 35px;
+        }
+        
+        .chat-bubble-user {
+            background: var(--primary-color);
+            color: white;
+            padding: 10px 14px;
+            border-radius: 16px 16px 4px 16px;
+            margin-left: auto;
+            max-width: 80%;
+            margin-bottom: 8px;
+        }
+        
+        .chat-bubble-assistant {
+            background: #ffffff;
+            color: var(--text-color);
+            padding: 10px 14px;
+            border-radius: 16px 16px 16px 4px;
+            max-width: 85%;
+            margin-bottom: 8px;
+            border: 1px solid rgba(0, 0, 0, 0.05);
+        }
+        
+        .property-item {
+            transition: all 0.2s ease;
+            border: 1px solid rgba(0, 0, 0, 0.05);
+        }
+        
+        .property-item:hover {
+            transform: translateX(4px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+        
+        .source-reference {
+            border: 1px solid rgba(0, 0, 0, 0.05);
+        }
+        
+        /* Benefit Cards Enhanced */
+        .benefit-card-enhanced {
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .benefit-card-enhanced::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--primary-color), var(--success-color), var(--warning-color));
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        
+        .benefit-card-enhanced:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+        }
+        
+        .benefit-card-enhanced:hover::before {
+            opacity: 1;
+        }
+        
+        .benefit-icon-large {
+            margin-bottom: 1.5rem;
+        }
+        
+        .icon-circle-large {
+            width: 80px;
+            height: 80px;
+        }
+        
+        .feature-stats {
+            padding-top: 1rem;
+            border-top: 1px solid rgba(0, 0, 0, 0.05);
+        }
+        
+        .stat-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        
+        .stat-number {
+            font-size: 1.5rem;
+            line-height: 1;
+        }
+        
+        .stat-label {
+            margin-top: 0.25rem;
+        }
+        
+        /* CTA Section */
+        .cta-bg-pattern {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                radial-gradient(circle at 30% 70%, rgba(255,255,255,0.1) 0%, transparent 50%),
+                radial-gradient(circle at 70% 30%, rgba(255,255,255,0.1) 0%, transparent 50%);
+        }
+        
+        /* Section Badges */
+        .section-badge {
+            margin-bottom: 1rem;
+        }
+        
+        /* Dark Mode Support */
+        .dark-mode .feature-showcase-card,
+        .dark-mode .benefit-card-enhanced {
+            background-color: var(--neutral-800);
+            border-color: var(--neutral-700);
+        }
+        
+        .dark-mode .chat-bubble-assistant {
+            background-color: var(--neutral-700);
+            border-color: var(--neutral-600);
+            color: var(--text-color);
+        }
+        
+        .dark-mode .property-item {
+            background-color: var(--neutral-600) !important;
+            border-color: var(--neutral-500);
+        }
+        
+        .dark-mode .property-item:hover {
+            background-color: var(--neutral-500) !important;
+        }
+        
+        .dark-mode .source-reference {
+            background-color: var(--neutral-600) !important;
+            border-color: var(--neutral-500);
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .hero-section {
+                min-height: auto;
+            }
+            
+            .feature-showcase-card .row {
+                flex-direction: column;
+            }
+            
+            .feature-showcase-card .col-lg-6 {
+                order: 1 !important;
+            }
+            
+            .chat-demo-enhanced {
+                max-height: 300px;
+                overflow-y: auto;
+            }
+            
+            .benefit-card-enhanced {
+                padding: 1.5rem !important;
+            }
+            
+            .icon-circle-large {
+                width: 60px;
+                height: 60px;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .display-3 {
+                font-size: 2.5rem;
+            }
+            
+            .display-4 {
+                font-size: 2rem;
+            }
+            
+            .display-5 {
+                font-size: 1.75rem;
+            }
+        }
+    </style>
 {% endblock %} 

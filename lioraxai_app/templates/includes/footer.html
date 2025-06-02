@@ -1,17 +1,17 @@
 {% load static %}
-<!-- Footer -->
+<!-- Enhanced Footer with Dark Mode Support -->
 <footer class="bg-light py-5">
     <div class="container">
         <div class="row gy-4">
             <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="0">
                 <h5 class="mb-4 fw-semibold">LioraXAI</h5>
-                <p class="text-muted mb-4">
+                <p class="text-secondary mb-4">
                     Transform your company's data into an interactive chatbot. Streamline onboarding and access information instantly.
                 </p>
                 
                 <!-- Newsletter subscription form -->
                 <div class="mt-4">
-                    <h6 class="mb-3">Subscribe to our newsletter</h6>
+                    <h6 class="mb-3 fw-medium">Subscribe to our newsletter</h6>
                     {% include 'subscribe_form.html' %}
                 </div>
             </div>
@@ -19,49 +19,131 @@
             <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="100">
                 <h5 class="mb-4 fw-semibold">Product</h5>
                 <ul class="list-unstyled">
-                    <li class="mb-2"><a href="{% url 'features' %}" class="text-decoration-none text-muted">Features</a></li>
-                    <li class="mb-2"><a href="{% url 'pricing' %}" class="text-decoration-none text-muted">Pricing</a></li>
-                    <li class="mb-2"><a href="{% url 'team' %}" class="text-decoration-none text-muted">Team</a></li>
+                    <li class="mb-2">
+                        <a href="{% url 'features' %}" class="text-decoration-none text-secondary hover-primary">
+                            Features
+                        </a>
+                    </li>
+                    <li class="mb-2">
+                        <a href="{% url 'pricing' %}" class="text-decoration-none text-secondary hover-primary">
+                            Pricing
+                        </a>
+                    </li>
+                    <li class="mb-2">
+                        <a href="{% url 'team' %}" class="text-decoration-none text-secondary hover-primary">
+                            About Us
+                        </a>
+                    </li>
                 </ul>
             </div>
             
             <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="200">
                 <h5 class="mb-4 fw-semibold">Resources</h5>
                 <ul class="list-unstyled">
-                    <li class="mb-2"><a href="{% url 'blog' %}" class="text-decoration-none text-muted">Blog</a></li>
-                    <li class="mb-2"><a href="{% url 'contact' %}" class="text-decoration-none text-muted">Contact</a></li>
+                    <li class="mb-2">
+                        <a href="{% url 'blog' %}" class="text-decoration-none text-secondary hover-primary">
+                            Blog
+                        </a>
+                    </li>
+                    <li class="mb-2">
+                        <a href="{% url 'contact' %}" class="text-decoration-none text-secondary hover-primary">
+                            Contact
+                        </a>
+                    </li>
                 </ul>
             </div>
             
             <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="300">
                 <h5 class="mb-4 fw-semibold">Legal</h5>
                 <ul class="list-unstyled">
-                    <li class="mb-2"><a href="{% url 'privacy' %}" class="text-decoration-none text-muted">Privacy Policy</a></li>
-                    <li class="mb-2"><a href="{% url 'terms' %}" class="text-decoration-none text-muted">Terms of Service</a></li>
+                    <li class="mb-2">
+                        <a href="{% url 'privacy' %}" class="text-decoration-none text-secondary hover-primary">
+                            Privacy Policy
+                        </a>
+                    </li>
+                    <li class="mb-2">
+                        <a href="{% url 'terms' %}" class="text-decoration-none text-secondary hover-primary">
+                            Terms of Service
+                        </a>
+                    </li>
                 </ul>
             </div>
         </div>
         
-        <div class="mt-5 pt-4 border-top">
+        <div class="mt-5 pt-4 border-top border-secondary-subtle">
             <div class="row align-items-center">
                 <div class="col-md-6 mb-3 mb-md-0">
-                    <p class="text-muted mb-0">
+                    <p class="text-secondary mb-0">
                         &copy; <span id="current-year"></span> LioraXAI. All rights reserved.
                     </p>
                 </div>
                 <div class="col-md-6 text-md-end">
                     <div class="d-flex gap-3 justify-content-md-end">
-                        <a href="#" class="text-muted">
+                        <a href="#" class="text-secondary hover-primary" aria-label="Follow us on Twitter">
                             <i class="bi bi-twitter-x" style="font-size: 1.25rem;"></i>
-                            <span class="visually-hidden">Twitter</span>
                         </a>
-                        <a href="#" class="text-muted">
+                        <a href="#" class="text-secondary hover-primary" aria-label="Follow us on LinkedIn">
                             <i class="bi bi-linkedin" style="font-size: 1.25rem;"></i>
-                            <span class="visually-hidden">LinkedIn</span>
+                        </a>
+                        <a href="#" class="text-secondary hover-primary" aria-label="Follow us on GitHub">
+                            <i class="bi bi-github" style="font-size: 1.25rem;"></i>
                         </a>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-</footer> 
+</footer>
+
+<!-- Enhanced Footer Styles -->
+<style>
+    /* Footer hover effects */
+    .hover-primary {
+        transition: color 0.2s ease;
+    }
+    
+    .hover-primary:hover {
+        color: var(--primary-500) !important;
+    }
+    
+    /* Dark mode footer styles */
+    .dark-mode footer {
+        background-color: var(--neutral-800) !important;
+        color: var(--neutral-200);
+    }
+    
+    .dark-mode footer h5,
+    .dark-mode footer h6 {
+        color: var(--neutral-100);
+    }
+    
+    .dark-mode footer .text-secondary {
+        color: var(--neutral-400) !important;
+    }
+    
+    .dark-mode footer .border-top {
+        border-color: var(--neutral-700) !important;
+    }
+    
+    .dark-mode footer .hover-primary:hover {
+        color: var(--primary-400) !important;
+    }
+    
+    /* Newsletter form dark mode */
+    .dark-mode footer .form-control {
+        background-color: var(--neutral-700);
+        border-color: var(--neutral-600);
+        color: var(--neutral-200);
+    }
+    
+    .dark-mode footer .form-control::placeholder {
+        color: var(--neutral-400);
+    }
+    
+    .dark-mode footer .form-control:focus {
+        background-color: var(--neutral-700);
+        border-color: var(--primary-500);
+        color: var(--neutral-200);
+        box-shadow: 0 0 0 0.2rem rgba(79, 70, 229, 0.25);
+    }
+</style> 

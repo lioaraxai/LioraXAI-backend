@@ -1,159 +1,27 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Privacy Policy | LioraXAI</title>
-    <!-- Bootstrap 5.3 CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <!-- Bootstrap Icons -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css">
-    <!-- AOS Animation Library -->
-    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-    <!-- Mobile responsiveness -->
-    <link href="css/mobile.css" rel="stylesheet">
-    <style>
-        /* Base styles */
-        :root {
-            --bs-primary: #4f46e5;
-            --bs-primary-rgb: 79, 70, 229;
-            --bs-primary-light: #818cf8;
-            --bs-primary-dark: #4338ca;
-            --bs-body-color: #111827;
-            --bs-body-color-rgb: 17, 24, 39;
-            --bs-secondary-color: #6b7280;
-            --bs-secondary-color-rgb: 107, 114, 128;
-            --bs-body-bg: #f9fafb;
-            --bs-body-bg-rgb: 249, 250, 251;
-            --bs-dark-bg: #111827;
-            --bs-dark-bg-rgb: 17, 24, 39;
-        }
-        
-        body {
-            font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-            color: var(--bs-body-color);
-            line-height: 1.5;
-            overflow-x: hidden;
-        }
-        
-        .mono {
-            font-family: 'IBM Plex Mono', ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New', monospace;
-        }
+{% extends 'base_django.html' %}
+{% load static %}
 
-        .text-primary-custom {
-            color: var(--bs-primary);
-        }
+{% block title %}Privacy Policy | LioraXAI{% endblock %}
 
-        .bg-primary-custom {
-            background-color: var(--bs-primary);
-        }
-
-        .btn-primary-custom {
-            background-color: var(--bs-primary);
-            border-color: var(--bs-primary);
-        }
-
-        .btn-primary-custom:hover {
-            background-color: var(--bs-primary-dark);
-            border-color: var(--bs-primary-dark);
-        }
-
-        .btn-outline-primary-custom {
-            color: var(--bs-primary);
-            border-color: var(--bs-primary);
-        }
-
-        .btn-outline-primary-custom:hover {
-            background-color: var(--bs-primary);
-            color: white;
-        }
-        
-        /* Dark mode */
-        @media (prefers-color-scheme: dark) {
-            :root {
-                --bs-body-color: #f3f4f6;
-                --bs-body-bg: var(--bs-dark-bg);
-            }
-            
-            .navbar {
-                background-color: #1f2937 !important;
-            }
-            
-            .footer {
-                background-color: #1f2937 !important;
-            }
-            
-            .dark-text-light {
-                color: #f3f4f6 !important;
-            }
-            
-            .dark-bg-darker {
-                background-color: #111827 !important;
-            }
-        }
-
-        .page-header {
-            background: linear-gradient(to right, #4f46e5, #7e22ce);
-            color: white;
-        }
-    </style>
-</head>
-<body>
-    <!-- Header -->
-    <header>
-        <nav class="navbar navbar-expand-lg bg-white shadow-sm">
-            <div class="container">
-                <a class="navbar-brand" href="index.html">
-                    <img src="static/images/logo.svg" alt="LioraXAI Logo" width="150" height="35">
-                </a>
-
-                <!-- Mobile menu button -->
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" 
-                        data-bs-target="#navbarNav" aria-controls="navbarNav" 
-                        aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-
-                <!-- Navigation -->
-                <div class="collapse navbar-collapse" id="navbarNav">
-                    <ul class="navbar-nav ms-auto align-items-center">
-                        <li class="nav-item">
-                            <a class="nav-link" href="index.html">Home</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="features.html">Features</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="pricing.html">Pricing</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="about.html">About</a>
-                        </li>
-                        <li class="nav-item ms-lg-2">
-                            <a class="nav-link btn btn-primary-custom text-white px-4" href="contact.html">Contact Us</a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </nav>
-    </header>
+{% block content %}
+    {% include 'includes/header.html' %}
 
     <main>
         <!-- Page Header -->
-        <section class="page-header py-5">
+        <section class="py-5 py-md-6 bg-gradient-primary text-white">
             <div class="container py-4">
                 <div class="row justify-content-center">
                     <div class="col-lg-8 text-center" data-aos="fade-up">
                         <h1 class="display-4 fw-bold mb-4">Privacy Policy for LioraXAI</h1>
-                        <p class="lead mb-0">Your privacy is important to us. Learn how we collect, use, and protect your information.</p>
-                        <p class="mt-3 mb-0"><small>Effective Date: [Date]</small></p>
+                        <p class="lead mb-0 text-white">Your privacy is important to us. Learn how we collect, use, and protect your information.</p>
+                        <p class="mt-3 mb-0 text-white-50"><small>Effective Date: January 2025</small></p>
                     </div>
                 </div>
             </div>
         </section>
 
         <!-- Privacy Content -->
-        <section class="py-5">
+        <section class="py-5 py-md-6">
             <div class="container">
                 <div class="row justify-content-center">
                     <div class="col-lg-8">
@@ -171,7 +39,7 @@
                                 
                                 <div class="mb-4">
                                     <h3 class="h5 fw-bold mb-3">Personal Information:</h3>
-                                    <ul>
+                                    <ul class="text-secondary">
                                         <li>Name, email address, phone number, and company details when you register or contact us.</li>
                                         <li>User preferences and communication history to personalize your experience.</li>
                                     </ul>
@@ -179,7 +47,7 @@
 
                                 <div class="mb-4">
                                     <h3 class="h5 fw-bold mb-3">Non-Personal Information:</h3>
-                                    <ul>
+                                    <ul class="text-secondary">
                                         <li>Technical data like IP address, browser type, and device information.</li>
                                         <li>Usage data, including pages visited, time spent, and interactions with our chatbot.</li>
                                     </ul>
@@ -187,7 +55,7 @@
 
                                 <div class="mb-0">
                                     <h3 class="h5 fw-bold mb-3">Chatbot Interactions:</h3>
-                                    <ul>
+                                    <ul class="text-secondary">
                                         <li>Messages, queries, and responses exchanged with our AI chatbots.</li>
                                         <li>Logs of conversations to improve our AI models and enhance user experience.</li>
                                     </ul>
@@ -199,26 +67,26 @@
                         <div class="card shadow-sm border-0 mb-4" data-aos="fade-up" data-aos-delay="100">
                             <div class="card-body p-4 p-md-5">
                                 <h2 class="h4 fw-bold mb-4 text-primary-custom">2. How We Use Your Information</h2>
-                                <p class="mb-3">We use your information to:</p>
-                                <ul>
-                                    <li>Provide, operate, and improve our products and services.</li>
-                                    <li>Personalize your experience and deliver relevant content.</li>
-                                    <li>Communicate with you regarding updates, promotions, and support.</li>
-                                    <li>Monitor and improve the security and performance of our platform.</li>
-                                    <li>Analyze usage trends and optimize our AI models.</li>
+                                <ul class="text-secondary">
+                                    <li><strong>Service Delivery:</strong> To provide, maintain, and improve our AI chatbot services.</li>
+                                    <li><strong>Personalization:</strong> To customize your experience and provide relevant content and recommendations.</li>
+                                    <li><strong>Communication:</strong> To respond to your inquiries, provide customer support, and send important updates.</li>
+                                    <li><strong>Analytics:</strong> To analyze usage patterns and improve our platform's performance and functionality.</li>
+                                    <li><strong>Legal Compliance:</strong> To comply with applicable laws, regulations, and legal processes.</li>
                                 </ul>
                             </div>
                         </div>
 
-                        <!-- Section 3: How We Share Your Information -->
+                        <!-- Section 3: Information Sharing -->
                         <div class="card shadow-sm border-0 mb-4" data-aos="fade-up" data-aos-delay="200">
                             <div class="card-body p-4 p-md-5">
-                                <h2 class="h4 fw-bold mb-4 text-primary-custom">3. How We Share Your Information</h2>
-                                <p class="mb-3">We do not sell your personal information. We may share your data with:</p>
-                                <ul>
-                                    <li>Trusted third-party service providers to assist with technical support and analytics.</li>
-                                    <li>Business partners for joint marketing and promotional activities.</li>
-                                    <li>Law enforcement or government agencies as required by law.</li>
+                                <h2 class="h4 fw-bold mb-4 text-primary-custom">3. Information Sharing</h2>
+                                <p class="text-secondary mb-3">We do not sell, trade, or rent your personal information to third parties. We may share your information only in the following circumstances:</p>
+                                <ul class="text-secondary">
+                                    <li><strong>Service Providers:</strong> With trusted third-party vendors who assist us in operating our platform (e.g., hosting, analytics).</li>
+                                    <li><strong>Legal Requirements:</strong> When required by law, court order, or to protect our rights and safety.</li>
+                                    <li><strong>Business Transfers:</strong> In the event of a merger, acquisition, or sale of assets, your information may be transferred to the new entity.</li>
+                                    <li><strong>Consent:</strong> With your explicit consent for specific purposes.</li>
                                 </ul>
                             </div>
                         </div>
@@ -227,44 +95,69 @@
                         <div class="card shadow-sm border-0 mb-4" data-aos="fade-up" data-aos-delay="300">
                             <div class="card-body p-4 p-md-5">
                                 <h2 class="h4 fw-bold mb-4 text-primary-custom">4. Data Security</h2>
-                                <p class="mb-3">We take data security seriously and implement appropriate technical and organizational measures to protect your information. This includes encryption, secure servers, and regular security audits. However, no online service is 100% secure, and we cannot guarantee the absolute security of your data.</p>
+                                <p class="text-secondary mb-3">We implement industry-standard security measures to protect your information, including:</p>
+                                <ul class="text-secondary">
+                                    <li>Encryption of data in transit and at rest</li>
+                                    <li>Regular security audits and vulnerability assessments</li>
+                                    <li>Access controls and authentication protocols</li>
+                                    <li>Employee training on data protection best practices</li>
+                                </ul>
+                                <p class="text-secondary mb-0">However, no method of transmission over the internet or electronic storage is 100% secure. While we strive to protect your information, we cannot guarantee absolute security.</p>
                             </div>
                         </div>
 
-                        <!-- Section 5: Your Rights and Choices -->
+                        <!-- Section 5: Your Rights -->
                         <div class="card shadow-sm border-0 mb-4" data-aos="fade-up" data-aos-delay="400">
                             <div class="card-body p-4 p-md-5">
-                                <h2 class="h4 fw-bold mb-4 text-primary-custom">5. Your Rights and Choices</h2>
-                                <p class="mb-3">You have the right to:</p>
-                                <ul>
-                                    <li>Access, update, or delete your personal information.</li>
-                                    <li>Opt-out of marketing communications.</li>
-                                    <li>Request a copy of your data.</li>
-                                    <li>Withdraw consent for data processing.</li>
+                                <h2 class="h4 fw-bold mb-4 text-primary-custom">5. Your Rights</h2>
+                                <p class="text-secondary mb-3">Depending on your location, you may have the following rights regarding your personal information:</p>
+                                <ul class="text-secondary">
+                                    <li><strong>Access:</strong> Request a copy of the personal information we hold about you.</li>
+                                    <li><strong>Correction:</strong> Request correction of inaccurate or incomplete information.</li>
+                                    <li><strong>Deletion:</strong> Request deletion of your personal information, subject to legal and contractual obligations.</li>
+                                    <li><strong>Portability:</strong> Request transfer of your data to another service provider.</li>
+                                    <li><strong>Objection:</strong> Object to certain processing activities, such as marketing communications.</li>
                                 </ul>
-                                <p class="mb-0">To exercise these rights, please contact us at [Contact Email].</p>
+                                <p class="text-secondary mb-0">To exercise these rights, please contact us at <a href="mailto:privacy@lioraxai.com" class="text-primary-custom text-decoration-none">privacy@lioraxai.com</a>.</p>
                             </div>
                         </div>
 
-                        <!-- Section 6: Changes to This Policy -->
+                        <!-- Section 6: Policy Changes -->
                         <div class="card shadow-sm border-0 mb-4" data-aos="fade-up" data-aos-delay="500">
                             <div class="card-body p-4 p-md-5">
-                                <h2 class="h4 fw-bold mb-4 text-primary-custom">6. Changes to This Policy</h2>
-                                <p class="mb-0">We may update this Privacy Policy from time to time. The latest version will always be available on our website, and significant changes will be communicated via email or platform notifications.</p>
+                                <h2 class="h4 fw-bold mb-4 text-primary-custom">6. Policy Changes</h2>
+                                <p class="text-secondary mb-0">We may update this Privacy Policy from time to time to reflect changes in our practices or legal requirements. We will notify you of significant changes by posting the updated policy on our website and updating the effective date. Your continued use of our services after such changes constitutes acceptance of the updated policy.</p>
                             </div>
                         </div>
 
-                        <!-- Section 7: Contact Us -->
+                        <!-- Section 7: Contact Information -->
                         <div class="card shadow-sm border-0 mb-4" data-aos="fade-up" data-aos-delay="600">
                             <div class="card-body p-4 p-md-5">
-                                <h2 class="h4 fw-bold mb-4 text-primary-custom">7. Contact Us</h2>
-                                <p class="mb-3">If you have any questions or concerns about this Privacy Policy, please contact us at:</p>
-                                <ul class="list-unstyled">
-                                    <li><strong>Email:</strong> [Contact Email]</li>
-                                    <li><strong>Address:</strong> [Business Address]</li>
-                                    <li><strong>Phone:</strong> [Contact Number]</li>
-                                </ul>
-                                <p class="mb-0 mt-4"><em>By using LioraXAI, you acknowledge that you have read and understood this Privacy Policy.</em></p>
+                                <h2 class="h4 fw-bold mb-4 text-primary-custom">7. Contact Information</h2>
+                                <p class="text-secondary mb-3">If you have any questions, concerns, or requests regarding this Privacy Policy or our data practices, please contact us:</p>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <p class="text-secondary mb-2"><strong>Email:</strong> <a href="mailto:privacy@lioraxai.com" class="text-primary-custom text-decoration-none">privacy@lioraxai.com</a></p>
+                                        <p class="text-secondary mb-2"><strong>Phone:</strong> <a href="tel:+1-555-LIORAXAI" class="text-primary-custom text-decoration-none">+1 (555) LIORAXAI</a></p>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <p class="text-secondary mb-0"><strong>Address:</strong><br>
+                                        LioraXAI Privacy Team<br>
+                                        123 AI Innovation Drive<br>
+                                        Tech City, TC 12345</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Call to Action -->
+                        <div class="text-center mt-5" data-aos="fade-up" data-aos-delay="700">
+                            <div class="bg-light rounded-4 p-4 p-md-5">
+                                <h3 class="h4 fw-bold mb-3">Questions About Our Privacy Policy?</h3>
+                                <p class="text-secondary mb-4">Our team is here to help you understand how we protect your data and respect your privacy.</p>
+                                <a href="{% url 'contact' %}" class="btn btn-primary-custom px-4 py-3 rounded-3">
+                                    <i class="bi bi-envelope me-2"></i>Contact Our Privacy Team
+                                </a>
                             </div>
                         </div>
                     </div>
@@ -273,31 +166,5 @@
         </section>
     </main>
 
-    <!-- Footer -->
-    <footer class="bg-dark text-white py-5">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-6">
-                    <h5>LioraXAI</h5>
-                    <p class="text-muted">Intelligent conversations for smarter business.</p>
-                </div>
-                <div class="col-md-6 text-md-end">
-                    <p class="text-muted mb-0">&copy; 2024 LioraXAI. All rights reserved.</p>
-                </div>
-            </div>
-        </div>
-    </footer>
-
-    <!-- Bootstrap JS -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-    <!-- AOS Animation -->
-    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    <script>
-        AOS.init({
-            duration: 800,
-            easing: 'ease-in-out',
-            once: true
-        });
-    </script>
-</body>
-</html> 
+    {% include 'includes/footer.html' %}
+{% endblock %} 

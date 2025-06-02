@@ -1,166 +1,34 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Terms and Conditions | LioraXAI</title>
-    <!-- Bootstrap 5.3 CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <!-- Bootstrap Icons -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css">
-    <!-- AOS Animation Library -->
-    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-    <!-- Mobile responsiveness -->
-    <link href="css/mobile.css" rel="stylesheet">
-    <style>
-        /* Base styles */
-        :root {
-            --bs-primary: #4f46e5;
-            --bs-primary-rgb: 79, 70, 229;
-            --bs-primary-light: #818cf8;
-            --bs-primary-dark: #4338ca;
-            --bs-body-color: #111827;
-            --bs-body-color-rgb: 17, 24, 39;
-            --bs-secondary-color: #6b7280;
-            --bs-secondary-color-rgb: 107, 114, 128;
-            --bs-body-bg: #f9fafb;
-            --bs-body-bg-rgb: 249, 250, 251;
-            --bs-dark-bg: #111827;
-            --bs-dark-bg-rgb: 17, 24, 39;
-        }
-        
-        body {
-            font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-            color: var(--bs-body-color);
-            line-height: 1.5;
-            overflow-x: hidden;
-        }
-        
-        .mono {
-            font-family: 'IBM Plex Mono', ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New', monospace;
-        }
+{% extends 'base_django.html' %}
+{% load static %}
 
-        .text-primary-custom {
-            color: var(--bs-primary);
-        }
+{% block title %}Terms & Conditions | LioraXAI{% endblock %}
 
-        .bg-primary-custom {
-            background-color: var(--bs-primary);
-        }
-
-        .btn-primary-custom {
-            background-color: var(--bs-primary);
-            border-color: var(--bs-primary);
-        }
-
-        .btn-primary-custom:hover {
-            background-color: var(--bs-primary-dark);
-            border-color: var(--bs-primary-dark);
-        }
-
-        .btn-outline-primary-custom {
-            color: var(--bs-primary);
-            border-color: var(--bs-primary);
-        }
-
-        .btn-outline-primary-custom:hover {
-            background-color: var(--bs-primary);
-            color: white;
-        }
-        
-        /* Dark mode */
-        @media (prefers-color-scheme: dark) {
-            :root {
-                --bs-body-color: #f3f4f6;
-                --bs-body-bg: var(--bs-dark-bg);
-            }
-            
-            .navbar {
-                background-color: #1f2937 !important;
-            }
-            
-            .footer {
-                background-color: #1f2937 !important;
-            }
-            
-            .dark-text-light {
-                color: #f3f4f6 !important;
-            }
-            
-            .dark-bg-darker {
-                background-color: #111827 !important;
-            }
-        }
-
-        .page-header {
-            background: linear-gradient(to right, #4f46e5, #7e22ce);
-            color: white;
-        }
-    </style>
-</head>
-<body>
-    <!-- Header -->
-    <header>
-        <nav class="navbar navbar-expand-lg bg-white shadow-sm">
-            <div class="container">
-                <a class="navbar-brand" href="index.html">
-                    <img src="static/images/logo.svg" alt="LioraXAI Logo" width="150" height="35">
-                </a>
-
-                <!-- Mobile menu button -->
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" 
-                        data-bs-target="#navbarNav" aria-controls="navbarNav" 
-                        aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-
-                <!-- Navigation -->
-                <div class="collapse navbar-collapse" id="navbarNav">
-                    <ul class="navbar-nav ms-auto align-items-center">
-                        <li class="nav-item">
-                            <a class="nav-link" href="index.html">Home</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="features.html">Features</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="pricing.html">Pricing</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="about.html">About</a>
-                        </li>
-                        <li class="nav-item ms-lg-2">
-                            <a class="nav-link btn btn-primary-custom text-white px-4" href="contact.html">Contact Us</a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </nav>
-    </header>
+{% block content %}
+    {% include 'includes/header.html' %}
 
     <main>
         <!-- Page Header -->
-        <section class="page-header py-5">
+        <section class="py-5 py-md-6 bg-gradient-primary text-white">
             <div class="container py-4">
                 <div class="row justify-content-center">
                     <div class="col-lg-8 text-center" data-aos="fade-up">
-                        <h1 class="display-4 fw-bold mb-4">Terms and Conditions for LioraXAI</h1>
-                        <p class="lead mb-0">Please read these terms carefully before using our service</p>
-                        <p class="mt-3 mb-0"><small>Effective Date: [Date]</small></p>
+                        <h1 class="display-4 fw-bold mb-4">Terms & Conditions</h1>
+                        <p class="lead mb-0 text-white">Please read these terms carefully before using our AI chatbot platform and services.</p>
+                        <p class="mt-3 mb-0 text-white-50"><small>Effective Date: January 2025</small></p>
                     </div>
                 </div>
             </div>
         </section>
 
         <!-- Terms Content -->
-        <section class="py-5">
+        <section class="py-5 py-md-6">
             <div class="container">
                 <div class="row justify-content-center">
                     <div class="col-lg-8">
                         <!-- Introduction -->
                         <div class="card shadow-sm border-0 mb-4" data-aos="fade-up">
                             <div class="card-body p-4 p-md-5">
-                                <p class="lead mb-4">Welcome to LioraXAI. By accessing or using our website, products, or services, you agree to these Terms and Conditions. If you do not agree with these terms, please do not use our platform.</p>
+                                <p class="lead mb-4">Welcome to LioraXAI. These Terms and Conditions ("Terms") govern your use of our website, AI chatbot platform, and related services. By accessing or using LioraXAI, you agree to be bound by these Terms. If you do not agree with any part of these Terms, please do not use our services.</p>
                             </div>
                         </div>
 
@@ -168,7 +36,8 @@
                         <div class="card shadow-sm border-0 mb-4" data-aos="fade-up">
                             <div class="card-body p-4 p-md-5">
                                 <h2 class="h4 fw-bold mb-4 text-primary-custom">1. Acceptance of Terms</h2>
-                                <p class="mb-0">By using LioraXAI, you agree to comply with these Terms and Conditions, as well as our Privacy Policy. If you are using our services on behalf of a company or organization, you confirm that you have the authority to bind that entity to these terms.</p>
+                                <p class="text-secondary mb-3">By using LioraXAI's services, you acknowledge that you have read, understood, and agree to be bound by these Terms and our Privacy Policy. These Terms constitute a legally binding agreement between you and LioraXAI.</p>
+                                <p class="text-secondary mb-0">If you are using our services on behalf of an organization, you represent and warrant that you have the authority to bind that organization to these Terms.</p>
                             </div>
                         </div>
 
@@ -176,13 +45,13 @@
                         <div class="card shadow-sm border-0 mb-4" data-aos="fade-up" data-aos-delay="100">
                             <div class="card-body p-4 p-md-5">
                                 <h2 class="h4 fw-bold mb-4 text-primary-custom">2. Services Provided</h2>
-                                <p class="mb-3">LioraXAI offers AI-powered chatbot solutions, including:</p>
-                                <ul>
-                                    <li>Organizational Q&A Chatbot</li>
-                                    <li>Property Search Chatbot</li>
-                                    <li>Technical Assistance Chatbot</li>
+                                <p class="text-secondary mb-3">LioraXAI provides AI-powered chatbot solutions designed to enhance business communication and customer support. Our services include:</p>
+                                <ul class="text-secondary mb-4">
+                                    <li><strong>Organizational Q&A Chatbot:</strong> Internal knowledge management and customer support automation</li>
+                                    <li><strong>Property Search Chatbot:</strong> Real estate search and recommendation services</li>
+                                    <li><strong>Technical Assistance Chatbot:</strong> Engineering and technical documentation support</li>
                                 </ul>
-                                <p class="mb-0">We reserve the right to modify, suspend, or discontinue any part of our services at any time, with or without notice.</p>
+                                <p class="text-secondary mb-0">We reserve the right to modify, suspend, or discontinue any aspect of our services at any time with reasonable notice to users.</p>
                             </div>
                         </div>
 
@@ -190,14 +59,16 @@
                         <div class="card shadow-sm border-0 mb-4" data-aos="fade-up" data-aos-delay="200">
                             <div class="card-body p-4 p-md-5">
                                 <h2 class="h4 fw-bold mb-4 text-primary-custom">3. User Responsibilities</h2>
-                                <p class="mb-3">When using LioraXAI, you agree to:</p>
-                                <ul>
-                                    <li>Provide accurate and up-to-date information.</li>
-                                    <li>Use the platform in compliance with all applicable laws and regulations.</li>
-                                    <li>Not use our services for unlawful, harmful, or offensive purposes.</li>
-                                    <li>Respect the intellectual property rights of LioraXAI and others.</li>
-                                    <li>Not attempt to reverse-engineer, decompile, or hack our software.</li>
+                                <p class="text-secondary mb-3">As a user of LioraXAI, you agree to:</p>
+                                <ul class="text-secondary mb-4">
+                                    <li>Provide accurate and complete information when creating an account or using our services</li>
+                                    <li>Use our services only for lawful purposes and in accordance with these Terms</li>
+                                    <li>Not attempt to gain unauthorized access to our systems or other users' accounts</li>
+                                    <li>Not use our services to transmit harmful, offensive, or illegal content</li>
+                                    <li>Respect intellectual property rights and not reverse engineer our software</li>
+                                    <li>Maintain the confidentiality of your account credentials</li>
                                 </ul>
+                                <p class="text-secondary mb-0">You are responsible for all activities that occur under your account and for ensuring that your use of our services complies with applicable laws and regulations.</p>
                             </div>
                         </div>
 
@@ -205,36 +76,72 @@
                         <div class="card shadow-sm border-0 mb-4" data-aos="fade-up" data-aos-delay="300">
                             <div class="card-body p-4 p-md-5">
                                 <h2 class="h4 fw-bold mb-4 text-primary-custom">4. Intellectual Property</h2>
-                                <p class="mb-0">All content, software, trademarks, and intellectual property on the LioraXAI platform are owned by or licensed to LioraXAI. You may not use our content without prior written consent, except as explicitly permitted under these terms.</p>
+                                <p class="text-secondary mb-3">LioraXAI and its services, including but not limited to software, algorithms, designs, text, graphics, and trademarks, are owned by LioraXAI and are protected by intellectual property laws.</p>
+                                <div class="mb-4">
+                                    <h3 class="h5 fw-bold mb-3">Our Rights:</h3>
+                                    <ul class="text-secondary">
+                                        <li>All AI models, algorithms, and proprietary technology remain our exclusive property</li>
+                                        <li>You may not copy, modify, distribute, or create derivative works of our services</li>
+                                        <li>Any feedback or suggestions you provide may be used by us without compensation</li>
+                                    </ul>
+                                </div>
+                                <div class="mb-0">
+                                    <h3 class="h5 fw-bold mb-3">Your Rights:</h3>
+                                    <ul class="text-secondary">
+                                        <li>You retain ownership of any content you input into our chatbots</li>
+                                        <li>You grant us a limited license to process your content to provide our services</li>
+                                        <li>You may export your data in accordance with our data portability policies</li>
+                                    </ul>
+                                </div>
                             </div>
                         </div>
 
-                        <!-- Section 5: Limitations of Liability -->
+                        <!-- Section 5: Limitation of Liability -->
                         <div class="card shadow-sm border-0 mb-4" data-aos="fade-up" data-aos-delay="400">
                             <div class="card-body p-4 p-md-5">
-                                <h2 class="h4 fw-bold mb-4 text-primary-custom">5. Limitations of Liability</h2>
-                                <p class="mb-3">To the fullest extent permitted by law, LioraXAI shall not be liable for:</p>
-                                <ul>
-                                    <li>Any indirect, incidental, or consequential damages arising from the use of our services.</li>
-                                    <li>Loss of data, profits, or business interruption.</li>
-                                    <li>Any errors, inaccuracies, or omissions in our AI responses.</li>
+                                <h2 class="h4 fw-bold mb-4 text-primary-custom">5. Limitation of Liability</h2>
+                                <p class="text-secondary mb-3">To the maximum extent permitted by law, LioraXAI shall not be liable for any indirect, incidental, special, consequential, or punitive damages, including but not limited to:</p>
+                                <ul class="text-secondary mb-4">
+                                    <li>Loss of profits, data, or business opportunities</li>
+                                    <li>Service interruptions or technical failures</li>
+                                    <li>Errors or inaccuracies in AI-generated responses</li>
+                                    <li>Third-party actions or content</li>
                                 </ul>
+                                <p class="text-secondary mb-3">Our total liability for any claims arising from or related to our services shall not exceed the amount you paid to us in the twelve (12) months preceding the claim.</p>
+                                <p class="text-secondary mb-0"><strong>Important:</strong> AI-generated responses are for informational purposes only and should not be considered as professional advice. Users should verify important information independently.</p>
                             </div>
                         </div>
 
-                        <!-- Section 6: Termination of Use -->
+                        <!-- Section 6: Termination -->
                         <div class="card shadow-sm border-0 mb-4" data-aos="fade-up" data-aos-delay="500">
                             <div class="card-body p-4 p-md-5">
-                                <h2 class="h4 fw-bold mb-4 text-primary-custom">6. Termination of Use</h2>
-                                <p class="mb-0">We reserve the right to suspend or terminate your access to our platform if you violate these terms or engage in any harmful or disruptive behavior.</p>
+                                <h2 class="h4 fw-bold mb-4 text-primary-custom">6. Termination</h2>
+                                <div class="mb-4">
+                                    <h3 class="h5 fw-bold mb-3">Termination by You:</h3>
+                                    <p class="text-secondary mb-0">You may terminate your account at any time by contacting our support team or using the account deletion feature in your dashboard.</p>
+                                </div>
+                                <div class="mb-4">
+                                    <h3 class="h5 fw-bold mb-3">Termination by Us:</h3>
+                                    <p class="text-secondary mb-0">We may suspend or terminate your access to our services if you violate these Terms, engage in fraudulent activity, or for any other reason at our sole discretion.</p>
+                                </div>
+                                <div class="mb-0">
+                                    <h3 class="h5 fw-bold mb-3">Effect of Termination:</h3>
+                                    <ul class="text-secondary">
+                                        <li>Your access to our services will be immediately revoked</li>
+                                        <li>We will retain your data in accordance with our Privacy Policy</li>
+                                        <li>You may request data export before termination</li>
+                                        <li>Provisions regarding intellectual property and liability will survive termination</li>
+                                    </ul>
+                                </div>
                             </div>
                         </div>
 
-                        <!-- Section 7: Privacy and Data Protection -->
+                        <!-- Section 7: Privacy -->
                         <div class="card shadow-sm border-0 mb-4" data-aos="fade-up" data-aos-delay="600">
                             <div class="card-body p-4 p-md-5">
-                                <h2 class="h4 fw-bold mb-4 text-primary-custom">7. Privacy and Data Protection</h2>
-                                <p class="mb-0">Your use of our services is also governed by our Privacy Policy, which explains how we collect, use, and protect your data.</p>
+                                <h2 class="h4 fw-bold mb-4 text-primary-custom">7. Privacy</h2>
+                                <p class="text-secondary mb-3">Your privacy is important to us. Our collection, use, and protection of your personal information is governed by our Privacy Policy, which is incorporated into these Terms by reference.</p>
+                                <p class="text-secondary mb-0">By using our services, you consent to the collection and use of your information as described in our <a href="{% url 'privacy' %}" class="text-primary-custom text-decoration-none">Privacy Policy</a>.</p>
                             </div>
                         </div>
 
@@ -242,7 +149,13 @@
                         <div class="card shadow-sm border-0 mb-4" data-aos="fade-up" data-aos-delay="700">
                             <div class="card-body p-4 p-md-5">
                                 <h2 class="h4 fw-bold mb-4 text-primary-custom">8. Changes to Terms</h2>
-                                <p class="mb-0">We may update these Terms and Conditions from time to time. The latest version will always be available on our website. Continued use of our platform after changes are made constitutes your acceptance of the updated terms.</p>
+                                <p class="text-secondary mb-3">We reserve the right to modify these Terms at any time. When we make changes, we will:</p>
+                                <ul class="text-secondary mb-4">
+                                    <li>Update the "Effective Date" at the top of this page</li>
+                                    <li>Notify you via email or through our platform for significant changes</li>
+                                    <li>Provide reasonable notice before changes take effect</li>
+                                </ul>
+                                <p class="text-secondary mb-0">Your continued use of our services after changes become effective constitutes acceptance of the updated Terms.</p>
                             </div>
                         </div>
 
@@ -250,20 +163,44 @@
                         <div class="card shadow-sm border-0 mb-4" data-aos="fade-up" data-aos-delay="800">
                             <div class="card-body p-4 p-md-5">
                                 <h2 class="h4 fw-bold mb-4 text-primary-custom">9. Governing Law</h2>
-                                <p class="mb-0">These Terms and Conditions are governed by the laws of [Your Country/State], without regard to its conflict of law principles.</p>
+                                <p class="text-secondary mb-3">These Terms shall be governed by and construed in accordance with the laws of [Jurisdiction], without regard to its conflict of law provisions.</p>
+                                <p class="text-secondary mb-0">Any disputes arising from or relating to these Terms or our services shall be resolved through binding arbitration in accordance with the rules of [Arbitration Organization], or in the courts of [Jurisdiction] if arbitration is not applicable.</p>
                             </div>
                         </div>
 
-                        <!-- Section 10: Contact Us -->
+                        <!-- Section 10: Contact Information -->
                         <div class="card shadow-sm border-0 mb-4" data-aos="fade-up" data-aos-delay="900">
                             <div class="card-body p-4 p-md-5">
-                                <h2 class="h4 fw-bold mb-4 text-primary-custom">10. Contact Us</h2>
-                                <p class="mb-3">For any questions or concerns regarding these Terms and Conditions, please contact us at:</p>
-                                <ul class="list-unstyled">
-                                    <li><strong>Email:</strong> [Contact Email]</li>
-                                    <li><strong>Address:</strong> [Business Address]</li>
-                                    <li><strong>Phone:</strong> [Contact Number]</li>
-                                </ul>
+                                <h2 class="h4 fw-bold mb-4 text-primary-custom">10. Contact Information</h2>
+                                <p class="text-secondary mb-3">If you have any questions about these Terms and Conditions, please contact us:</p>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <p class="text-secondary mb-2"><strong>Email:</strong> <a href="mailto:legal@lioraxai.com" class="text-primary-custom text-decoration-none">legal@lioraxai.com</a></p>
+                                        <p class="text-secondary mb-2"><strong>Phone:</strong> <a href="tel:+1-555-LIORAXAI" class="text-primary-custom text-decoration-none">+1 (555) LIORAXAI</a></p>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <p class="text-secondary mb-0"><strong>Address:</strong><br>
+                                        LioraXAI Legal Department<br>
+                                        123 AI Innovation Drive<br>
+                                        Tech City, TC 12345</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Call to Action -->
+                        <div class="text-center mt-5" data-aos="fade-up" data-aos-delay="1000">
+                            <div class="bg-light rounded-4 p-4 p-md-5">
+                                <h3 class="h4 fw-bold mb-3">Ready to Get Started?</h3>
+                                <p class="text-secondary mb-4">Now that you understand our terms, explore our AI chatbot solutions and transform your business communication.</p>
+                                <div class="d-flex flex-column flex-sm-row gap-3 justify-content-center">
+                                    <a href="{% url 'features' %}" class="btn btn-primary-custom px-4 py-3 rounded-3">
+                                        <i class="bi bi-rocket me-2"></i>Explore Features
+                                    </a>
+                                    <a href="{% url 'contact' %}" class="btn btn-outline-primary-custom px-4 py-3 rounded-3">
+                                        <i class="bi bi-chat-dots me-2"></i>Contact Sales
+                                    </a>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -272,31 +209,5 @@
         </section>
     </main>
 
-    <!-- Footer -->
-    <footer class="bg-dark text-white py-5">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-6">
-                    <h5>LioraXAI</h5>
-                    <p class="text-muted">Intelligent conversations for smarter business.</p>
-                </div>
-                <div class="col-md-6 text-md-end">
-                    <p class="text-muted mb-0">&copy; 2024 LioraXAI. All rights reserved.</p>
-                </div>
-            </div>
-        </div>
-    </footer>
-
-    <!-- Bootstrap JS -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-    <!-- AOS Animation -->
-    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    <script>
-        AOS.init({
-            duration: 800,
-            easing: 'ease-in-out',
-            once: true
-        });
-    </script>
-</body>
-</html> 
+    {% include 'includes/footer.html' %}
+{% endblock %} 
